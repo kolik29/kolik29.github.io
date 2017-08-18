@@ -39,10 +39,4 @@ $(document).ready(function(){
 			scrollLeft:  0,
 		}, 500);
 	});
-
-	getQWE();
-
-	function getQWE() {
-		console.log('qwe');
-	}
 });
