@@ -40,7 +40,7 @@ $(document).ready(function(){
 		}, 500);
 	});
 
-	$('.search > input').keyUp(function () {
+	$('.search input').keyup(function () {
 		console.log(this.value);
 	});
 });
