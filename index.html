@@ -1,10 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>site</title>
-</head>
-<body>
-	<a href="TA/index.html">sensors</a>
-</body>
-</html>
+<script type="text/javascript">
+function getitog() {
+	var ilya, kolya, nastya, perday, summ = document.getElementById('summ').value;
+	perday = summ / 35;
+	ilya = perday / 2 * 7;
+	nastya = perday / 2 * 7;
+	ilya += perday / 3 * 21;
+	nastya += perday / 3 * 21;
+	ilya += perday / 2 * 2;
+	kolya = perday / 3 * 21;
+	kolya += perday / 2 * 2;
+	kolya += perday * 5;
+	document.getElementById('itog').innerText = "nastya: " + nastya + "\nilya: " + ilya + "\nkolya: " + kolya + "\nsumm: " + (nastya + ilya + kolya);
+}
+</script>
+<input type="text" name="" id="summ"><button onclick="getitog()">itog</button>
+<div id="itog"></div>
