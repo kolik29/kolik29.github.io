@@ -144,7 +144,7 @@ input[name="search"] {
 	float: right;
 }
 
-.tabs span {
+.tabs div {
 	height: 50px;
 	padding: 0 20px 0 20px;
 	line-height: 50px;
@@ -155,11 +155,11 @@ input[name="search"] {
 	border-bottom: 1px solid #fff;
 }
 
-.tabs span:nth-child(1) {
+.tabs div:nth-child(1) {
 	margin-left: 60px;
 }
 
-.tabs span:hover {
+.tabs div:hover {
 	cursor: pointer;
 	background-color: #fff;
 }
