@@ -62,4 +62,28 @@ $(document).ready(function(){
   				$(this).css('display', 'block');
 			});
 	});
+
+	$('.tabs div').click(function () {
+		$('.tabs div').each(function() {
+			$(this).removeClass('selectTab');
+		});
+
+		$(this).addClass('selectTab');
+
+		$('.visible_graph div').each(function() {
+			$(this).css('display', 'none');
+		});
+
+		switch ($(this).attr('id')) {
+			case "voltage":
+				$('._voltage').css('display', 'block');
+				break;
+			case "amper":
+				$('._amper').css('display', 'block');
+				break;
+			case "temp":
+				$('._temp').css('display', 'block');
+				break;
+		}
+	});
 });
