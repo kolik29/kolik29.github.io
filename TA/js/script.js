@@ -39,20 +39,4 @@ $(document).ready(function(){
 			scrollLeft:  0,
 		}, 500);
 	});
-	
-	get_markup();
-
-	function get_markup() {
-      	var canvas = document.getElementById('current_voltage_graph');
-      	var context = canvas.getContext('2d');
-
-    	context.beginPath();
-    	context.lineWidth = 2;
-    	context.strokeStyle = 'black';
-    	context.moveTo(10, 0);
-    	context.lineTo(10, 400);
-    	context.moveTo(0, 390);
-    	context.lineTo(722, 390);
-    	context.stroke();
-  	}
 });
