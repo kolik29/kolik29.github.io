@@ -19,13 +19,21 @@ $(document).ready(function(){
 		menu_open = !menu_open;
 	});
 
-	$('.device_block').click(function() {
-		$('.main_work').css('width', '200%');
-		$('.workpanel').css('width', 'calc(50% - 40px)');
-		$('#current_sensor').html("<span>&nbsp>&nbsp</span><span class='path_control'>" + this.textContent + "</span>");
-		$('.work_display').animate({
-			scrollLeft:  $('.main_work').width(),
-		}, 500);
+	$('.device_block').click(function() {		
+		if ($(this).hasClass('online')) {
+			$('.main_work').css('width', '200%');
+			$('.workpanel').css('width', 'calc(50% - 40px)');
+			$('#current_sensor').html("<span>&nbsp>&nbsp</span><span class='path_control'>" + this.textContent + "</span>");
+			$('.work_display').animate({
+				scrollLeft:  $('.main_work').width(),
+			}, 500);
+
+			$('.device_block').each(function () {
+				$(this).removeClass('select');
+			})
+
+			$(this).addClass('select');
+		}
 	});
 
 	$('#current_sensor').click(function() {
@@ -41,8 +49,17 @@ $(document).ready(function(){
 	});
 
 	$('.search input').keyup(function () {
-		$('device_block').each(function(index) {
-  			console.log( index + ": " + $(this).text() );
-		});
+		let search = this;
+		if (search.value != '')
+			$('.device_block').each(function() {
+  				if(!(this.innerHTML.search(search.value) != -1))
+  					$(this).css('display', 'none');
+  				else
+  					$(this).css('display', 'block');
+			});
+		else
+			$('.device_block').each(function() {
+  				$(this).css('display', 'block');
+			});
 	});
 });

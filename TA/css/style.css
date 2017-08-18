@@ -99,6 +99,7 @@ input[name="search"] {
 	cursor: pointer;
 	line-height: 50px;
 	padding-left: 20px;
+	color: rgba(0, 0, 0, 0.46);
 }
 
 .work_display {
@@ -116,9 +117,9 @@ input[name="search"] {
 	background-color: #fff;
 }
 
-.device_block + .select {
+.select {
 	background-color: #fbfbfb;
-	color: #7260ff;
+	color: #7260ff !important;
     font-weight: bold;
 }
 
@@ -188,6 +189,6 @@ input[name="search"] {
 	margin-top: 50px;
 }
 
-.tabs .select {
-	background-color: #fff
+.selectTab {
+	background-color: #fff !important;
 }
