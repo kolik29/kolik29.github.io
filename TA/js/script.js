@@ -39,4 +39,8 @@ $(document).ready(function(){
 			scrollLeft:  0,
 		}, 500);
 	});
+
+	$('.search > input').keyUp(function () {
+		console.log(this.value);
+	});
 });
