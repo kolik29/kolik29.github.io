@@ -41,6 +41,8 @@ $(document).ready(function(){
 	});
 
 	$('.search input').keyup(function () {
-		console.log(this.value);
+		$('device_block').each(function(index) {
+  			console.log( index + ": " + $(this).text() );
+		});
 	});
 });
