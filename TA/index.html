@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>Контроль счетчиков</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="js/script.js"></script>
+</head>
+<body>
+	<div class="top_menu">
+		<div class="search">
+			<input type="text" name="search" placeholder="Поиск..." />
+		</div>
+		<label class="switch_list" id="switch_list">
+			<div></div>
+			<div></div>
+			<div></div>
+		</label>
+		<div class="path_title">
+			<span class="path_control" id="gotoFacade">Фасад</span><span id="current_sensor"></span>
+		</div>		
+		<div class="user_list">Список пользователей</div>
+	</div>
+
+	<div class="work_area">
+		<div class="device_list">
+			<div class="device_block">lorem</div>
+			<div class="device_block">ipsum</div>
+			<div class="device_block online">dolor</div>
+			<div class="device_block select">sit</div>
+			<div class="device_block">amet</div>
+			<div class="device_block"></div>
+			<div class="device_block"></div>
+			<div class="device_block"></div>
+			<div class="device_block"></div>
+			<div class="device_block"></div>
+			<div class="device_block"></div>
+			<div class="device_block"></div>
+			<div class="device_block"></div>
+			<div class="device_block"></div>
+			<div class="device_block"></div>
+			<div class="device_block"></div>
+			<div class="device_block"></div>
+			<div class="device_block"></div>
+			<div class="device_block"></div>
+			<div class="device_block"></div>
+		</div>
+		<div class="work_display">
+			<div class="main_work">
+				<div class="workpanel"></div>
+				<div class="workpanel rigth">
+					<div class="controls">
+						<span class="tabs">
+							<span id="voltage" class="select">Напряжение</span>
+							<span id="amper">Сила тока</span>
+							<span id="temp">Температура</span>
+							<select name="manage" id="manage" class="rigth manage">
+								<option value="Управление" style="display: none;">Управление</option>
+								<option value="reboot">Перезагрузить</option>
+								<option value="shutdown">Выключить</option>
+							</select>
+						</span>
+					</div>
+					<canvas id="current_voltage_graph" width="722" height="400"></canvas>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

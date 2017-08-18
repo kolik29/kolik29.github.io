@@ -1,0 +1,193 @@
+body {
+	margin: 0;
+	width: 100%;
+	height: 100vh;
+	overflow: hidden;
+	min-width: 996px;
+}
+
+* {
+	font-family: 'Arial';
+}
+
+.top_menu {
+	height: 50px;
+	width: 100%;
+	background-color: #080021;
+	color: #fff;
+}
+
+.top_menu * {
+	display: inline-block;
+	float: left;
+}
+
+input[name="search"] {
+	height: 30px;
+	margin: 10px 10px 10px 10px;
+	border: 0;
+	border-radius: 10px;
+	font-size: 20px;
+	padding: 0 7px 0 7px;
+	width: 200px;
+	transition: 0.3s;
+}
+
+.switch_list {
+	width: 50px;
+	height: 43px;
+	padding-top: 7px;
+	cursor: pointer;
+	position: fixed;
+}
+
+.switch_list div {
+	height: 5px;
+	width: 40px;
+	background-color: #fff;
+	margin: 5px 5px 0 5px;
+}
+
+.switch_list:hover {
+	background-color: #636363;
+}
+
+.path_title {
+	margin-left: 70px;
+	line-height: 50px;
+	font-size: 30px;
+}
+
+.path_control {
+	cursor: pointer;
+	color: #fff;
+	transition: 0.3s;
+}
+
+.path_control:hover {
+	color: #4d70ff;
+	transition: 0.3s;
+}
+
+.user_list {
+	background-color: green;
+	border-radius: 5px;
+	padding: 10px 10px 10px 10px;
+	margin-top: 5.5px;
+	margin-right: 5px;
+	float: right;
+	cursor: pointer;
+}
+
+.work_area {
+	height: calc(100% - 50px);
+}
+
+.device_list {
+	width: 234px;
+	height: 100%;
+	background-color: #d8d8d8;
+	transition: 0.3s;
+	overflow-y: auto;
+	display: inline-block;
+	float: left;
+}
+
+.device_block {
+	height: 50px;
+	border-bottom: 1px solid #c3c3c3;
+	cursor: pointer;
+	line-height: 50px;
+	padding-left: 20px;
+}
+
+.work_display {
+	background-color: #efefef;
+	display: inline-block;
+	float: left;
+	transition: 0.3s;
+	height: 100%;
+	width: calc(100% - 234px);
+	overflow-x: auto;
+	overflow-y: hidden;
+}
+
+.main_work > * {
+	background-color: #fff;
+}
+
+.device_block + .select {
+	background-color: #fbfbfb;
+	color: #7260ff;
+    font-weight: bold;
+}
+
+.online  {
+	font-weight: bold;
+	color: #1ba540;
+}
+
+.workpanel {
+	margin: 20px;
+	height: calc(100% - 40px);
+	display: inline-block;
+	width: calc(100% - 40px);
+}
+
+.main_work {
+	width: 100%;
+	height: 100%;
+}
+
+.rigth {
+	float: right;
+}
+
+.tabs span {
+	height: 50px;
+	padding: 0 20px 0 20px;
+	line-height: 50px;
+	margin: 20px 10px 0 10px;
+	background-color: #e4e4e4;
+	display: inline-block;
+	border: 1px solid #e4e4e4;
+	border-bottom: 1px solid #fff;
+}
+
+.tabs span:nth-child(1) {
+	margin-left: 60px;
+}
+
+.tabs span:hover {
+	cursor: pointer;
+	background-color: #fff;
+}
+
+.tabs {
+	border-bottom: 1px solid #e4e4e4;
+	display: inline-block;
+	width: 100%;
+	max-height: 70px;
+}
+
+.manage {
+	margin-right: 60px;
+    margin-top: 20px;
+    width: 150px;
+    height: 40px;
+    font-size: 16px;
+}
+
+.manage {
+	height: 40px;
+    font-size: 16px;
+}
+
+#current_voltage_graph {
+	margin-left: calc(50% - 361px);
+	margin-top: 50px;
+}
+
+.tabs .select {
+	background-color: #fff
+}
