@@ -39,30 +39,6 @@
 		<div class="work_display">
 			<div class="main_work">
 				<div class="workpanel">
-					<div id="myfirstchart" style="height: 250px;"></div>
-					<script type="text/javascript">
-						var decimal_data = [];
-						for (var x = 0; x <= 360; x += 10) {
-  							decimal_data.push({
-    							x: x,
-    							y: 1.5 + 1.5 * Math.sin(Math.PI * x / 180).toFixed(4)
-  							});
-						}
-						
-						window.m = Morris.Line({
-  							element: 'myfirstchart',
-  							data: decimal_data,
-  							xkey: 'x',
-  							ykeys: ['y'],
-  							labels: ['sin(x)'],
-  							parseTime: false,
-  							hoverCallback: function (index, options, default_content, row) {
-    							return default_content.replace("sin(x)", "1.5 + 1.5 sin(" + row.x + ")");
-  							},
-  							xLabelMargin: 10,	
-  							integerYLabels: true
-						});
-					</script>
 				</div>
 				<div class="workpanel rigth">
 					<div class="controls">
@@ -72,6 +48,31 @@
 					</div>	
 
 					<div class="display_graph">
+
+					<div id="myfirstchart" style="height: 250px;"></div>
+						<script type="text/javascript">
+							var decimal_data = [];
+							for (var x = 0; x <= 360; x += 10) {
+  								decimal_data.push({
+    								x: x,
+    								y: 1.5 + 1.5 * Math.sin(Math.PI * x / 180).toFixed(4)
+	  							});
+							}
+						
+							window.m = Morris.Line({
+  								element: 'myfirstchart',
+  								data: decimal_data,
+  								xkey: 'x',
+	  							ykeys: ['y'],
+  								labels: ['sin(x)'],
+  								parseTime: false,
+  								hoverCallback: function (index, options, default_content, row) {
+    								return default_content.replace("sin(x)", "1.5 + 1.5 sin(" + row.x + ")");
+  								},
+  								xLabelMargin: 10,	
+  								integerYLabels: true
+							});
+						</script>
 					</div>
 				</div>
 			</div>
