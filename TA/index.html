@@ -4,6 +4,12 @@
 	<meta charset="UTF-8">
 	<title>Контроль счетчиков</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<!-- Load c3.css -->
+	<link href="c3-master/c3.css" rel="stylesheet">
+
+	<!-- Load d3.js and c3.js -->
+	<!--<script src="c3-master/d3.v3.min.js" charset="utf-8"></script>-->
+	<script src="c3-master/c3.min.js"></script>
 	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
 	<script type="text/javascript" src="js/script.js"></script>
 </head>
@@ -33,25 +39,13 @@
 		</div>
 		<div class="work_display">
 			<div class="main_work">
-				<div class="workpanel"></div>
+				<div class="workpanel">
+				</div>
 				<div class="workpanel rigth">
 					<div class="controls">
-						<div class="tabs">
-							<div id="voltage" class="selectTab">Напряжение</div>
-							<div id="amper">Сила тока</div>
-							<div id="temp">Температура</div>
-							<select name="manage" id="manage" class="rigth manage">
-								<option value="control" style="display: none;">Управление</option>
-								<option value="reboot">Перезагрузить</option>
-								<option value="shutdown">Выключить</option>
-							</select>
-						</div>						
 					</div>	
 
-					<div class="visible_graph">
-						<div class="_voltage"></div>
-						<div class="_amper" style="display: none"></div>
-						<div class="_temp" style="display: none"></div>
+					<div class="display_graph">
 					</div>
 				</div>
 			</div>
