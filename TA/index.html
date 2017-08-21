@@ -4,13 +4,12 @@
 	<meta charset="UTF-8">
 	<title>Контроль счетчиков</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<!-- Load c3.css -->
-	<link href="c3-master/c3.css" rel="stylesheet">
-
-	<!-- Load d3.js and c3.js -->
-	<!--<script src="c3-master/d3.v3.min.js" charset="utf-8"></script>-->
-	<script src="c3-master/c3.min.js"></script>
 	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+
+	<link rel="stylesheet" href="morris/morris.css">
+ 	<script src="morris/raphael.min.js"></script>
+ 	<script src="morris/morris.min.js"></script>
+
 	<script type="text/javascript" src="js/script.js"></script>
 </head>
 <body>
@@ -40,6 +39,29 @@
 		<div class="work_display">
 			<div class="main_work">
 				<div class="workpanel">
+					<div id="myfirstchart" style="height: 250px;"></div>
+					<script type="text/javascript">
+						new Morris.Line({
+  							// ID of the element in which to draw the chart.
+  							element: 'myfirstchart',
+  							// Chart data records -- each entry in this array corresponds to a point on
+  							// the chart.
+  								data: [
+    								{ second: '2008', value: 200 },
+    								{ second: '2009', value: 10 },
+    								{ second: '2010', value: 5 },
+	    							{ second: '2011', value: 5 },
+    								{ second: '2012', value: 20 }
+  								],
+  							// The name of the data record attribute that contains x-values.
+  							xkey: 'second',
+  							// A list of names of data record attributes that contain y-values.
+  							ykeys: ['value'],
+  							// Labels for the ykeys -- will be displayed when you hover over the
+  							// chart.
+  							labels: ['Value']
+						});
+					</script>
 				</div>
 				<div class="workpanel rigth">
 					<div class="controls">
