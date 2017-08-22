@@ -163,3 +163,19 @@ input[name="search"] {
 	height: 60px;
 	border-bottom: 1px solid #e2e2e2;
 }
+
+.chart {
+	height: 250px;
+}
+
+.display_graph_title {
+	font-size: 20px;
+	margin: 60px 0 0px 40px;
+}
+
+.display_graph {
+	overflow-y: auto;
+	overflow-x: hidden;
+	height: calc(100% - 101px);
+	padding: 20px;
+}
