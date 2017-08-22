@@ -179,3 +179,7 @@ input[name="search"] {
 	height: calc(100% - 101px);
 	padding: 20px;
 }
+
+.morris-hover.morris-default-style {
+	margin-left: -10000px;
+}

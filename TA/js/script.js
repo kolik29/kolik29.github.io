@@ -62,4 +62,13 @@ $(document).ready(function(){
   				$(this).css('display', 'block');
 			});
 	});
+
+	$('.chart svg').mouseover(function() {
+		$('.morris-hover .morris-default-style').css('margin-left', '0');
+	});
+
+	$('.chart svg').mouseout(function() {
+		$('.morris-hover .morris-default-style').css('margin-left', '-10000px');
+	});
+
 });
