@@ -71,7 +71,7 @@ input[name="search"] {
 
 .button {
 	border: none;
-	background-color: green;
+	background-color: #008000;
 	border-radius: 5px;
 	padding: 10px 15px 10px 15px;
 	margin-top: 5.5px;
@@ -80,6 +80,10 @@ input[name="search"] {
 	cursor: pointer;
 	color: #fff;
 	font-size: 16px;
+}
+
+.button:hover {
+	background-color: #00ad00;
 }
 
 .work_area {
