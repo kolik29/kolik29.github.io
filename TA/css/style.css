@@ -109,6 +109,10 @@ input[name="search"] {
 	color: rgba(0, 0, 0, 0.46);
 }
 
+.device_block:hover {
+	background-color: #f3f3f3;
+}
+
 .work_display {
 	background-color: #efefef;
 	display: inline-block;
@@ -182,4 +186,61 @@ input[name="search"] {
 	overflow-x: hidden;
 	height: calc(100% - 101px);
 	padding: 20px;
+}
+
+.background {
+	background-color: rgba(0, 0, 0, 0.5);
+	position: absolute;;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	display: none;
+}
+
+.user_list_window {
+	background-color: #fff;
+	width: 50%;
+	position: absolute;
+	top: 0;
+	display: none;
+	margin: 50px 0 10% 0;
+}
+
+.title {	
+	line-height: 60px;
+	font-size: 25px;
+	padding-left: 30px;
+}
+
+/*стили таблицы пользователей*/
+
+table {
+  	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+  	border-collapse: collapse;
+  	color: #686461;    
+  	width: calc(100% - 160px);
+    margin: 40px 80px 40px 80px;
+}
+
+th {
+  	border-bottom: 3px solid #B9B29F;
+  	padding: 10px;
+  	text-align: left;
+}
+
+td {
+  	padding: 10px;
+}
+
+tr:nth-child(odd) {
+  	background: white;
+}
+
+tr:nth-child(even) {
+  	background: #d8d8d8;
+}
+
+td button.button {
+	margin: 0;
+	background-color: 
 }

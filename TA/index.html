@@ -25,7 +25,7 @@
 		<div class="path_title">
 			<span class="path_control" id="gotoFacade">Фасад</span><span id="current_sensor"></span>
 		</div>		
-		<button class="button">Список пользователей</button>
+		<button class="button" id="user_list">Список пользователей</button>
 	</div>
 
 	<div class="work_area">
@@ -50,24 +50,76 @@
 					<div class="display_graph">
 						<div class="display_graph_title">Напряжение: <span id="voltage"></span></div>
 						<div id="voltage_chart" class="chart" style="height: 250px;"></div>
-						<script type="text/javascript">
-
-						</script>
 
 						<div class="display_graph_title">Температура: <span id="temperature"></span></div>
 						<div id="temperature_chart" class="chart" style="height: 250px;"></div>
-						<script type="text/javascript">
-
-						</script>
 
 						<div class="display_graph_title">Сила тока: <span id="amper"></span></div>
 						<div id="amper_chart" class="chart" style="height: 250px;"></div>
-						<script type="text/javascript">
-
-						</script>
 					</div>
 				</div>
 			</div>
+		</div>
+	</div>
+
+	<div class="background">
+	</div>
+
+	<div class="user_list_window">
+		<div class="controls title">Список пользователей</div>
+		<div class="user_table">
+			<table>
+  				<tr>
+    				<th>Пользователь</th>
+    				<th></th>
+    				<th></th>
+  				</tr>
+  				<tr>
+    				<td>user1</td>
+    				<td>
+						<button class="button">Новый идентификатор</button>
+					</td>
+    				<td>
+						<button class="button">Удалить</button>
+					</td>
+  				</tr>
+  				<tr>
+    				<td>user2</td>
+    				<td>
+						<button class="button">Новый идентификатор</button>
+					</td>
+    				<td>
+						<button class="button">Удалить</button>
+					</td>
+  				</tr>
+  				<tr>
+    				<td>user3</td>
+    				<td>
+						<button class="button">Новый идентификатор</button>
+					</td>
+    				<td>
+						<button class="button">Удалить</button>
+					</td>
+  				</tr>
+  				<tr>
+    				<td>user4</td>
+    				<td>
+						<button class="button">Новый идентификатор</button>
+					</td>
+    				<td>
+						<button class="button">Удалить</button>
+					</td>
+  				</tr>
+  				<tr>
+    				<td>user5</td>
+    				<td>
+						<button class="button">Новый идентификатор</button>
+					</td>
+    				<td>
+						<button class="button">Удалить</button>
+					</td>
+  				</tr>
+			</table>
 		</div>
 	</div>
 </body>
