@@ -51,15 +51,22 @@
 						<div class="display_graph_title">Напряжение: <span id="voltage"></span></div>
 						<div id="voltage_chart" class="chart" style="height: 250px;"></div>
 						<script type="text/javascript">
-							var decimal_data = [];
-							for (var x = 0; x <= 360; x += 10) {
-  								decimal_data.push({
-    								x: x,
-    								y: 1.5 + 1.5 * Math.sin(Math.PI * x / 180).toFixed(4)
-	  							});
+							var decimal_data = [{x: 1, y: 2}, {x: 2, y: 4}, {x: 3, y: 8}, {x: 4, y: 16}, {x: 5, y: 32}];
+
+							function data(index) {
+								decimal_data.splice(1, 1);
+
+								decimal_data.push({
+									x: Math.floor(Math.random() * (101)),
+									y: Math.floor(Math.random() * (101))
+								})
+
+								console.log(decimal_data.length);
+
+								return decimal_data;
 							}
 						
-							window.m = Morris.Line({
+							var graph = Morris.Line({
   								element: 'voltage_chart',
   								data: decimal_data,
   								xkey: 'x',
@@ -72,6 +79,15 @@
   								xLabelMargin: 10,	
   								integerYLabels: true
 							});
+
+							var reloads = 0;
+
+							function update() {
+								reloads++;
+								graph.setData(data(reloads));
+							}
+
+							setInterval(update, 1000);
 						</script>
 
 						<div class="display_graph_title">Температура: <span id="temperature"></span></div>
