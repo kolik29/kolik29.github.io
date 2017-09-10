@@ -178,7 +178,6 @@ input[name="search"] {
 
 .display_graph_title {
 	font-size: 20px;
-	margin: 60px 0 0px 40px;
 }
 
 .display_graph {
@@ -243,4 +242,17 @@ tr:nth-child(even) {
 td button.button {
 	margin: 0;
 	background-color: 
+}
+
+.halfwindow {
+	height: 250px;
+}
+
+.half {
+	width: 50%;
+	float: left;
+}
+
+.full {
+	width: 100%;
 }

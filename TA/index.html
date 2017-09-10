@@ -46,16 +46,19 @@
 						<button class="button">Включить</button>
 						<button class="button">Перезагрузить</button>
 					</div>	
-
 					<div class="display_graph">
-						<div class="display_graph_title">Напряжение: <span id="voltage"></span></div>
-						<div id="voltage_chart" class="chart" style="height: 250px;"></div>
-
-						<div class="display_graph_title">Температура: <span id="temperature"></span></div>
-						<div id="temperature_chart" class="chart" style="height: 250px;"></div>
-
-						<div class="display_graph_title">Сила тока: <span id="amper"></span></div>
-						<div id="amper_chart" class="chart" style="height: 250px;"></div>
+						<div class="window half">
+							<div class="display_graph_title">Напряжение: <span id="voltage"></span></div>
+							<div id="voltage_chart" class="chart" style="height: 250px;"></div>
+						</div>
+						<div class="window half">
+							<div class="display_graph_title">Температура: <span id="temperature"></span></div>
+							<div id="temperature_chart" class="chart" style="height: 250px;"></div>
+						</div>
+						<div class="window full">
+							<div class="display_graph_title">Сила тока: <span id="amper"></span></div>
+							<div id="amper_chart" class="chart" style="height: 250px;"></div>
+						</div>
 					</div>
 				</div>
 			</div>
