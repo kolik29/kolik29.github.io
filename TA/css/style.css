@@ -56,16 +56,7 @@ input[name="search"] {
 	margin-left: 70px;
 	line-height: 50px;
 	font-size: 30px;
-}
-
-.path_control {
-	cursor: pointer;
 	color: #fff;
-	transition: 0.3s;
-}
-
-.path_control:hover {
-	color: #4d70ff;
 	transition: 0.3s;
 }
 
@@ -124,10 +115,6 @@ input[name="search"] {
 	overflow-y: hidden;
 }
 
-.main_work > * {
-	background-color: #fff;
-}
-
 .select {
 	background-color: #fbfbfb;
 	color: #7260ff !important;
@@ -144,47 +131,7 @@ input[name="search"] {
 	height: calc(100% - 40px);
 	display: inline-block;
 	width: calc(100% - 40px);
-}
-
-.main_work {
-	width: 100%;
-	height: 100%;
-}
-
-.rigth {
-	float: right;
-}
-
-
-#current_voltage_graph {
-	margin-left: calc(50% - 361px);
-	margin-top: 50px;
-}
-
-.controls .button {
-	margin-top: 10px;
-	margin-right: 10px;
-	background-color: #3cb93c;
-}
-
-.controls {
-	height: 60px;
-	border-bottom: 1px solid #e2e2e2;
-}
-
-.chart {
-	height: 250px;
-}
-
-.display_graph_title {
-	font-size: 20px;
-}
-
-.display_graph {
-	overflow-y: auto;
-	overflow-x: hidden;
-	height: calc(100% - 101px);
-	padding: 10px;
+	background-color: #fff;
 }
 
 .background {
@@ -239,20 +186,14 @@ tr:nth-child(even) {
   	background: #d8d8d8;
 }
 
-td button.button {
-	margin: 0;
-	background-color: 
-}
-
 .halfwindow {
 	height: 250px;
 }
 
-.half {
-	width: 50%;
-	float: left;
-}
-
 .full {
 	width: 100%;
+}
+
+.control_panel {
+	
 }
