@@ -101,7 +101,7 @@ input[name="search"] {
 }
 
 .device_block:hover {
-	background-color: #f3f3f3;
+	background-color: #fff;
 }
 
 .work_display {
@@ -186,16 +186,29 @@ tr:nth-child(even) {
   	background: #d8d8d8;
 }
 
-.halfwindow {
-	height: 250px;
-}
-
-.full {
-	width: 100%;
-}
-
 .control_panel {
 	width: 300px;
+    height: 100%;
+    position: absolute;
+    left: 234px;
+    transition: 0.3s;
 	background-color: #fff;
-	height: 100%;
+	box-shadow: 5px 0px 10px rgba(0,0,0,0.1);
+}
+
+.close {
+    font-family: "Times New Roman";
+    font-size: 40px;
+    float: right;
+    margin: 10px;
+    color: #c3c3c3;
+    cursor: pointer;
+    overflow: hidden;
+    line-height: 20px;
+    height: 20px;
+}
+
+#device_name {
+	text-align: center;
+	padding-top: 20vh;
 }
