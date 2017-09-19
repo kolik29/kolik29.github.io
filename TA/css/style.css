@@ -195,5 +195,7 @@ tr:nth-child(even) {
 }
 
 .control_panel {
-	
+	width: 300px;
+	background-color: #fff;
+	height: 100%;
 }
