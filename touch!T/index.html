@@ -9457,23 +9457,26 @@
 	$(window).on('load', function() {
 		start();
 		function start() {
+            var t = 1000;
 			setInterval(function() {
 				var htmlStr = ''
-				for (var i = 0; i < 25; i++) {
+				for (var i = 0; i < 5; i++) {
 					if (Math.floor(Math.random() * (1 - 0 + 1) + 0) == 1)
 						htmlStr += '<div class="tap" style="background-color: ' + randomColor() + ';"></div>'
 					else
 						htmlStr += '<div style="background-color: #fff;"></div>';
 				}
-				$('#block').html(htmlStr + $('#block').html());
+				$('#block').html('<div class="line">' + htmlStr + '</div>' + $('#block').html());
 
-				$('#block').animate({marginTop: "0"}, 1000);
+                t--;
+
+				$('.line').animate({marginTop: "+20vh"}, t);
+
+                $('.tap').click(function() {
+                    $(this).css('background-color', '#fff').removeClass();
+                });
 			}, 1000);
 		}
-
-		$('.tap').click(function() {
-			$(this).css('background-color', '#fff').removeClass();
-		});
 
 		function randomColor() {
 			return "rgb(" + Math.floor(Math.random() * (256 - 0 + 1) + 0) + ", " + Math.floor(Math.random() * (256 - 0 + 1) + 0) + ", " + Math.floor(Math.random() * (256 - 0 + 1) + 0) + ")";
@@ -9488,10 +9491,10 @@
 	body, #block {
 		width: 100%;
 		overflow: hidden;
-		margin-top: -100vh;
+		margin-top: -20vh;
 	}
 
-	#block div { 
+	.line div { 
 		float: left;
 		width: 20%;
 		height: 20vh;

@@ -1,15 +1,17 @@
 $(document).ready(function(){
 	var menu_open = false;
+
 	$('#switch_list').click(function() {
 		if (menu_open) {
 			$('input[name="search"]').css('margin-left', '10px');
 			$('.device_list').css('margin-left', '0px');
-			$('.work_display').css('width', 'calc(100% - 234px)');
+			$('.work_display').css('width', 'calc(100% - 234px)');	
 		}
 		else {
 			$('input[name="search"]').css('margin-left', '-250px');
 			$('.device_list').css('margin-left', '-234px');
 			$('.work_display').css('width', '100%');
+			$('.control_panel').css('display', 'none');
 			if ($('.work_display').scrollLeft() != 0) {
 				$('.work_display').animate({
 					scrollLeft:  $('.main_work').width(),
@@ -20,7 +22,8 @@ $(document).ready(function(){
 	});
 
 	$('.device_block').click(function() {	
-
+		$('.control_panel').css('display', 'block');
+		$('#device_name').html($(this).text());
 	});
 
 	$('.search input').keyup(function () {
@@ -47,5 +50,9 @@ $(document).ready(function(){
 	$('.background').click(function() {
 		$('.background').css('display', 'none');
 		$('.user_list_window').css('display', 'none');
+	});
+
+	$('.close').click(function() {
+		$('.control_panel').css('display', 'none');
 	});
 });
