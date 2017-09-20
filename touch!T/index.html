@@ -9457,7 +9457,7 @@
 	$(window).on('load', function() {
 		start();
 		function start() {
-            var t = 1000;
+            var t = 1000, count = 0;
 			setInterval(function() {
 				var htmlStr = ''
 				for (var i = 0; i < 5; i++) {
@@ -9474,6 +9474,8 @@
 
                 $('.tap').click(function() {
                     $(this).css('background-color', '#fff').removeClass();
+                    count++;
+                    $('.count').text(count);
                 });
 			}, 1000);
 		}
@@ -9486,6 +9488,8 @@
 <style>
 	* {
 		margin: 0;
+        font-family: 'Arial';
+        font-size: 4vh;
 	}
 
 	body, #block {
@@ -9499,6 +9503,12 @@
 		width: 20%;
 		height: 20vh;
 	}
+
+    .count {
+        position: absolute;
+        right: 5px;
+        top: 5px;
+    }
 </style>
-<div id="block">
-</div>
+<div id="block"></div>
+<div class="count"></div>
