@@ -9454,14 +9454,22 @@
 </script>
 
 <script>
-	/*$(window).load(function() {
-		$('#tap').css('margin-top', '20px');
-	});*/
 	$(window).on('load', function() {
-		//while (true) {
-		$('.tap').animate({marginTop: "20vh"}, 1000).css('background-color', randomColor());
-		console.log(randomColor());
-		//}
+		start();
+		function start() {
+			for (var i = 0; i < 10; i++) {
+				if (Math.floor(Math.random() * (1 - 0 + 1) + 0) == 1)
+					$('#block').append('<div class="tap" style="background-color: ' + randomColor() + '"></div>');
+				else
+					$('#block').append('<div style="background-color: #fff"></div>');
+			}
+		}
+
+		$('.tap').click(function() {
+			$(this).css('background-color', '#fff').removeClass();
+		});
+
+		//$('.tap').animate({marginTop: "20vh"}, 1000).css('background-color', randomColor());
 
 		function randomColor() {
 			return "rgb(" + Math.floor(Math.random() * (256 - 0 + 1) + 0) + ", " + Math.floor(Math.random() * (256 - 0 + 1) + 0) + ", " + Math.floor(Math.random() * (256 - 0 + 1) + 0) + ")";
@@ -9471,7 +9479,6 @@
 <style>
 	* {
 		margin: 0;
-		//transition: 1s;
 	}
 
 	body, #block {
@@ -9488,5 +9495,4 @@
 	}
 </style>
 <div id="block">
-	<div class="tap"></div>
 </div>
