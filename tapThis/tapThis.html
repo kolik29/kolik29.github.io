@@ -12,17 +12,17 @@
 	}
 
 	#count {
+		font-style: 'Arial';
 		position: absolute;
 		right: 5px;
 		top: 5px;
-		font-style: 5%;
+		font-size: 4vh;
 	}
 </style>
 <script type="text/javascript">
 	var t = 1000, count = 0;
 
-	window.onload = function() {
-		
+	window.onload = function() {		
 		function play() {
 			setTimeout(function() {
   				document.getElementById("block").style.left = (Math.random() * ((window.innerWidth - 50) - 0) + 0) + 'px';
@@ -35,7 +35,8 @@
 	}
 
 	function click1() {
-		document.getElementById("count").innerHTML = count++;
+		count++;
+		document.getElementById("count").innerHTML = count;
 	}
 </script>
 <div id="block" onclick="click1()"></div>
