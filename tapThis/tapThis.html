@@ -1,43 +1,52 @@
-<style>
-	* {
-		margin: 0;
-		padding: 0;
-	}
-
-	#block {
-		width: 10vh;
-		height: 10%;
-		background-color: black;
-		position: absolute;
-	}
-
-	#count {
-		font-style: 'Arial';
-		position: absolute;
-		right: 5px;
-		top: 5px;
-		font-size: 4vh;
-	}
-</style>
-<script type="text/javascript">
-	var t = 1000, count = 0;
-
-	window.onload = function() {		
-		function play() {
-			setTimeout(function() {
-  				document.getElementById("block").style.left = (Math.random() * ((window.innerWidth - 50) - 0) + 0) + 'px';
-  				document.getElementById("block").style.top = (Math.random() * ((window.innerHeight - 50) - 0) + 0) + 'px';
-  				t--;
-				play();
-			}, t);
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>tapThis</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
 		}
-		play();
-	}
 
-	function click1() {
-		count++;
-		document.getElementById("count").innerHTML = count;
-	}
-</script>
-<div id="block" onclick="click1()"></div>
-<div id="count">0</div>
+		#block {
+			width: 10vh;
+			height: 10%;
+			background-color: black;
+			position: absolute;
+		}
+
+		#count {
+			font-style: 'Arial';
+			position: absolute;
+			right: 5px;
+			top: 5px;
+			font-size: 4vh;
+		}
+	</style>
+	<script type="text/javascript">
+		var t = 1000, count = 0;
+
+		window.onload = function() {		
+			function play() {
+				setTimeout(function() {
+  					document.getElementById("block").style.left = (Math.random() * ((window.innerWidth - 50) - 0) + 0) + 'px';
+  					document.getElementById("block").style.top = (Math.random() * ((window.innerHeight - 50) - 0) + 0) + 'px';
+  					t--;
+					play();
+				}, t);
+			}
+			play();
+		}
+
+		function click1() {
+			count++;
+			document.getElementById("count").innerHTML = count;
+		}
+	</script>
+</head>
+<body>	
+	<div id="block" onclick="click1()"></div>
+	<div id="count">0</div>
+</body>
+</html>
