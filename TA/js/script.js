@@ -24,6 +24,8 @@ $(document).ready(function(){
 	$('.device_block').click(function() {	
 		$('.control_panel').css('display', 'block');
 		$('#device_name').html($(this).text());
+		getValues(false);
+		getValues();
 	});
 
 	$('.search input').keyup(function () {
@@ -55,4 +57,15 @@ $(document).ready(function(){
 	$('.close').click(function() {
 		$('.control_panel').css('display', 'none');
 	});
+
+	var val;
+
+	function getValues() {
+		clearInterval(val);
+		val = setInterval(function() {
+			$('#temp').html(Math.floor(Math.random() * 100));
+			$('#amper').html(Math.floor(Math.random() * 100));
+			$('#voltage').html(Math.floor(Math.random() * 100));
+		}, 1000);
+	}
 });

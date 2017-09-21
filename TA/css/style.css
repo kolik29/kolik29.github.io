@@ -214,14 +214,12 @@ tr:nth-child(even) {
 	padding-top: 20vh;
 }
 
-.display_area {
-	line-height: 30px;
-    font-size: 15px;
-}
-
-.device_name {
-	font-size: 20px;
-	color: #000;
+#device_name {    
+	text-align: center;
+    padding-top: 20vh;
+    color: #00abff;
+    font-size: 30px;
+    padding-bottom: 3vh;
 }
 
 .b_control {
@@ -234,4 +232,11 @@ tr:nth-child(even) {
 
 .display_area {
 	padding-left: 5px;
+	font-size: 16px;
+	line-height: 30px;
+	font-weight: bold;
+}
+
+.display_area span {
+	font-weight: normal;
 }
