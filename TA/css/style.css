@@ -56,16 +56,7 @@ input[name="search"] {
 	margin-left: 70px;
 	line-height: 50px;
 	font-size: 30px;
-}
-
-.path_control {
-	cursor: pointer;
 	color: #fff;
-	transition: 0.3s;
-}
-
-.path_control:hover {
-	color: #4d70ff;
 	transition: 0.3s;
 }
 
@@ -110,7 +101,7 @@ input[name="search"] {
 }
 
 .device_block:hover {
-	background-color: #f3f3f3;
+	background-color: #fff;
 }
 
 .work_display {
@@ -122,10 +113,6 @@ input[name="search"] {
 	width: calc(100% - 234px);
 	overflow-x: auto;
 	overflow-y: hidden;
-}
-
-.main_work > * {
-	background-color: #fff;
 }
 
 .select {
@@ -144,47 +131,7 @@ input[name="search"] {
 	height: calc(100% - 40px);
 	display: inline-block;
 	width: calc(100% - 40px);
-}
-
-.main_work {
-	width: 100%;
-	height: 100%;
-}
-
-.rigth {
-	float: right;
-}
-
-
-#current_voltage_graph {
-	margin-left: calc(50% - 361px);
-	margin-top: 50px;
-}
-
-.controls .button {
-	margin-top: 10px;
-	margin-right: 10px;
-	background-color: #3cb93c;
-}
-
-.controls {
-	height: 60px;
-	border-bottom: 1px solid #e2e2e2;
-}
-
-.chart {
-	height: 250px;
-}
-
-.display_graph_title {
-	font-size: 20px;
-}
-
-.display_graph {
-	overflow-y: auto;
-	overflow-x: hidden;
-	height: calc(100% - 101px);
-	padding: 10px;
+	background-color: #fff;
 }
 
 .background {
@@ -239,20 +186,57 @@ tr:nth-child(even) {
   	background: #d8d8d8;
 }
 
-td button.button {
-	margin: 0;
-	background-color: 
+.control_panel {
+	width: 300px;
+    height: 100%;
+    position: absolute;
+    left: 234px;
+    transition: 0.3s;
+	background-color: #fff;
+	box-shadow: 5px 0px 10px rgba(0,0,0,0.1);
+	display: none;
 }
 
-.halfwindow {
-	height: 250px;
+.close {
+    font-family: "Times New Roman";
+    font-size: 40px;
+    float: right;
+    margin: 10px;
+    color: #c3c3c3;
+    cursor: pointer;
+    overflow: hidden;
+    line-height: 20px;
+    height: 20px;
 }
 
-.half {
-	width: 50%;
+#device_name {
+	text-align: center;
+	padding-top: 20vh;
+}
+
+#device_name {    
+	text-align: center;
+    padding-top: 20vh;
+    color: #00abff;
+    font-size: 30px;
+    padding-bottom: 3vh;
+}
+
+.b_control {
+	padding: 5px 15px 5px 15px;
+	width: calc(50% - 10px);
 	float: left;
+	margin: 5px;
+	font-size: 14px;
 }
 
-.full {
-	width: 100%;
+.display_area {
+	padding-left: 5px;
+	font-size: 16px;
+	line-height: 30px;
+	font-weight: bold;
+}
+
+.display_area span {
+	font-weight: normal;
 }

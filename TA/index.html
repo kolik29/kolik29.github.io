@@ -5,11 +5,6 @@
 	<title>Контроль счетчиков</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
-
-	<link rel="stylesheet" href="morris/morris.css">
- 	<script src="morris/raphael.min.js"></script>
- 	<script src="morris/morris.min.js"></script>
-
 	<script type="text/javascript" src="js/script.js"></script>
 </head>
 <body>
@@ -22,9 +17,7 @@
 			<div></div>
 			<div></div>
 		</label>
-		<div class="path_title">
-			<span class="path_control" id="gotoFacade">Фасад</span><span id="current_sensor"></span>
-		</div>		
+		<div class="path_title">Контроль датчиков</div>		
 		<button class="button" id="user_list">Список пользователей</button>
 	</div>
 
@@ -36,31 +29,28 @@
 			<div class="device_block online">sit</div>
 			<div class="device_block online">amet</div>
 		</div>
+
+		<div class="control_panel">
+			<div class="title_area">
+				<div class="close" title="Закрыть">×</div>
+				<div id="device_name">					
+				</div>
+			</div>
+			<div class="display_area">
+				Температура: <span id="temp"></span><br>
+				Сила тока: <span id="amper"></span><br>
+				Напряжение: <span id="voltage"></span><br>
+			</div>
+			<div class="control_area">
+				<button class="button b_control">Выключить</button>
+				<button class="button b_control">Перезагрузить</button>
+				<button class="button b_control">Выгрузить лог</button>
+				<button class="button b_control">Загрузить</button>				
+			</div>
+		</div>
+
 		<div class="work_display">
-			<div class="main_work">
-				<div class="workpanel">
-				</div>
-				<div class="workpanel rigth">
-					<div class="controls">
-						<button class="button">Выключить</button>
-						<button class="button">Включить</button>
-						<button class="button">Перезагрузить</button>
-					</div>	
-					<div class="display_graph">
-						<div class="window half">
-							<div class="display_graph_title">Напряжение: <span id="voltage"></span></div>
-							<div id="voltage_chart" class="chart" style="height: 50%;"></div>
-						</div>
-						<div class="window half">
-							<div class="display_graph_title">Температура: <span id="temperature"></span></div>
-							<div id="temperature_chart" class="chart" style="height: 50%;"></div>
-						</div>
-						<div class="window full">
-							<div class="display_graph_title">Сила тока: <span id="amper"></span></div>
-							<div id="amper_chart" class="chart" style="height: 50%;"></div>
-						</div>
-					</div>
-				</div>
+			<div class="workpanel">
 			</div>
 		</div>
 	</div>
