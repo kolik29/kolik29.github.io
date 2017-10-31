@@ -1,17 +1,85 @@
-<script type="text/javascript">
-function getitog() {
-	var ilya, kolya, nastya, perday, summ = document.getElementById('summ').value;
-	perday = summ / 35;
-	ilya = perday / 2 * 7;
-	nastya = perday / 2 * 7;
-	ilya += perday / 3 * 21;
-	nastya += perday / 3 * 21;
-	ilya += perday / 2 * 2;
-	kolya = perday / 3 * 21;
-	kolya += perday / 2 * 2;
-	kolya += perday * 5;
-	document.getElementById('itog').innerText = "nastya: " + nastya + "\nilya: " + ilya + "\nkolya: " + kolya + "\nsumm: " + (nastya + ilya + kolya);
-}
-</script>
-<input type="text" name="" id="summ"><button onclick="getitog()">itog</button>
-<div id="itog"></div>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>Разрабокта сайтов | kolik29.ru</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript" src="js/script.js"></script>
+</head>
+<body>
+	<section class="sidebar">
+		<div class="inner">
+			<div class="about">
+				<div class="avatar"></div>
+				<div class="text">
+					<b>Привет</b>, меня зовут Николай и я занимаюсь версткой сайтов
+				</div>
+			</div>
+			<div class="menu">
+				<div>О себе</div>
+				<div>Мои работы</div>
+				<div>Контакты</div>
+			</div>
+		</div>
+	</section>
+	<section class="wrapper">
+		<section class="one">
+			<div class="inner">
+				<h1>О себе:</h1>
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur ab, cum voluptatem iste perspiciatis dolore! Architecto blanditiis molestiae perferendis, iure nihil similique, suscipit inventore nemo dolore, eveniet, eligendi accusamus ut.<br>
+				<span class="button">
+					МОИ РАБОТЫ
+				</span>
+			</div>
+		</section>
+		<section class="two">
+			<div class="title"><h1>Мои работы:</h1></div>
+			<div class="switchslide">
+				<div class="left"></div>
+				<div class="right"></div>
+			</div>
+			<div class="slider">
+				<div class="mywork">
+					<div class="img" style="background-color: red;">
+					</div>
+					<div class="description">						
+						<div>
+							<h2>iphonestrade.ru</h2>
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+							tempor incididunt ut labore et dolore magna aliqua
+						</div>
+					</div>
+				</div>			
+				<div class="mywork">
+					<div class="img" style="background-color: blue;">
+					</div>
+					<div class="description">						
+						<div>
+							<h2>iphonestrade.ru</h2>
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+							tempor incididunt ut labore et dolore magna aliqua
+						</div>
+					</div>
+				</div>	
+			</div>
+		</section>
+		<section class="three">
+			<div class="inner">
+				<h1>Контакты:</h1>
+				<div>
+					<a href="#" class="logo">
+						<img src="img/facebook.png">
+					</a>
+					<a href="#" class="logo">
+						<img src="img/telegram.png">
+					</a>
+					<a href="#" class="logo">
+						<img src="img/vk.png">
+					</a>
+				</div>
+			</div>
+		</section>
+	</section>
+</body>
+</html>

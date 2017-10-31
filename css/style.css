@@ -1,0 +1,227 @@
+* {
+	padding: 0;
+	margin: 0;
+	font-family: 'Arial';
+	font-size: 18px;
+}
+
+h1 {
+	font-size: 75px;
+}
+
+b {
+	color: #fff;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+body {
+	overflow-y: hidden;
+}
+
+.sidebar {
+	width: 25%;
+	height: 100vh;
+	overflow-x: hidden;
+	overflow-y: auto;
+	align-items: center;
+	justify-content: center;
+	background-image: url('../img/arh.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	color: #fff;
+	z-index: 20;
+	float: left;
+	display: inline-flex;
+	min-width: 225px;
+}
+
+.two .title h1,
+.inner {
+	width: 90%;
+}
+
+.about > .text {
+	text-align: right;
+	font-size: 18px;
+	line-height: 30px;
+	margin-bottom: 20px;
+}
+
+.about > .avatar {
+	border-radius: 100%;
+    background-image: url(../img/iam.jpg);
+    width: 85px;
+    height: 85px;
+    background-size: 100%;
+    margin-right: 0;
+    margin-left: auto;
+    margin-bottom: 20px;
+}
+
+.menu div {
+	text-align: right;
+	font-size: 18px;
+	cursor: pointer;
+	margin: 10px 0;
+	line-height: 30px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+	transition: 0.3s;
+}
+
+.button {	
+	text-align: right;
+	font-size: 18px;
+	cursor: pointer;
+    border: 2px solid #363636;
+    display: inline-block;
+    padding: 10px;
+    margin-top: 30px;
+	transition: 0.3s;
+}
+
+.menu div:hover {
+	transition: 0.3s;
+	border-color: #fff;
+}
+
+.button:hover {
+	transition: 0.3s;
+	border-color: rgba(0, 0, 0, 0.25);
+}
+
+.wrapper {
+	background-color: #fefefe;
+	float: left;
+	width: 75%;
+	height: 100vh;
+	color: #363636;
+	display: inline-block;
+	overflow-y: auto;
+}
+
+.wrapper section {	
+	height: 100%;
+	width: 100%;
+	justify-content: center;
+}
+
+.three,
+.one {
+	display: inline-flex;
+	align-items: center;
+}
+
+.two .title {
+	justify-content: center;
+	display: inline-flex;
+	width: 100%;
+	height: 30%;
+	position: relative;
+}
+
+.two .title h1 {
+	position: absolute;
+	bottom: 0;
+}
+
+.two .slider {
+	height: 70%;
+}
+
+.mywork {
+	width: 100%;
+	float: left;
+	height: 280px;
+	border-top: 0.5px solid rgba(0, 0, 0, 0.5);
+}
+
+.mywork:nth-child(even) {
+	border-bottom: 0.5px solid rgba(0, 0, 0, 0.5);
+
+}
+
+.mywork .img {
+	float: left;
+	width: 350px; 
+	height: calc(100% + 2px);
+	position: relative;
+	justify-content: center;
+	display: inline-flex;
+	z-index: 10;
+	margin-top: -1px;
+}
+
+.mywork:nth-child(even) .img {
+	float: right;
+	height: calc(100% + 1px);
+	margin-top: 0;
+}
+
+.mywork .description {
+	float: left; 
+	height: 100%;
+	width: calc(95% - 350px);	
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding-left: 30px;
+}
+
+.mywork:nth-child(even) .description {
+	text-align: right;
+	padding-left: 0;
+	padding-right: 30px;
+	float: right;
+}
+
+.description div h1 {
+	margin-bottom: 10px;
+}
+
+.switchslide {
+	width: 100px;
+	height: 40px;
+	float: right;
+	margin-bottom: 20px;
+	margin-right: 20px;
+	border-radius: 6px;
+	border: 1px solid #c8c8c8;
+}
+
+.switchslide .right,
+.switchslide .left {
+	width: 50%;
+	height: 100%;
+	display: inline-block;
+	cursor: pointer;
+	float: left;
+}
+
+.switchslide .left {
+	border-right: 1px solid #c8c8c8;
+	width: calc(50% - 1px);
+}
+
+.logo,
+.logo img {
+	width: 75px;
+	height: 75px;
+}
+
+.logo {
+	overflow: hidden;
+	display: inline-block;
+	border-radius: 100%;
+	margin-top: 35px;
+	margin-right: 35px;
+	transition: 0.5s;
+}
+
+.logo:hover {
+	opacity: 0.75;
+}
