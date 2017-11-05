@@ -129,7 +129,7 @@ h1,
 	justify-content: center;
 	display: inline-flex;
 	width: 100%;
-	height: calc(25% - 3px);
+	height: 40%;
 	position: relative;
 }
 
@@ -140,62 +140,11 @@ h1,
 }
 
 .slider {
-	height: 75%;
-	background-color: #fff;
+	height: 60%;
 	transition: 0.3s;
 }
 
-.slider .button {
-	float: right;
-	margin: 25px;
-}
 
-.project {
-	width: 100%;
-	float: left;
-	height: calc(50% - 53px);
-	border-top: 0.5px solid rgba(0, 0, 0, 0.5);
-	min-height: 240px;
-}
-
-.project:nth-child(even) {
-	border-bottom: 0.5px solid rgba(0, 0, 0, 0.5);
-
-}
-
-.project .img {
-	float: left;
-	width: 350px; 
-	height: calc(100% + 2px);
-	position: relative;
-	justify-content: center;
-	display: inline-flex;
-	z-index: 10;
-	margin-top: -1px;
-}
-
-.project:nth-child(even) .img {
-	float: right;
-	height: calc(100% + 1px);
-	margin-top: 0;
-}
-
-.project .description {
-	float: left; 
-	height: 100%;
-	width: calc(95% - 350px);	
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	padding-left: 30px;
-}
-
-.project:nth-child(even) .description {
-	text-align: right;
-	padding-left: 0;
-	padding-right: 30px;
-	float: right;
-}
 
 .logo {
 	overflow: hidden;
@@ -214,4 +163,38 @@ h1,
 
 .logo:hover {
 	opacity: 0.75;
+}
+
+/*slider_begin*/
+
+.slider {
+	margin: 0 5% 0 5%;
+	overflow: hidden;
+}
+
+.slider .control {
+    border-radius: 100%;
+    width: 70px;
+    height: 70px;
+    top: calc(50% - 35px);
+    border: 1px solid #000;
+    left: -35px;
+    position: relative;
+    cursor: pointer;
+    background-color: #fff;
+    float: left;
+}
+
+.slider .control#right {
+	float: right;
+	right: -25px;
+	left: 0;
+}
+
+.slider .box {
+	position: relative;
+	border-radius: 10px;
+	border: 1px solid #000;
+	width: calc(50% - 10px);
+	height: 100%;
 }
