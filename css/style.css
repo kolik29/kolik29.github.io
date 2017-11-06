@@ -206,9 +206,14 @@ h1,
 }
 
 .box {
-	background-color: pink;
 	border: 1px solid #fff;
 	border-radius: 100%;
+	height: 100%;
+	float: left;
+	width: 300px;
+}
+
+.yourSite {	
 	height: 100%;
 	float: left;
 	width: 300px;
