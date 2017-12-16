@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>Главная | Игруля29.рф</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script src="https://vk.com/js/api/openapi.js?150" type="text/javascript"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="js/script.js"></script>
+</head>
+<body>
+	<header>
+		<div class="elements">
+			<div class="content">
+				<div class="title">Игруля29</div>
+				<div class="search">
+					<input type="text" placeholder="Введите текст">
+					<button>Найти</button>
+				</div>
+				<a href="#" class="contacts">Контакты</a>
+				<button class="basket">Корзина (3)</button>
+			</div>
+		</div>
+	</header>
+
+	<article>
+		<div class="content">
+			<div class="menu">
+				<ul>
+					<li>Акции</li>
+					<li>Скидки</li>
+					<li>Игрушки</li>
+					<li>Развивайки</li>
+					<li>Куклы</li>
+					<li>Спиннеры</li>
+					<li>Плюшевые</li>
+				</ul>
+
+				<div class="toUp">
+					<button>Наверх</button>
+				</div>
+			</div>
+
+			<div class="main">
+				<div class="slider">
+					<div class="slides">
+						<div class="slide"></div>
+						<div class="slide"></div>
+						<div class="slide"></div>
+					</div>
+					<div class="controls">
+						<div class="left"></div>
+						<div class="right"></div>
+					</div>
+					<div class="dots">
+						<label>
+    						<input class="radio" type="radio" name="radio" checked>
+    						<span class="radio-custom"></span>
+						</label>
+						<label>
+    						<input class="radio" type="radio" name="radio">
+    						<span class="radio-custom"></span>
+						</label>
+						<label>
+    						<input class="radio" type="radio" name="radio">
+    						<span class="radio-custom"></span>
+						</label>
+					</div>
+				</div>
+				<div id="vk_groups"></div>
+				<div class="title">Лучшие предложения:</div>
+				<div class="box">
+					<img src="img/goods/bear.jpg" alt="Мишка">
+					<div class="name">Мишка плюшевый, с бантиком</div>
+					<button><span>666 ₽</span><div>Купить</div></button>
+				</div>
+				<div class="box">
+					<img src="img/goods/bear.jpg" alt="Мишка">
+					<div class="name">Мишка плюшевый, с бантиком</div>
+					<button><span>666 ₽</span><div>Купить</div></button>
+				</div>
+				<div class="box">
+					<img src="img/goods/bear.jpg" alt="Мишка">
+					<div class="name">Мишка плюшевый, с бантиком</div>
+					<button><span>666 ₽</span><div>Купить</div></button>
+				</div>
+				<div class="box">
+					<img src="img/goods/bear.jpg" alt="Мишка">
+					<div class="name">Мишка плюшевый, с бантиком</div>
+					<button><span>666 ₽</span><div>Купить</div></button>
+				</div>
+				<div class="box">
+					<img src="img/goods/bear.jpg" alt="Мишка">
+					<div class="name">Мишка плюшевый, с бантиком</div>
+					<button><span>666 ₽</span><div>Купить</div></button>
+				</div>
+				<div class="box">
+					<img src="img/goods/bear.jpg" alt="Мишка">
+					<div class="name">Мишка плюшевый, с бантиком</div>
+					<button><span>666 ₽</span><div>Купить</div></button>
+				</div>				
+				<div class="title" id="ourContacts">Наши контакты:</div>
+				<div class="contacts">
+					<div class="phone">Ещё остались вопросы? Просто позвоните по телефону <span>8 800 555 35 35</span> и задайте их.</div>
+					<div class="addreses">
+						<div class="selectAdres">
+							<input type="radio" name="adres" id="adres1" class="adres" checked>
+							<label for="adres1">
+								<div>ТРК "Титан Арена"</div>
+								<div>Улица, 89</div>
+								<div>9.00 - 20.00</div>
+							</label>
+						</div>
+						<div class="selectAdres">
+							<input type="radio" name="adres" id="adres2" class="adres">
+							<label for="adres2">
+								<div>ТРК "Еропарк"</div>
+								<div>Улица, 46</div>
+								<div>10.00 - 20.00</div>
+							</label>
+						</div>
+						<div class="selectAdres">
+							<input type="radio" name="adres" id="adres3" class="adres">
+							<label for="adres3">
+								<div>ТРК "Макси"</div>
+								<div>Улица, 56</div>
+								<div>10.00 - 22.00</div>
+							</label>
+						</div>
+					</div>
+					<div id="map1"></div>
+					<div id="map2"></div>
+					<div id="map3"></div>
+    				<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0Z_GzdQJE8NiodtlSmQ46af7W-WpdZj8	&callback=initMap"></script>
+				</div>
+			</div>
+		</div>
+	</article>
+
+	<footer>
+		<div class="content">
+			<div>
+				<div class="title">Наши адреса:</div>
+				<div class="description">
+					ул. Воскресенская, д. 20, ТРК "Титан Арена"
+				</div>
+			</div>
+			<div>
+				<div class="title">
+					Наши телефоны:
+				</div>
+				<div class="description">
+					8 800 555 35 35
+				</div>
+			</div>
+			<div>
+				<div class="title">
+					Разработка сайта:
+				</div>
+				<div class="description">
+					<a href="http://kolik29.ru">kolik29.ru</a>
+				</div>
+			</div>
+		</div>
+	</footer>
+</body>
+</html>
