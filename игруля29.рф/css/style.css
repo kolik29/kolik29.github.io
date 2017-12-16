@@ -486,3 +486,12 @@ div.contacts > .phone > span {
 .selectAdres > input:checked + label {
 	border-left: 3px solid #ff8900;
 }
+
+/*footer-end*/
+
+/*products.html-begin*/
+
+.products {
+	margin-left: 15px !important;
+	margin-top: 15px !important;
+}
