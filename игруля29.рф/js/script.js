@@ -64,10 +64,10 @@ $(document).ready(function(){
 		$('.right').click();
 	}
 
-	var sliderStart = setInterval(listSlide, 5000);
+	var sliderStart = setInterval(listSlide, 10000);
 
 	$('.slider').mouseout(function(){
-		sliderStart = setInterval(listSlide, 5000);
+		sliderStart = setInterval(listSlide, 10000);
 	})
 
 	$('.slider').mouseover(function(){

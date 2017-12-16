@@ -202,7 +202,6 @@ a.contacts {
 	flex-direction: row;
 	justify-content: flex-start;	
 	flex-wrap: wrap;
-	margin-top: 10px;
 }
 
 .main > .title {
@@ -210,6 +209,10 @@ a.contacts {
 	width: 100%;
 	font-size: 25px;
 	margin: 30px 5px 5px;
+}
+
+.main > .title:nth-child(1) {
+	margin-top: 5px;
 }
 
 #vk_groups {
