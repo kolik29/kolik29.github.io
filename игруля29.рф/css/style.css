@@ -445,9 +445,7 @@ div.contacts > .phone > span {
     display: inline-block;
 }
 
-#map1,
-#map2,
-#map3 {
+#map {
 	height: 400px;
 }
 

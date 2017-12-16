@@ -87,28 +87,17 @@ $(document).ready(function(){
         }
     });
 
-	setTimeout(function() {
-		$('#map2').css('display', 'none');    
-		$('#map3').css('display', 'none');
-	}, 500);
-
     $('.adres').click( function() {
   		if ($('#adres1:checked').val() == 'on') {
-  			$('#map1').css('display', 'block');
-  			$('#map2').css('display', 'none');
-  			$('#map3').css('display', 'none');
+  			initMap();
   		}
 
   		if ($('#adres2:checked').val() == 'on') {
-  			$('#map1').css('display', 'none');
-  			$('#map2').css('display', 'block');
-  			$('#map3').css('display', 'none');
+  			initMap({lat: 64.542060, lng: 40.530000});
   		}
 
   		if ($('#adres3:checked').val() == 'on') {
-  			$('#map1').css('display', 'none');
-  			$('#map2').css('display', 'none');
-  			$('#map3').css('display', 'block');
+  			initMap({lat: 64.542060, lng: 40.539999});
   		}
  	});
 
@@ -116,12 +105,13 @@ $(document).ready(function(){
  		$('html, body').animate({scrollTop: 0}, 500);
  	});
 
- 	$('.contacts').click(function() { 		
+ 	$('a.contacts').click(function() { 		
  		$('html, body').animate({scrollTop: $('#ourContacts').offset().top}, 500);
+ 		console.log('qwe');
  	});
 });
 
-function initMap() {
+function mapCoord1() {	
 	var uluru = {lat: 64.542060, lng: 40.535097};
 	var map = new google.maps.Map(document.getElementById('map1'), {
  		zoom: 15,
@@ -131,9 +121,11 @@ function initMap() {
         position: uluru,
         map: map
     });
+}
 
-	uluru = {lat: 64.542060, lng: 40.530000};
-	map = new google.maps.Map(document.getElementById('map2'), {
+function mapCoord2() {	
+	var uluru = {lat: 64.542060, lng: 40.530000};
+	var map = new google.maps.Map(document.getElementById('map1'), {
  		zoom: 15,
         center: uluru
     });
@@ -141,9 +133,22 @@ function initMap() {
         position: uluru,
         map: map
     });
+}
 
-	uluru = {lat: 64.542060, lng: 40.539999};
-	map = new google.maps.Map(document.getElementById('map3'), {
+function mapCoord3() {	
+	var uluru = {lat: 64.542060, lng: 40.539999};
+	var map = new google.maps.Map(document.getElementById('map1'), {
+ 		zoom: 15,
+        center: uluru
+    });
+    var marker = new google.maps.Marker({
+        position: uluru,
+        map: map
+    });
+}
+
+function initMap(uluru = {lat: 64.542060, lng: 40.535097}) {
+	var map = new google.maps.Map(document.getElementById('map'), {
  		zoom: 15,
         center: uluru
     });
