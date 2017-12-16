@@ -28,12 +28,17 @@ a {
 }
 
 a:hover {	
-	text-decoration: underline;
+	text-decoration: none;
 }
 
 body {
 	min-width: 900px;
 }
+
+ul > li > a:hover {
+	text-decoration: none;
+}
+
 /*menu-end*/
 
 /*header-begin*/
@@ -136,6 +141,10 @@ a.contacts {
 	padding: 0 15px 0 0;
 	font-weight: bolder;
 	color: #fff;
+}
+
+a.contacts:hover {
+	text-decoration: underline;
 }
 
 /*header-end*/
