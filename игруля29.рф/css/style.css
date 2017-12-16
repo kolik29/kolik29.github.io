@@ -427,7 +427,7 @@ footer > .content > div > .title {
 }
 
 div.contacts {
-	margin: 20px 5px 0px;
+	margin-top: 20px;
 	width: 100%;
     text-align: justify;
 	color: #424242;
@@ -436,6 +436,7 @@ div.contacts {
 div.contacts > .phone {
 	font-size: 15px;
 	margin-bottom: 30px;
+	margin-left: 5px;
 }
 
 div.contacts > .phone > span {
