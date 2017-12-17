@@ -117,7 +117,7 @@ ul > li > a:hover {
 	color: #ffdeb8;
 }
 
-button.basket  {  
+a.basket  {  
 	font-weight: 700;
   	color: #ff8900;
   	text-decoration: none;
@@ -129,9 +129,10 @@ button.basket  {
   	cursor: pointer;
   	min-width: 130px;
   	text-align: center;
+  	padding-top: 5px;
 }
 
-button.basket:hover {
+a.basket:hover {
 	background: rgb(239, 239, 239);
 }
 
@@ -213,14 +214,16 @@ a.contacts:hover {
 	flex-wrap: wrap;
 }
 
-.main > .title {
+.main > .title,
+.basket > .content > .title {
 	color: #ff8900;
 	width: 100%;
 	font-size: 25px;
 	margin: 30px 5px 5px;
 }
 
-.main > .title:nth-child(1) {
+.main > .title:nth-child(1),
+.basket > .content > .title {
 	margin-top: 5px;
 }
 
@@ -491,16 +494,32 @@ div.contacts > .phone > span {
     border-top: 1px solid #e7e8ec;
 }
 
-.selectAdres > label:hover,
+.selectAdres > label:hover {	
+	border-left: 3px solid #ff8900;
+}
 .selectAdres > input:checked + label {
 	border-left: 3px solid #ff8900;
+	background-color: #ffe6c8;
 }
 
 /*footer-end*/
 
-/*products.html-begin*/
+/*basket.html-begin*/
 
-.products {
-	margin-left: 15px !important;
-	margin-top: 15px !important;
+.basket_items {
+	width: 100%;
+	margin: 40px 20px 0 5px;
+	border: 1px solid #ff8900;
+	border-radius: 5px;
 }
+
+.basket_items > .item {
+	border-bottom: 1px solid #e7e8ec;
+	height: 80px;
+}
+
+.basket_items > .item:last-child {
+	border-bottom: unset;
+}
+
+/*basket.html-end*/
