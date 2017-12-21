@@ -506,20 +506,107 @@ footer {
 
 /*basket.html-begin*/
 
-.main-basket_table {
+.main-basket,
+.basket-table {
 	width: 100%;
-	margin: 40px 20px 0 5px;
-	border: 1px solid #ff8900;
-	border-radius: 5px;
 }
 
-.main-basket_table__item {
-	border-bottom: 1px solid #e7e8ec;
-	height: 80px;
+.basket-table {
+	border: 0px;
+	border-collapse: collapse;
 }
 
-.main-basket_table__item:last-child {
-	border-bottom: unset;
+.basket-table-header {
+	height: 40px;
+	background-color: #fff1e1;
+	border: 0px;
+	text-align: center;
+	font-weight: bold;
+	color: #ff8600;
 }
 
+.basket-table-item {
+	border-bottom: 1px solid #e7e8ec;	
+}
+
+.basket-table-item > td {
+	color: #565656;
+	font-weight: bold;
+	text-align: center;
+}
+
+.table-item-image {
+	width: 120px;
+}
+
+.table-item-image > img {
+	width: 100px;
+	margin: 10px;
+}
+
+.table-item-count > input {
+	width: 25px;
+	color: #565656;
+	font-size: 16px;
+	text-align: center;
+	padding: 5px 0 5px;
+	border-top: 1px solid #ff8900;
+	border-bottom: 1px solid #ff8900;
+	margin: 0 -6px; /*ХАК! вдруг отку да не возбмись появились отступы у input, пришлось такой фигней их заделать*/
+}
+
+.item-add,
+.item-reduce {
+	cursor: pointer;
+	display: inline-block;
+	line-height: 29px;
+}
+
+.item-reduce {
+	border-left: 1px solid #ff8900;
+	border-top: 1px solid #ff8900;
+	border-bottom: 1px solid #ff8900;
+	border-top-left-radius: 3px;
+	border-bottom-left-radius: 3px;
+	padding-left: 10px;
+	padding-right: 5px;
+}
+
+.item-add {
+	border-top: 1px solid #ff8900;
+	border-right: 1px solid #ff8900;
+	border-bottom: 1px solid #ff8900;
+	border-top-right-radius: 3px;
+	border-bottom-right-radius: 3px;
+	padding-right: 10px;
+	padding-left: 5px;
+}
+
+.item-add:hover,
+.item-reduce:hover {
+	color: #ff8900;
+    transition: .3s;
+}
+
+.basket-delete-cell {
+	position: relative;
+}
+
+.btn-basket-delete {
+	font-size: 35px;
+    color: #565656;
+    font-weight: 100;
+    border: 1px solid #565656;
+    border-radius: 100px;
+    width: 37px;
+    line-height: 35px;
+    cursor: pointer;
+    transition: .3s;
+    margin: 20px;
+}
+
+.btn-basket-delete:hover {
+	border-color: #f44336;
+	color: #f44336;
+}
 /*basket.html-end*/

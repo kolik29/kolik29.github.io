@@ -7,6 +7,7 @@
 	<script src="https://vk.com/js/api/openapi.js?150" type="text/javascript"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="js/script.js"></script>
+	<script src="js/jquery.maskedinput.min.js"></script>
 </head>
 <body>
 	<header class="theme-color">
@@ -39,6 +40,49 @@
 			
 			<div class="o-body-main">
 				<div class="main-title">Ваша корзина:</div>
+				<div class="main-basket">
+					<div class="basket-steps"></div>
+					<table class="basket-table">
+						<tbody>
+							<tr class="basket-table-header">
+								<td></td>
+								<td>Название</td>
+								<td>Цена</td>
+								<td>Количество</td>
+								<td>Стоимость</td>
+								<td></td>
+							</tr>
+							<tr class="basket-table-item">
+								<td class="table-item-image"><img src="img/goods/bear.jpg" alt=""></td>
+								<td>Медведь плюшевый</td>
+								<td class="js-price-cell">666 ₽</td>
+								<td>
+									<div class="table-item-count">
+										<div class="item-reduce" ondblclick="return false" onselectstart="return false" onmousedown="return false">-</div>
+										<input type="text" value="1" class="js-item-count-input" maxlength="2">
+										<div class="item-add" ondblclick="return false" onselectstart="return false" onmousedown="return false">+</div>
+									</div>
+								</td>
+								<td class="js-cost-cell"></td>
+								<td><button class="btn-basket-delete" title="Удалить">&times;</button></td>
+							</tr>
+							<tr class="basket-table-item">
+								<td class="table-item-image"><img src="img/goods/bear.jpg" alt=""></td>
+								<td>Медведь плюшевый</td>
+								<td class="js-price-cell">666 ₽</td>
+								<td>
+									<div class="table-item-count">
+										<div class="item-reduce" ondblclick="return false" onselectstart="return false" onmousedown="return false">-</div>
+										<input type="text" value="3" class="js-item-count-input" maxlength="2">
+										<div class="item-add" ondblclick="return false" onselectstart="return false" onmousedown="return false">+</div>
+									</div>
+								</td>
+								<td class="js-cost-cell"></td>
+								<td><button class="btn-basket-delete" title="Удалить">&times;</button></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
 				<div class="main-title" id="js-our_contacts">Наши контакты:</div>
 				<div class="main-contacts">
 					<div class="main-contacts__phone">Ещё остались вопросы? Просто позвоните по телефону <span class="phone-highlight">8 800 555 35 35</span> и задайте их.</div>

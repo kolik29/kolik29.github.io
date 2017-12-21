@@ -108,6 +108,53 @@ $(document).ready(function(){
  	$('.c-header-contacts').click(function() { 		
  		$('html, body').animate({scrollTop: $('#js-our_contacts').offset().top}, 500);
  	});
+
+ 	$('.item-add').click(function() {
+ 		var val = $(this).parent().children('input').val();
+ 		val++;
+ 		$(this).parent().children('input').val(val);
+ 		change_count($(this));
+ 	});
+
+ 	 $('.item-reduce').click(function() {
+ 		var val = $(this).parent().children('input').val();
+ 		if (val > 1)
+ 			val--;
+ 		$(this).parent().children('input').val(val);
+ 		change_count($(this));
+ 	});
+
+ 	$('.js-item-count-input').keydown(function(event) {
+        if ( event.keyCode == 46 || event.keyCode == 8 || event.keyCode == 9 || event.keyCode == 27 || 
+            (event.keyCode == 65 && event.ctrlKey === true) || 
+            (event.keyCode >= 35 && event.keyCode <= 39)) {
+                 return;
+        }
+        else {
+            if ((event.keyCode < 48 || event.keyCode > 57) && (event.keyCode < 96 || event.keyCode > 105 )) {
+                event.preventDefault(); 
+            }   
+        }
+    });
+
+ 	$('.js-item-count-input').keyup(function(event) { //Проверяе был ли введене 0
+ 		if ($(this).val() == '0') 
+        	$(this).val('1');
+ 	});
+
+ 	$('.js-item-count-input').on('input', function() {
+ 		change_count($(this));
+ 	});
+
+ 	function change_count(th) {
+ 		var parent = th.parent();
+ 		var table = th.parent().parent().parent();
+		table.children('.js-cost-cell').html(parseInt(table.children('.js-price-cell').html()) * parent.children('.js-item-count-input').val() + ' ₽');
+ 	}	
+
+ 	$('.js-item-count-input').each(function(i, elem) {
+ 		change_count($(this));
+ 	});
 });
 
 function initMap(uluru = {lat: 64.542060, lng: 40.535097}) {
