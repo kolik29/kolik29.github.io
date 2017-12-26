@@ -93,11 +93,19 @@ $(document).ready(function() {
   		}
 
   		if ($('#js-address2:checked').val() == 'on') {
-  			initMap({lat: 64.542060, lng: 40.530000});
+  			initMap({lat: 64.534122, lng: 40.611479});
   		}
 
   		if ($('#js-address3:checked').val() == 'on') {
-  			initMap({lat: 64.542060, lng: 40.539999});
+  			initMap({lat: 64.551841, lng: 40.532942});
+  		}
+
+  		if ($('#js-address4:checked').val() == 'on') {
+  			initMap({lat: 64.547513, lng: 40.535109});
+  		}
+
+  		if ($('#js-address5:checked').val() == 'on') {
+  			initMap({lat: 64.490467, lng: 40.713771});
   		}
  	});
 
