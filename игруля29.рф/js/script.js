@@ -1,6 +1,6 @@
 VK.Widgets.Group("vk_groups", {mode: 0, width: "220", height: "250"}, 136088527);
 
-$(document).ready(function(){
+$(document).ready(function() {
 	/*slider-begin*/
 	$('.slide').css('width', $('.slider').css('width'));
 
@@ -125,7 +125,7 @@ $(document).ready(function(){
  	});
 
  	$('.js-item-count-input').keydown(function(event) {
-        if ( event.keyCode == 46 || event.keyCode == 8 || event.keyCode == 9 || event.keyCode == 27 || 
+        if (event.keyCode == 46 || event.keyCode == 8 || event.keyCode == 9 || event.keyCode == 27 || 
             (event.keyCode == 65 && event.ctrlKey === true) || 
             (event.keyCode >= 35 && event.keyCode <= 39)) {
                  return;

@@ -463,11 +463,9 @@ header {
 .main-contacts__list-addresses > .address > input + label {
 	color: #565656 !important;
 }
-
 /*body-end*/
 
 /*footer-begin*/
-
 footer {
 	background-color: #e8e8e8;
 	padding: 40px 0;
@@ -501,11 +499,9 @@ footer {
 	font-size: 20px;
 	margin-bottom: 20px;	
 }
-
 /*footer-end*/
 
 /*basket.html-begin*/
-
 .main-basket,
 .basket-table {
 	width: 100%;
@@ -596,9 +592,9 @@ footer {
 	font-size: 35px;
     color: #565656;
     font-weight: 100;
-    border: 1px solid #565656;
+    border: 2px solid #565656;
     border-radius: 100px;
-    width: 37px;
+    width: 40px;
     line-height: 35px;
     cursor: pointer;
     transition: .3s;
@@ -610,3 +606,75 @@ footer {
 	color: #f44336;
 }
 /*basket.html-end*/
+
+/*products.html-begin*/
+.main-pages,
+.main-total {
+	color: #ff8900;
+	font-weight: bold;
+	font-size: 18px;
+	margin: 40px 0 20px 0;
+	width: 100%;
+}
+
+.main-pages > *,
+.main-total > * {
+	display: inline-block;
+}
+
+.total-cost {
+	float: right;
+	display: block;
+}
+
+.btn-page,
+.btn-contine {
+	padding: 5px 10px;
+	font-size: 18px;
+	background-color: #ff8900;
+	color: #fff;
+	transition: .3s;
+}
+
+.btn-page:hover,
+.btn-contine:hover {
+	background-color: #fff;
+	color: #ff8900;
+}
+
+.btn-contine {
+	float: right;
+}
+
+.three-dots-pages-begin {
+	display: none;
+}
+
+#js-all-summ {
+	color: #565656;
+}
+
+.c-tota-cost {
+	margin-bottom: 10px;
+}
+/*products.html-begin*/
+
+.background {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	top: 0;
+	left: 0;
+	z-index: 10;
+	display: flex;
+	align-content: center;
+	align-items: center;
+	justify-content: center;
+}
+
+.popup-window {
+	background-color: #fff;
+	padding: 20px;
+	border-radius: 5px;
+}
