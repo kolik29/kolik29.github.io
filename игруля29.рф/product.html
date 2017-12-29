@@ -2,12 +2,12 @@
 <html lang="ru">
 <head>
 	<meta charset="UTF-8">
-	<title>Корзина | Игруля29.рф</title>
+	<title>Главная | Игруля29.рф</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<script src="https://vk.com/js/api/openapi.js?150" type="text/javascript"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script src="js/script.js"></script>
 	<script src="js/jquery.maskedinput.min.js"></script>
+	<script src="js/script.js"></script>
 </head>
 <body>
 	<header class="theme-color">
@@ -39,56 +39,42 @@
 			</div>
 			
 			<div class="o-body-main">
-				<div class="main-title">Ваша корзина:</div>
-				<div class="main-basket">
-					<div class="basket-steps"></div>
-					<table class="basket-table">
-						<tbody>
-							<tr class="basket-table-header">
-								<td></td>
-								<td>Название</td>
-								<td>Цена</td>
-								<td>Количество</td>
-								<td>Стоимость</td>
-								<td></td>
-							</tr>
-							<tr class="basket-table-item">
-								<td class="table-item-image"><img src="img/goods/bear.jpg" alt=""></td>
-								<td>Медведь плюшевый</td>
-								<td class="js-price-cell">666 ₽</td>
-								<td>
-									<div class="table-item-count">
-										<div class="item-reduce" ondblclick="return false" onselectstart="return false" onmousedown="return false">-</div>
-										<input type="text" value="1" class="js-item-count-input" maxlength="2">
-										<div class="item-add" ondblclick="return false" onselectstart="return false" onmousedown="return false">+</div>
-									</div>
-								</td>
-								<td class="js-cost-cell"></td>
-								<td><button class="btn-basket-delete" title="Удалить">&times;</button></td>
-							</tr>
-							<tr class="basket-table-item">
-								<td class="table-item-image"><img src="img/goods/bear.jpg" alt=""></td>
-								<td>Медведь плюшевый</td>
-								<td class="js-price-cell">666 ₽</td>
-								<td>
-									<div class="table-item-count">
-										<div class="item-reduce" ondblclick="return false" onselectstart="return false" onmousedown="return false">-</div>
-										<input type="text" value="3" class="js-item-count-input" maxlength="2">
-										<div class="item-add" ondblclick="return false" onselectstart="return false" onmousedown="return false">+</div>
-									</div>
-								</td>
-								<td class="js-cost-cell"></td>
-								<td><button class="btn-basket-delete" title="Удалить">&times;</button></td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-				<div class="main-total">
-					<div class="total-cost">
-						<div class="c-tota-cost">Итого:&nbsp;<span id="js-all-summ">564</span></div>
-						<button class="theme-btn-border theme-btn btn-contine">Продолжить</button>
+				<div class="main-title" id="js-our_contacts">Медведь плюшевый:</div>
+				<div class="main-product-description">
+					<div class="product-photo">
+						<img src="img/goods/bear.jpg" alt="Медвед" width="260" height="320">
+					</div>
+					<div class="product-parameters-table">
+						<div class="parameters-table">
+							<button class="theme-btn theme-btn-border btn-buy-prod"><span class="btn__price">666 ₽</span><div class="btn__buy theme-color">Купить</div></button>
+							<table>
+								<tr>
+									<th colspan="2">Характеристики</th>
+								</tr>
+								<tr>
+									<td>Высота</td>
+									<td>40</td>
+								</tr>
+								<tr>
+									<td>Ширина</td>
+									<td>30</td>
+								</tr>
+								<tr>
+									<td>Материал</td>
+									<td>Шерсть</td>
+								</tr>
+								<tr>
+									<td>Производитель</td>
+									<td>ООО "Медведи"</td>
+								</tr>
+							</table>
+						</div>
 					</div>
 				</div>
+				<div class="product-description-text">
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit quas quidem placeat cumque enim quasi asperiores incidunt quisquam qui aperiam dolorem libero ut autem ipsam alias facere fuga, in esse.
+				</div>
+				
 				<div class="main-title" id="js-our_contacts">Наши контакты:</div>
 				<div class="main-contacts">
 					<div class="main-contacts__phone">Ещё остались вопросы? Просто позвоните по телефону <span class="phone-highlight">8 800 555 35 35</span> и задайте их.</div>
@@ -165,20 +151,5 @@
 			</div>
 		</div>
 	</footer>
-
-	<div class="background">
-		<div class="popup-window">
-			<div class="main-title popup-window-title">Введите номер своего телефона</div>
-			<div class="popup-window-description">
-				<span>
-					Для подтверждения покупки наш оператор свяжется с Вами в течении дня
-				</span><br>
-				<button class="theme-btn theme-btn-border btn-confirm-phone">
-					<input type="text" class="input-confirm-phone" id="js-phone" />
-					<div class="btn__buy theme-color txt-confirm-phone">Подтвердить</div>
-				</button>
-			</div>
-		</div>
-	</div>
 </body>
 </html>

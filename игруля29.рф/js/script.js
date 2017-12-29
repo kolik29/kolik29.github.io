@@ -1,6 +1,8 @@
 VK.Widgets.Group("vk_groups", {mode: 0, width: "220", height: "250"}, 136088527);
 
 $(document).ready(function() {
+	$('#js-phone').mask('8 (999) 999 99 99');
+
 	/*slider-begin*/
 	$('.slide').css('width', $('.slider').css('width'));
 
@@ -122,6 +124,7 @@ $(document).ready(function() {
  		val++;
  		$(this).parent().children('input').val(val);
  		change_count($(this));
+ 		$('#js-all-summ').html(resumm());
  	});
 
  	 $('.item-reduce').click(function() {
@@ -130,6 +133,7 @@ $(document).ready(function() {
  			val--;
  		$(this).parent().children('input').val(val);
  		change_count($(this));
+ 		$('#js-all-summ').html(resumm());
  	});
 
  	$('.js-item-count-input').keydown(function(event) {
@@ -163,7 +167,36 @@ $(document).ready(function() {
  	$('.js-item-count-input').each(function(i, elem) {
  		change_count($(this));
  	});
+
+ 	$('.btn-contine').click(function() {
+ 		$('.background').css('display', 'flex');
+ 		$('.background').animate({
+ 			opacity: 1
+ 		}, 200);
+ 	});
+
+ 	$('.background').click(function() { 		
+ 		$('.background').animate({
+ 			opacity: 0
+ 		}, 200, function() {
+ 			$('.background').css('display', 'none'); 			
+ 		});
+ 	});
+
+ 	$('.btn-basket-delete').click(function() {
+ 		$('#js-all-summ').html(resumm());
+ 	});
+
+ 	$('#js-all-summ').html(resumm());
 });
+
+function resumm() {
+	var summ = 0;
+	$('.js-cost-cell').each(function() {
+		summ += parseInt($(this).html());
+	});
+	return summ;
+}
 
 function initMap(uluru = {lat: 64.542060, lng: 40.535097}) {
 	var map = new google.maps.Map(document.getElementById('map'), {
