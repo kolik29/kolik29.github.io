@@ -132,7 +132,7 @@ a {
 	display: flex;
 	flex-direction: column;
 	flex-grow: 1;
-	overflow-y: auto;
+	overflow-y: hidden;
 	background: #fff;
 }
 
@@ -155,6 +155,7 @@ a {
 
 .o-slide {
  	height: 100vh;
+ 	position: relative;
 }
 
 .v-contacts-link  {
@@ -270,7 +271,7 @@ a {
 }
 
 .deshevo {
-	background: url('../img/двери-дешево.jpg'); 
+	background: url('../img/качели.png'); 
 }
 
 .iphonestrade:before {
@@ -295,7 +296,7 @@ a {
 }
 
 .deshevo:before {
-	background-color: rgba(142,149,176, 0.75);
+	background-color: rgba(188,221,195, 0.75);
     display: block;
     position: absolute;
     left: 0;
