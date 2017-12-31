@@ -1,12 +1,9 @@
 $(document).ready(function() {
-	$(window).resize(function() {
-		resizer();
+	$('.iphonestrade').click(function() {
+		document.location.href = 'http://iphonestrade.ru/'
 	});
-	resizer();
 
-	function resizer() {
-		$('.v-sidebar__background').css('margin-left', '-' + (($('.v-sidebar__background').width() - $('.o-sidebar').width()) / 2) + 'px'); //выравнивает картинку на сайдбаре
-		$('.size-4-4').css('min-width', ($('.o-content').width() / 2) + 'px');
-	}
-
+	$('.deshevo').click(function() {
+		document.location.href = 'http://xn----7sbbgjhcypm0a7a5f6b.xn--b1add1b8bzc.xn--90ais/';
+	});
 });

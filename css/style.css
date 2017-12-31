@@ -13,7 +13,7 @@ body {
 	overflow-y: hidden;
 	min-width: 640px;
 	min-height: 480px;
-	font-family: 'Arial'
+	font-family: 'Arial';
 }
 
 a {
@@ -25,15 +25,20 @@ a {
 	overflow: hidden;
 	font-weight: 100;
 	position: relative;
+	background: url('../img/arh.png');
+	background-size: cover;
+	background-position-x: center;
 }
 
-.v-sidebar__background {	
-	background-repeat: no-repeat;
-	background-size: cover;
+.o-sidebar:before {
+	background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(255, 255, 255, 0.1));
+	content: '';
+	display: block;
 	position: absolute;
-	min-width: 360px;
-	min-height: 720px;
+	width: 100%;
 	height: 100%;
+	left: 0;
+	top: 0;
 }
 
 .v-sidebar__background-shadow {
@@ -108,7 +113,7 @@ a {
 
 .v-menu-item__triangle {
 	position: absolute;
-	top: -60px;
+	top: -63px;
     right: -55px;
     border-top: 75px solid transparent;
     border-right: 50px solid white;
@@ -128,6 +133,7 @@ a {
 	flex-direction: column;
 	flex-grow: 1;
 	overflow-y: auto;
+	background: #fff;
 }
 
 .o-half-top.title,
@@ -249,11 +255,70 @@ a {
 	overflow: hidden;
 }
 
-.size-4-4 > img,
-.size-2-4 > img,
-.size-1-4 > img {
-	position: absolute;
-	background-repeat: no-repeat;
-	background-size: cover;
-	width: 100%;
+.size-4-4,
+.size-2-4,
+.size-1-4 {
+	background-repeat: no-repeat !important;
+	background-size: cover !important;
+	background-position-x: center !important;
+	background-position-y: center !important;
+	cursor: pointer;
+}
+
+.iphonestrade {
+	background: url('../img/iphonestrade.jpg');
+}
+
+.deshevo {
+	background: url('../img/двери-дешево.jpg'); 
+}
+
+.iphonestrade:before {
+	background-color: rgba(135, 106, 74, 0.75);
+    display: block;
+    position: absolute;
+    left: 0;
+    top: -50px;
+    width: 100%;
+    height: calc(100% + 50px);
+    content: 'iphonestrade.ru';
+    transition: .2s;
+    padding-top: 10px;
+    padding-left: 10px;
+    color: #fff;
+    font-weight: 700;
+    font-size: 30px;
+}
+
+.iphonestrade:hover:before {
+	top: calc(100% - 50px);
+}
+
+.deshevo:before {
+	background-color: rgba(142,149,176, 0.75);
+    display: block;
+    position: absolute;
+    left: 0;
+    top: -40px;
+    width: 100%;
+    height: calc(100% + 40px);
+    content: 'садовые-качели.дёшево.бел';
+    transition: .2s;
+    padding-top: 7px;
+    padding-left: 10px;
+    color: #fff;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.deshevo:hover:before {
+	top: calc(100% - 40px);
+}
+
+.your-site {
+	justify-content: center;
+	font-size: 30px;
+	font-weight: 100;
+	padding-top: 16%;
+	background-color: #f9f9f9;
 }
