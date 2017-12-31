@@ -10,8 +10,6 @@ a {
 
 body {
 	display: flex;
-	flex-direction: row;
-	height: 100vh;
 	overflow-y: hidden;
 	min-width: 640px;
 	min-height: 480px;
@@ -24,7 +22,6 @@ a {
 
 .o-sidebar {
 	min-width: 360px;
-	height: 100vh;
 	overflow: hidden;
 	font-weight: 100;
 	position: relative;
@@ -33,10 +30,10 @@ a {
 .v-sidebar__background {	
 	background-repeat: no-repeat;
 	background-size: cover;
-	height: 100%;
 	position: absolute;
 	min-width: 360px;
 	min-height: 720px;
+	height: 100%;
 }
 
 .v-sidebar__background-shadow {
