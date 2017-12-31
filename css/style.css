@@ -1,221 +1,242 @@
 * {
 	padding: 0;
 	margin: 0;
-	font-family: 'Arial';
-	font-size: 18px;
-}
-
-h1 {
-	font-size: 75px;
-}
-
-b {
-	color: #fff;
 }
 
 a {
 	text-decoration: none;
-	color: black;
+	color: #000;
 }
 
 body {
+	display: flex;
+	flex-direction: row;
+	height: 100vh;
 	overflow-y: hidden;
 }
 
-.sidebar {
-	width: 25%;
+a {
+	display: inline-block;
+}
+
+.o-sidebar {
+	min-width: 360px;
 	height: 100vh;
-	overflow-x: hidden;
-	overflow-y: auto;
-	align-items: center;
-	justify-content: center;
-	background-image: url('../img/arh.jpg');
+	overflow: hidden;
+	font-weight: 100;
+	position: relative;
+}
+
+.v-sidebar__background {	
 	background-repeat: no-repeat;
 	background-size: cover;
-	background-position: center;
-	color: #fff;
-	float: left;
-	display: inline-flex;
-	min-width: 225px;
+	height: 100%;
+	position: absolute;
+	min-width: 360px;
+	min-height: 720px;
 }
 
-h1,
-.inner {
-	width: 90%;
-}
-
-.greeting > .text {
-	text-align: right;
-	font-size: 18px;
-	line-height: 30px;
-	margin-bottom: 20px;
-	float: right;
-}
-
-.avatar {
-	border-radius: 100%;
-    width: 85px;
-    height: 85px;
-    background-size: 100%;
-    margin-right: 0;
-    margin-left: auto;
-    margin-bottom: 20px;
-    float: right;
-}
-
-.menu {
+.v-sidebar__background-shadow {
+	position: absolute;
+	top: 0;
+	left: 0;	
 	width: 100%;
-	float: right;
+	height: 100%;
+	background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(255, 255, 255, 0.1));
 }
 
-.menu div {
-	text-align: right;
+.o-half-top,
+.o-half-bottom {
+	height: calc(50% - 10px);
+	display: flex;
+	flex-direction: column;
+}
+
+.o-half-top {
+	justify-content: flex-end;
+	position: relative;
+}
+
+.o-half-bottom {
+	top: 50%;
+	margin-top: 20px;
+}
+
+.v-sidebar__about-me {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+}
+
+.v-about-me__avatar {
+	width: 100px;
+	height: 100px;
+	border-radius: 100%;
+	border: 2px solid #fff; 
+	margin-bottom: 30px;
+}
+
+.v-about-me__text {
+	color: #fff;
 	font-size: 18px;
-	cursor: pointer;
-	margin: 10px 0;
-	line-height: 30px;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.5);
-	transition: 0.3s;
-}
-
-.about .inner .button {
-    margin-top: 30px;	
-}
-
-.button {	
 	text-align: right;
+}
+
+.o-half-bottom > .o-menu,
+.o-half-top > .v-sidebar__about-me {
+	padding: 0 5%;
+}
+
+.o-menu {
+	color: #fff;
 	font-size: 18px;
+}
+
+.v-menu__item {
+	text-align: right;
 	cursor: pointer;
-    border: 2px solid #363636;
-    display: inline-block;
-    padding: 10px;
-	transition: 0.3s;
+	margin-bottom: 5px;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+	transition: .3s;
+	position: relative;
 }
 
-.menu div:hover {
-	transition: 0.3s;
-	border-color: #fff;
+.v-menu__item:hover,
+.v-menu__item.enable {
+	border-bottom-color: #fff;
 }
 
-.button:hover {
-	transition: 0.3s;
-	border-color: rgba(0, 0, 0, 0.25);
-	color: rgba(0, 0, 0, 0.25);
+.v-menu-item__triangle {
+	position: absolute;
+	top: -60px;
+    right: -55px;
+    border-top: 75px solid transparent;
+    border-right: 50px solid white;
+    border-bottom: 75px solid transparent;
+    display: none;
+    cursor: auto;
 }
 
-.wrapper {
-	background-color: #fefefe;
-	float: left;
-	width: 75%;
-	height: 100vh;
-	color: #363636;
+.v-menu__item.enable > .v-menu-item__triangle {
 	display: inline-block;
+}
+
+.o-content {
+	height: 100%;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
 	overflow-y: auto;
 }
 
-.wrapper section {	
-	height: 100%;
-	width: 100%;
-	justify-content: center;
+.o-half-top.title,
+.o-half-bottom.text {
+	padding-left: 20px;
+	padding-right: 20px;
+	font-weight: 100;
 }
 
-.contacts,
-.about {
-	display: inline-flex;
-	align-items: center;
+.o-half-bottom.text {
+	font-size: 18px;
+	flex-direction: row;
 }
 
-.myWorks .title {
-	justify-content: center;
-	display: inline-flex;
-	width: 100%;
-	height: 40%;
-	position: relative;
+.o-half-top.title {	
+	font-size: 60px;
+	line-height: 50px;
 }
 
-.myWorks .title h1 {
-	position: absolute;
-	bottom: 0;
-	padding-bottom: 5%;
+.o-slide {
+ 	height: 100vh;
 }
 
-.logo {
-	overflow: hidden;
-	display: inline-block;
-	border-radius: 100%;
-	margin-top: 35px;
-	margin-right: 35px;
-	transition: 0.5s;
+.v-contacts-link  {
+  	width: 75px;
+  	height: 75px;
+  	margin: 0 10px;
+  	border-radius: 100px;
+  	position: relative;
+  	overflow: hidden;
 }
 
-.logo,
-.logo img {
+.v-contacts-link > img {
 	width: 75px;
 	height: 75px;
+	position: absolute;
+	top: 0;
+	left: 0;
 }
 
-.logo:hover {
-	opacity: 0.75;
-}
-
-/*slider_begin*/
-
-.slider {
+.link-light-img {
+	position: absolute;
+	top: 0;
+	left: 0;
 	width: 100%;
-	height: 60%;
-	overflow: hidden;
+	height: 100%;
+	transition: .3s;
 }
 
-.controls {
-	height: 75px;
-	width: 100%;
-	top: calc(-50% - 37.5px);
+.v-contacts-link:hover > .link-light-img {
+	background-color: rgba(255, 255, 255, 0.1);
+}
+
+.my-works-slider {
+	flex-flow: row nowrap;
+	overflow-x: hidden;
+	overflow-y: hidden;
 	position: relative;
+	top: 0;
 }
 
-.left, .right {
-	background-color: #fff;
-	border-radius: 100%;
-	border: 1px solid #000;
-	height: 73px;
-	width: 73px;
+.size-4-4 {
+	height: 100%;
+	width: 50%;
+	display: flex;
+	flex-flow: row wrap;
+}
+
+.size-2-4 {
+	height: 50%;
+	width: 100%;
+	display: flex;
+	flex-flow: row wrap;
+}
+
+.size-1-4 {
+	height: 100%;
+	width: 50%;
+}
+
+.slide-to-left,
+.slide-to-right {
+	position: absolute;
+	top: 0;
+	width: 10%;
+	max-width: 80px;
+	height: 100%;
 	cursor: pointer;
-}
-
-.left {
-	float: left;
-	margin-left: 25px;
-}
-
-.right {
-	float: right;
-	margin-right: 25px;
-}
-
-.content {
-    width: calc(100% - 125px);
-    margin-left: 62.5px;
-    height: 100%;
-    align-items: center;
-    display: inline-flex;
-}
-
-.content .slide {
-	height: 400px;
 	display: flex;
 }
 
-.box {
-    border-radius: 10px;
-    height: 100%;
-    float: left;
-    margin-right: 75px;
-    width: 400px;
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+.slide-to-left {
+	left: 0;
+	background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.1));
 }
 
-.yourSite {	
-	height: 100%;
-	float: left;
-	width: 300px;
+.slide-to-right {
+	right: 0;
+	background: linear-gradient(to left, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.1));
+}
+
+.fig-triangle-left,
+.fig-triangle-right {
+	background-color: #00000000;
+	width: 40px;
+	height: 60px;
+	margin: auto;
+}
+
+.fig-triangle-right {
+	transform: scale(-1, 1);
 }

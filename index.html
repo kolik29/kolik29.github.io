@@ -2,77 +2,93 @@
 <html lang="ru">
 <head>
 	<meta charset="UTF-8">
-	<title>Разрабокта сайтов | kolik29.ru</title>
+	<title>Разработка сайтов | kolik29.ru</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script type="text/javascript" src="js/script.js"></script>
 </head>
 <body>
-	<section class="sidebar">
-		<div class="inner">
-			<div class="greeting">
-				<img class="avatar" src="img/iam.jpg"></img>
-				<div class="text">
-					<b>Привет</b>, меня зовут Николай и я занимаюсь версткой сайтов
+	<div class="o-sidebar">
+		<img src="img/arh.png" class="v-sidebar__background">
+		<div class="v-sidebar__background-shadow"></div>
+
+		<div class="o-half-top">
+			<div class="v-sidebar__about-me">
+				<img src="img/iam.png" class="v-about-me__avatar" alt="Avatar">
+				<div class="v-about-me__text">
+					<b>Привет, </b>меня зовут Николай и я занимаюсь разработкой сайтов
 				</div>
-			</div>
-			<div class="menu">
-				<div id="aboutLink">О себе</div>
-				<div id="myWorksLink">Мои работы</div>
-				<div id="contactsLink">Контакты</div>
 			</div>
 		</div>
-	</section>
-	<section class="wrapper">
-		<section class="about">
-			<div class="inner">
-				<h1>О себе:</h1>
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur ab, cum voluptatem iste perspiciatis dolore! Architecto blanditiis molestiae perferendis, iure nihil similique, suscipit inventore nemo dolore, eveniet, eligendi accusamus ut.<br>
-				<span class="button" id="myWorksLink">
-					МОИ РАБОТЫ
-				</span>
+		<div class="o-half-bottom">
+			<div class="o-menu">
+				<div class="v-menu__item enable">О себе<div class="v-menu-item__triangle"></div></div>
+				<div class="v-menu__item">Мои работы<div class="v-menu-item__triangle"></div></div>
+				<div class="v-menu__item">Мои контакты<div class="v-menu-item__triangle"></div></div>
 			</div>
-		</section>
-		<section class="myWorks">
-			<div class="title"><h1>Мои работы:</h1></div>
-			<div class="slider">
-				<div class="content">
-					<div class="slide">
-						<div class="box"></div>
-						<div class="box"></div>
-						<div class="box"></div>
-						<div class="box"></div>
-						<div class="box"></div>
-						<div class="box"></div>
-						<div class="box"></div>
-						<div class="box yourSite"></div>
+		</div>
+	</div>
+
+	<div class="o-content">
+		<div id="js-slide-1" class="o-slide">
+			<div class="o-half-top title" id="js-content-slide-1">
+				О себе
+			</div>
+			<div class="o-half-bottom text">
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et reiciendis natus voluptatibus quis minima ab obcaecati! Atque quis maiores voluptatem deserunt debitis pariatur aliquid nihil, delectus quia assumenda perferendis vero.
+			</div>
+			<div class="o-half-top title" id="js-content-slide-2">
+				Мои работы
+			</div>
+			<div class="o-half-bottom my-works-slider">
+				<div class="slide-to-left">
+					<svg class="fig-triangle-left">
+						<rect id="backgroundrect" width="100%" height="100%" x="0" y="0" fill="#00000000" stroke="none"/>
+						<g class="currentLayer">
+							<path fill="#fff" d="M 20 0 L 0 30 L 20 60 L 40 60 L 20 30 L 40 0 L 40 0"/>
+						</g>
+					</svg>
+				</div>
+				<div class="slide-to-right">					
+					<svg class="fig-triangle-right">
+						<rect id="backgroundrect" width="100%" height="100%" x="0" y="0" fill="#00000000" stroke="none"/>
+						<g class="currentLayer">
+							<path fill="#fff" d="M 20 0 L 0 30 L 20 60 L 40 60 L 20 30 L 40 0 L 40 0"/>
+						</g>
+					</svg>
+				</div>
+				<div class="size-4-4" style="background-color: #987445;"></div>
+				<div class="size-4-4" style="background-color: #321456;">
+					<div class="size-2-4" style="background-color: #635541;"></div>
+					<div class="size-2-4" style="background-color: #589644;">
+						<div class="size-1-4" style="background-color: #879652"></div>
+						<div class="size-1-4" style="background-color: #325874"></div>
 					</div>
 				</div>
-				<div class="controls">
-					<div class="left"></div>
-					<div class="right"></div>
-				</div>
+				<div class="size-4-4" style="background-color: #987445;"></div>
 			</div>
-		</section>
-		<section class="contacts">
-			<div class="inner">
-				<h1>Контакты:</h1>
-				<div>
-					<a href="#" class="logo">
-						<img src="img/facebook.png">
-					</a>
-					<a href="#" class="logo">
-						<img src="img/telegram.png">
-					</a>
-					<a href="#" class="logo">
-						<img src="img/vk.png">
-					</a>
-					<a href="#" class="logo">
-						<img src="img/email.png">
-					</a>
-				</div>
+			<div class="o-half-top title" id="js-content-slide-3">
+				Мои контакты
 			</div>
-		</section>
-	</section>
+			<div class="o-half-bottom text">
+				<a href="#" class="v-contacts-link">
+					<img src="img/facebook.png" alt="">
+					<div class="link-light-img"></div></img>
+				</a>
+				<a href="#" class="v-contacts-link">
+					<img src="img/vk.png" alt="">
+					<div class="link-light-img"></div>
+				</a>
+				<a href="#" class="v-contacts-link">
+					<img src="img/telegram.png" alt="">
+					<div class="link-light-img"></div>
+				</a>
+				<a href="#" class="v-contacts-link">
+					<img src="img/email.png" alt="">
+					<div class="link-light-img"></div>
+				</a>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
