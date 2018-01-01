@@ -223,6 +223,7 @@ a {
 .portfolio-title {
 	width: 360px;
 	background-color: #fff;
+	transition: .3s
 }
 
 .portfolio-slider {
@@ -255,34 +256,24 @@ a {
 
 .iphonestrade:before {
 	background-color: rgba(135, 106, 74, 0.75);
-    display: block;
-    position: absolute;
-    left: 0;
     top: -90px;
-    width: 100%;
     height: calc(100% + 90px);
     content: 'Сайт для студии Arktic';
-    transition: .2s;
-    padding-top: 7px;
-    padding-left: 10px;
-    color: #fff;
-    font-weight: 100;
-    font-size: 20px;
 }
-
-/*.iphonestrade:hover:before {
-	top: calc(100% - 40px);
-}*/
 
 .deshevo:before {
 	background-color: rgba(188,221,195, 0.75);
+    top: -80px;
+    height: calc(100% + 80px);
+    content: 'Сайт для белорусской компании';
+}
+
+.deshevo:before,
+.iphonestrade:before {
     display: block;
     position: absolute;
     left: 0;
-    top: -80px;
     width: 100%;
-    height: calc(100% + 80px);
-    content: 'Сайт для белорусской компании';
     transition: .2s;
     padding-top: 7px;
     padding-left: 10px;
@@ -291,9 +282,10 @@ a {
     font-size: 20px;
 }
 
-/*.deshevo:hover:before {
+.iphonestrade:hover:before,
+.deshevo:hover:before {
 	top: calc(100% - 40px);
-}*/
+}
 
 .your-site {
 	justify-content: center;
@@ -303,8 +295,8 @@ a {
     display: flex;
     align-items: center;
     cursor: default;
-    min-width: 360px;
-    padding-left: 20px;
+    min-width: 180px;
+    padding: 0 60px 0 20px;
 }
 
 .slider-controls {
@@ -312,10 +304,45 @@ a {
 	height: 62px;
 }
 
+.slider-controls {
+	width: 101px;
+	height: 50px;
+	border: 1px solid #000;
+	display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    position: absolute;
+    right: 10px;
+}
+
+.slider-controls:after {
+	content: '';
+	position: absolute;
+	width: 1px;
+	background-color: #000;
+	height: 100%;
+	left: 50px;
+	top: 0;
+}
+
 .prev-btn,
 .next-btn {
-	width: 50%;
 	height: 100%;
-	display: inline-block;
-	border: 1px solid #000;
+	cursor: pointer;
+	position: relative;
+}
+
+.prev-btn:before,
+.next-btn:before {
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	content: '';
+	background-color: rgba(255, 255, 255, 0.5);
+	display: block;
+}
+
+.prev-btn:hover:before,
+.next-btn:hover:before {
+	display: none;
 }
