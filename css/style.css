@@ -14,6 +14,7 @@ body {
 	min-width: 640px;
 	min-height: 480px;
 	font-family: 'Arial';
+	min-width: 920px;
 }
 
 a {
@@ -274,14 +275,13 @@ a {
 	background: url('../img/качели.png'); 
 }
 
-.iphonestrade:before {
-	background-color: rgba(135, 106, 74, 0.75);
+.iphonestrade:after {
     display: block;
+    background-color: rgba(135, 106, 74, 0.75);
     position: absolute;
     left: 0;
-    top: -50px;
+    margin-bottom: 40px;
     width: 100%;
-    height: calc(100% + 50px);
     content: 'iphonestrade.ru';
     transition: .2s;
     padding-top: 10px;
@@ -289,10 +289,50 @@ a {
     color: #fff;
     font-weight: 700;
     font-size: 30px;
+    bottom: 100%;
+}
+
+
+.iphonestrade:before {
+	background-color: rgba(135, 106, 74, 0.75);
+    display: block;
+    position: absolute;
+    left: 0;
+    top: -90px;
+    width: 100%;
+    height: calc(100% + 90px);
+    content: 'Сайт для студии Arktic';
+    transition: .2s;
+    padding-top: 7px;
+    padding-left: 10px;
+    color: #fff;
+    font-weight: 100;
+    font-size: 20px;
+}
+
+.iphonestrade:hover:after {
+	bottom: 0;
 }
 
 .iphonestrade:hover:before {
-	top: calc(100% - 50px);
+	top: calc(100% - 40px);
+}
+
+.deshevo:after {
+    display: block;
+	background-color: rgba(188,221,195, 0.75);
+    position: absolute;
+    left: 0;
+    margin-bottom: 40px;
+    width: 100%;
+    content: 'садовые-качели.дёшево.бел';
+    transition: .2s;
+    padding-top: 10px;
+    padding-left: 10px;
+    color: #fff;
+    font-weight: 700;
+    font-size: 25px;
+    bottom: 100%;
 }
 
 .deshevo:before {
@@ -300,16 +340,20 @@ a {
     display: block;
     position: absolute;
     left: 0;
-    top: -40px;
+    top: -80px;
     width: 100%;
-    height: calc(100% + 40px);
-    content: 'садовые-качели.дёшево.бел';
+    height: calc(100% + 80px);
+    content: 'Сайт для белорусской компании';
     transition: .2s;
     padding-top: 7px;
     padding-left: 10px;
     color: #fff;
-    font-weight: 700;
+    font-weight: 100;
     font-size: 20px;
+}
+
+.deshevo:hover:after {
+	bottom: 0;
 }
 
 .deshevo:hover:before {
