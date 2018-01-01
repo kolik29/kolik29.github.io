@@ -146,7 +146,11 @@ a {
 
 .o-half-top.title {	
 	font-size: 60px;
-	line-height: 50px;
+    line-height: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: start;
 }
 
 .o-half-bottom.text {
@@ -164,7 +168,6 @@ a {
 	flex-direction: row;
 	align-items: center;
 	justify-content: center;
-	align-content: center;
 	cursor: pointer;
 	transition: .3s;
 }
@@ -217,6 +220,11 @@ a {
 	background-color: rgba(255, 255, 255, 0.1);
 }
 
+.portfolio-title {
+	width: 360px;
+	background-color: #fff;
+}
+
 .portfolio-slider {
 	flex-flow: row nowrap;
 	overflow-x: hidden;
@@ -225,35 +233,11 @@ a {
 	top: 0;
 }
 
-.size-4-4 {
+.slide {
 	height: 100%;
-	width: 50%;
-	display: flex;
-	flex-flow: row wrap;
-}
-
-.size-2-4 {
-	height: 50%;
-	width: 100%;
-	display: flex;
-	flex-flow: row wrap;
-}
-
-.size-1-4 {
-	height: 100%;
-	width: 50%;
-}
-
-.size-4-4,
-.size-2-4,
-.size-1-4 {
+	min-width: calc(50vw - 180px);
 	position: relative;
 	overflow: hidden;
-}
-
-.size-4-4,
-.size-2-4,
-.size-1-4 {
 	background-repeat: no-repeat !important;
 	background-size: cover !important;
 	background-position-x: center !important;
@@ -268,24 +252,6 @@ a {
 .deshevo {
 	background: url('../img/качели.png'); 
 }
-
-.iphonestrade:after {
-    display: block;
-    background-color: rgba(135, 106, 74, 0.75);
-    position: absolute;
-    left: 0;
-    margin-bottom: 40px;
-    width: 100%;
-    content: 'iphonestrade.ru';
-    transition: .2s;
-    padding-top: 10px;
-    padding-left: 10px;
-    color: #fff;
-    font-weight: 700;
-    font-size: 30px;
-    bottom: 100%;
-}
-
 
 .iphonestrade:before {
 	background-color: rgba(135, 106, 74, 0.75);
@@ -304,30 +270,9 @@ a {
     font-size: 20px;
 }
 
-.iphonestrade:hover:after {
-	bottom: 0;
-}
-
-.iphonestrade:hover:before {
+/*.iphonestrade:hover:before {
 	top: calc(100% - 40px);
-}
-
-.deshevo:after {
-    display: block;
-	background-color: rgba(188,221,195, 0.75);
-    position: absolute;
-    left: 0;
-    margin-bottom: 40px;
-    width: 100%;
-    content: 'садовые-качели.дёшево.бел';
-    transition: .2s;
-    padding-top: 10px;
-    padding-left: 10px;
-    color: #fff;
-    font-weight: 700;
-    font-size: 25px;
-    bottom: 100%;
-}
+}*/
 
 .deshevo:before {
 	background-color: rgba(188,221,195, 0.75);
@@ -346,21 +291,31 @@ a {
     font-size: 20px;
 }
 
-.deshevo:hover:after {
-	bottom: 0;
-}
-
-.deshevo:hover:before {
+/*.deshevo:hover:before {
 	top: calc(100% - 40px);
-}
+}*/
 
 .your-site {
 	justify-content: center;
-	font-size: 30px;
-	font-weight: 100;
-	background-color: #f9f9f9;
+    font-size: 30px;
+    font-weight: 100;
+    background-color: #fff;
     display: flex;
-    flex-direction: column;
     align-items: center;
     cursor: default;
+    min-width: 360px;
+    padding-left: 20px;
+}
+
+.slider-controls {
+	width: 124px;
+	height: 62px;
+}
+
+.prev-btn,
+.next-btn {
+	width: 50%;
+	height: 100%;
+	display: inline-block;
+	border: 1px solid #000;
 }
