@@ -144,14 +144,42 @@ a {
 	font-weight: 100;
 }
 
+.o-half-top.title {	
+	font-size: 60px;
+	line-height: 50px;
+}
+
 .o-half-bottom.text {
 	font-size: 18px;
 	flex-direction: row;
 }
 
-.o-half-top.title {	
-	font-size: 60px;
-	line-height: 50px;
+.v-btn {
+	position: absolute;
+	bottom: 10px;
+	height: 60px;
+	width: 60px;
+	border: 1px solid #545454;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	align-content: center;
+	cursor: pointer;
+	transition: .3s;
+}
+
+.v-btn:hover {
+	border-color: #000
+}
+
+.v-btn:hover  > svg > line {
+	stroke: #000;
+}
+
+.v-btn.scroll-down {
+	left: calc(50% - 40px);
+	border-radius: 1000px;	
 }
 
 .o-slide {
@@ -189,7 +217,7 @@ a {
 	background-color: rgba(255, 255, 255, 0.1);
 }
 
-.my-works-slider {
+.portfolio-slider {
 	flex-flow: row nowrap;
 	overflow-x: hidden;
 	overflow-y: hidden;
@@ -214,40 +242,6 @@ a {
 .size-1-4 {
 	height: 100%;
 	width: 50%;
-}
-
-.slide-to-left,
-.slide-to-right {
-	position: absolute;
-	top: 0;
-	width: 10%;
-	max-width: 80px;
-	height: 100%;
-	cursor: pointer;
-	display: flex;
-	display: none;
-}
-
-.slide-to-left {
-	left: 0;
-	background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.1));
-}
-
-.slide-to-right {
-	right: 0;
-	background: linear-gradient(to left, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.1));
-}
-
-.fig-triangle-left,
-.fig-triangle-right {
-	background-color: #00000000;
-	width: 40px;
-	height: 60px;
-	margin: auto;
-}
-
-.fig-triangle-right {
-	transform: scale(-1, 1);
 }
 
 .size-4-4,
@@ -364,6 +358,9 @@ a {
 	justify-content: center;
 	font-size: 30px;
 	font-weight: 100;
-	padding-top: 16%;
 	background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: default;
 }
