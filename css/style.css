@@ -53,7 +53,6 @@ a {
 
 .o-half-top,
 .o-half-bottom {
-	height: calc(50% - 10px);
 	display: flex;
 	flex-direction: column;
 }
@@ -62,11 +61,13 @@ a {
 	justify-content: flex-end;
 	position: relative;
 	overflow: hidden; 
+	height: 50vh;
 }
 
 .o-half-bottom {
 	margin-top: 20px;
 	position: relative;
+	height: calc(50vh - 20px);
 }
 
 .v-sidebar__about-me {
