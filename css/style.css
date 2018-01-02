@@ -61,6 +61,7 @@ a {
 .o-half-top {
 	justify-content: flex-end;
 	position: relative;
+	overflow: hidden; 
 }
 
 .o-half-bottom {
@@ -280,11 +281,6 @@ a {
     font-size: 20px;
 }
 
-.iphonestrade:hover:before,
-.deshevo:hover:before {
-	top: calc(100% - 40px);
-}
-
 .your-site {
     font-size: 30px;
     font-weight: 100;
@@ -298,11 +294,6 @@ a {
 }
 
 .slider-controls {
-	width: 124px;
-	height: 62px;
-}
-
-.slider-controls {
 	width: 101px;
 	height: 50px;
 	border: 1px solid #000;
@@ -312,6 +303,7 @@ a {
     position: absolute;
     right: 10px;
     background-color: #fff;
+    box-shadow: 20px 0 0px #fff;
 }
 
 .slider-controls:after {
@@ -349,11 +341,13 @@ a {
 	content: '';
 	background-color: rgba(255, 255, 255, 0.5);
 	display: block;
+	transition: .3s;
+	opacity: 1;
 }
 
 .prev-btn:hover:before,
 .next-btn:hover:before {
-	display: none;
+	opacity: 0;
 }
 
 .slides-titles {
@@ -362,6 +356,15 @@ a {
 	align-items: flex-end;
 	position: absolute;
 	transition: .5s;
+}
+
+.slides-titles:after {
+	content: '';
+	position: absolute;
+	width: 10px;
+	background-color: #fff;
+	right: -10px;
+	height: 100%;
 }
 
 .slides-titles > div:nth-child(1) {
@@ -380,4 +383,8 @@ a {
 	white-space: nowrap;
 	padding-right: 20px; 
 	opacity: 0;
+}
+
+.portfolio-slider > .js-select-slide:before {
+	top: calc(100% - 40px);
 }

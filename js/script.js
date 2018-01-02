@@ -44,15 +44,32 @@ $(document).ready(function() {
 
     var countSlide = 1;
     $('.next-btn').click(function() {
-    	if ($('.slides-titles > div:nth-child(' + countSlide + ')').next().width() != undefined) {
-    		$('.slides-titles > div:nth-child(' + countSlide + ')').next().css('opacity', '1');
-    		$('.slides-titles').css('margin-left', '-=' + $('.slides-titles > div:nth-child(' + countSlide + ')').outerWidth());
-    		$('.slides-titles > div:nth-child(' + countSlide + ')').next().next().css('opacity', '0.5');
+    	var now = Date.now();
+  		if(now - lastCall > 500) {
+    		if ($('.slides-titles > div:nth-child(' + countSlide + ')').next().outerWidth() != undefined) {
+    			$('.slides-titles > div:nth-child(' + countSlide + ')').next().css('opacity', '1');
+    			$('.slides-titles').css('margin-left', '-=' + $('.slides-titles > div:nth-child(' + countSlide + ')').outerWidth());
+    			$('.slides-titles > div:nth-child(' + countSlide + ')').next().next().css('opacity', '0.5');
+    			$('.portfolio-slider').css('margin-left', '-=' + $('.portfolio-slider > div:nth-child(' + countSlide + ')').outerWidth());       	
+				$('.portfolio-slider > div:nth-child(' + countSlide + ')').next().addClass('js-select-slide');
+    			countSlide++;
+    		}
+    		lastCall = now;
+    	}
+    });
 
-    		console.log($('.portfolio-slider > div:nth-child(' + countSlide + ')').width());
-    		$('.portfolio-slider').css('margin-left', '-=' + $('.portfolio-slider > div:nth-child(' + countSlide + ')').outerWidth());
-    	
-    		countSlide++;
+    $('.prev-btn').click(function() {
+    	var now = Date.now();
+  		if(now - lastCall > 500) {
+    		if ($('.slides-titles > div:nth-child(' + countSlide + ')').prev().outerWidth() != undefined) {
+    			$('.slides-titles > div:nth-child(' + countSlide + ')').css('opacity', '0.5');
+    			$('.slides-titles').css('margin-left', '+=' + $('.slides-titles > div:nth-child(' + countSlide + ')').prev().outerWidth());
+    			$('.slides-titles > div:nth-child(' + countSlide + ')').next().css('opacity', '0');
+    			$('.portfolio-slider').css('margin-left', '+=' + $('.portfolio-slider > div:nth-child(' + countSlide + ')').prev().outerWidth());    	       	
+				$('.portfolio-slider > div:nth-child(' + countSlide + ')').removeClass('js-select-slide');
+    			countSlide--;
+    		}
+  			lastCall = now;
     	}
     });
 });
