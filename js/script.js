@@ -27,11 +27,11 @@ $(document).ready(function() {
 	});
 
 	$('.iphonestrade').click(function() {
-		document.location.href = 'http://iphonestrade.ru/'
+		window.open('http://iphonestrade.ru/');
 	});
 
 	$('.deshevo').click(function() {
-		document.location.href = 'http://xn----7sbbgjhcypm0a7a5f6b.xn--b1add1b8bzc.xn--90ais/';
+		window.open('http://xn----7sbbgjhcypm0a7a5f6b.xn--b1add1b8bzc.xn--90ais/');
 	});
 
     $('.o-content').bind('wheel', function() {
@@ -40,6 +40,23 @@ $(document).ready(function() {
 
     $('.v-btn.scroll-down').click(function() {
     	$('#js-portfolio-item').trigger('click');
+    });
+
+    var countSlide = 1;
+    $('.next-btn').click(function() {
+    	if ($('.slides-titles > div:nth-child(' + countSlide + ')').next().width() != undefined) {
+    		$('.slides-titles > div:nth-child(' + countSlide + ')').next().css('opacity', '1');
+    		/*$('.slides-titles').animate({
+    			marginLeft: '-=' + $('.slides-titles > div:nth-child(' + countSlide + ')').outerWidth()
+    		}, 500);*/
+    		$('.slides-titles').css('margin-left', '-=' + $('.slides-titles > div:nth-child(' + countSlide + ')').outerWidth());
+    		$('.slides-titles > div:nth-child(' + countSlide + ')').next().next().css('opacity', '0.5');
+
+    		console.log($('.portfolio-slider > div:nth-child(' + countSlide + ')').width());
+    		$('.portfolio-slider').css('margin-left', '-=' + $('.portfolio-slider > div:nth-child(' + countSlide + ')').outerWidth());
+    	
+    		countSlide++;
+    	}
     });
 });
 
