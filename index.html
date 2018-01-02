@@ -3,25 +3,25 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Николай Куликов | kolik29.ru</title>
-	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/style.less.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script type="text/javascript" src="js/script.js"></script>
 </head>
 <body>
 	<div class="o-sidebar">
 		<div class="o-half-top">
-			<div class="v-sidebar__about-me">
-				<img src="img/iam.png" class="v-about-me__avatar" alt="Avatar">
-				<div class="v-about-me__text">
+			<div class="about-me">
+				<img src="img/iam.png" class="avatar" alt="Avatar">
+				<div class="text">
 					<b>Привет, </b>меня зовут Николай и я занимаюсь разработкой программ и сайтов
 				</div>
 			</div>
 		</div>
 		<div class="o-half-bottom">
 			<div class="o-menu">
-				<div class="v-menu__item enable" id="js-aboutme-item">О себе<div class="v-menu-item__triangle"></div></div>
-				<div class="v-menu__item" id="js-portfolio-item">Портфолио<div class="v-menu-item__triangle"></div></div>
-				<div class="v-menu__item" id="js-contacts-item">Контакты<div class="v-menu-item__triangle"></div></div>
+				<div class="item enable" id="js-aboutme-item">О себе<div class="triangle"></div></div>
+				<div class="item" id="js-portfolio-item">Портфолио<div class="triangle"></div></div>
+				<div class="item" id="js-contacts-item">Контакты<div class="triangle"></div></div>
 			</div>
 		</div>
 	</div>
@@ -46,7 +46,7 @@
 					<div>iphonestrade.ru</div>
 					<div>садовые-качели.дёшево.бел</div>
 				</div>
-				<div class="slider-controls">
+				<div class="v-btn slider-controls">
 					<div class="prev-btn">
 						<svg width="50" height="50" xmlns="http://www.w3.org/2000/svg">
 							<line y2="25" x2="10" y1="5" x1="35" stroke-width="1" stroke="#000"/>
@@ -74,23 +74,10 @@
 				Контакты
 			</div>
 			<div class="o-half-bottom text">
-				<a href="https://www.facebook.com/kolik29" class="v-contacts-link">
-					<img src="img/facebook.png" alt="">
-						<div class="link-light-img"></div>
-					</img>
-				</a>
-				<a href="https://vk.com/id335256013" class="v-contacts-link">
-					<img src="img/vk.png" alt="">
-					<div class="link-light-img"></div>
-				</a>
-				<a href="https://web.telegram.org/@kolik29" class="v-contacts-link">
-					<img src="img/telegram.png" alt="">
-					<div class="link-light-img"></div>
-				</a>
-				<a href="mailto:kolik29@gmail.com" class="v-contacts-link">
-					<img src="img/email.png" alt="">
-					<div class="link-light-img"></div>
-				</a>
+				<a href="https://www.facebook.com/kolik29" class="v-contacts-link" id="fb"></a>
+				<a href="https://vk.com/id335256013" class="v-contacts-link" id="vk"></a>
+				<a href="https://web.telegram.org/@kolik29" class="v-contacts-link" id="telegram"></a>
+				<a href="mailto:kolik29@gmail.com" class="v-contacts-link" id="email"></a>
 			</div>
 		</div>
 	</div>
