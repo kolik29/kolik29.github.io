@@ -1,392 +1,390 @@
 body
 {
-	font-family: 'Arial';
-	display: flex;
-	height: 100vh;
-	margin: 0;
-	padding: 0;
-	}
+    font-family: 'Arial';
+    display: flex;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
 
 .circle
 {
-	border-radius: 100%;
-	}
+    border-radius: 100%;
+}
 
 .flex-column
 {
-	display: flex;
-	flex-direction: column;
-	}
+    display: flex;
+    flex-direction: column;
+}
 
 .triangle
 {
-	position: absolute;
-	top: -63px;
-	right: -55px;
-	display: none;
-	width: 0;
-	height: 0;
-	content: '';
-	cursor: auto;
-	border-top: 75px solid transparent;
-	border-right: 50px solid white;
-	border-bottom: 75px solid transparent;
-	}
+    position: absolute;
+    top: -63px;
+    right: -55px;
+    display: none;
+    width: 0;
+    height: 0;
+    content: '';
+    cursor: auto;
+    border-top: 75px solid transparent;
+    border-right: 50px solid white;
+    border-bottom: 75px solid transparent;
+}
 
 .o-sidebar
 {
-	font-weight: 100;
-	position: relative;
-	overflow: hidden;
-	min-width: 360px;
-	background: url('../img/arh.png');
-	background-position: center;
-	background-size: cover;
+    font-weight: 100;
+    position: relative;
+    overflow: hidden;
+    min-width: 360px;
+    background: url('../img/arh.png');
+    background-position: center;
+    background-size: cover;
 
-	&:before
-	{
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		content: '';
-		background: -webkit-linear-gradient(bottom, rgba(0, 0, 0, .9), rgba(255, 255, 255, .1));
-		background:   -o-linear-gradient(bottom, rgba(0, 0, 0, .9), rgba(255, 255, 255, .1));
-		background:	  linear-gradient(to top, rgba(0, 0, 0, .9), rgba(255, 255, 255, .1));
-		}
+    &:before
+    {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        content: '';
+        background: -webkit-linear-gradient(bottom, rgba(0, 0, 0, .9), rgba(255, 255, 255, .1));
+        background:      -o-linear-gradient(bottom, rgba(0, 0, 0, .9), rgba(255, 255, 255, .1));
+        background:         linear-gradient(to top, rgba(0, 0, 0, .9), rgba(255, 255, 255, .1));
+    }
 
-	.about-me
-	{
-		.flex-column;
-		align-items: flex-end;
+    .about-me
+    {
+        .flex-column;
+        align-items: flex-end;
 
-		.avatar
-		{
-			min-width: 100px;
-			min-height: 100px;
-			margin-bottom: 30px;
-			border: 2px solid #fff;
-			background: url('../img/iam.png');
-			background-position: center;
-			background-size: 100%;
+        .avatar
+        {
+            min-width: 100px;
+            min-height: 100px;
+            margin-bottom: 30px;
+            border: 2px solid #fff;
+            background: url('../img/iam.png');
+            background-position: center;
+            background-size: 100%;
 
-			.circle;
-			}
+            .circle;
+        }
 
-		.text
-		{
-			font-size: 18px;
-			text-align: right;
-			color: #fff;
-			}
-		}
-	}
+        .text
+        {
+            font-size: 18px;
+            text-align: right;
+            color: #fff;
+        }
+    }
+}
 
 .o-half-top,
 .o-half-bottom
 {
-	position: relative;
-	height: ~"calc(50% - 10px)";
+    position: relative;
+    height: ~"calc(50% - 10px)";
 
-	.flex-column;
+    .flex-column;
 
-	&.title,
-	&.text
-	{
-		font-weight: 100;
-		flex-direction: row;
-		padding: 0 20px;
-		}
-	}
+    &.title,
+    &.text
+    {
+        font-weight: 100;
+        flex-direction: row;
+        padding: 0 20px;
+    }
+}
 
 .o-half-top
 {
-	justify-content: flex-end;
+    justify-content: flex-end;
 
-	.about-me
-	{
-		padding: 0 20px;
-		}
+    .about-me
+    {
+        padding: 0 20px;
+    }
 
-	&.title
-	{
-		font-size: 60px;
-		line-height: 50px;
+    &.title
+    {
+        font-size: 60px;
+        line-height: 50px;
 
-		align-items: flex-end;
-		justify-content: flex-start;
-		}
-	}
+        align-items: flex-end;
+        justify-content: flex-start;
+    }
+}
 
 .o-half-bottom
 {
-	margin-top: 20px;
+    margin-top: 20px;
 
-	.o-menu
-	{
-		font-size: 18px;
-		padding: 0 20px;
-		color: #fff;
+    .o-menu
+    {
+        font-size: 18px;
+        padding: 0 20px;
+        color: #fff;
 
-		.item
-		{
-			position: relative;
-			margin-bottom: 5px;
-			cursor: pointer;
-			transition: .3s;
-			text-align: right;
-			border-bottom: 1px solid rgba(255, 255, 255, .5);
+        .item
+        {
+            position: relative;
+            margin-bottom: 5px;
+            cursor: pointer;
+            transition: .3s;
+            text-align: right;
+            border-bottom: 1px solid rgba(255, 255, 255, .5);
 
-			&.enable:after
-			{
-				.triangle;
-				}
+            &.enable:after
+            {
+                .triangle;
+            }
 
-			&.enable,
-			&:hover
-			{
-				border-bottom-color: #fff;
-				}
+            &.enable,
+            &:hover
+            {
+                border-bottom-color: #fff;
+            }
 
-			&.enable:after
-			{
-				display: block;
-				}
-			}
-		}
-	}
+            &.enable:after
+            {
+                display: block;
+            }
+        }
+    }
+}
 
 .o-content
 {
-	position: relative;
-	overflow: hidden;
-	background: #fff;
+    position: relative;
+    overflow: hidden;
+    background: #fff;
 
-	.flex-column;
-	flex-grow: 1;
+    .flex-column;
+    flex-grow: 1;
 
-	.o-slide
-	{
-		position: relative;
-		height: 100vh;
+    .o-slide
+    {
+        position: relative;
+        height: 100vh;
 
-		.v-btn
-		{
-			position: absolute;
-			display: flex;
-			cursor: pointer;
-			transition: .3s;
-			border: 1px solid #000;
+        .v-btn
+        {
+            position: absolute;
+            display: flex;
+            cursor: pointer;
+            transition: .3s;
+            border: 1px solid #000;
 
-			&.scroll-down
-			{
-				bottom: 10px;
-				left: ~"calc(50% - 40px)";
-				width: 60px;
-				height: 60px;
+            &.scroll-down
+            {
+                bottom: 10px;
+                left: ~"calc(50% - 40px)";
+                width: 60px;
+                height: 60px;
 
-				.circle;
-				justify-content: center;
-				align-items: center;
+                .circle;
+                justify-content: center;
+                align-items: center;
 
-				&:hover svg line
-				{
-					stroke: #000;
-					}
-				}
+                &:hover svg line
+                {
+                    stroke: #000;
+                }
+            }
 
-			&.slider-controls
-			{
-				right: 10px;
-				width: 101px;
-				height: 50px;
-				background: #fff;
-				box-shadow: 20px 0 0 #fff;
+            &.slider-controls
+            {
+                right: 10px;
+                width: 101px;
+                height: 50px;
+                background: #fff;
+                box-shadow: 20px 0 0 #fff;
 
-				&:after
-				{
-					position: absolute;
-					top: 0;
-					left: 50px;
-					width: 1px;
-					height: 100%;
-					content: '';
-					background: #000;
-					}
+                &:after
+                {
+                    position: absolute;
+                    top: 0;
+                    left: 50px;
+                    width: 1px;
+                    height: 100%;
+                    content: '';
+                    background: #000;
+                }
 
-				&:before
-				{
-					position: absolute;
-					left: -51px;
-					display: block;
-					width: 50px;
-					height: 100%;
-					content: '';
-					background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0), rgb(255, 255, 255));
-					background:   -o-linear-gradient(left, rgba(0, 0, 0, 0), rgb(255, 255, 255));
-					background:	  linear-gradient(to right, rgba(0, 0, 0, 0), rgb(255, 255, 255));
-					}
+                &:before
+                {
+                    position: absolute;
+                    left: -51px;
+                    display: block;
+                    width: 50px;
+                    height: 100%;
+                    content: '';
+                    background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0), rgb(255, 255, 255));
+                    background:      -o-linear-gradient(left, rgba(0, 0, 0, 0), rgb(255, 255, 255));
+                    background:         linear-gradient(to right, rgba(0, 0, 0, 0), rgb(255, 255, 255));
+                }
 
-				.prev-btn,
-				.next-btn
-				{
-					&:hover svg line
-					{
-						stroke: #000;
-						}
-					}
-				}
-			}
+                .prev-btn,
+                .next-btn
+                {
+                    &:hover svg line
+                    {
+                        stroke: #000;
+                    }
+                }
+            }
+        }
 
-		.slides-titles
-		{
-			display: flex;
-			transition: .5s;
+        .slides-titles
+        {
+            display: flex;
+            transition: .5s;
+            align-items: flex-end;
 
-			align-items: flex-end;
+            div
+            {
+                font-size: 40px;
+                line-height: 40px;
+                padding-right: 20px;
+                white-space: nowrap;
+                opacity: 0;
 
-			div
-			{
-				font-size: 40px;
-				line-height: 40px;
-				padding-right: 20px;
-				white-space: nowrap;
-				opacity: 0;
+                &:nth-child(1)
+                {
+                    font-size: 60px;
+                    line-height: 50px;
+                    opacity: 1;
+                }
 
-				&:nth-child(1)
-				{
-					font-size: 60px;
-					line-height: 50px;
-					opacity: 1;
-					}
+                &:nth-child(2)
+                {
+                    opacity: .5;
+                }
+            }
+        }
 
-				&:nth-child(2)
-				{
-					opacity: .5;
-					}
-				}
-			}
+        .portfolio-slider
+        {
+            display: flex;
+            height: 100%;
+            transition: .5s;
 
-		.portfolio-slider
-		{
-			display: flex;
-			height: 100%;
-			transition: .5s;
+            .slide
+            {
+                position: relative;
+                overflow: hidden;
+                min-width: ~"calc(50vw - 180px)";
+                cursor: pointer;
+                transition: .5s;
+                background-position: center !important;
+                background-size: cover !important;
 
-			.slide
-			{
-				position: relative;
-				overflow: hidden;
-				min-width: ~"calc(50vw - 180px)";
-				cursor: pointer;
-				transition: .5s;
-				background-position: center !important;
-				background-size: cover !important;
+                &.your-site
+                {
+                    font-size: 30px;
+                    font-weight: 100;
+                    display: flex;
+                    width: 180px !important;
+                    min-width: 180px !important;
+                    padding: 0 60px 0 20px;
+                    cursor: default;
+                    align-items: center;
+                }
 
-				&.your-site
-				{
-					font-size: 30px;
-					font-weight: 100;
-					display: flex;
-					width: 180px !important;
-					min-width: 180px !important;
-					padding: 0 60px 0 20px;
-					cursor: default;
+                &.deshevo,
+                &.iphonestrade
+                {
+                    &:before
+                    {
+                        font-size: 20px;
+                        font-weight: 100;
+                        position: absolute;
+                        left: 0;
+                        display: block;
+                        width: 100%;
+                        padding-top: 7px;
+                        padding-left: 10px;
+                        transition: .2s;
+                        color: #fff;
+                    }
+                }
 
-					align-items: center;
-					}
+                &.iphonestrade
+                {
+                    background: url('../img/iphonestrade.jpg');
 
-				&.deshevo,
-				&.iphonestrade
-				{
-					&:before
-					{
-						font-size: 20px;
-						font-weight: 100;
-						position: absolute;
-						left: 0;
-						display: block;
-						width: 100%;
-						padding-top: 7px;
-						padding-left: 10px;
-						transition: .2s;
-						color: #fff;
-						}
-					}
+                    &:before
+                    {
+                        top: -90px;
+                        height: ~"calc(100% + 90px)";
+                        content: 'Сайт для студии Arktic';
+                        background: rgba(135, 106, 74, .75);
+                    }
+                }
 
-				&.iphonestrade
-				{
-					background: url('../img/iphonestrade.jpg');
+                &.deshevo
+                {
+                    background: url('../img/качели.png');
 
-					&:before
-					{
-						top: -90px;
-						height: ~"calc(100% + 90px)";
-						content: 'Сайт для студии Arktic';
-						background: rgba(135, 106, 74, .75);
-						}
-					}
+                    &:before
+                    {
+                        top: -80px;
+                        height: calc(100% + 80px);
+                        content: 'Сайт для белорусской компании';
+                        background: rgba(188,221,195, .75);
+                    }
+                }
 
-				&.deshevo
-				{
-					background: url('../img/качели.png');
+                &.js-select-slide:before
+                {
+                    top: ~"calc(100% - 40px)";
+                }
+            }
+        }
 
-					&:before
-					{
-						top: -80px;
-						height: calc(100% + 80px);
-						content: 'Сайт для белорусской компании';
-						background: rgba(188,221,195, .75);
-						}
-					}
+        .v-contacts-link
+        {
+            position: relative;
+            width: 75px;
+            height: 75px;
+            margin: 0 10px;
+            background-size: cover !important;
 
-				&.js-select-slide:before
-				{
-					top: ~"calc(100% - 40px)";
-					}
-				}
-			}
+            .circle;
 
-		.v-contacts-link
-		{
-			position: relative;
-			width: 75px;
-			height: 75px;
-			margin: 0 10px;
-			background-size: cover !important;
+            &:hover:after
+            {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                content: '';
+                transition: .3s;
+                background: rgba(255, 255, 255, .1);
+            }
 
-			.circle;
+            &#fb
+            {
+                background: url('../img/facebook.png');
+            }
 
-			&:hover:after
-			{
-				position: absolute;
-				top: 0;
-				left: 0;
-				width: 100%;
-				height: 100%;
-				content: '';
-				transition: .3s;
-				background: rgba(255, 255, 255, .1);
-				}
+            &#vk
+            {
+                background: url('../img/vk.png');
+            }
 
-			&#fb
-			{
-				background: url('../img/facebook.png');
-				}
+            &#telegram
+            {
+                background: url('../img/telegram.png');
+            }
 
-			&#vk
-			{
-				background: url('../img/vk.png');
-				}
-
-			&#telegram
-			{
-				background: url('../img/telegram.png');
-				}
-
-			&#email
-			{
-				background: url('../img/email.png');
-				}
-			}
-		}
-	}
+            &#email
+            {
+                background: url('../img/email.png');
+            }
+        }
+    }
+}
