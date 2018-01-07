@@ -1,9 +1,9 @@
 body {
-  display: flex;
   font-family: 'Arial';
-  padding: 0;
-  margin: 0;
+  display: flex;
   height: 100vh;
+  margin: 0;
+  padding: 0;
 }
 .circle {
   border-radius: 100%;
@@ -16,32 +16,32 @@ body {
   position: absolute;
   top: -63px;
   right: -55px;
+  display: none;
+  width: 0;
+  height: 0;
+  content: '';
+  cursor: auto;
   border-top: 75px solid transparent;
   border-right: 50px solid white;
   border-bottom: 75px solid transparent;
-  display: none;
-  cursor: auto;
-  content: '';
-  height: 0;
-  width: 0;
 }
 .o-sidebar {
-  position: relative;
-  min-width: 360px;
-  overflow: hidden;
   font-weight: 100;
+  position: relative;
+  overflow: hidden;
+  min-width: 360px;
   background: url('../img/arh.png');
-  background-size: cover;
   background-position: center;
+  background-size: cover;
 }
 .o-sidebar:before {
-  background: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0.9), rgba(255, 255, 255, 0.1));
-  background: -o-linear-gradient(bottom, rgba(0, 0, 0, 0.9), rgba(255, 255, 255, 0.1));
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(255, 255, 255, 0.1));
-  content: '';
   position: absolute;
   width: 100%;
   height: 100%;
+  content: '';
+  background: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0.9), rgba(255, 255, 255, 0.1));
+  background: -o-linear-gradient(bottom, rgba(0, 0, 0, 0.9), rgba(255, 255, 255, 0.1));
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(255, 255, 255, 0.1));
 }
 .o-sidebar .about-me {
   display: flex;
@@ -51,32 +51,32 @@ body {
 .o-sidebar .about-me .avatar {
   min-width: 100px;
   min-height: 100px;
-  border-radius: 100%;
-  border: 2px solid #fff;
   margin-bottom: 30px;
+  border: 2px solid #fff;
   background: url('../img/iam.png');
   background-position: center;
   background-size: 100%;
+  border-radius: 100%;
 }
 .o-sidebar .about-me .text {
-  color: #fff;
   font-size: 18px;
   text-align: right;
+  color: #fff;
 }
 .o-half-top,
 .o-half-bottom {
-  display: flex;
-  flex-direction: column;
   position: relative;
   height: calc(50% - 10px);
+  display: flex;
+  flex-direction: column;
 }
 .o-half-top.title,
 .o-half-bottom.title,
 .o-half-top.text,
 .o-half-bottom.text {
-  padding: 0 20px;
   font-weight: 100;
   flex-direction: row;
+  padding: 0 20px;
 }
 .o-half-top {
   justify-content: flex-end;
@@ -94,30 +94,30 @@ body {
   margin-top: 20px;
 }
 .o-half-bottom .o-menu {
+  font-size: 18px;
   padding: 0 20px;
   color: #fff;
-  font-size: 18px;
 }
 .o-half-bottom .o-menu .item {
-  text-align: right;
-  cursor: pointer;
-  margin-bottom: 5px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-  transition: .3s;
   position: relative;
+  margin-bottom: 5px;
+  cursor: pointer;
+  transition: .3s;
+  text-align: right;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
 }
 .o-half-bottom .o-menu .item.enable:after {
   position: absolute;
   top: -63px;
   right: -55px;
+  display: none;
+  width: 0;
+  height: 0;
+  content: '';
+  cursor: auto;
   border-top: 75px solid transparent;
   border-right: 50px solid white;
   border-bottom: 75px solid transparent;
-  display: none;
-  cursor: auto;
-  content: '';
-  height: 0;
-  width: 0;
 }
 .o-half-bottom .o-menu .item.enable,
 .o-half-bottom .o-menu .item:hover {
@@ -128,29 +128,29 @@ body {
 }
 .o-content {
   position: relative;
+  overflow: hidden;
+  background: #fff;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  overflow: hidden;
-  background: #fff;
 }
 .o-content .o-slide {
-  height: 100vh;
   position: relative;
+  height: 100vh;
 }
 .o-content .o-slide .v-btn {
   position: absolute;
-  border: 1px solid #000;
   display: flex;
   cursor: pointer;
   transition: .3s;
+  border: 1px solid #000;
 }
 .o-content .o-slide .v-btn.scroll-down {
-  left: calc(50% - 40px);
-  border-radius: 100%;
   bottom: 10px;
-  height: 60px;
+  left: calc(50% - 40px);
   width: 60px;
+  height: 60px;
+  border-radius: 100%;
   justify-content: center;
   align-items: center;
 }
@@ -158,31 +158,31 @@ body {
   stroke: #000;
 }
 .o-content .o-slide .v-btn.slider-controls {
+  right: 10px;
   width: 101px;
   height: 50px;
-  right: 10px;
   background: #fff;
-  box-shadow: 20px 0 0px #fff;
+  box-shadow: 20px 0 0 #fff;
 }
 .o-content .o-slide .v-btn.slider-controls:after {
-  content: '';
   position: absolute;
-  width: 1px;
-  background: #000;
-  height: 100%;
-  left: 50px;
   top: 0;
+  left: 50px;
+  width: 1px;
+  height: 100%;
+  content: '';
+  background: #000;
 }
 .o-content .o-slide .v-btn.slider-controls:before {
-  content: '';
-  display: block;
   position: absolute;
+  left: -51px;
+  display: block;
+  width: 50px;
+  height: 100%;
+  content: '';
   background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0), #ffffff);
   background: -o-linear-gradient(left, rgba(0, 0, 0, 0), #ffffff);
   background: linear-gradient(to right, rgba(0, 0, 0, 0), #ffffff);
-  width: 50px;
-  height: 100%;
-  left: -51px;
 }
 .o-content .o-slide .v-btn.slider-controls .prev-btn:hover svg line,
 .o-content .o-slide .v-btn.slider-controls .next-btn:hover svg line {
@@ -190,14 +190,14 @@ body {
 }
 .o-content .o-slide .slides-titles {
   display: flex;
-  align-items: flex-end;
   transition: .5s;
+  align-items: flex-end;
 }
 .o-content .o-slide .slides-titles div {
   font-size: 40px;
   line-height: 40px;
-  white-space: nowrap;
   padding-right: 20px;
+  white-space: nowrap;
   opacity: 0;
 }
 .o-content .o-slide .slides-titles div:nth-child(1) {
@@ -206,73 +206,73 @@ body {
   opacity: 1;
 }
 .o-content .o-slide .slides-titles div:nth-child(2) {
-  opacity: 0.5;
+  opacity: .5;
 }
 .o-content .o-slide .portfolio-slider {
-  transition: .5s;
-  height: 100%;
   display: flex;
+  height: 100%;
+  transition: .5s;
 }
 .o-content .o-slide .portfolio-slider .slide {
-  min-width: calc(50vw - 180px);
   position: relative;
   overflow: hidden;
-  background-size: cover !important;
-  background-position: center !important;
+  min-width: calc(50vw - 180px);
   cursor: pointer;
   transition: .5s;
+  background-position: center !important;
+  background-size: cover !important;
 }
 .o-content .o-slide .portfolio-slider .slide.your-site {
   font-size: 30px;
   font-weight: 100;
   display: flex;
-  align-items: center;
-  cursor: default;
-  padding: 0 60px 0 20px;
-  min-width: 180px !important;
   width: 180px !important;
+  min-width: 180px !important;
+  padding: 0 60px 0 20px;
+  cursor: default;
+  align-items: center;
 }
 .o-content .o-slide .portfolio-slider .slide.deshevo:before,
 .o-content .o-slide .portfolio-slider .slide.iphonestrade:before {
-  display: block;
+  font-size: 20px;
+  font-weight: 100;
   position: absolute;
   left: 0;
+  display: block;
   width: 100%;
-  transition: .2s;
   padding-top: 7px;
   padding-left: 10px;
+  transition: .2s;
   color: #fff;
-  font-weight: 100;
-  font-size: 20px;
 }
 .o-content .o-slide .portfolio-slider .slide.iphonestrade {
   background: url('../img/iphonestrade.jpg');
 }
 .o-content .o-slide .portfolio-slider .slide.iphonestrade:before {
-  background: rgba(135, 106, 74, 0.75);
   top: -90px;
   height: calc(100% + 90px);
   content: 'Сайт для студии Arktic';
+  background: rgba(135, 106, 74, 0.75);
 }
 .o-content .o-slide .portfolio-slider .slide.deshevo {
   background: url('../img/качели.png');
 }
 .o-content .o-slide .portfolio-slider .slide.deshevo:before {
-  background: rgba(188, 221, 195, 0.75);
   top: -80px;
   height: calc(180%);
   content: 'Сайт для белорусской компании';
+  background: rgba(188, 221, 195, 0.75);
 }
 .o-content .o-slide .portfolio-slider .slide.js-select-slide:before {
   top: calc(100% - 40px);
 }
 .o-content .o-slide .v-contacts-link {
+  position: relative;
   width: 75px;
   height: 75px;
   margin: 0 10px;
-  border-radius: 100%;
-  position: relative;
   background-size: cover !important;
+  border-radius: 100%;
 }
 .o-content .o-slide .v-contacts-link:hover:after {
   position: absolute;
@@ -280,8 +280,8 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  transition: .3s;
   content: '';
+  transition: .3s;
   background: rgba(255, 255, 255, 0.1);
 }
 .o-content .o-slide .v-contacts-link#fb {
