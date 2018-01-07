@@ -25,6 +25,7 @@ body {
   width: 0;
 }
 .o-sidebar {
+  position: relative;
   min-width: 360px;
   overflow: hidden;
   font-weight: 100;
@@ -125,7 +126,6 @@ body {
   display: block;
 }
 .o-content {
-  height: 100%;
   position: relative;
   display: flex;
   flex-direction: column;
