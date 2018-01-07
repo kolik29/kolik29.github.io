@@ -25,6 +25,11 @@ body {
   border-right: 50px solid white;
   border-bottom: 75px solid transparent;
 }
+@media (max-width: 768px) {
+  .triangle {
+    opacity: 0;
+  }
+}
 .o-sidebar {
   font-weight: 100;
   position: relative;
@@ -62,6 +67,16 @@ body {
   font-size: 18px;
   text-align: right;
   color: #fff;
+}
+@media (max-width: 768px) {
+  .o-sidebar {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: -360px;
+    width: 360px;
+    height: 100%;
+  }
 }
 .o-half-top,
 .o-half-bottom {
@@ -119,6 +134,11 @@ body {
   border-right: 50px solid white;
   border-bottom: 75px solid transparent;
 }
+@media (max-width: 768px) {
+  .o-half-bottom .o-menu .item.enable:after {
+    opacity: 0;
+  }
+}
 .o-half-bottom .o-menu .item.enable,
 .o-half-bottom .o-menu .item:hover {
   border-bottom-color: #fff;
@@ -133,6 +153,17 @@ body {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+}
+.o-content:before {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  display: none;
+  width: 100%;
+  height: 100%;
+  content: '';
+  background-color: rgba(0, 0, 0, 0.5);
 }
 .o-content .o-slide {
   position: relative;
@@ -222,6 +253,11 @@ body {
   background-position: center !important;
   background-size: cover !important;
 }
+@media (max-width: 1024px) {
+  .o-content .o-slide .portfolio-slider .slide {
+    min-width: 360px;
+  }
+}
 .o-content .o-slide .portfolio-slider .slide.your-site {
   font-size: 30px;
   font-weight: 100;
@@ -295,4 +331,29 @@ body {
 }
 .o-content .o-slide .v-contacts-link#email {
   background: url('../img/email.png');
+}
+@media (max-width: 768px) {
+  .menu-burger {
+    position: absolute;
+    z-index: 1;
+    z-index: 2;
+    top: 10px;
+    left: 10px;
+    display: flex;
+    overflow: hidden;
+    flex-direction: column;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    opacity: 0.75;
+  }
+  .menu-burger .line {
+    position: relative;
+    width: 100%;
+    min-height: 7px;
+    margin: auto;
+    transition: .3s;
+    border-radius: 10px;
+    background-color: #ccc;
+  }
 }

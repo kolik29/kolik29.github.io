@@ -1,26 +1,22 @@
-body
-{
-    font-family: 'Arial';
+body {
+	font-family: 'Arial';
     display: flex;
     height: 100vh;
     margin: 0;
     padding: 0;
 }
 
-.circle
-{
-    border-radius: 100%;
+.circle {
+	border-radius: 100%;
 }
 
-.flex-column
-{
-    display: flex;
+.flex-column {
+	display: flex;
     flex-direction: column;
 }
 
-.triangle
-{
-    position: absolute;
+.triangle {
+	position: absolute;
     top: -63px;
     right: -55px;
     display: none;
@@ -31,11 +27,14 @@ body
     border-top: 75px solid transparent;
     border-right: 50px solid white;
     border-bottom: 75px solid transparent;
+
+    @media (max-width: 768px) {
+        opacity: 0;
+    }
 }
 
-.o-sidebar
-{
-    font-weight: 100;
+.o-sidebar {
+	font-weight: 100;
     position: relative;
     overflow: hidden;
     min-width: 360px;
@@ -43,8 +42,7 @@ body
     background-position: center;
     background-size: cover;
 
-    &:before
-    {
+    &:before {
         position: absolute;
         width: 100%;
         height: 100%;
@@ -54,13 +52,11 @@ body
         background:         linear-gradient(to top, rgba(0, 0, 0, .9), rgba(255, 255, 255, .1));
     }
 
-    .about-me
-    {
-        .flex-column;
+    .about-me {
+	.flex-column;
         align-items: flex-end;
 
-        .avatar
-        {
+        .avatar {
             min-width: 100px;
             min-height: 100px;
             margin-bottom: 30px;
@@ -72,43 +68,46 @@ body
             .circle;
         }
 
-        .text
-        {
+        .text {
             font-size: 18px;
             text-align: right;
             color: #fff;
         }
     }
+
+    @media (max-width: 768px) {
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        left: -360px;
+        width: 360px;
+        height: 100%;
+    }
 }
 
 .o-half-top,
-.o-half-bottom
-{
-    position: relative;
+.o-half-bottom {
+	position: relative;
     height: ~"calc(50% - 10px)";
 
     .flex-column;
 
     &.title,
-    &.text
-    {
+    &.text {
         font-weight: 100;
         flex-direction: row;
         padding: 0 20px;
     }
 }
 
-.o-half-top
-{
-    justify-content: flex-end;
+.o-half-top {
+	justify-content: flex-end;
 
-    .about-me
-    {
+    .about-me {
         padding: 0 20px;
     }
 
-    &.title
-    {
+    &.title {
         font-size: 60px;
         line-height: 50px;
 
@@ -117,18 +116,15 @@ body
     }
 }
 
-.o-half-bottom
-{
-    margin-top: 20px;
+.o-half-bottom {
+	margin-top: 20px;
 
-    .o-menu
-    {
+    .o-menu {
         font-size: 18px;
         padding: 0 20px;
         color: #fff;
 
-        .item
-        {
+        .item {
             position: relative;
             margin-bottom: 5px;
             cursor: pointer;
@@ -136,49 +132,54 @@ body
             text-align: right;
             border-bottom: 1px solid rgba(255, 255, 255, .5);
 
-            &.enable:after
-            {
+            &.enable:after {
                 .triangle;
             }
 
             &.enable,
-            &:hover
-            {
+            &:hover {
                 border-bottom-color: #fff;
             }
 
-            &.enable:after
-            {
+            &.enable:after {
                 display: block;
             }
         }
     }
 }
 
-.o-content
-{
-    position: relative;
+.o-content {
+	position: relative;
     overflow: hidden;
     background: #fff;
 
     .flex-column;
     flex-grow: 1;
 
-    .o-slide
-    {
+    &:before {
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        display: none;
+        width: 100%;
+        height: 100%;
+        content: '';
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .o-slide {
         position: relative;
         height: 100vh;
 
-        .v-btn
-        {
+        .v-btn {
             position: absolute;
             display: flex;
             cursor: pointer;
             transition: .3s;
             border: 1px solid #000;
 
-            &.scroll-down
-            {
+            &.scroll-down {
                 bottom: 10px;
                 left: ~"calc(50% - 40px)";
                 width: 60px;
@@ -188,22 +189,19 @@ body
                 justify-content: center;
                 align-items: center;
 
-                &:hover svg line
-                {
+                &:hover svg line {
                     stroke: #000;
                 }
             }
 
-            &.slider-controls
-            {
+            &.slider-controls {
                 right: 10px;
                 width: 101px;
                 height: 50px;
                 background: #fff;
                 box-shadow: 20px 0 0 #fff;
 
-                &:after
-                {
+                &:after {
                     position: absolute;
                     top: 0;
                     left: 50px;
@@ -213,8 +211,7 @@ body
                     background: #000;
                 }
 
-                &:before
-                {
+                &:before {
                     position: absolute;
                     left: -51px;
                     display: block;
@@ -227,52 +224,45 @@ body
                 }
 
                 .prev-btn,
-                .next-btn
-                {
-                    &:hover svg line
-                    {
+                .next-btn {
+                    &:hover svg line {
                         stroke: #000;
                     }
                 }
             }
         }
 
-        .slides-titles
-        {
+        .slides-titles {
             display: flex;
             transition: .5s;
+
             align-items: flex-end;
 
-            div
-            {
+            div {
                 font-size: 40px;
                 line-height: 40px;
                 padding-right: 20px;
                 white-space: nowrap;
                 opacity: 0;
 
-                &:nth-child(1)
-                {
+                &:nth-child(1) {
                     font-size: 60px;
                     line-height: 50px;
                     opacity: 1;
                 }
 
-                &:nth-child(2)
-                {
+                &:nth-child(2) {
                     opacity: .5;
                 }
             }
         }
 
-        .portfolio-slider
-        {
+        .portfolio-slider {
             display: flex;
             height: 100%;
             transition: .5s;
 
-            .slide
-            {
+            .slide {
                 position: relative;
                 overflow: hidden;
                 min-width: ~"calc(50vw - 180px)";
@@ -281,8 +271,11 @@ body
                 background-position: center !important;
                 background-size: cover !important;
 
-                &.your-site
-                {
+                @media (max-width: 1024px) {
+                    min-width: 360px;
+                }
+
+                &.your-site {
                     font-size: 30px;
                     font-weight: 100;
                     display: flex;
@@ -290,14 +283,13 @@ body
                     min-width: 180px !important;
                     padding: 0 60px 0 20px;
                     cursor: default;
+
                     align-items: center;
                 }
 
                 &.deshevo,
-                &.iphonestrade
-                {
-                    &:before
-                    {
+                &.iphonestrade {
+                    &:before {
                         font-size: 20px;
                         font-weight: 100;
                         position: absolute;
@@ -311,12 +303,10 @@ body
                     }
                 }
 
-                &.iphonestrade
-                {
+                &.iphonestrade {
                     background: url('../img/iphonestrade.jpg');
 
-                    &:before
-                    {
+                    &:before {
                         top: -90px;
                         height: ~"calc(100% + 90px)";
                         content: 'Сайт для студии Arktic';
@@ -324,12 +314,10 @@ body
                     }
                 }
 
-                &.deshevo
-                {
+                &.deshevo {
                     background: url('../img/качели.png');
 
-                    &:before
-                    {
+                    &:before {
                         top: -80px;
                         height: calc(100% + 80px);
                         content: 'Сайт для белорусской компании';
@@ -337,15 +325,13 @@ body
                     }
                 }
 
-                &.js-select-slide:before
-                {
+                &.js-select-slide:before {
                     top: ~"calc(100% - 40px)";
                 }
             }
         }
 
-        .v-contacts-link
-        {
+        .v-contacts-link {
             position: relative;
             width: 75px;
             height: 75px;
@@ -354,8 +340,7 @@ body
 
             .circle;
 
-            &:hover:after
-            {
+            &:hover:after {
                 position: absolute;
                 top: 0;
                 left: 0;
@@ -366,25 +351,48 @@ body
                 background: rgba(255, 255, 255, .1);
             }
 
-            &#fb
-            {
+            &#fb {
                 background: url('../img/facebook.png');
             }
 
-            &#vk
-            {
+            &#vk {
                 background: url('../img/vk.png');
             }
 
-            &#telegram
-            {
+            &#telegram {
                 background: url('../img/telegram.png');
             }
 
-            &#email
-            {
+            &#email {
                 background: url('../img/email.png');
             }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+	.menu-burger {
+        position: absolute;
+        z-index: 1;
+        z-index: 2;
+        top: 10px;
+        left: 10px;
+        display: flex;
+        overflow: hidden;
+        flex-direction: column;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        opacity: 0.75;
+
+        .line {
+            position: relative;
+            width: 100%;
+            min-height: 7px;
+            margin: auto;
+            transition: .3s;
+            border-radius: 10px;
+            background-color: #ccc;
         }
     }
 }
