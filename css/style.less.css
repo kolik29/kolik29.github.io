@@ -82,7 +82,8 @@ body {
 }
 @media (max-width: 425px) {
   .o-sidebar {
-    width: 80%;
+    width: 75%;
+    min-width: unset;
   }
 }
 .o-half-top,
