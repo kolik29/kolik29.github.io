@@ -79,9 +79,15 @@ body {
         position: absolute;
         z-index: 2;
         top: 0;
-        left: -360px;
+        margin-left: -100%;
         width: 360px;
         height: 100%;
+        transition: 1s;
+    }
+
+
+    @media (max-width: 425px) {
+        width: 80%;
     }
 }
 
@@ -381,17 +387,37 @@ body {
             border-radius: 10px;
             background-color: #ccc;
         }
+
+        &.close {
+            .line {
+                &:nth-child(1) {
+                    transform: rotate(45deg);
+                    top: 13px;
+                    background-color: #fff;
+                }
+
+                &:nth-child(2) {
+                    opacity: 0;
+                }
+
+                &:nth-child(3) {
+                    transform: rotate(-45deg);
+                    top: -13px;
+                    background-color: #fff;
+                }
+            }
+        }
     }
 
     .dark {
         position: absolute;
         left: 0;
         right: 0;
-        z-index: 2;
-        display: none;
+        z-index: -1;
         width: 100%;
         height: 100%;
-        opacity: 0;
         background-color: #000;
+        opacity: 0;
+        display: block;
     }
 }
