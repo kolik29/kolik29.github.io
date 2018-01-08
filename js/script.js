@@ -180,11 +180,10 @@ $(document).ready(function() {
 $(window).resize(function() {
 	var now = Date.now();
 	if(now - lastCall < 500) {
+		$('.o-slide').css('top', '0');
 		$('.item.enable').trigger('click');
 		lastCall = now;
 	}
-
-	console.log('wqe');
 });
 
 

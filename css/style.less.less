@@ -1,5 +1,5 @@
 body {
-	font-family: 'Arial';
+    font-family: 'Arial';
     display: flex;
     height: 100vh;
     margin: 0;
@@ -7,16 +7,16 @@ body {
 }
 
 .circle {
-	border-radius: 100%;
+    border-radius: 100%;
 }
 
 .flex-column {
-	display: flex;
+    display: flex;
     flex-direction: column;
 }
 
 .triangle {
-	position: absolute;
+    position: absolute;
     top: -63px;
     right: -55px;
     display: none;
@@ -34,14 +34,14 @@ body {
 }
 
 .o-sidebar {
-	font-weight: 100;
+    font-weight: 100;
     position: relative;
     overflow: hidden;
     min-width: 360px;
+    height: 100vh;
     background: url('../img/arh.png');
     background-position: center;
     background-size: cover;
-    height: 100vh;
 
     &:before {
         position: absolute;
@@ -54,7 +54,7 @@ body {
     }
 
     .about-me {
-	.flex-column;
+    .flex-column;
         align-items: flex-end;
 
         .avatar {
@@ -80,9 +80,9 @@ body {
         position: absolute;
         z-index: 2;
         top: 0;
-        margin-left: -100%;
         width: 360px;
         height: 100vh;
+        margin-left: -100%;
         transition: 1s;
     }
 
@@ -94,7 +94,7 @@ body {
 
 .o-half-top,
 .o-half-bottom {
-	position: relative;
+    position: relative;
     height: ~"calc(50% - 10px)";
 
     .flex-column;
@@ -104,11 +104,12 @@ body {
         font-weight: 100;
         flex-direction: row;
         padding: 0 20px;
+        text-align: justify;
     }
 }
 
 .o-half-top {
-	justify-content: flex-end;
+    justify-content: flex-end;
 
     .about-me {
         padding: 0 20px;
@@ -124,7 +125,7 @@ body {
 }
 
 .o-half-bottom {
-	margin-top: 20px;
+    margin-top: 20px;
 
     .o-menu {
         font-size: 18px;
@@ -156,7 +157,7 @@ body {
 }
 
 .o-content {
-	position: relative;
+    position: relative;
     overflow: hidden;
     background: #fff;
 
@@ -329,7 +330,9 @@ body {
         .v-contacts-link {
             position: relative;
             width: 75px;
+            max-width: 15vw;
             height: 75px;
+            max-height: 15vw;
             margin: 0 10px;
             background-size: cover !important;
 
@@ -366,7 +369,7 @@ body {
 }
 
 @media (max-width: 768px) {
-	.menu-burger {
+    .menu-burger {
         position: absolute;
         z-index: 3;
         top: 10px;
@@ -392,8 +395,8 @@ body {
         &.close {
             .line {
                 &:nth-child(1) {
-                    transform: rotate(45deg);
                     top: 13px;
+                    transform: rotate(45deg);
                     background-color: #fff;
                 }
 
@@ -402,8 +405,8 @@ body {
                 }
 
                 &:nth-child(3) {
-                    transform: rotate(-45deg);
                     top: -13px;
+                    transform: rotate(-45deg);
                     background-color: #fff;
                 }
             }
@@ -412,13 +415,13 @@ body {
 
     .dark {
         position: absolute;
-        left: 0;
-        right: 0;
         z-index: -1;
+        right: 0;
+        left: 0;
+        display: block;
         width: 100%;
         height: 100vh;
-        background-color: #000;
         opacity: 0;
-        display: block;
+        background-color: #000;
     }
 }
