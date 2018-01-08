@@ -18,6 +18,12 @@ $(document).ready(function() {
 			$('.o-sidebar').animate({
 				left: 0
 			}, 1000);
+
+			$('.dark').css('display', 'block');
+
+			$('.dark').animate({
+				opacity: 0.75
+			}, 1000);
 		} else {
 			$('#js-menu-switcher').children('.line:nth-child(2)').css({
 				'opacity': '1',
@@ -46,6 +52,12 @@ $(document).ready(function() {
 				$('#js-menu-switcher').children('.line:nth-child(3)').css({
 					'background-color': '#ccc'
 				});
+			});
+
+			$('.dark').animate({
+				opacity: 0
+			}, 1000, function() {
+				$('.dark').css('display', '');
 			});
 		}
 	});
