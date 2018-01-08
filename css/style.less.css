@@ -43,7 +43,7 @@ body {
 .o-sidebar:before {
   position: absolute;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   content: '';
   background: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0.9), rgba(255, 255, 255, 0.1));
   background: -o-linear-gradient(bottom, rgba(0, 0, 0, 0.9), rgba(255, 255, 255, 0.1));
