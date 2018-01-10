@@ -102,6 +102,12 @@ body {
   padding: 0 20px;
   text-align: justify;
 }
+@media (max-width: 768px) {
+  .o-half-top,
+  .o-half-bottom {
+    height: calc(50vh - 33.5px);
+  }
+}
 .o-half-top {
   justify-content: flex-end;
 }
@@ -378,8 +384,5 @@ body {
     height: 100vh;
     opacity: 0;
     background-color: #000;
-  }
-  .o-half-top {
-    height: 38vh;
   }
 }
