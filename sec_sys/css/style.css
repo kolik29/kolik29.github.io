@@ -1,0 +1,114 @@
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  font-family: 'Arial';
+}
+a {
+  text-decoration: none;
+  color: unset;
+}
+ul,
+li {
+  padding: unset;
+  margin: unset;
+}
+.wrapper {
+  max-width: 1200px;
+  width: 100%;
+}
+header {
+  max-width: 1200px;
+  width: 100%;
+}
+header .top {
+  display: flex;
+  margin-top: 5px;
+}
+header .top .logo {
+  background-image: url('../img/logo.png');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 185px;
+  height: 175px;
+}
+header .top .right {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+header .top .right .phone-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+header .top .right .phone-block .phone {
+  text-align: right;
+  font-size: 40px;
+  color: #0560b0;
+}
+header .top .right ul.menu {
+  list-style: none;
+  color: #fff;
+  background: #0560b0;
+  background: -webkit-linear-gradient(#0560b0, #033766);
+  background: -o-linear-gradient(#0560b0, #033766);
+  background: linear-gradient(#0560b0, #033766);
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 20px;
+  position: relative;
+  white-space: nowrap;
+  line-height: 60px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+header .top .right ul.menu li {
+  position: relative;
+  display: block;
+  float: left;
+  padding: 0 10px;
+}
+header .top .right ul.menu li a {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+header .top .right ul.menu li:hover {
+  background-color: #0560b0;
+}
+header .top .right ul.menu li ul {
+  display: none;
+  position: absolute;
+  left: 0;
+  background-color: #0560b0;
+  font-size: 15px;
+  line-height: 25px;
+  font-weight: 100;
+}
+header .top .right ul.menu li ul li {
+  width: calc(100% - 20px);
+}
+header .top .right ul.menu li ul li:hover {
+  background-color: #04457e;
+}
+header .top .right ul.menu li:hover ul {
+  display: block;
+}
+header .top .right ul.menu:before {
+  content: '';
+  width: 77.5px;
+  background: #0560b0;
+  background: -webkit-linear-gradient(#0560b0, #033766);
+  background: -o-linear-gradient(#0560b0, #033766);
+  background: linear-gradient(#0560b0, #033766);
+  position: absolute;
+  left: -77.5px;
+  height: 100%;
+  z-index: -1;
+}
