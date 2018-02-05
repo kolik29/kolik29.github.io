@@ -65,12 +65,12 @@ header .top {
   margin-top: 5px;
 }
 header .top .logo {
+  background-image: url('../img/logo.png');
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
   width: 154px;
   height: 175px;
-  background-color: red;
 }
 header .top .right {
   width: 100%;
