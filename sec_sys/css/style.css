@@ -65,7 +65,6 @@ header .top {
   margin-top: 5px;
 }
 header .top .logo {
-  background-image: url('../img/logo.png');
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
