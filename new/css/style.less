@@ -1,0 +1,99 @@
+body {
+	margin: 0px;
+	padding: 0px;
+	height: 100vh;
+	font-family: 'PT Sans';
+}
+
+img {
+	background-size: cover;
+	width: 100%;
+}
+
+h1, h2 {
+	text-transform: uppercase;
+	font-weight: 100;
+	letter-spacing: 5px;
+	text-align: center;
+	display: inline-block;
+	margin: 0;
+
+	span {
+		color: #6A8D9D;
+	}
+}
+
+h1 {
+	font-size: 40px;
+}
+
+h2 {
+	text-decoration: underline;
+	font-size: 20px;
+}
+
+.bnw {
+	filter: saturate(0%);
+}
+
+.mask {
+	background: #1a1b23cc;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.intro-content {
+	position: absolute;
+	width: 100%;
+	top: 0;
+	left: 0;
+	height: 100%;
+	color: #fff;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	align-content: center;
+	justify-content: center;
+}
+
+#main {
+	display: flex;
+	flex-direction: row;
+	height: 100%;
+
+	.half-screen {
+		width: 50%;
+		height: 100%;
+		overflow-y: hidden;
+		position: relative;
+
+		img {
+			background-position-y: top;
+		}
+
+		display: flex;
+		flex-direction: column;
+
+		.button {
+			height: 25%;
+			overflow: hidden;
+			position: relative;
+			cursor: pointer;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			img {
+				.bnw;
+				transition: 1s;
+			}
+
+			&:hover > img {
+				width: 120%;
+			}
+		}
+	}
+}
