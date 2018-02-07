@@ -4,6 +4,10 @@ body {
   height: 100vh;
   font-family: 'PT Sans';
 }
+a {
+  text-decoration: none;
+  /* Отменяем подчеркивание у ссылки */
+}
 img {
   background-size: cover;
   width: 100%;
@@ -25,8 +29,24 @@ h1 {
   font-size: 40px;
 }
 h2 {
-  text-decoration: underline;
+  border-bottom: 2px solid #fff;
+  padding: 0 10px;
   font-size: 20px;
+}
+svg {
+  width: 40px;
+  height: 40px;
+}
+svg path {
+  fill: inherit;
+  stroke: inherit;
+  stroke-width: inherit;
+}
+svg use {
+  transition: .5s;
+}
+svg:hover use {
+  fill: #618190;
 }
 .bnw {
   filter: saturate(0%);
@@ -81,6 +101,59 @@ h2 {
   filter: saturate(0%);
   transition: 1s;
 }
-#main .half-screen .button:hover > img {
+#main .half-screen .button:hover img {
   width: 120%;
+}
+#main .half-screen .button .icon {
+  background-color: #ffffff33;
+  border-radius: 100%;
+  height: 60px;
+  width: 60px;
+  position: relative;
+}
+#main .half-screen .button .intro-content {
+  flex-direction: row;
+}
+#main .half-screen .soc-net {
+  display: flex;
+  flex-direction: row;
+  margin-top: 40px;
+}
+#main .half-screen .soc-net a {
+  margin: 0 20px;
+  background-size: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: .3s;
+}
+#main .half-screen .soc-net a#facebook:after,
+#main .half-screen .soc-net a#instagram:after,
+#main .half-screen .soc-net a#telegram:after,
+#main .half-screen .soc-net a#vk:after {
+  color: #618190;
+  text-decoration: none;
+  position: absolute;
+  bottom: -30px;
+  transition: .5s;
+  opacity: 0;
+}
+#main .half-screen .soc-net a#facebook:hover:after,
+#main .half-screen .soc-net a#instagram:hover:after,
+#main .half-screen .soc-net a#telegram:hover:after,
+#main .half-screen .soc-net a#vk:hover:after {
+  opacity: 1;
+}
+#main .half-screen .soc-net a#facebook:after {
+  content: 'Facebook';
+}
+#main .half-screen .soc-net a#instagram:after {
+  content: 'Instagram';
+}
+#main .half-screen .soc-net a#telegram:after {
+  content: 'Telegram';
+}
+#main .half-screen .soc-net a#vk:after {
+  content: 'Вконтакте';
 }
