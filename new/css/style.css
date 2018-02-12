@@ -1,8 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,500,700,900');
 body {
   margin: 0px;
   padding: 0px;
   height: 100vh;
-  font-family: 'PT Sans';
+  font-family: 'Roboto';
+  overflow: hidden;
+  background-color: pink;
 }
 a {
   text-decoration: none;
@@ -13,25 +16,35 @@ img {
   width: 100%;
 }
 h1,
-h2 {
+h2,
+h3 {
   text-transform: uppercase;
-  font-weight: 100;
   letter-spacing: 5px;
   text-align: center;
   display: inline-block;
   margin: 0;
 }
 h1 span,
-h2 span {
+h2 span,
+h3 span {
   color: #6A8D9D;
 }
 h1 {
   font-size: 40px;
+  font-weight: 400;
 }
 h2 {
   border-bottom: 2px solid #fff;
   padding: 0 10px;
   font-size: 20px;
+  font-weight: 300;
+}
+h3 {
+  font-size: 25px;
+  font-weight: 100;
+  text-align: left;
+  letter-spacing: 0;
+  font-weight: 300;
 }
 svg {
   width: 40px;
@@ -76,6 +89,8 @@ svg:hover use {
   display: flex;
   flex-direction: row;
   height: 100%;
+  position: absolute;
+  z-index: 2;
 }
 #main .half-screen {
   width: 50%;
@@ -101,18 +116,38 @@ svg:hover use {
   filter: saturate(0%);
   transition: 1s;
 }
-#main .half-screen .button:hover img {
+#main .half-screen .button:hover > img {
   width: 120%;
 }
-#main .half-screen .button .icon {
+#main .half-screen .button .intro-content {
+  flex-direction: row;
+  justify-content: unset;
+}
+#main .half-screen .button .intro-content content {
+  display: flex;
+  margin-left: 10%;
+}
+#main .half-screen .button .intro-content content .icon {
   background-color: #ffffff33;
   border-radius: 100%;
   height: 60px;
   width: 60px;
   position: relative;
+  transition: all 0.2s ease-in;
+  box-shadow: 0 0 0px 0px #ffffff33;
+  display: flex;
+  margin-right: 30px;
 }
-#main .half-screen .button .intro-content {
-  flex-direction: row;
+#main .half-screen .button .intro-content content .icon img {
+  width: 50%;
+  margin: auto;
+}
+#main .half-screen .button .intro-content content h3 {
+  font-style: normal;
+  margin-bottom: 5px;
+}
+#main .half-screen .button .intro-content content .text {
+  font-style: italic;
 }
 #main .half-screen .soc-net {
   display: flex;
@@ -128,32 +163,33 @@ svg:hover use {
   align-items: center;
   transition: .3s;
 }
-#main .half-screen .soc-net a#facebook:after,
-#main .half-screen .soc-net a#instagram:after,
-#main .half-screen .soc-net a#telegram:after,
-#main .half-screen .soc-net a#vk:after {
+#main .half-screen .soc-net a .name {
   color: #618190;
   text-decoration: none;
   position: absolute;
   bottom: -30px;
   transition: .5s;
   opacity: 0;
+  display: none;
 }
-#main .half-screen .soc-net a#facebook:hover:after,
-#main .half-screen .soc-net a#instagram:hover:after,
-#main .half-screen .soc-net a#telegram:hover:after,
-#main .half-screen .soc-net a#vk:hover:after {
-  opacity: 1;
+#main .half-screen .soc-net a:hover .name {
+  display: block;
 }
-#main .half-screen .soc-net a#facebook:after {
-  content: 'Facebook';
+#white-layer {
+  background-color: #fff;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 1;
 }
-#main .half-screen .soc-net a#instagram:after {
-  content: 'Instagram';
-}
-#main .half-screen .soc-net a#telegram:after {
-  content: 'Telegram';
-}
-#main .half-screen .soc-net a#vk:after {
-  content: 'Вконтакте';
+#close-btn {
+  position: absolute;
+  right: 3%;
+  top: 3%;
+  height: 40px;
+  width: 40px;
+  background-color: red;
+  z-index: 1;
 }
