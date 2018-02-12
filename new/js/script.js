@@ -51,6 +51,9 @@ $(document).ready(function() {
 		}, 500, function() {
 			$('#white-layer').css('display', 'none');
 		});
+
+		$('.info-block').css('display', 'none');
+		$('#' + $(this).data('section')).css('display', 'flex');
 	});
 
 	$('#close-btn').click(function() {
