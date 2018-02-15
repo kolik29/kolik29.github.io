@@ -71,4 +71,48 @@ $(document).ready(function() {
 			opacity: 1
 		}, 500);
 	});
+
+	/*******************/
+
+	/*****************************/
+	/*Скиллы в процентах в кружке*/
+	/*****************************/
+
+	//draw_circle_percent('canvas', 10, 35, '#CCCCCC', '#FF0000');
+	
+	$('.percent_circle').each(function() {
+		console.log($(this).children('canvas').attr('id'));
+
+		draw_circle_percent(
+			$(this).children('canvas').attr('id'), 
+			10, 
+			parseInt($(this).children('span').text()),
+			'#c6c6c6',
+			'#6a8d9d');
+	});
+
+	/*****************************/
 });
+
+function draw_circle_percent(elemnt_id, line_width, percent, color1, color2) {
+	var canvas = document.getElementById(elemnt_id);
+   	var line = canvas.getContext('2d');
+
+   	var center = canvas.width/2;
+
+   	/*Draw down circle*/
+   	line.beginPath();  
+	line.lineWidth = line_width;
+	line.strokeStyle = color1;
+	line.arc(center, center, center-line_width/2, 0, Math.PI*2);
+	line.closePath();
+   	line.stroke();
+
+	/*Draw general circle*/
+	line.beginPath();  
+	line.lineWidth = line_width;
+	line.strokeStyle = color2;
+	line.rotate(-90*Math.PI/180);
+	line.arc(-center, center, center-line_width/2, 0, (360/100*percent)*Math.PI/180);
+   	line.stroke();
+}
