@@ -313,6 +313,10 @@ p {
         &#profile .more-info {
             background-image: url('../img/story_bg.jpg');
             background-size: cover;
+
+            article:first-child {
+                background-color: unset;
+            }
         }
     }
 }
@@ -322,6 +326,7 @@ p {
         display: flex;
         flex-direction: column;
         padding: 20% 0;
+        background-color: #f5f5f5;
 
         justify-content: center;
         align-items: center;
@@ -453,8 +458,11 @@ p {
         }
 
         #skills {
+            flex-wrap: wrap;
+            justify-content: center;
+
             .__skill {
-                width: 100%;
+                min-width: 33.333%;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
@@ -485,7 +493,7 @@ p {
         }
 
         &:nth-child(even) {
-            background-color: #6a8d9d;
+            background-color: @main-color;
         	padding: 40px 0;
 
             h4 {
