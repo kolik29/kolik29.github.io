@@ -334,7 +334,7 @@ footer {
     article {
         display: flex;
         flex-direction: column;
-        padding: 20% 0;
+        padding: 20% 0 10%;
 
         justify-content: center;
         align-items: center;
@@ -394,12 +394,16 @@ footer {
 
             .subtitle {
                 background-color: @main-color;
-                line-height: 35px;
                 font-size: 20px;
                 color: #fff;
-                padding: 0 20px;
+                padding: 5px 20px;
                 position: relative;
                 width: ~'calc(100% - 40px)';
+                flex-direction: column;
+
+                div {
+                    font-size: 16px;
+                }
 
                 &:before {
                     content: '';

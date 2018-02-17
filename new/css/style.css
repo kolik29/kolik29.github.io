@@ -345,7 +345,7 @@ footer {
 .info-block article {
   display: flex;
   flex-direction: column;
-  padding: 20% 0;
+  padding: 20% 0 10%;
   justify-content: center;
   align-items: center;
 }
@@ -397,12 +397,16 @@ footer {
 .info-block article #education .subtitle,
 .info-block article #expirience .subtitle {
   background-color: #6a8d9d;
-  line-height: 35px;
   font-size: 20px;
   color: #fff;
-  padding: 0 20px;
+  padding: 5px 20px;
   position: relative;
   width: calc(100% - 40px);
+  flex-direction: column;
+}
+.info-block article #education .subtitle div,
+.info-block article #expirience .subtitle div {
+  font-size: 16px;
 }
 .info-block article #education .subtitle:before,
 .info-block article #expirience .subtitle:before {
