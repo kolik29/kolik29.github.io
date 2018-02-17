@@ -164,6 +164,13 @@ p {
 p:first-letter {
   margin-left: 20px;
 }
+footer {
+  display: flex;
+  justify-content: space-between;
+  background-color: #6a8d9d;
+  color: #fff;
+  padding: 10px 10px;
+}
 .bnw {
   filter: saturate(0%);
 }
@@ -568,6 +575,11 @@ p:first-letter {
 .info-block article #__contact,
 .info-block article #__portfolio {
   margin-top: 5%;
+}
+#portfolio article,
+#contact article {
+  height: calc(100vh - 40px);
+  padding: 0;
 }
 .popup-bkg {
   position: absolute;

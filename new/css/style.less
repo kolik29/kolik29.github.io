@@ -112,6 +112,14 @@ p {
     }
 }
 
+footer {
+    display: flex;
+    justify-content: space-between;
+    background-color: @main-color;
+    color: #fff;
+    padding: 10px 10px;
+}
+
 .bnw {
     filter: saturate(0%);
 }
@@ -591,6 +599,14 @@ p {
         #__portfolio {
             margin-top: 5%;
         }
+    }
+}
+
+#portfolio,
+#contact {
+    article {
+        height: ~'calc(100vh - 40px)';
+        padding: 0;
     }
 }
 
