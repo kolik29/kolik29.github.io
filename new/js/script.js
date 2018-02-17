@@ -77,18 +77,39 @@ $(document).ready(function() {
 	/*****************************/
 	/*Скиллы в процентах в кружке*/
 	/*****************************/
-
-	//draw_circle_percent('canvas', 10, 35, '#CCCCCC', '#FF0000');
 	
 	$('.percent_circle').each(function() {
-		console.log($(this).children('canvas').attr('id'));
-
 		draw_circle_percent(
 			$(this).children('canvas').attr('id'), 
 			10, 
 			parseInt($(this).children('span').text()),
 			'#c6c6c6',
 			'#6a8d9d');
+	});
+
+	/*****************************/
+
+	/*****************************/
+	/*Нажатие на лупу в портфолио*/
+	/*****************************/
+
+	$('.js-popup-open').click(function () {
+		$('.popup-bkg').css('display', 'flex');
+		$('.popup-bkg > .' + $(this).attr('id')).css('display', 'flex');
+		$('.popup-bkg').animate({
+			opacity: '1'
+		}, 500);
+	});
+
+	$('.popup-bkg').click(function() {
+		$('.popup-bkg').animate({
+			opacity: '0'
+		}, 500, function () {
+			$('.popup-bkg').css('display', 'none');
+			$('.popup-bkg > div').each(function() {
+				$(this).css('display', 'none');
+			});
+		});
 	});
 
 	/*****************************/
