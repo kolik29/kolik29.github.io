@@ -9,6 +9,7 @@ body {
     height: 100vh;
     margin: 0;
     padding: 0;
+    min-width: 900px;
 }
 
 a {
@@ -50,10 +51,13 @@ h2 {
 
 h3 {
     font-size: 25px;
-    font-weight: 100;
     font-weight: 300;
     text-align: left;
     letter-spacing: 0;
+
+    @media (max-width: 1000px) {
+        font-size: 40px;
+    }
 }
 
 h4 {
@@ -100,6 +104,11 @@ button {
         color: #fff;
         background-color: @main-color;
     }
+
+    @media (max-width: 1000px) {
+        font-size: 25px;
+        border-width: 2.5px;
+    }
 }
 
 p {
@@ -109,6 +118,10 @@ p {
 
     &:first-letter {
         margin-left: 20px;
+    }
+
+    @media (max-width: 1000px) {
+        font-size: 30px;
     }
 }
 
@@ -154,6 +167,10 @@ footer {
     flex-direction: row;
     height: 100%;
 
+    @media (max-width: 1000px) {
+        flex-direction: column;
+    }
+
     .half-screen {
         position: relative;
         display: flex;
@@ -161,6 +178,10 @@ footer {
         flex-direction: column;
         width: 50%;
         height: 100%;
+
+        @media (max-width: 1000px) {
+            width: 100%;
+        }
 
         img {
             background-position-y: top;
@@ -205,8 +226,12 @@ footer {
                         margin-right: 30px;
                         transition: all .2s ease-in;
                         border-radius: 100%;
-                        background-color: #fff33;
-                        box-shadow: 0 0 0 0 #fff33;
+                        background-color: #ffffff33;
+                        box-shadow: 0 0 0 0 #ffffff33;
+
+                        @media (max-width: 1000px) {
+                            display: none;
+                        }
 
                         img {
                             width: 50%;
@@ -221,15 +246,24 @@ footer {
 
                     .text {
                         font-style: italic;
+
+                        @media (max-width: 1000px) {
+                            font-size: 18px;
+                        }
                     }
                 }
             }
         }
     }
-    
+
     svg {
         width: 40px;
         height: 40px;
+
+        @media (max-width: 1000px) {
+            width: 60px;
+            height: 60px;
+        }
     }
 }
 
@@ -281,6 +315,10 @@ footer {
     width: 30px;
     height: 30px;
     cursor: pointer;
+
+    @media (max-width: 1000px) {
+        background-color: #fff;
+    }
 }
 
 #info {
@@ -291,10 +329,19 @@ footer {
         width: 100vw;
         height: 100vh;
 
+        @media (max-width: 1000px) {
+            flex-direction: column;
+            overflow-y: auto;
+        }
+
         .image {
             position: relative;
             min-width: 40vw;
             height: 100%;
+
+            @media (max-width: 1000px) {
+                min-height: 50vh;
+            }
 
             img {
                 position: absolute;
@@ -317,11 +364,20 @@ footer {
             min-height: 100%;
             min-width: 60vw;
             background-color: #f5f5f5;
+
+            @media (max-width: 1000px) {
+                overflow-y: visible;
+                min-height: unset;
+            }
         }
 
         &#profile .more-info {
             background-image: url('../img/story_bg.jpg');
             background-size: cover;
+
+            @media (max-width: 1000px) {
+                background-image: none;
+            }
 
             article:first-child {
                 background-color: unset;
@@ -359,6 +415,10 @@ footer {
             height: 150px;
             margin-right: 20px;
             border: 1px solid @main-color;
+
+            @media (max-width: 1000px) {
+                display: none;
+            }
         }
 
         button {
@@ -401,8 +461,16 @@ footer {
                 width: ~'calc(100% - 40px)';
                 flex-direction: column;
 
+                @media (max-width: 1000px) {
+                    font-size: 30px;
+                }
+
                 div {
                     font-size: 16px;
+
+                    @media (max-width: 1000px) {
+                        font-size: 25px;
+                    }
                 }
 
                 &:before {
@@ -417,7 +485,7 @@ footer {
                     top: -1px;
                 }
 
-                &:after {                    
+                &:after {
                     content: '';
                     height: 15px;
                     width: 15px;
@@ -473,6 +541,10 @@ footer {
             flex-wrap: wrap;
             justify-content: center;
 
+            @media (max-width: 1000px) {
+                flex-direction: column;
+            }
+
             .__skill {
                 min-width: 33.333%;
                 display: flex;
@@ -484,6 +556,10 @@ footer {
                     font-size: 18px;
                     color: @main-color;
                     margin: 20px 0;
+
+                    @media (max-width: 1000px) {
+                        font-size: 30px;
+                    }
                 }
 
                 .percent_circle {

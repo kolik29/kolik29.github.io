@@ -76,6 +76,7 @@ body {
   height: 100vh;
   margin: 0;
   padding: 0;
+  min-width: 900px;
 }
 a {
   text-decoration: none;
@@ -114,10 +115,14 @@ h2 {
 }
 h3 {
   font-size: 25px;
-  font-weight: 100;
   font-weight: 300;
   text-align: left;
   letter-spacing: 0;
+}
+@media (max-width: 1000px) {
+  h3 {
+    font-size: 40px;
+  }
 }
 h4 {
   font-size: 36px;
@@ -156,6 +161,12 @@ button:hover {
   color: #fff;
   background-color: #6a8d9d;
 }
+@media (max-width: 1000px) {
+  button {
+    font-size: 25px;
+    border-width: 2.5px;
+  }
+}
 p {
   margin: 0 0 20px 0;
   text-align: justify;
@@ -163,6 +174,11 @@ p {
 }
 p:first-letter {
   margin-left: 20px;
+}
+@media (max-width: 1000px) {
+  p {
+    font-size: 30px;
+  }
 }
 footer {
   display: flex;
@@ -201,6 +217,11 @@ footer {
   flex-direction: row;
   height: 100%;
 }
+@media (max-width: 1000px) {
+  #main {
+    flex-direction: column;
+  }
+}
 #main .half-screen {
   position: relative;
   display: flex;
@@ -208,6 +229,11 @@ footer {
   flex-direction: column;
   width: 50%;
   height: 100%;
+}
+@media (max-width: 1000px) {
+  #main .half-screen {
+    width: 100%;
+  }
 }
 #main .half-screen img {
   background-position-y: top;
@@ -244,8 +270,13 @@ footer {
   margin-right: 30px;
   transition: all 0.2s ease-in;
   border-radius: 100%;
-  background-color: #fff33;
-  box-shadow: 0 0 0 0 #fff33;
+  background-color: #ffffff33;
+  box-shadow: 0 0 0 0 #ffffff33;
+}
+@media (max-width: 1000px) {
+  #main .half-screen .button .intro-content content .icon {
+    display: none;
+  }
 }
 #main .half-screen .button .intro-content content .icon img {
   width: 50%;
@@ -258,9 +289,20 @@ footer {
 #main .half-screen .button .intro-content content .text {
   font-style: italic;
 }
+@media (max-width: 1000px) {
+  #main .half-screen .button .intro-content content .text {
+    font-size: 18px;
+  }
+}
 #main svg {
   width: 40px;
   height: 40px;
+}
+@media (max-width: 1000px) {
+  #main svg {
+    width: 60px;
+    height: 60px;
+  }
 }
 .soc-net {
   display: flex;
@@ -305,6 +347,11 @@ footer {
   height: 30px;
   cursor: pointer;
 }
+@media (max-width: 1000px) {
+  #close-btn {
+    background-color: #fff;
+  }
+}
 #info .info-block {
   position: absolute;
   display: none;
@@ -312,10 +359,21 @@ footer {
   width: 100vw;
   height: 100vh;
 }
+@media (max-width: 1000px) {
+  #info .info-block {
+    flex-direction: column;
+    overflow-y: auto;
+  }
+}
 #info .info-block .image {
   position: relative;
   min-width: 40vw;
   height: 100%;
+}
+@media (max-width: 1000px) {
+  #info .info-block .image {
+    min-height: 50vh;
+  }
 }
 #info .info-block .image img {
   position: absolute;
@@ -335,9 +393,20 @@ footer {
   min-width: 60vw;
   background-color: #f5f5f5;
 }
+@media (max-width: 1000px) {
+  #info .info-block .more-info {
+    overflow-y: visible;
+    min-height: unset;
+  }
+}
 #info .info-block#profile .more-info {
   background-image: url('../img/story_bg.jpg');
   background-size: cover;
+}
+@media (max-width: 1000px) {
+  #info .info-block#profile .more-info {
+    background-image: none;
+  }
 }
 #info .info-block#profile .more-info article:first-child {
   background-color: unset;
@@ -366,6 +435,11 @@ footer {
   height: 150px;
   margin-right: 20px;
   border: 1px solid #6a8d9d;
+}
+@media (max-width: 1000px) {
+  .info-block article .avatar {
+    display: none;
+  }
 }
 .info-block article button {
   margin-top: 40px;
@@ -404,9 +478,21 @@ footer {
   width: calc(100% - 40px);
   flex-direction: column;
 }
+@media (max-width: 1000px) {
+  .info-block article #education .subtitle,
+  .info-block article #expirience .subtitle {
+    font-size: 30px;
+  }
+}
 .info-block article #education .subtitle div,
 .info-block article #expirience .subtitle div {
   font-size: 16px;
+}
+@media (max-width: 1000px) {
+  .info-block article #education .subtitle div,
+  .info-block article #expirience .subtitle div {
+    font-size: 25px;
+  }
 }
 .info-block article #education .subtitle:before,
 .info-block article #expirience .subtitle:before {
@@ -469,6 +555,11 @@ footer {
   flex-wrap: wrap;
   justify-content: center;
 }
+@media (max-width: 1000px) {
+  .info-block article #skills {
+    flex-direction: column;
+  }
+}
 .info-block article #skills .__skill {
   min-width: 33.333%;
   display: flex;
@@ -480,6 +571,11 @@ footer {
   font-size: 18px;
   color: #6a8d9d;
   margin: 20px 0;
+}
+@media (max-width: 1000px) {
+  .info-block article #skills .__skill .title {
+    font-size: 30px;
+  }
 }
 .info-block article #skills .__skill .percent_circle {
   display: flex;
