@@ -36,12 +36,19 @@ $(document).ready(function() {
 	/*******************/
 
 	$('.button').click(function() {
+		var slide_to;
+
+		if ($(window).width() >= 1000)
+			slide_to = '-50vw';
+		else
+			slide_to = '-100vw';
+
 		$('.half-screen.left').animate({
-			left: '-50vw'
+			left: slide_to
 		}, 500);
 
 		$('.half-screen.right').animate({
-			right: '-50vw'
+			right: slide_to
 		}, 500, function() {
 			$('#main').css('display', 'none');
 		});
