@@ -163,9 +163,11 @@ $('.selectElement').on('click', 'li', function() {
 		yMap.setCenter($(this).data('coord').split(','), 18, {
     		checkZoomRange: true
 		});
+    	yMap.geoObjects.add(mapCircle);
 	}
 });
 
+//Закрывает выпадающие списки при клике в любой части дкоумента, крмое самих выпадющих списков
 $(document).on('click', function(e) {
 	if ((!$('.selectElement').is(e.target)) && ($('.selectElement').has(e.target).length === 0)) {
 		$('.selectElement').children('ul').css({
@@ -178,26 +180,22 @@ $(document).on('click', function(e) {
 	}
 });
 
-ymaps.ready(init);
+ymaps.ready(init); //инициализация карты
 
-var mapCircle;
-var yMap;
-
+//Конструктор карты и точки
+var mapCircle, yMap;
 function init() {
-	mapCircle = new ymaps.Circle([[64.527568, 40.592470], 30], { }, {
-           	fillColor: "#DB709377",
-       		strokeColor: "#990066",
-       		strokeOpacity: 0.8,
-       		strokeWidth: 2
-       	});
+	mapCircle = new ymaps.Circle([[], 30], { }, {
+       	fillColor: "#DB709377",
+      	strokeColor: "#990066",
+       	strokeOpacity: 0.8,
+       	strokeWidth: 2
+    });
 
     yMap = new ymaps.Map("map", {
-            center: [64.543235, 40.537195],
-            zoom: 13
-        }, {
-            searchControlProvider: 'yandex#search'
-        });
-
-    yMap.geoObjects
-       	.add(mapCircle);
+        center: [64.543235, 40.537195],
+        zoom: 13
+    }, {
+        searchControlProvider: 'yandex#search'
+    });
 }
