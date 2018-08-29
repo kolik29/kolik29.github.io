@@ -1,3 +1,5 @@
+//Данные по муниципальным объектам
+//содержат название МО, название мун. объекта и его координаты
 let munObjData = {
 	"Муниципальное образование «Боброво-Лявленское»":{
 		"Филиал ГБУЗ «Приморская ЦРБ» ФАП «Кузьмино»":{
@@ -105,14 +107,19 @@ let munObjData = {
 	}
 }
 
-let html = '';
-
-for(key in munObjData) {
-	html += '<li>' + key + '</li>';
+//Добавление МО в выпадающий список
+function addDropDownList() {
+	$('#munForm').children('ul').html('');
+	for(key in munObjData) {
+		$('#munForm').children('ul').html(
+			$('#munForm').children('ul').html() +
+			'<li>' + key + '</li>'
+		);
+	}
 }
+addDropDownList();
 
-$('#munForm').children('ul').html(html);
-
+//Загрузка списка мун. объектов после выбора МО
 $('.selectElement').on('click', function() {
 	if ($(this).hasClass('roll')) {
 		$(this).children('ul').css({
@@ -137,23 +144,23 @@ $('.selectElement').on('click', function() {
 	}
 });
 
+//Отображение на карте выбранного объекта
 $('.selectElement').on('click', 'li', function() {
 	$(this).parent().parent().children('.valueText').children('span').text($(this).text());
 
 	if ($(this).parent().parent().attr('id') == 'munForm') {
 		$('#munObj').children('.valueText').children('span').text('Выберите объект');
 
-		html = '';
+		$('#munObj').children('ul').html('');
 		for (key in munObjData[$(this).text()]) {
-			html += '<li data-coord="'
-			 + munObjData[$(this).text()][key].coord + '">' + key + '</li>';
+			$('#munObj').children('ul').html(
+				$('#munObj').children('ul').html() +
+				'<li data-coord="' + munObjData[$(this).text()][key].coord + '">' + key + '</li>'
+			);
 		}
-
-		$('#munObj').children('ul').html(html);
 	} else {
-		console.log($(this).data('coord').split(','));
-		munObjGeo.geometry.setCoordinates($(this).data('coord').split(','));
-		myMap.setCenter($(this).data('coord').split(','), 18, {
+		mapCircle.geometry.setCoordinates($(this).data('coord').split(','));
+		yMap.setCenter($(this).data('coord').split(','), 18, {
     		checkZoomRange: true
 		});
 	}
@@ -173,24 +180,24 @@ $(document).on('click', function(e) {
 
 ymaps.ready(init);
 
-var munObjGeo;
-var myMap;
+var mapCircle;
+var yMap;
 
 function init() {
-	munObjGeo = new ymaps.Circle([[64.527568, 40.592470], 30], { }, {
+	mapCircle = new ymaps.Circle([[64.527568, 40.592470], 30], { }, {
            	fillColor: "#DB709377",
        		strokeColor: "#990066",
        		strokeOpacity: 0.8,
        		strokeWidth: 2
        	});
 
-    myMap = new ymaps.Map("map", {
+    yMap = new ymaps.Map("map", {
             center: [64.543235, 40.537195],
             zoom: 13
         }, {
             searchControlProvider: 'yandex#search'
         });
 
-    myMap.geoObjects
-       	.add(munObjGeo);
+    yMap.geoObjects
+       	.add(mapCircle);
 }
