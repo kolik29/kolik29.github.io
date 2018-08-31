@@ -185,6 +185,13 @@ ymaps.ready(init); //инициализация карты
 //Конструктор карты и точки
 var mapCircle, yMap;
 function init() {
+    yMap = new ymaps.Map("map", {
+        center: [64.543235, 40.537195],
+        zoom: 13
+    }, {
+        searchControlProvider: 'yandex#search'
+    });
+
 	mapCircle = new ymaps.Circle([[], 30], { }, {
        	fillColor: "#DB709377",
       	strokeColor: "#990066",
@@ -192,10 +199,37 @@ function init() {
        	strokeWidth: 2
     });
 
-    yMap = new ymaps.Map("map", {
-        center: [64.543235, 40.537195],
-        zoom: 13
+    var polygon = new ymaps.GeoObject({
+        // Описываем геометрию геообъекта.
+        geometry: {
+            // Тип геометрии - "Многоугольник".
+            type: "Polygon",
+            // Указываем координаты вершин многоугольника.
+            coordinates: [
+                // Координаты вершин внешнего контура.
+                [
+                    [64.545673, 40.516252],
+                    [64.543900, 40.540972],
+                    [64.534885, 40.537882],
+                    [64.534959, 40.517626],
+                    [64.545673, 40.516252]
+                ]
+            ],
+            // Задаем правило заливки внутренних контуров по алгоритму "nonZero".
+            fillRule: "nonZero"
+        }
     }, {
-        searchControlProvider: 'yandex#search'
+        // Описываем опции геообъекта.
+        // Цвет заливки.
+        fillColor: '#00FF00',
+        // Цвет обводки.
+        strokeColor: '#0000FF',
+        // Общая прозрачность (как для заливки, так и для обводки).
+        opacity: 0.5,
+        // Ширина обводки.
+        strokeWidth: 2
     });
+
+    // Добавляем многоугольник на карту.
+    yMap.geoObjects.add(polygon);
 }
