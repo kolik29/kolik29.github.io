@@ -198,7 +198,7 @@ function init() {
        	strokeOpacity: 0.8,
        	strokeWidth: 2
     });
-
+/*
     let polyCoords = [
                     [64.545024, 40.528946],
                     [64.544840, 40.537765],
@@ -231,5 +231,5 @@ function init() {
         strokeWidth: 2
     });
 
-    yMap.geoObjects.add(polygon);
+    yMap.geoObjects.add(polygon);*/
 }
