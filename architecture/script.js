@@ -1,189 +1,148 @@
 //Данные по муниципальным объектам
 //содержат название МО, название мун. объекта и его координаты
 let munObjData = {
-	"Муниципальное образование «Боброво-Лявленское»":{
+	"Муниципальное образование «Боброво-Лявленское»":{		
+		"полигон":{
+			"type":"poly",
+			"coord":[["64.384325", "40.952452"],["64.384199", "40.952106"],["64.384084", "40.952344"],["64.384199", "40.952688"],["64.384325", "40.952452"]]
+		},
 		"Филиал ГБУЗ «Приморская ЦРБ» ФАП «Кузьмино»":{
+			"type":"circle",
 			"coord":["64.384188","40.952406"]
 		},
 		"Филиал ГБУЗ «Приморская ЦРБ» ФАП «Лявля»":{
+			"type":"circle",
 			"coord":["64.377379","41.022879"]
 		},
 		"ГБУЗ АО Приморская ЦРБ «Врачебная амбулатория Боброво»":{
+			"type":"circle",
 			"coord":["64.356227","41.152623"]
 		},
 		"Тренажерный зал":{
+			"type":"circle",
 			"coord":["64.384540","41.023301"]
 		}
 	},
 	"Муниципальное образование «Заостровское»":{
 		"Тренажерный зал":{
+			"type":"circle",
 			"coord":["64.484341","40.506126"]
 		}
 	},
 	"Муниципальное образование «Катунинское»":{
 		"ГБУЗ АО Приморская ЦРБ Врачебная амбулатория \"Катунино\"":{
+			"type":"circle",
 			"coord":["64.389663","40.625348"]
 		},
 		"Филиал ГБУЗ «Приморская ЦРБ» ФАП «Беломорье»":{
+			"type":"circle",
 			"coord":["64.292888","40.892610"]
 		},
 		"МБОУ «Катунинская СШ»":{
+			"type":"circle",
 			"coord":["64.388395","40.630575"]
 		},
 		"МБУ ДО «Приморская ДШИ»":{
+			"type":"circle",
 			"coord":["64.389731","40.624523"]
 		}
 	},
 	"Муниципальное образование «Лисестровское»":{
 		"Филиал ГБУЗ АО «Приморская ЦРБ» ФАП «Лисестровское»":{
+			"type":"circle",
 			"coord":["64.464608","40.638100"]
 		},
 		"Филиал ГБУЗ АО «Приморская ЦРБ» ФАП «Васьково»":{
+			"type":"circle",
 			"coord":["64.413780","40.460834"]
 		},
 		"Филиал ГБУЗ АО «Приморская ЦРБ»  ФАП «Ширшинский ЗВЕРОСОВХОЗ»":{
+			"type":"circle",
 			"coord":["64.410079","40.741742"]
 		},
 		"МБОУ «Васьковская СШ»":{
+			"type":"circle",
 			"coord":[["64.412418","40.453393"],["64.409954","40.454786"]]
 		},
 		"Филиал «Детская школа искусств п. Васьково» МБУ ДО «Приморская ДШИ»":{
+			"type":"circle",
 			"coord":["64.409954","40.454786"]
 		}
 	},
 	"Муниципальное образование «Островное»":{
 		"Филиал ГБУЗ АО «Приморская ЦРБ»  ФАП «Вознесенье»":{
+			"type":"circle",
 			"coord":["64.574120","40.335344"]
 		},
 		"Филиал ГБУЗ АО «Приморская ЦРБ»  ФАП «Ластола»":{
+			"type":"circle",
 			"coord":["64.600324","40.294723"]
 		},
 		"Филиал ГБУЗ АО «Приморская ЦРБ»  ФАП «Пустошь»":{
+			"type":"circle",
 			"coord":["64.591124","40.441648"]
 		},
 		"Помещение для занятия физкультурой":{
+			"type":"circle",
 			"coord":["64.589226","40.439816"]
 		}
 	},
 	"Муниципальное образование «Пертоминское»":{
 		"АО «2-ой Архангельский объединенный авиаотряд» Аэропорт":{
+			"type":"circle",
 			"coord":["64.789508","38.421504"]
 		}
 	},
 	"Муниципальное образование «Приморское»":{
 		"МБУ ДО \"Приморская ДЮСШ\"":{
+			"type":"circle",
 			"coord":["64.537978","40.159633"]
 		},
 		"Помещение для занятия физкультурой":{
+			"type":"circle",
 			"coord":["64.537978","40.159633"]
 		}
 	},
 	"Муниципальное образование «Сельское поселение «Соловецкое»":{
 		"ГБУЗ АО «АОКБ» филиал Соловецкая участковая больница":{
+			"type":"circle",
 			"coord":["65.021838","35.708806"]
 		},
 		"Помещение для занятий физкультурой":{
+			"type":"circle",
 			"coord":["65.026868","35.714796"]
 		}
 	},
 	"Муниципальное образование «Талажское»":{
 		"Филиал ГБУЗ АО «Приморская ЦРБ» ФАП «Талаги»":{
+			"type":"circle",
 			"coord":["64.622619","40.669461"]
 		},
 		"Филиал ГБУЗ АО «Приморская ЦРБ» ФАП «Повракула»":{
+			"type":"circle",
 			"coord":["64.618134","40.590996"]
 		},
 		"Тренажерный зал":{
+			"type":"circle",
 			"coord":["64.622382","40.667146"]
 		}
 	},
 	"Муниципальное образование «Уемское»":{
 		"ГБУЗ АО «Приморская ЦРБ» Уемская районная больница":{
+			"type":"circle",
 			"coord":["64.473790","40.864221"]
 		},
 		"Филиал «Детская школа искусств п. Уемский» МБУ ДО «Приморская ДШИ»":{
+			"type":"circle",
 			"coord":["64.478118","40.842428"]
 		}
 	}
 }
 
-//Добавление МО в выпадающий список
-function addDropDownList() {
-	$('#munForm').children('ul').html('');
-	for(key in munObjData) {
-		$('#munForm').children('ul').html(
-			$('#munForm').children('ul').html() +
-			'<li>' + key + '</li>'
-		);
-	}
-}
-addDropDownList();
-
-//Загрузка списка мун. объектов после выбора МО
-$('.selectElement').on('click', function() {
-	if ($(this).hasClass('roll')) {
-		$(this).children('ul').css({
-			display: 'inline-block'
-		});
-
-		$(this).children('.valueText').children('img').css({
-			transform: 'rotate(180deg)'
-		});
-
-		$(this).removeClass('roll');
-	} else {
-		$(this).children('ul').css({
-			display: 'none'
-		});
-
-		$(this).children('.valueText').children('img').css({
-			transform: 'rotate(0deg)'
-		});
-
-		$(this).addClass('roll');
-	}
-});
-
-//Отображение на карте выбранного объекта
-$('.selectElement').on('click', 'li', function() {
-	$(this).parent().parent().children('.valueText').children('span').text($(this).text());
-
-	if ($(this).parent().parent().attr('id') == 'munForm') {
-		$('#munObj').children('.valueText').children('span').text('Выберите объект');
-
-		$('#munObj').children('ul').html('');
-		for (key in munObjData[$(this).text()]) {
-			$('#munObj').children('ul').html(
-				$('#munObj').children('ul').html() +
-				'<li data-coord="' + munObjData[$(this).text()][key].coord + '">' + key + '</li>'
-			);
-		}
-	} else {
-		mapCircle.geometry.setCoordinates($(this).data('coord').split(','));
-		yMap.setCenter($(this).data('coord').split(','), 18, {
-    		checkZoomRange: true
-		});
-    	yMap.geoObjects.add(mapCircle);
-	}
-});
-
-//Закрывает выпадающие списки при клике в любой части дкоумента, крмое самих выпадющих списков
-$(document).on('click', function(e) {
-	if ((!$('.selectElement').is(e.target)) && ($('.selectElement').has(e.target).length === 0)) {
-		$('.selectElement').children('ul').css({
-			display: 'none'
-		});
-
-		$('.selectElement').children('.valueText').children('img').css({
-			transform: 'rotate(0deg)'
-		});
-	}
-});
-
 ymaps.ready(init); //инициализация карты
 
 //Конструктор карты и точки
-var mapCircle, yMap;
+var mapCircle, mapPoly, yMap;
 function init() {
     yMap = new ymaps.Map("map", {
         center: [64.543235, 40.537195],
@@ -198,38 +157,11 @@ function init() {
        	strokeOpacity: 0.8,
        	strokeWidth: 2
     });
-/*
-    let polyCoords = [
-                    [64.545024, 40.528946],
-                    [64.544840, 40.537765],
-                    [64.542309, 40.537765],
-                    [64.542041, 40.534032],
-                    [64.540157, 40.534204],
-                    [64.540167, 40.537744],
-                    [64.537719, 40.537122],
-                    [64.537728, 40.529654],
-                    [64.545024, 40.528946]
-                ];
 
-    polyCoords.forEach(function(el, i) {
-    	console.log(el);
-    	polyCoords[i][0] = Number(el[0]) + Number(0.033330);
-    	polyCoords[i][1] = Number(el[1]) + Number(0.033330);
-    })
-
-    console.log(polyCoords);
-
-    var polygon = new ymaps.GeoObject({
-        geometry: {
-            type: "Polygon",
-            coordinates: [polyCoords]
-        }
-    }, {
-        fillColor: '#00FF00',
-        strokeColor: '#0000FF',
-        opacity: 0.5,
-        strokeWidth: 2
+    mapPoly = new ymaps.Polygon([], {}, {
+       	fillColor: "#DB709377",
+      	strokeColor: "#990066",
+       	strokeOpacity: 0.8,
+       	strokeWidth: 2
     });
-
-    yMap.geoObjects.add(polygon);*/
 }
