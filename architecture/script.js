@@ -141,27 +141,26 @@ let munObjData = {
 
 ymaps.ready(init); //инициализация карты
 
-//Конструктор карты и точки
-var mapCircle, mapPoly, yMap;
+var mapCircle, //круг на карте
+	mapPoly, //многоугольник на карте
+	yMap; //сама карта
+//Конструктор карты и объектов
 function init() {
-    yMap = new ymaps.Map("map", {
-        center: [64.543235, 40.537195],
-        zoom: 13
-    }, {
-        searchControlProvider: 'yandex#search'
+	//конструктор карты
+    yMap = new ymaps.Map("map", { 
+        center: [64.543235, 40.537195], //центр карты (где-то над городом)
+        zoom: 13 //зум карты
     });
 
-	mapCircle = new ymaps.Circle([[], 30], { }, {
-       	fillColor: "#DB709377",
-      	strokeColor: "#990066",
-       	strokeOpacity: 0.8,
-       	strokeWidth: 2
+	mapCircle = new ymaps.Circle([[], 30], { }, { //30 - радиус тчоки в метрах
+       	fillColor: "#DB709377", //цвет заливки
+      	strokeColor: "#99006650", //цвет границы
+       	strokeWidth: 2 //ширина гарницы
     });
 
     mapPoly = new ymaps.Polygon([], {}, {
-       	fillColor: "#DB709377",
-      	strokeColor: "#990066",
-       	strokeOpacity: 0.8,
-       	strokeWidth: 2
+       	fillColor: "#DB709377", //цвет заливки
+      	strokeColor: "#99006650", //цвет границы
+       	strokeWidth: 2 //ширина гарницы
     });
 }
