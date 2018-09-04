@@ -139,6 +139,8 @@ let munObjData = {
 	}
 }
 
+//Инициализация яндекс карты и шаблонов объектов
+/************************************************/
 ymaps.ready(init); //инициализация карты
 
 var mapCircle, //круг на карте
@@ -164,3 +166,55 @@ function init() {
        	strokeWidth: 2 //ширина гарницы
     });
 }
+/************************************************/
+
+//Интерфейс
+/************************************************/
+function getObjectList(objectData) { //возвращает список всех МО
+	return Object.keys(objectData);
+}
+
+function createSelect(selectElement, objectData) { //создаёт выпадющий список с муниципальными объектами
+	selectElement.html('');
+	getObjectList(objectData).forEach(function (item){
+		selectElement.append($('<li>').text(item));
+	});
+}
+
+function closeList(listEl = $('.selectElement ul'), currentEl = $('.valueText')) { //закрыть выпадающий список, по умолчанию закрывает все списки
+	currentEl.children('img').css('transform', 'rotate(0)');
+	listEl.css('display', 'none');
+	currentEl.removeClass('active');
+}
+
+function openList(listEl, currentEl) { //показать выпадающий список
+	currentEl.children('img').css('transform', 'rotate(180deg)');
+	listEl.css('display', 'block');
+	currentEl.addClass('active');
+}
+
+createSelect($('#munForm ul'), munObjData);
+/************************************************/
+
+//События
+/************************************************/
+$('.valueText').on('click', function() { //показывает/скрывает выпадающее меню
+	closeList();
+	let listEl = $(this).parent().children('ul')
+
+	if ($(this).hasClass('active')) 
+		closeList(listEl, $(this));
+	else
+		openList(listEl, $(this));
+});
+
+$('#munForm').on('click', 'li', function() { //выбирает МО
+	createSelect($('#munObj ul'), munObjData[$(this).text()]);
+	$('#munForm .valueText').children('span').text($(this).text());
+	closeList();
+});
+
+$('#munObj').on('click', 'li', function() { //выбирает объект
+	$('#munObj .valueText').children('span').text($(this).text());
+	closeList();
+});
