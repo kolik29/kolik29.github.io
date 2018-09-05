@@ -140,15 +140,13 @@ let munObjData = {
 }
 
 //Инициализация яндекс карты и шаблонов объектов
-/************************************************/
 ymaps.ready(init); //инициализация карты
 
 var mapCircle, //круг на карте
 	mapPoly, //многоугольник на карте
 	yMap = {}; //сама карта
-//Конструктор карты и объектов
-function init() {
-	//конструктор карты
+
+function init() { //Конструктор карты и объектов
     yMap = new ymaps.Map("map", { 
         center: [64.543235, 40.537195], //центр карты (где-то над городом)
         zoom: 13 //зум карты
@@ -160,17 +158,16 @@ function init() {
        	strokeWidth: 2 //ширина гарницы
     });
 
-    mapPoly = new ymaps.Polygon([], {}, {
+    mapPoly = new ymaps.Polygon([
+    		[["64.384325", "40.952452"],["64.384199", "40.952106"],["64.384084", "40.952344"],["64.384199", "40.952688"],["64.384325", "40.952452"]]
+    	], {}, {
        	fillColor: "#DB709377", //цвет заливки
       	strokeColor: "#99006650", //цвет границы
        	strokeWidth: 2 //ширина гарницы
     });
 }
-/************************************************/
 
 //Интерфейс
-/************************************************/
-
 function createSelect(selectElement, objectData, addData = false) { //создаёт выпадющий список с муниципальными объектами
 	selectElement.html('');
 	Object.keys(objectData).forEach(function (item){
@@ -191,10 +188,8 @@ function openList(listEl, currentEl) { //показать выпадающий �
 }
 
 createSelect($('#munForm ul'), munObjData);
-/************************************************/
 
 //События
-/************************************************/
 $('.valueText').on('click', function() { //показывает/скрывает выпадающее меню
 	closeList();
 	let listEl = $(this).parent().children('ul')
@@ -215,11 +210,51 @@ $('#munObj').on('click', 'li', function() { //выбирает объект
 	$('#munObj .valueText').children('span').text($(this).text());
 	closeList();
 
+	yMap.geoObjects.removeAll()
 	switch(munObjData[$('#munForm .valueText span').text()][$('#munObj .valueText span').text()].type) {
 		case 'circle':
 			mapCircle.geometry.setCoordinates(munObjData[$('#munForm .valueText span').text()][$('#munObj .valueText span').text()].coord);
-			yMap.setCenter(munObjData[$('#munForm .valueText span').text()][$('#munObj .valueText span').text()].coord, 18);
 			yMap.geoObjects.add(mapCircle);
+			yMap.setBounds(mapCircle.geometry.getBounds(), {
+				checkZoomRange:true
+			}).then(function() {
+				if(map.getZoom() > 10) 
+					map.setZoom(10);
+			});
+			break;
+		case 'poly':
+			resizePoly(munObjData[$('#munForm .valueText span').text()][$('#munObj .valueText span').text()].coord);
+
+			yMap.geoObjects.add(mapPoly);
+			yMap.setBounds(mapPoly.geometry.getBounds(), {
+				checkZoomRange:true
+			}).then(function() {
+				if(map.getZoom() > 10) 
+					map.setZoom(10);
+			});
 			break;
 	}
 });
+
+//Математика, геометрия, алгоритмы
+function centerPoint(arrCoord) {
+	let lat = 0, lon = 0;
+
+	arrCoord.forEach(function(item) {
+		lat += Number(item[0]);
+	});
+	lat = lat / arrCoord.length;
+
+	arrCoord.forEach(function(item) {
+		lon += Number(item[1]);
+	});
+	lon = lon / arrCoord.length;
+
+	return [lat, lon];
+}
+
+function resizePoly(arrCoord) {
+	let polyCoord = [];
+	console.log(mapPoly);
+}
+
