@@ -145,7 +145,7 @@ ymaps.ready(init); //инициализация карты
 
 var mapCircle, //круг на карте
 	mapPoly, //многоугольник на карте
-	yMap; //сама карта
+	yMap = {}; //сама карта
 //Конструктор карты и объектов
 function init() {
 	//конструктор карты
@@ -170,13 +170,10 @@ function init() {
 
 //Интерфейс
 /************************************************/
-function getObjectList(objectData) { //возвращает список всех МО
-	return Object.keys(objectData);
-}
 
-function createSelect(selectElement, objectData) { //создаёт выпадющий список с муниципальными объектами
+function createSelect(selectElement, objectData, addData = false) { //создаёт выпадющий список с муниципальными объектами
 	selectElement.html('');
-	getObjectList(objectData).forEach(function (item){
+	Object.keys(objectData).forEach(function (item){
 		selectElement.append($('<li>').text(item));
 	});
 }
@@ -217,4 +214,12 @@ $('#munForm').on('click', 'li', function() { //выбирает МО
 $('#munObj').on('click', 'li', function() { //выбирает объект
 	$('#munObj .valueText').children('span').text($(this).text());
 	closeList();
+
+	switch(munObjData[$('#munForm .valueText span').text()][$('#munObj .valueText span').text()].type) {
+		case 'circle':
+			mapCircle.geometry.setCoordinates(munObjData[$('#munForm .valueText span').text()][$('#munObj .valueText span').text()].coord);
+			yMap.setCenter(munObjData[$('#munForm .valueText span').text()][$('#munObj .valueText span').text()].coord, 18);
+			yMap.geoObjects.add(mapCircle);
+			break;
+	}
 });
