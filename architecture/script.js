@@ -4,7 +4,7 @@ let munObjData = {
 	"Муниципальное образование «Боброво-Лявленское»":{		
 		"полигон":{
 			"type":"poly",
-			"coord":[["64.384325", "40.952452"],["64.384199", "40.952106"],["64.384084", "40.952344"],["64.384199", "40.952688"],["64.384325", "40.952452"]]
+			"coord":[["64.384325", "40.952452"],["64.384199", "40.952106"],["64.384084", "40.952344"],["64.384199", "40.952688"]]
 		},
 		"Филиал ГБУЗ «Приморская ЦРБ» ФАП «Кузьмино»":{
 			"type":"circle",
@@ -224,7 +224,7 @@ $('#munObj').on('click', 'li', function() { //выбирает объект
 			break;
 		case 'poly':
 			resizePoly(munObjData[$('#munForm .valueText span').text()][$('#munObj .valueText span').text()].coord);
-
+			mapPoly.geometry.setCoordinates([munObjData[$('#munForm .valueText span').text()][$('#munObj .valueText span').text()].coord])
 			yMap.geoObjects.add(mapPoly);
 			yMap.setBounds(mapPoly.geometry.getBounds(), {
 				checkZoomRange:true
@@ -254,7 +254,26 @@ function centerPoint(arrCoord) {
 }
 
 function resizePoly(arrCoord) {
-	let polyCoord = [];
-	console.log(mapPoly);
-}
+	let polyCoord = [];	
+	arrCoord.forEach(function(item, i) {
+		let angle, A, B;
+		
+		if (i > 0) {
+			A = arrCoord[i - 1];
+			B = arrCoord[i];
+		} else {			
+			A = arrCoord[arrCoord.length - 1];
+			B = arrCoord[i];
+		}
 
+		let AD = A[1] - A[0];
+		let BD = B[1] - B[0];
+
+		if (A[0] < B[0])
+			angle = 180 + (Math.atan2(BD, AD) * (180 / Math.PI));
+		else
+			angle = -(Math.atan2(BD, AD) * (180 / Math.PI));
+
+		console.log(angle);
+	});
+}
