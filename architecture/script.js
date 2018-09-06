@@ -268,9 +268,3 @@ function resizePoly(arrCoord) { //смена размера полигона
 
 	//return polyCoord;
 }
-
-/*function pointInPolygon(point, arCoord) {
-	if () {
-
-	}
-}*/
