@@ -221,9 +221,10 @@ $('#munObj').on('click', 'li', function() { //выбирает объект
 				if(map.getZoom() > 10) 
 					map.setZoom(10);
 			});
-			break;
+		break;
+
 		case 'poly':
-			resizePoly(munObjData[$('#munForm .valueText span').text()][$('#munObj .valueText span').text()].coord);
+			console.log(resizePoly(munObjData[$('#munForm .valueText span').text()][$('#munObj .valueText span').text()].coord));
 			mapPoly.geometry.setCoordinates([munObjData[$('#munForm .valueText span').text()][$('#munObj .valueText span').text()].coord])
 			yMap.geoObjects.add(mapPoly);
 			yMap.setBounds(mapPoly.geometry.getBounds(), {
@@ -232,29 +233,14 @@ $('#munObj').on('click', 'li', function() { //выбирает объект
 				if(map.getZoom() > 10) 
 					map.setZoom(10);
 			});
-			break;
+		break;
 	}
 });
 
 //Математика, геометрия, алгоритмы
-function centerPoint(arrCoord) {
-	let lat = 0, lon = 0;
+function resizePoly(arrCoord) { //смена размера полигона
+	let polyCoord = [];
 
-	arrCoord.forEach(function(item) {
-		lat += Number(item[0]);
-	});
-	lat = lat / arrCoord.length;
-
-	arrCoord.forEach(function(item) {
-		lon += Number(item[1]);
-	});
-	lon = lon / arrCoord.length;
-
-	return [lat, lon];
-}
-
-function resizePoly(arrCoord) {
-	let polyCoord = [];	
 	arrCoord.forEach(function(item, i) {
 		let angle, A, B;
 		
@@ -266,14 +252,25 @@ function resizePoly(arrCoord) {
 			B = arrCoord[i];
 		}
 
-		let AD = A[1] - A[0];
-		let BD = B[1] - B[0];
+		let AD = A[1] - A[0],
+			BD = B[1] - B[0];
 
 		if (A[0] < B[0])
-			angle = 180 + (Math.atan2(BD, AD) * (180 / Math.PI));
+			angle = Math.atan2(BD, AD);
 		else
-			angle = -(Math.atan2(BD, AD) * (180 / Math.PI));
+			angle = Math.atan2(BD, AD);
 
-		console.log(angle);
+		let direction = [Math.cos(angle), Math.sin(angle)], //направление движения
+ 		endPoint = ymaps.coordSystem.geo.solveDirectProblem(B, direction, 30).endPoint; //конечная точка на расстоянии 30 метров
+
+ 		console.log(endPoint);
 	});
+
+	//return polyCoord;
 }
+
+/*function pointInPolygon(point, arCoord) {
+	if () {
+
+	}
+}*/
