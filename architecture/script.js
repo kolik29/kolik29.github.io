@@ -224,8 +224,7 @@ $('#munObj').on('click', 'li', function() { //выбирает объект
 		break;
 
 		case 'poly':
-			console.log(resizePoly(munObjData[$('#munForm .valueText span').text()][$('#munObj .valueText span').text()].coord));
-			mapPoly.geometry.setCoordinates([munObjData[$('#munForm .valueText span').text()][$('#munObj .valueText span').text()].coord])
+			mapPoly.geometry.setCoordinates([resizePoly(munObjData[$('#munForm .valueText span').text()][$('#munObj .valueText span').text()].coord)])
 			yMap.geoObjects.add(mapPoly);
 			yMap.setBounds(mapPoly.geometry.getBounds(), {
 				checkZoomRange:true
@@ -242,7 +241,7 @@ function resizePoly(arrCoord) { //смена размера полигона
 	let polyCoord = [];
 
 	arrCoord.forEach(function(item, i) {
-		let angle, A, B;
+		let A, B;
 		
 		if (i > 0) {
 			A = arrCoord[i - 1];
@@ -253,18 +252,30 @@ function resizePoly(arrCoord) { //смена размера полигона
 		}
 
 		let AD = A[1] - A[0],
-			BD = B[1] - B[0];
+			BD = B[1] - B[0],
+			direction = [BD, AD], //направление движения
+ 			endPoint = ymaps.coordSystem.geo.solveDirectProblem(B, direction, 1).endPoint; //конечная точка на расстоянии 30 метров
 
-		if (A[0] < B[0])
-			angle = Math.atan2(BD, AD);
-		else
-			angle = Math.atan2(BD, AD);
+ 		if (inPoly({x: endPoint[0], y: endPoint[1]}, arrCoord.map(function(item) {return {x: item[0], y: item[1]}}))) {
+ 			endPoint = ymaps.coordSystem.geo.solveDirectProblem(B, direction, 30).endPoint;
+ 		} else {
+ 			endPoint = ymaps.coordSystem.geo.solveDirectProblem(B, direction, -30).endPoint;
+ 		}
 
-		let direction = [Math.cos(angle), Math.sin(angle)], //направление движения
- 		endPoint = ymaps.coordSystem.geo.solveDirectProblem(B, direction, 30).endPoint; //конечная точка на расстоянии 30 метров
-
- 		console.log(endPoint);
+ 		polyCoord.push(endPoint);
 	});
 
-	//return polyCoord;
+	return polyCoord;
+}
+
+function inPoly(point, arrPoly){
+	let result = false;
+
+	console.log(arrPoly);
+
+	for (let i = 0; i < arrPoly.length - 1; i++) {
+		if (((point.y - arrPoly[i].y) / (arrPoly[i + 1].y - arrPoly[i].y)) == ((point.x - arrPoly[i].x) / (arrPoly[i + 1].x - arrPoly[i].x)))
+			console.log('qwe');
+	}
+	return result;
 }
