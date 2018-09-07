@@ -210,7 +210,7 @@ $('#munObj').on('click', 'li', function() { //выбирает объект
 	$('#munObj .valueText').children('span').text($(this).text());
 	closeList();
 
-	yMap.geoObjects.removeAll()
+	yMap.geoObjects.removeAll();
 	switch(munObjData[$('#munForm .valueText span').text()][$('#munObj .valueText span').text()].type) {
 		case 'circle':
 			mapCircle.geometry.setCoordinates(munObjData[$('#munForm .valueText span').text()][$('#munObj .valueText span').text()].coord);
