@@ -224,7 +224,7 @@ $('#munObj').on('click', 'li', function() { //выбирает объект
 		break;
 
 		case 'poly':
-			mapPoly.geometry.setCoordinates([resizePoly(munObjData[$('#munForm .valueText span').text()][$('#munObj .valueText span').text()].coord)])
+			mapPoly.geometry.setCoordinates([munObjData[$('#munForm .valueText span').text()][$('#munObj .valueText span').text()].coord]);
 			yMap.geoObjects.add(mapPoly);
 			yMap.setBounds(mapPoly.geometry.getBounds(), {
 				checkZoomRange:true
@@ -232,50 +232,79 @@ $('#munObj').on('click', 'li', function() { //выбирает объект
 				if(map.getZoom() > 10) 
 					map.setZoom(10);
 			});
+			resizePoly(munObjData[$('#munForm .valueText span').text()][$('#munObj .valueText span').text()].coord);
 		break;
 	}
 });
 
+function addPoly(arrCoord) {
+
+}
+
 //Математика, геометрия, алгоритмы
 function resizePoly(arrCoord) { //смена размера полигона
-	let polyCoord = [];
+	let polyCoord = [], polyCoordObj = {};
 
 	arrCoord.forEach(function(item, i) {
 		let A, B;
+		polyCoord = [];
 		
-		if (i > 0) {
+		if ((i > 0) ** (i < arrCoord.length - 1)) {
 			A = arrCoord[i - 1];
 			B = arrCoord[i];
-		} else {			
+		} else if (i == 0) {			
 			A = arrCoord[arrCoord.length - 1];
 			B = arrCoord[i];
 		}
 
 		let AD = A[1] - A[0],
 			BD = B[1] - B[0],
-			direction = [BD, AD], //направление движения
- 			endPoint = ymaps.coordSystem.geo.solveDirectProblem(B, direction, 1).endPoint; //конечная точка на расстоянии 30 метров
+			angle = Math.atan2(BD, AD),
+			direction = [Math.cos(angle), Math.sin(angle)], //направление движения
+			endPoint = ymaps.coordSystem.geo.solveDirectProblem(B, direction, 1).endPoint; //конечная точка на расстоянии 30 метров
 
- 		if (inPoly({x: endPoint[0], y: endPoint[1]}, arrCoord.map(function(item) {return {x: item[0], y: item[1]}}))) {
- 			endPoint = ymaps.coordSystem.geo.solveDirectProblem(B, direction, 30).endPoint;
+ 		if (mapPoly.geometry.contains(endPoint)) {
+ 			polyCoord.push(ymaps.coordSystem.geo.solveDirectProblem(B, direction, -30).endPoint);
  		} else {
- 			endPoint = ymaps.coordSystem.geo.solveDirectProblem(B, direction, -30).endPoint;
+ 			if (i == arrCoord.length - 1){
+ 				polyCoord.push(ymaps.coordSystem.geo.solveDirectProblem(B, direction, -30).endPoint);
+ 			} else {
+ 				polyCoord.push(ymaps.coordSystem.geo.solveDirectProblem(B, direction, 30).endPoint);
+ 			}
  		}
 
- 		polyCoord.push(endPoint);
-	});
+ 		angle = Math.atan2(BD, AD) + (Math.PI / 2);
+		direction = [Math.cos(angle), Math.sin(angle)]; //направление движения
+		endPoint = ymaps.coordSystem.geo.solveDirectProblem(B, direction, 1).endPoint; //конечная точка на расстоянии 30 метров
 
-	return polyCoord;
-}
+ 		if (mapPoly.geometry.contains(endPoint)) {
+ 			polyCoord.push(ymaps.coordSystem.geo.solveDirectProblem(B, direction, -30).endPoint);
+ 		} else {
+ 			if (i == arrCoord.length - 2){
+ 				polyCoord.push(ymaps.coordSystem.geo.solveDirectProblem(B, direction, -30).endPoint);
+ 			} else {
+ 				polyCoord.push(ymaps.coordSystem.geo.solveDirectProblem(B, direction, 30).endPoint);
+ 			}
+ 		}
 
-function inPoly(point, arrPoly){
-	let result = false;
+ 		polyCoordObj[B] = polyCoord;
+	});	
 
-	console.log(arrPoly);
+	polyCoord = [];
 
-	for (let i = 0; i < arrPoly.length - 1; i++) {
-		if (((point.y - arrPoly[i].y) / (arrPoly[i + 1].y - arrPoly[i].y)) == ((point.x - arrPoly[i].x) / (arrPoly[i + 1].x - arrPoly[i].x)))
-			console.log('qwe');
-	}
-	return result;
+	let count = 0;
+	for (let key in polyCoordObj) {
+		if (count % 2 == 0) {
+			polyCoord.push(polyCoordObj[key][0]);
+			polyCoord.push(polyCoordObj[key][1]);
+		} else {
+			polyCoord.push(polyCoordObj[key][1]);
+			polyCoord.push(polyCoordObj[key][0]);
+		}
+		count++;
+	};
+
+	console.log(polyCoord);
+
+	mapPoly.geometry.setCoordinates([polyCoord]);
 }
