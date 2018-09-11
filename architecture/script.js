@@ -1,5 +1,5 @@
-//Данные по муниципальным объектам
-//содержат название МО, название мун. объекта и его координаты
+
+
 let munObjData = {
 	"Муниципальное образование «Боброво-Лявленское»":{		
 		"полигон":{
@@ -139,49 +139,49 @@ let munObjData = {
 	}
 }
 
-//Инициализация яндекс карты и шаблонов объектов
-ymaps.ready(init); //инициализация карты
 
-var mapCircle, //круг на карте
-	mapPoly, //многоугольник на карте
-	yMap = {}; //сама карта
+ymaps.ready(init); 
 
-function init() { //Конструктор карты и объектов
-    yMap = new ymaps.Map("map", { 
-        center: [64.543235, 40.537195], //центр карты (где-то над городом)
-        zoom: 13 //зум карты
-    });
+var mapCircle, 
+	mapPoly, 
+	yMap = {}; 
 
-	mapCircle = new ymaps.Circle([[], 30], { }, { //30 - радиус тчоки в метрах
-       	fillColor: "#DB709377", //цвет заливки
-      	strokeColor: "#99006650", //цвет границы
-       	strokeWidth: 2 //ширина гарницы
-    });
+function init() { 
+	yMap = new ymaps.Map("map", { 
+		center: [64.543235, 40.537195], 
+		zoom: 13 
+	});
 
-    mapPoly = new ymaps.Polygon([
-    		[["64.384325", "40.952452"],["64.384199", "40.952106"],["64.384084", "40.952344"],["64.384199", "40.952688"],["64.384325", "40.952452"]]
-    	], {}, {
-       	fillColor: "#DB709377", //цвет заливки
-      	strokeColor: "#99006650", //цвет границы
-       	strokeWidth: 2 //ширина гарницы
-    });
+	mapCircle = new ymaps.Circle([[], 30], { }, { 
+	   	fillColor: "#DB709377", 
+	  	strokeColor: "#99006650", 
+	   	strokeWidth: 2 
+	});
+
+	mapPoly = new ymaps.Polygon([
+			[["64.384325", "40.952452"],["64.384199", "40.952106"],["64.384084", "40.952344"],["64.384199", "40.952688"],["64.384325", "40.952452"]]
+		], {}, {
+	   	fillColor: "#DB709377", 
+	  	strokeColor: "#99006650", 
+	   	strokeWidth: 2 
+	});
 }
 
-//Интерфейс
-function createSelect(selectElement, objectData, addData = false) { //создаёт выпадющий список с муниципальными объектами
+
+function createSelect(selectElement, objectData, addData = false) { 
 	selectElement.html('');
 	Object.keys(objectData).forEach(function (item){
 		selectElement.append($('<li>').text(item));
 	});
 }
 
-function closeList(listEl = $('.selectElement ul'), currentEl = $('.valueText')) { //закрыть выпадающий список, по умолчанию закрывает все списки
+function closeList(listEl = $('.selectElement ul'), currentEl = $('.valueText')) { 
 	currentEl.children('img').css('transform', 'rotate(0)');
 	listEl.css('display', 'none');
 	currentEl.removeClass('active');
 }
 
-function openList(listEl, currentEl) { //показать выпадающий список
+function openList(listEl, currentEl) { 
 	currentEl.children('img').css('transform', 'rotate(180deg)');
 	listEl.css('display', 'block');
 	currentEl.addClass('active');
@@ -189,8 +189,8 @@ function openList(listEl, currentEl) { //показать выпадающий �
 
 createSelect($('#munForm ul'), munObjData);
 
-//События
-$('.valueText').on('click', function() { //показывает/скрывает выпадающее меню
+
+$('.valueText').on('click', function() { 
 	closeList();
 	let listEl = $(this).parent().children('ul')
 
@@ -200,13 +200,13 @@ $('.valueText').on('click', function() { //показывает/скрывает
 		openList(listEl, $(this));
 });
 
-$('#munForm').on('click', 'li', function() { //выбирает МО
+$('#munForm').on('click', 'li', function() { 
 	createSelect($('#munObj ul'), munObjData[$(this).text()]);
 	$('#munForm .valueText').children('span').text($(this).text());
 	closeList();
 });
 
-$('#munObj').on('click', 'li', function() { //выбирает объект
+$('#munObj').on('click', 'li', function() { 
 	$('#munObj .valueText').children('span').text($(this).text());
 	closeList();
 
@@ -241,8 +241,8 @@ function addPoly(arrCoord) {
 
 }
 
-//Математика, геометрия, алгоритмы
-function resizePoly(arrCoord) { //смена размера полигона
+
+function resizePoly(arrCoord) { 
 	let polyCoord = [], polyCoordObj = {};
 
 	arrCoord.forEach(function(item, i) {
@@ -260,8 +260,8 @@ function resizePoly(arrCoord) { //смена размера полигона
 		let AD = A[1] - A[0],
 			BD = B[1] - B[0],
 			angle = Math.atan2(BD, AD),
-			direction = [Math.cos(angle), Math.sin(angle)], //направление движения
-			endPoint = ymaps.coordSystem.geo.solveDirectProblem(B, direction, 1).endPoint; //конечная точка на расстоянии 30 метров
+			direction = [Math.cos(angle), Math.sin(angle)], 
+			endPoint = ymaps.coordSystem.geo.solveDirectProblem(B, direction, 1).endPoint; 
 
  		if (mapPoly.geometry.contains(endPoint)) {
  			polyCoord.push(ymaps.coordSystem.geo.solveDirectProblem(B, direction, -30).endPoint);
@@ -274,8 +274,8 @@ function resizePoly(arrCoord) { //смена размера полигона
  		}
 
  		angle = Math.atan2(BD, AD) + (Math.PI / 2);
-		direction = [Math.cos(angle), Math.sin(angle)]; //направление движения
-		endPoint = ymaps.coordSystem.geo.solveDirectProblem(B, direction, 1).endPoint; //конечная точка на расстоянии 30 метров
+		direction = [Math.cos(angle), Math.sin(angle)]; 
+		endPoint = ymaps.coordSystem.geo.solveDirectProblem(B, direction, 1).endPoint; 
 
  		if (mapPoly.geometry.contains(endPoint)) {
  			polyCoord.push(ymaps.coordSystem.geo.solveDirectProblem(B, direction, -30).endPoint);
@@ -296,15 +296,35 @@ function resizePoly(arrCoord) { //смена размера полигона
 	for (let key in polyCoordObj) {
 		if (count % 2 == 0) {
 			polyCoord.push(polyCoordObj[key][0]);
+			polyCoord = polyCoord.concat(drawCircle(key.split(','), polyCoordObj[key][0], polyCoordObj[key][1]));
 			polyCoord.push(polyCoordObj[key][1]);
 		} else {
 			polyCoord.push(polyCoordObj[key][1]);
+			polyCoord = polyCoord.concat(drawCircle(key.split(','), polyCoordObj[key][1], polyCoordObj[key][0]));
 			polyCoord.push(polyCoordObj[key][0]);
 		}
 		count++;
 	};
-
-	console.log(polyCoord);
-
 	mapPoly.geometry.setCoordinates([polyCoord]);
+}
+
+function drawCircle(centerPoint, startPoint, endPoint) {
+	let arrCoord = [],
+		direction,
+		startAngle = Math.atan2(centerPoint[1] - centerPoint[0], startPoint[1] - startPoint[0]),
+		endAngle = Math.atan2(centerPoint[1] - centerPoint[0], endPoint[1] - endPoint[0]),
+		rotate = Math.PI / 90;
+
+	if (startAngle < endAngle)
+		rotate = -rotate;
+
+	//console.log(startAngle + ' | ' + endAngle + ' : ' + rotate);
+
+	for (let i = startAngle; i <= endAngle; i -= Math.PI / 90) {
+		direction = [Math.cos(i), Math.sin(i)];
+		//console.log(direction);
+		arrCoord.push(ymaps.coordSystem.geo.solveDirectProblem(centerPoint, direction, 30).endPoint);
+	}
+
+	return arrCoord;
 }
