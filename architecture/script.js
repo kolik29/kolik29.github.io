@@ -318,13 +318,24 @@ function drawCircle(centerPoint, startPoint, endPoint) {
 	if (startAngle < endAngle)
 		rotate = -rotate;
 
-	//console.log(startAngle + ' | ' + endAngle + ' : ' + rotate);
+	console.log((startAngle * (180 / Math.PI)) + ' | ' + (endAngle * (180 / Math.PI)));
 
-	for (let i = startAngle; i <= endAngle; i -= Math.PI / 90) {
-		direction = [Math.cos(i), Math.sin(i)];
-		//console.log(direction);
-		arrCoord.push(ymaps.coordSystem.geo.solveDirectProblem(centerPoint, direction, 30).endPoint);
+	if (startAngle < endAngle) {
+		for (let i = startAngle; i <= endAngle; i += Math.PI / 90) {
+			direction = [Math.cos(i), Math.sin(i)];
+			arrCoord.push(ymaps.coordSystem.geo.solveDirectProblem(centerPoint, direction, 30).endPoint);
+		}
+	} else {
+		for (let i = endAngle; i <= startAngle; i += Math.PI / 90) {
+			direction = [Math.cos(i), Math.sin(i)];
+			arrCoord.push(ymaps.coordSystem.geo.solveDirectProblem(centerPoint, direction, 30).endPoint);
+		}
 	}
+
+	/*for (let i = startAngle; i <= endAngle; i -= Math.PI / 90) {
+		direction = [Math.cos(i), Math.sin(i)];
+		arrCoord.push(ymaps.coordSystem.geo.solveDirectProblem(centerPoint, direction, 30).endPoint);
+	}*/
 
 	return arrCoord;
 }
