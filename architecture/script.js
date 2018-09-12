@@ -311,31 +311,13 @@ function resizePoly(arrCoord) {
 function drawCircle(centerPoint, startPoint, endPoint) {
 	let arrCoord = [],
 		direction,
-		startAngle = Math.atan2(centerPoint[1] - centerPoint[0], startPoint[1] - startPoint[0]),
-		endAngle = Math.atan2(centerPoint[1] - centerPoint[0], endPoint[1] - endPoint[0]),
-		rotate = Math.PI / 90;
+		startAngle = Math.atan2(startPoint[1] - centerPoint[1], startPoint[0] - centerPoint[0]),
+		endAngle = Math.atan2(endPoint[1] - centerPoint[1], endPoint[0] - centerPoint[0]);
 
-	if (startAngle < endAngle)
-		rotate = -rotate;
-
-	console.log((startAngle * (180 / Math.PI)) + ' | ' + (endAngle * (180 / Math.PI)));
-
-	if (startAngle < endAngle) {
-		for (let i = startAngle; i <= endAngle; i += Math.PI / 90) {
-			direction = [Math.cos(i), Math.sin(i)];
-			arrCoord.push(ymaps.coordSystem.geo.solveDirectProblem(centerPoint, direction, 30).endPoint);
-		}
-	} else {
-		for (let i = endAngle; i <= startAngle; i += Math.PI / 90) {
-			direction = [Math.cos(i), Math.sin(i)];
-			arrCoord.push(ymaps.coordSystem.geo.solveDirectProblem(centerPoint, direction, 30).endPoint);
-		}
-	}
-
-	/*for (let i = startAngle; i <= endAngle; i -= Math.PI / 90) {
+	for (var i = 0; i < Math.PI * 2; i += Math.PI / 180) {
 		direction = [Math.cos(i), Math.sin(i)];
 		arrCoord.push(ymaps.coordSystem.geo.solveDirectProblem(centerPoint, direction, 30).endPoint);
-	}*/
+	}
 
 	return arrCoord;
 }
