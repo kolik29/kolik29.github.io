@@ -1,8 +1,5 @@
 $(document).ready(function() {
-	/**********************/
 	/*Наведение на соцсети*/
-	/**********************/
-
 	$('.soc-net a').mouseenter(function() {
 		$(this).children('.name').animate({
 			'opacity': 1
@@ -15,12 +12,7 @@ $(document).ready(function() {
 		}, 300);
 	});
 
-	/**********************/
-
-	/*******************/
 	/*Наведение на меню*/
-	/*******************/
-
 	$('.button').mouseenter(function() {
 		$(this).find('.icon').css('box-shadow', '0 0 0px 75px #00000000');
 	});
@@ -29,12 +21,7 @@ $(document).ready(function() {
 		$(this).find('.icon').css('box-shadow', '');
 	});
 
-	/*******************/
-
-	/*******************/
 	/*Нажатие на кнопки*/
-	/*******************/
-
 	$('.button').click(function() {
 		var slide_to;
 
@@ -79,12 +66,7 @@ $(document).ready(function() {
 		}, 500);
 	});
 
-	/*******************/
-
-	/*****************************/
 	/*Скиллы в процентах в кружке*/
-	/*****************************/
-	
 	$('.percent_circle').each(function() {
 		draw_circle_percent(
 			$(this).children('canvas').attr('id'), 
@@ -94,12 +76,7 @@ $(document).ready(function() {
 			'#6a8d9d');
 	});
 
-	/*****************************/
-
-	/*****************************/
 	/*Нажатие на лупу в портфолио*/
-	/*****************************/
-
 	$('.js-popup-open').click(function () {
 		$('.popup-bkg').css('display', 'flex');
 		$('.popup-bkg > .' + $(this).attr('id')).css('display', 'flex');
@@ -118,17 +95,13 @@ $(document).ready(function() {
 			});
 		});
 	});
-
-	/*****************************/
 });
 
 function draw_circle_percent(elemnt_id, line_width, percent, color1, color2) {
-	var canvas = document.getElementById(elemnt_id);
-   	var line = canvas.getContext('2d');
+	let canvas = document.getElementById(elemnt_id),
+   		line = canvas.getContext('2d'),
+   		center = canvas.width/2;
 
-   	var center = canvas.width/2;
-
-   	/*Draw down circle*/
    	line.beginPath();  
 	line.lineWidth = line_width;
 	line.strokeStyle = color1;
@@ -136,7 +109,6 @@ function draw_circle_percent(elemnt_id, line_width, percent, color1, color2) {
 	line.closePath();
    	line.stroke();
 
-	/*Draw general circle*/
 	line.beginPath();  
 	line.lineWidth = line_width;
 	line.strokeStyle = color2;
