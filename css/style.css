@@ -244,6 +244,7 @@ footer {
 }
 #main .half-screen + .right {
   bottom: 0;
+  right: 0;
 }
 #main .half-screen .button {
   position: relative;
