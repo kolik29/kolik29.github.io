@@ -314,10 +314,36 @@ function drawCircle(centerPoint, startPoint, endPoint) {
 		startAngle = Math.atan2(startPoint[1] - centerPoint[1], startPoint[0] - centerPoint[0]),
 		endAngle = Math.atan2(endPoint[1] - centerPoint[1], endPoint[0] - centerPoint[0]);
 
-	for (var i = 0; i < Math.PI * 2; i += Math.PI / 180) {
-		direction = [Math.cos(i), Math.sin(i)];
-		arrCoord.push(ymaps.coordSystem.geo.solveDirectProblem(centerPoint, direction, 30).endPoint);
+	startAngle = (startAngle < 0) ? ((Math.PI * 2) + startAngle) : startAngle;
+	endAngle = (endAngle < 0) ? ((Math.PI * 2) + endAngle) : endAngle;
+
+	if ((startAngle > 0) && (startAngle < Math.PI / 2) &&
+		(endAngle > ((2 * Math.PI) - (Math.PI / 2))) && (endAngle < 2 * Math.PI)) {
+		for (let i = startAngle - (22.5 * (Math.PI / 180)); i >= 0; i -= Math.PI / 90) {
+			direction = [Math.cos(i), Math.sin(i)];
+			arrCoord.push(ymaps.coordSystem.geo.solveDirectProblem(centerPoint, direction, 30).endPoint);
+		}
+
+		for (let i = 2 * Math.PI; i >= endAngle + (22.5 * (Math.PI / 180)); i -= Math.PI / 90) {
+			direction = [Math.cos(i), Math.sin(i)];
+			arrCoord.push(ymaps.coordSystem.geo.solveDirectProblem(centerPoint, direction, 30).endPoint);	
+		}
+	} else {
+		if ((startAngle > Math.PI) && (startAngle < ((2 * Math.PI) - (Math.PI / 2))) &&
+			(endAngle > Math.PI / 2) && (endAngle < Math.PI)) {
+			console.log(endAngle);
+			for (let i = startAngle - (22.5 * (Math.PI / 180)); i >= endAngle + (22.5 * (Math.PI / 180)); i -= Math.PI / 90) {
+				direction = [Math.cos(i), Math.sin(i)];
+				arrCoord.push(ymaps.coordSystem.geo.solveDirectProblem(centerPoint, direction, 30).endPoint);
+			}
+		} else {
+			for (let i = startAngle + (22.5 * (Math.PI / 180)); i >= endAngle - (22.5 * (Math.PI / 180)); i -= Math.PI / 90) {
+				direction = [Math.cos(i), Math.sin(i)];
+				arrCoord.push(ymaps.coordSystem.geo.solveDirectProblem(centerPoint, direction, 30).endPoint);
+			}
+		}
 	}
+		
 
 	return arrCoord;
 }
