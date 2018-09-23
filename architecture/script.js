@@ -1,14 +1,14 @@
 
 
 let munObjData = {
-	"Муниципальное образование «Боброво-Лявленское»":{		
-		"полигон":{
-			"type":"poly",
-			"coord":[["64.384325", "40.952452"],["64.384199", "40.952106"],["64.384084", "40.952344"],["64.384199", "40.952688"]]
-		},
+	"Муниципальное образование «Боброво-Лявленское»":{
 		"Филиал ГБУЗ «Приморская ЦРБ» ФАП «Кузьмино»":{
 			"type":"circle",
 			"coord":["64.384188","40.952406"]
+		},
+		"ГБСУ АО «Трепузовский психоневрологический интернат»":{
+			"type":"poly",
+			"coord":[[64.364552, 41.057315], [64.364229, 41.055964], [64.363505, 41.053916], [64.362855, 41.055407], [64.361712, 41.058993], [64.361831, 41.059583], [64.362407, 41.060259], [64.362903, 41.059916], [64.363384, 41.059256], [64.363326, 41.059004]]
 		},
 		"Филиал ГБУЗ «Приморская ЦРБ» ФАП «Лявля»":{
 			"type":"circle",
@@ -237,7 +237,43 @@ $('#munObj').on('click', 'li', function() {
 	}
 });
 
-function resizePoly(arrCoord) { 
+function resizePoly(arrCoord) {
+	let polyCoord = [];
+
+	for (let i = 0; i < arrCoord.length; i++) {
+		if (i == 0){
+			polyCoord = polyCoord.concat(drawCircle(arrCoord[i], arrCoord[arrCoord.length - 1], arrCoord[i + 1]));
+		} else if (i == arrCoord.length - 1) {
+			polyCoord = polyCoord.concat(drawCircle(arrCoord[i], arrCoord[i - 1], arrCoord[0]));
+		} else {
+			polyCoord = polyCoord.concat(drawCircle(arrCoord[i], arrCoord[i - 1], arrCoord[i + 1]));
+		}
+	}
+
+	mapPoly.geometry.setCoordinates([polyCoord]);
+}
+
+function drawCircle(centerPoint, prevPoint, nextPoint) {
+	let arrCoord = [],
+		angle0 = Math.atan2(prevPoint[1] - centerPoint[1], prevPoint[0] - centerPoint[0]) + (Math.PI / 2),
+		angle1 = Math.atan2(nextPoint[1] - centerPoint[1], nextPoint[0] - centerPoint[0]) + (Math.PI / 2);
+		/*direction0 = [Math.cos(angle0), Math.sin(angle0)],
+		direction1 = [Math.cos(angle1), Math.sin(angle1)];*/
+
+	console.log('Центр: ' + centerPoint + ' | Предыдущая точка: ' + prevPoint + ' | Следующая точка: ' + nextPoint);
+
+	for (let i = angle0; i >= angle1; i -= Math.PI / 18) {
+		direction = [Math.cos(i).toFixed(6), Math.sin(i).toFixed(6)];
+		arrCoord.push([
+			ymaps.coordSystem.geo.solveDirectProblem(centerPoint, direction, 30).endPoint[0].toFixed(6),
+			ymaps.coordSystem.geo.solveDirectProblem(centerPoint, direction, 30).endPoint[1].toFixed(6)
+		]);
+	}
+
+	return arrCoord;
+}
+
+/*function resizePoly(arrCoord) { 
 	let polyCoord = [], polyCoordObj = {};
 
 	arrCoord.forEach(function(item, i) {
@@ -297,13 +333,13 @@ function resizePoly(arrCoord) {
 	let count = 0;
 	for (let key in polyCoordObj) {
 		if (count % 2 == 0) {
-			//polyCoord.push(polyCoordObj[key][0]);
-			polyCoord = polyCoord.concat(drawCircle(key.split(','), polyCoordObj[key][0], polyCoordObj[key][1]));
-			//polyCoord.push(polyCoordObj[key][1]);
+			polyCoord.push(polyCoordObj[key][0]);
+			//polyCoord = polyCoord.concat(drawCircle(key.split(','), polyCoordObj[key][0], polyCoordObj[key][1]));
+			polyCoord.push(polyCoordObj[key][1]);
 		} else {
-			//polyCoord.push(polyCoordObj[key][1]);
-			polyCoord = polyCoord.concat(drawCircle(key.split(','), polyCoordObj[key][1], polyCoordObj[key][0]));
-			//polyCoord.push(polyCoordObj[key][0]);
+			polyCoord.push(polyCoordObj[key][1]);
+			//polyCoord = polyCoord.concat(drawCircle(key.split(','), polyCoordObj[key][1], polyCoordObj[key][0]));
+			polyCoord.push(polyCoordObj[key][0]);
 		}
 		count++;
 	};
@@ -311,7 +347,7 @@ function resizePoly(arrCoord) {
 	console.log(polyCoord);
 }
 
-function drawCircle(centerPoint, startPoint, endPoint) {
+/*function drawCircle(centerPoint, startPoint, endPoint) {
 	let arrCoord = [],
 		direction,
 		startAngle = Math.atan2(startPoint[1] - centerPoint[1], startPoint[0] - centerPoint[0]),
@@ -359,4 +395,4 @@ function drawCircle(centerPoint, startPoint, endPoint) {
 	}		
 
 	return arrCoord;
-}
+}*/
