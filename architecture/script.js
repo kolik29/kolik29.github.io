@@ -237,162 +237,25 @@ $('#munObj').on('click', 'li', function() {
 	}
 });
 
-/*function resizePoly(arrCoord) {
-	let polyCoord = [];
-
-	for (let i = 0; i < arrCoord.length; i++) {
-		if (i == 0){
-			polyCoord = polyCoord.concat(drawCircle(arrCoord[i], arrCoord[arrCoord.length - 1], arrCoord[i + 1]));
-		} else if (i == arrCoord.length - 1) {
-			polyCoord = polyCoord.concat(drawCircle(arrCoord[i], arrCoord[i - 1], arrCoord[0]));
-		} else {
-			polyCoord = polyCoord.concat(drawCircle(arrCoord[i], arrCoord[i - 1], arrCoord[i + 1]));
-		}
-	}
-
-	mapPoly.geometry.setCoordinates([polyCoord]);
-}
-
-function drawCircle(centerPoint, prevPoint, nextPoint) {
-	let arrCoord = [],
-		angle0 = Math.atan2(prevPoint[1] - centerPoint[1], prevPoint[0] - centerPoint[0]) + (Math.PI / 2),
-		angle1 = Math.atan2(nextPoint[1] - centerPoint[1], nextPoint[0] - centerPoint[0]) + (Math.PI / 2);
-		direction0 = [Math.cos(angle0), Math.sin(angle0)],
-		direction1 = [Math.cos(angle1), Math.sin(angle1)];
-
-	console.log('Центр: ' + centerPoint + ' | Предыдущая точка: ' + prevPoint + ' | Следующая точка: ' + nextPoint);
-
-	for (let i = angle0; i >= angle1; i -= Math.PI / 18) {
-		direction = [Math.cos(i).toFixed(6), Math.sin(i).toFixed(6)];
-		arrCoord.push([
-			ymaps.coordSystem.geo.solveDirectProblem(centerPoint, direction, 30).endPoint[0].toFixed(6),
-			ymaps.coordSystem.geo.solveDirectProblem(centerPoint, direction, 30).endPoint[1].toFixed(6)
-		]);
-	}
-
-	return arrCoord;
-}*/
-
 function resizePoly(arrCoord) { 
-	let polyCoord = [], polyCoordObj = {};
+	let lineCoordArray = [];
 
-	arrCoord.forEach(function(item, i) {
-		let A, B;
-		polyCoord = [];
-		
-		if ((i > 0) ** (i < arrCoord.length - 1)) {
-			A = arrCoord[i - 1];
-			B = arrCoord[i];
-		} else if (i == 0) {			
-			A = arrCoord[arrCoord.length - 1];
-			B = arrCoord[i];
-		}
+	arrCoord.forEach(function (item, i) {
+		lineCoordArray.push((i < arrCoord.length - 1) ? [item, arrCoord[i + 1]] : [item, arrCoord[0]]);
+	});
 
-		let AD = A[1] - A[0],
-			BD = B[1] - B[0],
-			angle = Math.atan2(BD, AD) - (Math.PI / 2),
-			direction = [Math.cos(angle), Math.sin(angle)], 
-			endPoint = ymaps.coordSystem.geo.solveDirectProblem(B, direction, 1).endPoint; 
-
- 		if (mapPoly.geometry.contains(endPoint)) {
- 			polyCoord.push(ymaps.coordSystem.geo.solveDirectProblem(B, direction, -30).endPoint);
- 		} else {
- 			if (i == arrCoord.length - 1){
- 				polyCoord.push(ymaps.coordSystem.geo.solveDirectProblem(B, direction, -30).endPoint);
- 			} else {
- 				polyCoord.push(ymaps.coordSystem.geo.solveDirectProblem(B, direction, 30).endPoint);
- 			}
- 		}
-
- 		angle = Math.atan2(BD, AD) + (Math.PI / 2);
-		direction = [Math.cos(angle), Math.sin(angle)]; 
-		endPoint = ymaps.coordSystem.geo.solveDirectProblem(B, direction, 1).endPoint; 
-
- 		if (mapPoly.geometry.contains(endPoint)) {
- 			polyCoord.push(ymaps.coordSystem.geo.solveDirectProblem(B, direction, -30).endPoint);
- 		} else {
- 			if (i == arrCoord.length - 2){
- 				polyCoord.push(ymaps.coordSystem.geo.solveDirectProblem(B, direction, -30).endPoint);
- 			} else {
- 				polyCoord.push(ymaps.coordSystem.geo.solveDirectProblem(B, direction, 30).endPoint);
- 			}
- 		}
-
- 		polyCoordObj[B] = polyCoord;
-	});	
-
-	polyCoord = [];
-
-	for (let key in polyCoordObj) {
-		polyCoordObj[key][0][0] = polyCoordObj[key][0][0].toFixed(6);
-		polyCoordObj[key][0][1] = polyCoordObj[key][0][1].toFixed(6);
-		polyCoordObj[key][1][0] = polyCoordObj[key][1][0].toFixed(6);
-		polyCoordObj[key][1][1] = polyCoordObj[key][1][1].toFixed(6);
-	}
-
-	let count = 0;
-	for (let key in polyCoordObj) {
-		if (count % 2 == 0) {
-			polyCoord.push(polyCoordObj[key][0]);
-			//polyCoord = polyCoord.concat(drawCircle(key.split(','), polyCoordObj[key][0], polyCoordObj[key][1]));
-			polyCoord.push(polyCoordObj[key][1]);
-		} else {
-			polyCoord.push(polyCoordObj[key][1]);
-			//polyCoord = polyCoord.concat(drawCircle(key.split(','), polyCoordObj[key][1], polyCoordObj[key][0]));
-			polyCoord.push(polyCoordObj[key][0]);
-		}
-		count++;
-	};
-	mapPoly.geometry.setCoordinates([polyCoord]);
-	console.log(polyCoord);
+	lineCoordArray.forEach(function(item) {
+		let direction = [Math.cos(getAngle(item) + (Math.PI / 2)), Math.sin(getAngle(item) + (Math.PI / 2))];
+		console.log(mapPoly.geometry.contains(ymaps.coordSystem.geo.solveDirectProblem(getCenterLinePoint(item), direction, 1).endPoint));
+	});
 }
 
-function drawCircle(centerPoint, startPoint, endPoint) {
-	let arrCoord = [],
-		direction,
-		startAngle = Math.atan2(startPoint[1] - centerPoint[1], startPoint[0] - centerPoint[0]),
-		endAngle = Math.atan2(endPoint[1] - centerPoint[1], endPoint[0] - centerPoint[0]);
+function getCenterLinePoint(twoPointsArray) {
+	return [((twoPointsArray[0][0] + twoPointsArray[1][0]) / 2), ((twoPointsArray[0][1] + twoPointsArray[1][1]) / 2)];
+}
 
-	startAngle = (startAngle < 0) ? ((Math.PI * 2) + startAngle) : startAngle;
-	endAngle = (endAngle < 0) ? ((Math.PI * 2) + endAngle) : endAngle;
-
-	if ((startAngle > 0) && (startAngle < Math.PI / 2) &&
-		(endAngle > ((2 * Math.PI) - (Math.PI / 2))) && (endAngle < 2 * Math.PI)) {
-		for (let i = startAngle - (22.5 * (Math.PI / 180)); i >= 0; i -= Math.PI / 18) {
-			direction = [Math.cos(i).toFixed(6), Math.sin(i).toFixed(6)];
-			arrCoord.push([
-				ymaps.coordSystem.geo.solveDirectProblem(centerPoint, direction, 30).endPoint[0].toFixed(6),
-				ymaps.coordSystem.geo.solveDirectProblem(centerPoint, direction, 30).endPoint[1].toFixed(6)
-			]);
-		}
-
-		for (let i = 2 * Math.PI; i >= endAngle + (22.5 * (Math.PI / 180)); i -= Math.PI / 18) {
-			direction = [Math.cos(i).toFixed(6), Math.sin(i).toFixed(6)];
-			arrCoord.push([
-				ymaps.coordSystem.geo.solveDirectProblem(centerPoint, direction, 30).endPoint[0].toFixed(6),
-				ymaps.coordSystem.geo.solveDirectProblem(centerPoint, direction, 30).endPoint[1].toFixed(6)
-			]);
-		}
-	} else {
-		if ((startAngle > Math.PI) && (startAngle < ((2 * Math.PI) - (Math.PI / 2))) &&
-			(endAngle > Math.PI / 2) && (endAngle < Math.PI)) {
-			for (let i = startAngle - (22.5 * (Math.PI / 180)); i >= endAngle + (22.5 * (Math.PI / 180)); i -= Math.PI / 18) {
-				direction = [Math.cos(i).toFixed(6), Math.sin(i).toFixed(6)];
-				arrCoord.push([
-					ymaps.coordSystem.geo.solveDirectProblem(centerPoint, direction, 30).endPoint[0].toFixed(6),
-					ymaps.coordSystem.geo.solveDirectProblem(centerPoint, direction, 30).endPoint[1].toFixed(6)
-				]);
-			}
-		} else {
-			for (let i = startAngle + (22.5 * (Math.PI / 180)); i >= endAngle - (22.5 * (Math.PI / 180)); i -= Math.PI / 18) {
-				direction = [Math.cos(i).toFixed(6), Math.sin(i).toFixed(6)];
-				arrCoord.push([
-					ymaps.coordSystem.geo.solveDirectProblem(centerPoint, direction, 30).endPoint[0].toFixed(6),
-					ymaps.coordSystem.geo.solveDirectProblem(centerPoint, direction, 30).endPoint[1].toFixed(6)
-				]);
-			}
-		}
-	}		
-
-	return arrCoord;
+function getAngle(twoPointsArray) {
+	return (Math.atan2(twoPointsArray[1][1] - twoPointsArray[0][1], twoPointsArray[1][0] - twoPointsArray[0][0]) < 0) ? 
+		(Math.PI * 2) + Math.atan2(twoPointsArray[1][1] - twoPointsArray[0][1], twoPointsArray[1][0] - twoPointsArray[0][0]) :
+		Math.atan2(twoPointsArray[1][1] - twoPointsArray[0][1], twoPointsArray[1][0] - twoPointsArray[0][0]);
 }
