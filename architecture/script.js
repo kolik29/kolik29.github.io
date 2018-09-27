@@ -275,14 +275,16 @@ function getCenterLinePoint(twoPointsArray) {
 }
 
 function getAngle(twoPointsArray) {
-	return Math.atan2(twoPointsArray[1][1] - twoPointsArray[0][1], twoPointsArray[1][0] - twoPointsArray[0][0]);
+	return (Math.atan2(twoPointsArray[1][1] - twoPointsArray[0][1], twoPointsArray[1][0] - twoPointsArray[0][0]) < 0) ? 
+		Math.atan2(twoPointsArray[1][1] - twoPointsArray[0][1], twoPointsArray[1][0] - twoPointsArray[0][0]) + (Math.PI * 2) :
+		Math.atan2(twoPointsArray[1][1] - twoPointsArray[0][1], twoPointsArray[1][0] - twoPointsArray[0][0]);
 }
 
 function getDirection(item, distance) {
 	let centerLinePoint = getCenterLinePoint(item),
 		direction = [Math.cos(getAngle(item) + (Math.PI / 2)), Math.sin(getAngle(item) + (Math.PI / 2))];
 
-	console.log('X: ' + item[0] + '; Y: ' + item[1] + '; Angle: ' + getAngle(item) * 180 / Math.PI);
+	console.log(getAngle(item));
 
 	if (!mapPoly.geometry.contains(ymaps.coordSystem.geo.solveDirectProblem(centerLinePoint, direction, 1).endPoint))
 		return [direction, distance];
