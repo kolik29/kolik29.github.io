@@ -241,15 +241,33 @@ function resizePoly(arrCoord) {
 	let lineCoordArray = [], bigPolyCoordLine = [];
 
 	arrCoord.forEach(function (item, i) {
-		lineCoordArray.push((i < arrCoord.length - 1) ? [item, arrCoord[i + 1]] : [item, arrCoord[0]]);
+		lineCoordArray.push(
+			(i < arrCoord.length - 1) ? 
+			[item, arrCoord[i + 1]] : 
+			[item, arrCoord[0]]
+		);
 	});
 
 	lineCoordArray.forEach(function(item) {
-		bigPolyCoordLine.push(ymaps.coordSystem.geo.solveDirectProblem(item[0], getDirection(item, 30)[0], getDirection(item, 30)[1]).endPoint);
-		bigPolyCoordLine.push(ymaps.coordSystem.geo.solveDirectProblem(item[1], getDirection(item, 30)[0], getDirection(item, 30)[1]).endPoint);
+		bigPolyCoordLine.push(
+			ymaps.coordSystem.geo.solveDirectProblem(
+				item[0], 
+				getDirection(item, 30)[0], 
+				getDirection(item, 30)[1]
+			).endPoint
+		);
+
+		bigPolyCoordLine.push(
+			ymaps.coordSystem.geo.solveDirectProblem(
+				item[1], 
+				getDirection(item, 30)[0], 
+				getDirection(item, 30)[1]
+			).endPoint
+		);
 	});
 
 	console.log(bigPolyCoordLine);
+	mapPoly.geometry.setCoordinates([bigPolyCoordLine]);
 }
 
 function getCenterLinePoint(twoPointsArray) {
@@ -257,15 +275,14 @@ function getCenterLinePoint(twoPointsArray) {
 }
 
 function getAngle(twoPointsArray) {
-	console.log(twoPointsArray);
-	return (Math.atan2(twoPointsArray[1][1] - twoPointsArray[0][1], twoPointsArray[1][0] - twoPointsArray[0][0]) < 0) ? 
-		(Math.PI * 2) + Math.atan2(twoPointsArray[1][1] - twoPointsArray[0][1], twoPointsArray[1][0] - twoPointsArray[0][0]) :
-		Math.atan2(twoPointsArray[1][1] - twoPointsArray[0][1], twoPointsArray[1][0] - twoPointsArray[0][0]);
+	return Math.atan2(twoPointsArray[1][1] - twoPointsArray[0][1], twoPointsArray[1][0] - twoPointsArray[0][0]);
 }
 
 function getDirection(item, distance) {
 	let centerLinePoint = getCenterLinePoint(item),
 		direction = [Math.cos(getAngle(item) + (Math.PI / 2)), Math.sin(getAngle(item) + (Math.PI / 2))];
+
+	console.log('X: ' + item[0] + '; Y: ' + item[1] + '; Angle: ' + getAngle(item) * 180 / Math.PI);
 
 	if (!mapPoly.geometry.contains(ymaps.coordSystem.geo.solveDirectProblem(centerLinePoint, direction, 1).endPoint))
 		return [direction, distance];
