@@ -300,7 +300,7 @@ function getAngle(pointsArray) {
 							Math.atan2(trianglePoints.lastPoint.Y - trianglePoints.centerPoint.Y, trianglePoints.lastPoint.X - trianglePoints.centerPoint.X) :
 							(Math.PI * 2 + Math.atan2(trianglePoints.lastPoint.Y - trianglePoints.centerPoint.Y, trianglePoints.lastPoint.X - trianglePoints.centerPoint.X));
 	
-	console.log(firstLineAngle + ' : ' + secondLineAngle);
+	return [firstLineAngle, secondLineAngle];
 }
 
 function getDirection(item, distance) {
