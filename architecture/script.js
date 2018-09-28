@@ -275,14 +275,14 @@ function getCenterLinePoint(twoPointsArray) {
 }
 
 function getAngle(twoPointsArray) {
-	return (Math.atan2(twoPointsArray[1][1] - twoPointsArray[0][1], twoPointsArray[1][0] - twoPointsArray[0][0]) < 0) ? 
-		Math.atan2(twoPointsArray[1][1] - twoPointsArray[0][1], twoPointsArray[1][0] - twoPointsArray[0][0]) + (Math.PI * 2) :
-		Math.atan2(twoPointsArray[1][1] - twoPointsArray[0][1], twoPointsArray[1][0] - twoPointsArray[0][0]);
+	return (Math.atan2(twoPointsArray[1][1] - twoPointsArray[1][0], twoPointsArray[0][1] - twoPointsArray[0][0]) < 0) ? 
+		Math.atan2(twoPointsArray[1][1] - twoPointsArray[1][0], twoPointsArray[0][1] - twoPointsArray[0][0]) + (Math.PI * 2) :
+		Math.atan2(twoPointsArray[1][1] - twoPointsArray[1][0], twoPointsArray[0][1] - twoPointsArray[0][0]);
 }
 
 function getDirection(item, distance) {
 	let centerLinePoint = getCenterLinePoint(item),
-		direction = [Math.cos(getAngle(item) + (Math.PI / 2)), Math.sin(getAngle(item) + (Math.PI / 2))];
+		direction = [Math.cos(getAngle(item)), Math.sin(getAngle(item))];
 
 	console.log(getAngle(item));
 
