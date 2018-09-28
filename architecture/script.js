@@ -265,8 +265,6 @@ function resizePoly(arrCoord) {
 			).endPoint
 		);
 	});
-
-	console.log(bigPolyCoordLine);
 	mapPoly.geometry.setCoordinates([bigPolyCoordLine]);
 }
 
@@ -275,17 +273,14 @@ function getCenterLinePoint(twoPointsArray) {
 }
 
 function getAngle(twoPointsArray) {
-	return (Math.atan2(twoPointsArray[1][1] - twoPointsArray[1][0], twoPointsArray[0][1] - twoPointsArray[0][0]) < 0) ? 
-		Math.atan2(twoPointsArray[1][1] - twoPointsArray[1][0], twoPointsArray[0][1] - twoPointsArray[0][0]) + (Math.PI * 2) :
-		Math.atan2(twoPointsArray[1][1] - twoPointsArray[1][0], twoPointsArray[0][1] - twoPointsArray[0][0]);
+	return Math.PI - Math.atan2(twoPointsArray[0][1] - twoPointsArray[1][1], twoPointsArray[0][0] - twoPointsArray[1][0]);
 }
 
 function getDirection(item, distance) {
 	let centerLinePoint = getCenterLinePoint(item),
 		direction = [Math.cos(getAngle(item)), Math.sin(getAngle(item))];
 
-	console.log(getAngle(item));
-
+	console.log(item + ': ' + (getAngle(item)) * 180 / Math.PI);
 	if (!mapPoly.geometry.contains(ymaps.coordSystem.geo.solveDirectProblem(centerLinePoint, direction, 1).endPoint))
 		return [direction, distance];
 	else
