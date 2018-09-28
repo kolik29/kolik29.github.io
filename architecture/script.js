@@ -248,20 +248,25 @@ function resizePoly(arrCoord) {
 		);
 	});
 
-	lineCoordArray.forEach(function(item) {
+	lineCoordArray.forEach(function(item, i) {
+		let nextID = i;
+
+		if (i == lineCoordArray.length - 1) 
+			i = -1;
+
 		bigPolyCoordLine.push(
 			ymaps.coordSystem.geo.solveDirectProblem(
 				item[0], 
-				getDirection(item, 30)[0], 
-				getDirection(item, 30)[1]
+				getDirection([item, lineCoordArray[i + 1]], 30)[0], 
+				getDirection([item, lineCoordArray[i + 1]], 30)[1]
 			).endPoint
 		);
 
 		bigPolyCoordLine.push(
 			ymaps.coordSystem.geo.solveDirectProblem(
 				item[1], 
-				getDirection(item, 30)[0], 
-				getDirection(item, 30)[1]
+				getDirection([item, lineCoordArray[i + 1]], 30)[0], 
+				getDirection([item, lineCoordArray[i + 1]], 30)[1]
 			).endPoint
 		);
 	});
@@ -272,15 +277,36 @@ function getCenterLinePoint(twoPointsArray) {
 	return [((twoPointsArray[0][0] + twoPointsArray[1][0]) / 2), ((twoPointsArray[0][1] + twoPointsArray[1][1]) / 2)];
 }
 
-function getAngle(twoPointsArray) {
-	return Math.PI - Math.atan2(twoPointsArray[0][1] - twoPointsArray[1][1], twoPointsArray[0][0] - twoPointsArray[1][0]);
+function getAngle(pointsArray) {
+	let trianglePoints = {
+		startPoint: {
+			X: pointsArray[0][0][0],
+			Y: pointsArray[0][0][1]
+		},
+		centerPoint: {			
+			X: pointsArray[0][1][0],
+			Y: pointsArray[0][1][1]
+		},
+		lastPoint: {			
+			X: pointsArray[1][1][0],
+			Y: pointsArray[1][1][1]
+		}
+	};
+	
+	let firstLineAngle = (Math.atan2(trianglePoints.startPoint.Y - trianglePoints.centerPoint.Y, trianglePoints.startPoint.X - trianglePoints.centerPoint.X) > 0) ? 
+							Math.atan2(trianglePoints.startPoint.Y - trianglePoints.centerPoint.Y, trianglePoints.startPoint.X - trianglePoints.centerPoint.X) : 
+							(Math.PI * 2 + Math.atan2(trianglePoints.startPoint.Y - trianglePoints.centerPoint.Y, trianglePoints.startPoint.X - trianglePoints.centerPoint.X)),
+		secondLineAngle = (Math.atan2(trianglePoints.lastPoint.Y - trianglePoints.centerPoint.Y, trianglePoints.lastPoint.X - trianglePoints.centerPoint.X) > 0) ?
+							Math.atan2(trianglePoints.lastPoint.Y - trianglePoints.centerPoint.Y, trianglePoints.lastPoint.X - trianglePoints.centerPoint.X) :
+							(Math.PI * 2 + Math.atan2(trianglePoints.lastPoint.Y - trianglePoints.centerPoint.Y, trianglePoints.lastPoint.X - trianglePoints.centerPoint.X));
+	
+	console.log(firstLineAngle + ' : ' + secondLineAngle);
 }
 
 function getDirection(item, distance) {
 	let centerLinePoint = getCenterLinePoint(item),
 		direction = [Math.cos(getAngle(item)), Math.sin(getAngle(item))];
 
-	console.log(item + ': ' + (getAngle(item)) * 180 / Math.PI);
 	if (!mapPoly.geometry.contains(ymaps.coordSystem.geo.solveDirectProblem(centerLinePoint, direction, 1).endPoint))
 		return [direction, distance];
 	else
