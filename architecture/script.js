@@ -257,13 +257,13 @@ function resizePoly(arrCoord) {
 			).endPoint
 		);
 
-		bigPolyCoordLine.push(
+		/*bigPolyCoordLine.push(
 			ymaps.coordSystem.geo.solveDirectProblem(
 				item[1], 
 				getDirection(item, 30)[0], 
 				getDirection(item, 30)[1]
 			).endPoint
-		);
+		);*/
 	});
 	
 	mapPoly.geometry.setCoordinates([bigPolyCoordLine]);
@@ -303,9 +303,9 @@ function getAngle(twoPointArray) {
 
 	console.log('distanceX: ' + distanceX + '\n' + 'distanceY: ' + distanceY);
 
-	let modifier = (centerPoint.x < endPoint.x) ? 0 : (Math.PI / 2);
+	let modifier = (centerPoint.x > endPoint.x) ? 0 : (Math.PI / 2);
 
-	return Math.atan2(distanceY, distanceX) + (Math.PI / 2) + modifier;
+	return Math.atan2(distanceY, distanceX) + modifier;
 }
 
 function getDirection(item, distance) {
