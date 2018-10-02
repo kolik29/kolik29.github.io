@@ -240,7 +240,7 @@ $('#munObj').on('click', 'li', function() {
 //Матан, геодезия, геометрия
 
 function resizePoly(arrCoord) { 
-	let lineCoordArray = [], bigPolyCoordLine = [];
+	let lineCoordArray = [], bigPolyCoordLine = [], angleObj = [];
 
 	arrCoord.forEach(function (item, i) {
 		lineCoordArray.push(
@@ -251,10 +251,10 @@ function resizePoly(arrCoord) {
 	});
 
 	lineCoordArray.forEach(function(item) {
-		bigPolyCoordLine.push(
+		/*bigPolyCoordLine.push(
 			ymaps.coordSystem.geo.solveDirectProblem(
 				item[0], 
-				getDirection(item, 30)[0], 
+				[Math.cos(getDirection(item, 30)[0]), Math.sin(getDirection(item, 30)[0])],
 				getDirection(item, 30)[1]
 			).endPoint
 		);
@@ -262,17 +262,21 @@ function resizePoly(arrCoord) {
 		bigPolyCoordLine.push(
 			ymaps.coordSystem.geo.solveDirectProblem(
 				item[1], 
-				getDirection(item, 30)[0], 
+				[Math.cos(getDirection(item, 30)[0]), Math.sin(getDirection(item, 30)[0])],
 				getDirection(item, 30)[1]
 			).endPoint
-		);
-	});
+		);*/
 
-	bigPolyCoordLine.forEach(function(item) {
-		console.log(item);
+		angleObj.push({
+			angle: getDirection(item, 30)[0],
+			direction: getDirection(item, 30)[1],
+			points: item
+		});
 	});
 	
-	mapPoly.geometry.setCoordinates([bigPolyCoordLine]);
+
+	console.log(angleObj);
+	//mapPoly.geometry.setCoordinates([bigPolyCoordLine]);
 }
 
 function getCenterLinePoint(twoPointsArray) {
@@ -316,9 +320,10 @@ function getAngle(twoPointArray) {
 
 function getDirection(item, distance) {
 	let centerLinePoint = getCenterLinePoint(item),
-		direction = [Math.cos(getAngle(item)), Math.sin(getAngle(item))];
+		direction = getAngle(item);
 
-	if (mapPoly.geometry.contains(ymaps.coordSystem.geo.solveDirectProblem(centerLinePoint, direction, 1).endPoint))
+	console.log(direction);
+	if (mapPoly.geometry.contains(ymaps.coordSystem.geo.solveDirectProblem(centerLinePoint, [Math.cos(direction), Math.sin(direction)], 1).endPoint))
 		return [direction, -distance];
 	else
 		return [direction, distance];
