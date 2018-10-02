@@ -237,6 +237,8 @@ $('#munObj').on('click', 'li', function() {
 	}
 });
 
+//Матан, геодезия, геометрия
+
 function resizePoly(arrCoord) { 
 	let lineCoordArray = [], bigPolyCoordLine = [];
 
@@ -257,13 +259,17 @@ function resizePoly(arrCoord) {
 			).endPoint
 		);
 
-		/*bigPolyCoordLine.push(
+		bigPolyCoordLine.push(
 			ymaps.coordSystem.geo.solveDirectProblem(
 				item[1], 
 				getDirection(item, 30)[0], 
 				getDirection(item, 30)[1]
 			).endPoint
-		);*/
+		);
+	});
+
+	bigPolyCoordLine.forEach(function(item) {
+		console.log(item);
 	});
 	
 	mapPoly.geometry.setCoordinates([bigPolyCoordLine]);
@@ -301,18 +307,16 @@ function getAngle(twoPointArray) {
 	let distanceX = ymaps.coordSystem.geo.getDistance([centerPoint.x, centerPoint.y], [endPoint.x, centerPoint.y]),
 		distanceY = ymaps.coordSystem.geo.getDistance([centerPoint.x, centerPoint.y], [centerPoint.x, endPoint.y]);
 
-	console.log('distanceX: ' + distanceX + '\n' + 'distanceY: ' + distanceY);
+	if ((centerPoint.x < endPoint.x) && (centerPoint.y < endPoint.y))
+		return Math.atan2(distanceY, distanceX) + (Math.PI / 2);
 
-	let modifier = (centerPoint.x > endPoint.x) ? 0 : (Math.PI / 2);
-
-	return Math.atan2(distanceY, distanceX) + modifier;
+	if ((centerPoint.x > endPoint.x) && (centerPoint.y < endPoint.y))
+		return (Math.PI / 2) - Math.atan2(distanceY, distanceX);
 }
 
 function getDirection(item, distance) {
 	let centerLinePoint = getCenterLinePoint(item),
 		direction = [Math.cos(getAngle(item)), Math.sin(getAngle(item))];
-
-	console.log(getAngle(item) * 180 / Math.PI);
 
 	if (mapPoly.geometry.contains(ymaps.coordSystem.geo.solveDirectProblem(centerLinePoint, direction, 1).endPoint))
 		return [direction, -distance];
