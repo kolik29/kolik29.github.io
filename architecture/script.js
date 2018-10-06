@@ -1,5 +1,3 @@
-
-
 let munObjData = {
 	"Муниципальное образование «Боброво-Лявленское»":{
 		"Филиал ГБУЗ «Приморская ЦРБ» ФАП «Кузьмино»":{
@@ -17,6 +15,22 @@ let munObjData = {
 		"ГБУЗ АО Приморская ЦРБ «Врачебная амбулатория Боброво»":{
 			"type":"circle",
 			"coord":["64.356227","41.152623"]
+		},
+		"МБОУ \"Бобровская СШ\" (здание школы)":{
+			"type":"poly",
+			"coord":[[64.355650, 41.161055], [64.355763, 41.159196], [64.355549, 41.159204], [64.355372, 41.159245], [64.355117, 41.159275], [64.355009, 41.160755]]
+		},
+		"МБОУ \"Бобровская СШ\" (здание начальной школы)":{
+			"type":"poly",
+			"coord":[[64.355007, 41.160793], [64.355122, 41.159300], [64.355063, 41.159295], [64.355013, 41.159268], [64.354572, 41.159056], [64.354572, 41.159056], [64.354442, 41.160528]]
+		},
+		"Филиал Лявленская начальная школа-детский сад МБОУ «Бобровская СШ»":{
+			"type":"poly",
+			"coord":[[64.385961, 41.027197], [64.385334, 41.027980], [64.385398, 41.028707], [64.386215, 41.028850], [64.386255, 41.028576], [64.386262, 41.028268], [64.386129, 41.027678]]
+		},
+		"Хоккейная площадка":{
+			type:"poly",
+			coord:[[64.355505, 41.153552], [64.355029, 41.153377], [64.354986, 41.153941], [64.355458, 41.154128]]
 		},
 		"Тренажерный зал":{
 			"type":"circle",
@@ -225,13 +239,13 @@ $('#munObj').on('click', 'li', function() {
 		case 'poly':
 			mapPoly.geometry.setCoordinates([munObjData[$('#munForm .valueText span').text()][$('#munObj .valueText span').text()].coord]);
 			yMap.geoObjects.add(mapPoly);
+			resizePoly(munObjData[$('#munForm .valueText span').text()][$('#munObj .valueText span').text()].coord);
 			yMap.setBounds(mapPoly.geometry.getBounds(), {
 				checkZoomRange:true
 			}).then(function() {
 				if(map.getZoom() > 10) 
 					map.setZoom(10);
 			});
-			resizePoly(munObjData[$('#munForm .valueText span').text()][$('#munObj .valueText span').text()].coord);
 		break;
 	}
 });
@@ -265,8 +279,6 @@ function resizePoly(arrCoord) {
 		}
 	});
 
-	//console.log(bigPolyCoordLine);
-
 	bigPolyCoordLine = crossingLine(bigPolyCoordLine);
 
 	mapPoly.geometry.setCoordinates([bigPolyCoordLine]);
@@ -299,10 +311,11 @@ function crossingLine(bigPolyCoordLine, i = 0) {
 				bigPolyCoordLine.splice(i, j - i + 1);
 				bigPolyCoordLine.splice(i, 0, [x, y])
 
-				return bigPolyCoordLine;
+				crossingLine(bigPolyCoordLine, i)
 			}
 		}
 	}
+	return bigPolyCoordLine;
 }
 
 function getCenterLinePoint(twoPointsArray) {
