@@ -139,7 +139,6 @@ let munObjData = {
 	}
 }
 
-
 ymaps.ready(init); 
 
 var mapCircle, 
@@ -251,22 +250,6 @@ function resizePoly(arrCoord) {
 	});
 
 	lineCoordArray.forEach(function(item) {
-		/*bigPolyCoordLine.push(
-			ymaps.coordSystem.geo.solveDirectProblem(
-				item[0], 
-				[Math.cos(getDirection(item, 30)[0]), Math.sin(getDirection(item, 30)[0])],
-				getDirection(item, 30)[1]
-			).endPoint
-		);
-
-		bigPolyCoordLine.push(
-			ymaps.coordSystem.geo.solveDirectProblem(
-				item[1], 
-				[Math.cos(getDirection(item, 30)[0]), Math.sin(getDirection(item, 30)[0])],
-				getDirection(item, 30)[1]
-			).endPoint
-		);*/
-
 		angleObj.push({
 			angle: getDirection(item, 30)[0],
 			direction: getDirection(item, 30)[1],
@@ -274,9 +257,52 @@ function resizePoly(arrCoord) {
 		});
 	});
 	
+	angleObj.forEach(function(item, i) {
+		if (i == angleObj.length - 1) {
+			bigPolyCoordLine = bigPolyCoordLine.concat(roundAngle(item.points[1], item.direction, angleObj[0].direction, item.angle, angleObj[0].angle));
+		} else {
+			bigPolyCoordLine = bigPolyCoordLine.concat(roundAngle(item.points[1], item.direction, angleObj[i + 1].direction, item.angle, angleObj[i + 1].angle));
+		}
+	});
 
-	console.log(angleObj);
-	//mapPoly.geometry.setCoordinates([bigPolyCoordLine]);
+	//console.log(bigPolyCoordLine);
+
+	bigPolyCoordLine = crossingLine(bigPolyCoordLine);
+
+	mapPoly.geometry.setCoordinates([bigPolyCoordLine]);
+}
+
+function crossingLine(bigPolyCoordLine, i = 0) {
+	for (i = 0; i < bigPolyCoordLine.length - 1; i++) {
+		let x1 = Number(bigPolyCoordLine[i][0]),
+			y1 = Number(bigPolyCoordLine[i][1]),
+			x2 = Number(bigPolyCoordLine[i + 1][0]),
+			y2 = Number(bigPolyCoordLine[i + 1][1]);
+
+		for (let j = i + 2; j < bigPolyCoordLine.length - 1; j++) {
+			let x3 = Number(bigPolyCoordLine[j][0]),
+				y3 = Number(bigPolyCoordLine[j][1]),
+				x4 = Number(bigPolyCoordLine[j + 1][0]),
+				y4 = Number(bigPolyCoordLine[j + 1][1]);
+
+			let d = ((x1 - x2) * (y4 - y3)) - ((y1 - y2) * (x4 - x3)),
+				da = (((x1 - x3) * (y4 - y3)) - ((y1 - y3) * (x4 - x3))),
+				db = (((x1 - x2) * (y1 - y3)) - ((y1 - y2) * (x1 - x3))),
+				ta = da / d,
+				tb = db / d,
+				x, y;
+
+			if (ta >= 0 && ta <= 1 && tb >= 0 && tb <= 1) {
+				x = x1 + (ta * (x2 - x1));
+				y = y1 + (ta * (y2 - y1));
+
+				bigPolyCoordLine.splice(i, j - i + 1);
+				bigPolyCoordLine.splice(i, 0, [x, y])
+
+				return bigPolyCoordLine;
+			}
+		}
+	}
 }
 
 function getCenterLinePoint(twoPointsArray) {
@@ -322,9 +348,27 @@ function getDirection(item, distance) {
 	let centerLinePoint = getCenterLinePoint(item),
 		direction = getAngle(item);
 
-	console.log(direction);
 	if (mapPoly.geometry.contains(ymaps.coordSystem.geo.solveDirectProblem(centerLinePoint, [Math.cos(direction), Math.sin(direction)], 1).endPoint))
 		return [direction, -distance];
 	else
 		return [direction, distance];
+}
+
+function roundAngle(centerPoint, directionStart, directionEnd, angleStart, angleEnd) {
+	let roundPointsArray = [];
+
+	if (directionStart == directionEnd) {
+		for (let i = angleStart; i > angleEnd; i -= (Math.PI / 45)) {
+			roundPointsArray.push(ymaps.coordSystem.geo.solveDirectProblem(centerPoint, [Math.cos(i), Math.sin(i)], directionStart).endPoint);
+		}
+	} else {
+		for (let i = angleStart; i > 0; i -= (Math.PI / 45)) {
+			roundPointsArray.push(ymaps.coordSystem.geo.solveDirectProblem(centerPoint, [Math.cos(i), Math.sin(i)], directionStart).endPoint);
+		}
+		for (let i = Math.PI; i > angleEnd; i -= (Math.PI / 45)) {
+			roundPointsArray.push(ymaps.coordSystem.geo.solveDirectProblem(centerPoint, [Math.cos(i), Math.sin(i)], directionEnd).endPoint);
+		}
+	}
+
+	return roundPointsArray;
 }
