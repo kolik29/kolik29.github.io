@@ -1,5 +1,3 @@
-
-
 let munObjData = {
 	"Муниципальное образование «Боброво-Лявленское»":{
 		"Филиал ГБУЗ «Приморская ЦРБ» ФАП «Кузьмино»":{
@@ -17,6 +15,22 @@ let munObjData = {
 		"ГБУЗ АО Приморская ЦРБ «Врачебная амбулатория Боброво»":{
 			"type":"circle",
 			"coord":["64.356227","41.152623"]
+		},
+		"МБОУ \"Бобровская СШ\" (здание школы)":{
+			"type":"poly",
+			"coord":[[64.355650, 41.161055], [64.355763, 41.159196], [64.355549, 41.159204], [64.355372, 41.159245], [64.355117, 41.159275], [64.355009, 41.160755]]
+		},
+		"МБОУ \"Бобровская СШ\" (здание начальной школы)":{
+			"type":"poly",
+			"coord":[[64.355007, 41.160793], [64.355122, 41.159300], [64.355063, 41.159295], [64.355013, 41.159268], [64.354572, 41.159056], [64.354572, 41.159056], [64.354442, 41.160528]]
+		},
+		"Филиал Лявленская начальная школа-детский сад МБОУ «Бобровская СШ»":{
+			"type":"poly",
+			"coord":[[64.385961, 41.027197], [64.385334, 41.027980], [64.385398, 41.028707], [64.386215, 41.028850], [64.386255, 41.028576], [64.386262, 41.028268], [64.386129, 41.027678]]
+		},
+		"Хоккейная площадка":{
+			type:"poly",
+			coord:[[64.355505, 41.153552], [64.355029, 41.153377], [64.354986, 41.153941], [64.355458, 41.154128]]
 		},
 		"Тренажерный зал":{
 			"type":"circle",
@@ -139,7 +153,6 @@ let munObjData = {
 	}
 }
 
-
 ymaps.ready(init); 
 
 var mapCircle, 
@@ -226,13 +239,13 @@ $('#munObj').on('click', 'li', function() {
 		case 'poly':
 			mapPoly.geometry.setCoordinates([munObjData[$('#munForm .valueText span').text()][$('#munObj .valueText span').text()].coord]);
 			yMap.geoObjects.add(mapPoly);
+			resizePoly(munObjData[$('#munForm .valueText span').text()][$('#munObj .valueText span').text()].coord);
 			yMap.setBounds(mapPoly.geometry.getBounds(), {
 				checkZoomRange:true
 			}).then(function() {
 				if(map.getZoom() > 10) 
 					map.setZoom(10);
 			});
-			resizePoly(munObjData[$('#munForm .valueText span').text()][$('#munObj .valueText span').text()].coord);
 		break;
 	}
 });
@@ -251,22 +264,6 @@ function resizePoly(arrCoord) {
 	});
 
 	lineCoordArray.forEach(function(item) {
-		/*bigPolyCoordLine.push(
-			ymaps.coordSystem.geo.solveDirectProblem(
-				item[0], 
-				[Math.cos(getDirection(item, 30)[0]), Math.sin(getDirection(item, 30)[0])],
-				getDirection(item, 30)[1]
-			).endPoint
-		);
-
-		bigPolyCoordLine.push(
-			ymaps.coordSystem.geo.solveDirectProblem(
-				item[1], 
-				[Math.cos(getDirection(item, 30)[0]), Math.sin(getDirection(item, 30)[0])],
-				getDirection(item, 30)[1]
-			).endPoint
-		);*/
-
 		angleObj.push({
 			angle: getDirection(item, 30)[0],
 			direction: getDirection(item, 30)[1],
@@ -274,9 +271,51 @@ function resizePoly(arrCoord) {
 		});
 	});
 	
+	angleObj.forEach(function(item, i) {
+		if (i == angleObj.length - 1) {
+			bigPolyCoordLine = bigPolyCoordLine.concat(roundAngle(item.points[1], item.direction, angleObj[0].direction, item.angle, angleObj[0].angle));
+		} else {
+			bigPolyCoordLine = bigPolyCoordLine.concat(roundAngle(item.points[1], item.direction, angleObj[i + 1].direction, item.angle, angleObj[i + 1].angle));
+		}
+	});
 
-	console.log(angleObj);
-	//mapPoly.geometry.setCoordinates([bigPolyCoordLine]);
+	bigPolyCoordLine = crossingLine(bigPolyCoordLine);
+
+	mapPoly.geometry.setCoordinates([bigPolyCoordLine]);
+}
+
+function crossingLine(bigPolyCoordLine, i = 0) {
+	for (i = 0; i < bigPolyCoordLine.length - 1; i++) {
+		let x1 = Number(bigPolyCoordLine[i][0]),
+			y1 = Number(bigPolyCoordLine[i][1]),
+			x2 = Number(bigPolyCoordLine[i + 1][0]),
+			y2 = Number(bigPolyCoordLine[i + 1][1]);
+
+		for (let j = i + 2; j < bigPolyCoordLine.length - 1; j++) {
+			let x3 = Number(bigPolyCoordLine[j][0]),
+				y3 = Number(bigPolyCoordLine[j][1]),
+				x4 = Number(bigPolyCoordLine[j + 1][0]),
+				y4 = Number(bigPolyCoordLine[j + 1][1]);
+
+			let d = ((x1 - x2) * (y4 - y3)) - ((y1 - y2) * (x4 - x3)),
+				da = (((x1 - x3) * (y4 - y3)) - ((y1 - y3) * (x4 - x3))),
+				db = (((x1 - x2) * (y1 - y3)) - ((y1 - y2) * (x1 - x3))),
+				ta = da / d,
+				tb = db / d,
+				x, y;
+
+			if (ta >= 0 && ta <= 1 && tb >= 0 && tb <= 1) {
+				x = x1 + (ta * (x2 - x1));
+				y = y1 + (ta * (y2 - y1));
+
+				bigPolyCoordLine.splice(i, j - i + 1);
+				bigPolyCoordLine.splice(i, 0, [x, y])
+
+				crossingLine(bigPolyCoordLine, i)
+			}
+		}
+	}
+	return bigPolyCoordLine;
 }
 
 function getCenterLinePoint(twoPointsArray) {
@@ -322,9 +361,35 @@ function getDirection(item, distance) {
 	let centerLinePoint = getCenterLinePoint(item),
 		direction = getAngle(item);
 
-	console.log(direction);
 	if (mapPoly.geometry.contains(ymaps.coordSystem.geo.solveDirectProblem(centerLinePoint, [Math.cos(direction), Math.sin(direction)], 1).endPoint))
 		return [direction, -distance];
 	else
 		return [direction, distance];
 }
+
+<<<<<<< HEAD
+function roundAngle(item, nextItem) {
+	let currentPoint = item.points[1],
+
+
+}
+=======
+function roundAngle(centerPoint, directionStart, directionEnd, angleStart, angleEnd) {
+	let roundPointsArray = [];
+
+	if (directionStart == directionEnd) {
+		for (let i = angleStart; i > angleEnd; i -= (Math.PI / 45)) {
+			roundPointsArray.push(ymaps.coordSystem.geo.solveDirectProblem(centerPoint, [Math.cos(i), Math.sin(i)], directionStart).endPoint);
+		}
+	} else {
+		for (let i = angleStart; i > 0; i -= (Math.PI / 45)) {
+			roundPointsArray.push(ymaps.coordSystem.geo.solveDirectProblem(centerPoint, [Math.cos(i), Math.sin(i)], directionStart).endPoint);
+		}
+		for (let i = Math.PI; i > angleEnd; i -= (Math.PI / 45)) {
+			roundPointsArray.push(ymaps.coordSystem.geo.solveDirectProblem(centerPoint, [Math.cos(i), Math.sin(i)], directionEnd).endPoint);
+		}
+	}
+
+	return roundPointsArray;
+}
+>>>>>>> 946d04aa71ff03337bc580c4a1f91ebc4c2c783f
