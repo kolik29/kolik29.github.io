@@ -278,12 +278,21 @@ function resizePoly(arrCoord) {
 			bigPolyCoordLine = bigPolyCoordLine.concat(roundAngle(item.points[1], item.direction, angleObj[i + 1].direction, item.angle, angleObj[i + 1].angle));
 		}
 	});
+<<<<<<< HEAD
 
 	bigPolyCoordLine = crossingLine(bigPolyCoordLine);
 
 	mapPoly.geometry.setCoordinates([bigPolyCoordLine]);
 }
 
+=======
+
+	bigPolyCoordLine = crossingLine(bigPolyCoordLine);
+
+	mapPoly.geometry.setCoordinates([bigPolyCoordLine]);
+}
+
+>>>>>>> 946d04aa71ff03337bc580c4a1f91ebc4c2c783f
 function crossingLine(bigPolyCoordLine, i = 0) {
 	for (i = 0; i < bigPolyCoordLine.length - 1; i++) {
 		let x1 = Number(bigPolyCoordLine[i][0]),
@@ -368,12 +377,15 @@ function getDirection(item, distance) {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 function roundAngle(item, nextItem) {
 	let currentPoint = item.points[1],
 
 
 }
 =======
+=======
+>>>>>>> 946d04aa71ff03337bc580c4a1f91ebc4c2c783f
 function roundAngle(centerPoint, directionStart, directionEnd, angleStart, angleEnd) {
 	let roundPointsArray = [];
 
@@ -392,4 +404,7 @@ function roundAngle(centerPoint, directionStart, directionEnd, angleStart, angle
 
 	return roundPointsArray;
 }
+<<<<<<< HEAD
+>>>>>>> 946d04aa71ff03337bc580c4a1f91ebc4c2c783f
+=======
 >>>>>>> 946d04aa71ff03337bc580c4a1f91ebc4c2c783f
