@@ -54,9 +54,8 @@ let munObjData = {
 
 ymaps.ready(init); 
 
-var mapCircle, 
-	mapPoly, 
-	yMap = {}; 
+var mapCircle,
+	circleCollection = {};
 
 function init() { 
 	yMap = new ymaps.Map("map", { 
@@ -64,18 +63,10 @@ function init() {
 		zoom: 13 
 	});
 
-	mapCircle = new ymaps.Circle([[], 30], { }, { 
-	   	fillColor: "#FF000025", 
+	circleCollection = new ymaps.GeoObjectCollection({}, {
+    	fillColor: "#FF000025", 
 	  	strokeColor: "#FF0000", 
 	   	strokeWidth: 2 
-	});
-
-	mapPoly = new ymaps.Polygon([
-			[["64.384325", "40.952452"],["64.384199", "40.952106"],["64.384084", "40.952344"],["64.384199", "40.952688"],["64.384325", "40.952452"]]
-		], {}, {
-	   	fillColor: "#FF000025", 
-	  	strokeColor: "#FF0000", 
-	   	strokeWidth: 2
 	});
 }
 
@@ -117,7 +108,13 @@ $('#munForm').on('click', 'li', function() {
 	closeList();
 });
 
-$('#munObj').on('click', 'li', function() { 
+$('#munObj').on('click', 'li', function() { 	
+	circleCollection = new ymaps.GeoObjectCollection({}, {
+    	fillColor: "#FF000025", 
+	  	strokeColor: "#FF0000", 
+	   	strokeWidth: 2 
+	});
+	
 	$('#munObj .valueText').children('span').text($(this).text());
 	closeList();
 
@@ -127,26 +124,25 @@ $('#munObj').on('click', 'li', function() {
 	yMap.geoObjects.removeAll();
 
 	if (munObjData[$('#munForm .valueText span').text()][$('#munObj .valueText span').text()].coord == undefined) {
-		munObjData[$('#munForm .valueText span').text()][$('#munObj .valueText span').text()].circles.forEach(function(item, i, arr) {
-  			mapCircle.geometry.setCoordinates(item);
-			yMap.geoObjects.add(mapCircle);
-			console.log(item);
-		});
-		yMap.setBounds(mapCircle.geometry.getBounds(), {
+		munObjData[$('#munForm .valueText span').text()][$('#munObj .valueText span').text()].circles.forEach(function(item) {
+			circleCollection.add(new ymaps.Circle([item, 30]));
+		});		
+
+		yMap.geoObjects.add(circleCollection);
+		yMap.setBounds(circleCollection.getBounds(), {
 			checkZoomRange:true
 		}).then(function() {
 			if (map.getZoom() > 10)
 				map.setZoom(10);
 		});
 	} else {
-		munObjData[$('#munForm .valueText span').text()][$('#munObj .valueText span').text()].circles.forEach(function(item, i, arr) {
-  			mapCircle.geometry.setCoordinates(item);
-			yMap.geoObjects.add(mapCircle);
-			console.log(item);
+		munObjData[$('#munForm .valueText span').text()][$('#munObj .valueText span').text()].circles.forEach(function(item) {
+			circleCollection.add(new ymaps.Circle([item, 30]));
 		});
-		mapPoly.geometry.setCoordinates([munObjData[$('#munForm .valueText span').text()][$('#munObj .valueText span').text()].coord]);
-		yMap.geoObjects.add(mapPoly);
-		yMap.setBounds(mapPoly.geometry.getBounds(), {
+
+		circleCollection.add(new ymaps.Polygon([munObjData[$('#munForm .valueText span').text()][$('#munObj .valueText span').text()].coord]));
+		yMap.geoObjects.add(circleCollection);
+		yMap.setBounds(circleCollection.getBounds(), {
 			checkZoomRange:true
 		}).then(function() {
 			if (map.getZoom() > 10)
@@ -157,7 +153,7 @@ $('#munObj').on('click', 'li', function() {
 
 //Матан, геодезия, геометрия
 //Оказалось, что в соотвествуии с действующим законодательством следубщий код не нужен. Но лучше оставлю.
-
+/*
 function resizePoly(arrCoord) { 
 	let lineCoordArray = [], bigPolyCoordLine = [], angleObj = [];
 
@@ -290,4 +286,4 @@ function roundAngle(centerPoint, directionStart, directionEnd, angleStart, angle
 	}
 
 	return roundPointsArray;
-}
+}*/
