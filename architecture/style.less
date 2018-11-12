@@ -62,7 +62,33 @@ ul {
 				}
 			}
 		}
+
+		#download {
+			line-height: 42px;
+			color: #fff;
+			text-decoration: none;
+			user-select: none;
+			background: rgb(212,75,56);			
+  			padding: 0 1.5em; /* отступ от текста */
+			position: absolute;
+			right: -110px;
+			top: 0;
+			display: block;
+
+			&:hover {
+				 background: rgb(232,95,76);
+			}
+
+			&.disabled {
+				background: #ff8b7b;
+			}
+		}
 	}
+}
+
+#munObj {
+	position: relative;
+	width: ~'calc(100% - 120px)';
 }
 
 #map {

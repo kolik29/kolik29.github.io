@@ -1,155 +1,54 @@
 let munObjData = {
 	"Муниципальное образование «Боброво-Лявленское»":{
 		"Филиал ГБУЗ «Приморская ЦРБ» ФАП «Кузьмино»":{
-			"type":"circle",
-			"coord":["64.384188","40.952406"]
+			"circles":[[64.384122, 40.952221]],
+			"link":"objects\\Боброво_Лявленское+\\1ФАП Кузьмино+.docx"
 		},
 		"ГБСУ АО «Трепузовский психоневрологический интернат»":{
-			"type":"poly",
-			"coord":[[64.364552, 41.057315], [64.364229, 41.055964], [64.363505, 41.053916], [64.362855, 41.055407], [64.361712, 41.058993], [64.361831, 41.059583], [64.362407, 41.060259], [64.362903, 41.059916], [64.363384, 41.059256], [64.363326, 41.059004]]
+			"circles":[[64.364531, 41.057263]],
+			"coord":[[64.364552, 41.057315], [64.364229, 41.055964], [64.363505, 41.053916], [64.362855, 41.055407], [64.361712, 41.058993], [64.361831, 41.059583], [64.362407, 41.060259], [64.362903, 41.059916], [64.363384, 41.059256], [64.363326, 41.059004]],
+			"link":"objects\\Боброво_Лявленское+\\2Трепузовский+.docx"
 		},
 		"Филиал ГБУЗ «Приморская ЦРБ» ФАП «Лявля»":{
-			"type":"circle",
-			"coord":["64.377379","41.022879"]
+			"circles":[[64.377382, 41.023102]],
+			"link":"objects\\Боброво_Лявленское+\\3 ФАП Лявля+.docx"
 		},
 		"ГБУЗ АО Приморская ЦРБ «Врачебная амбулатория Боброво»":{
-			"type":"circle",
-			"coord":["64.356227","41.152623"]
+			"circles":[[64.356271, 41.152864]],
+			"link":"objects\\Боброво_Лявленское+\\4 Амбулатория Боброво+.docx"
 		},
-		"МБОУ \"Бобровская СШ\" (здание школы)":{
-			"type":"poly",
-			"coord":[[64.355650, 41.161055], [64.355763, 41.159196], [64.355549, 41.159204], [64.355372, 41.159245], [64.355117, 41.159275], [64.355009, 41.160755]]
-		},
-		"МБОУ \"Бобровская СШ\" (здание начальной школы)":{
-			"type":"poly",
-			"coord":[[64.355007, 41.160793], [64.355122, 41.159300], [64.355063, 41.159295], [64.355013, 41.159268], [64.354572, 41.159056], [64.354572, 41.159056], [64.354442, 41.160528]]
-		},
-		"Филиал Лявленская начальная школа-детский сад МБОУ «Бобровская СШ»":{
-			"type":"poly",
-			"coord":[[64.385961, 41.027197], [64.385334, 41.027980], [64.385398, 41.028707], [64.386215, 41.028850], [64.386255, 41.028576], [64.386262, 41.028268], [64.386129, 41.027678]]
-		},
-		"Хоккейная площадка":{
-			type:"poly",
-			coord:[[64.355505, 41.153552], [64.355029, 41.153377], [64.354986, 41.153941], [64.355458, 41.154128]]
-		},
-		"Тренажерный зал":{
-			"type":"circle",
-			"coord":["64.384540","41.023301"]
+		"МБОУ \"Бобровская СШ\"":{
+			"circles":[[64.355441, 41.159274], [64.355318, 41.159295], [64.355028, 41.159322], [64.354367, 41.158974], [64.355004, 41.160749]],
+			"coord":[[64.355655, 41.161033], [64.354135, 41.160288], [64.354279, 41.158925], [64.355021, 41.159295], [64.355744, 41.159236]],
+			"link":"objects\\Боброво_Лявленское+\\Бобровская СШ.docx"
 		}
 	},
 	"Муниципальное образование «Заостровское»":{
-		"Тренажерный зал":{
-			"type":"circle",
-			"coord":["64.484341","40.506126"]
-		}
+
 	},
 	"Муниципальное образование «Катунинское»":{
-		"ГБУЗ АО Приморская ЦРБ Врачебная амбулатория \"Катунино\"":{
-			"type":"circle",
-			"coord":["64.389663","40.625348"]
-		},
-		"Филиал ГБУЗ «Приморская ЦРБ» ФАП «Беломорье»":{
-			"type":"circle",
-			"coord":["64.292888","40.892610"]
-		},
-		"МБОУ «Катунинская СШ»":{
-			"type":"circle",
-			"coord":["64.388395","40.630575"]
-		},
-		"МБУ ДО «Приморская ДШИ»":{
-			"type":"circle",
-			"coord":["64.389731","40.624523"]
-		}
+
 	},
-	"Муниципальное образование «Лисестровское»":{
-		"Филиал ГБУЗ АО «Приморская ЦРБ» ФАП «Лисестровское»":{
-			"type":"circle",
-			"coord":["64.464608","40.638100"]
-		},
-		"Филиал ГБУЗ АО «Приморская ЦРБ» ФАП «Васьково»":{
-			"type":"circle",
-			"coord":["64.413780","40.460834"]
-		},
-		"Филиал ГБУЗ АО «Приморская ЦРБ»  ФАП «Ширшинский ЗВЕРОСОВХОЗ»":{
-			"type":"circle",
-			"coord":["64.410079","40.741742"]
-		},
-		"МБОУ «Васьковская СШ»":{
-			"type":"circle",
-			"coord":[["64.412418","40.453393"],["64.409954","40.454786"]]
-		},
-		"Филиал «Детская школа искусств п. Васьково» МБУ ДО «Приморская ДШИ»":{
-			"type":"circle",
-			"coord":["64.409954","40.454786"]
-		}
+	"Муниципальное образование «Лисестровское»":{		
+
 	},
 	"Муниципальное образование «Островное»":{
-		"Филиал ГБУЗ АО «Приморская ЦРБ»  ФАП «Вознесенье»":{
-			"type":"circle",
-			"coord":["64.574120","40.335344"]
-		},
-		"Филиал ГБУЗ АО «Приморская ЦРБ»  ФАП «Ластола»":{
-			"type":"circle",
-			"coord":["64.600324","40.294723"]
-		},
-		"Филиал ГБУЗ АО «Приморская ЦРБ»  ФАП «Пустошь»":{
-			"type":"circle",
-			"coord":["64.591124","40.441648"]
-		},
-		"Помещение для занятия физкультурой":{
-			"type":"circle",
-			"coord":["64.589226","40.439816"]
-		}
+
 	},
 	"Муниципальное образование «Пертоминское»":{
-		"АО «2-ой Архангельский объединенный авиаотряд» Аэропорт":{
-			"type":"circle",
-			"coord":["64.789508","38.421504"]
-		}
+
 	},
 	"Муниципальное образование «Приморское»":{
-		"МБУ ДО \"Приморская ДЮСШ\"":{
-			"type":"circle",
-			"coord":["64.537978","40.159633"]
-		},
-		"Помещение для занятия физкультурой":{
-			"type":"circle",
-			"coord":["64.537978","40.159633"]
-		}
+
 	},
 	"Муниципальное образование «Сельское поселение «Соловецкое»":{
-		"ГБУЗ АО «АОКБ» филиал Соловецкая участковая больница":{
-			"type":"circle",
-			"coord":["65.021838","35.708806"]
-		},
-		"Помещение для занятий физкультурой":{
-			"type":"circle",
-			"coord":["65.026868","35.714796"]
-		}
+
 	},
 	"Муниципальное образование «Талажское»":{
-		"Филиал ГБУЗ АО «Приморская ЦРБ» ФАП «Талаги»":{
-			"type":"circle",
-			"coord":["64.622619","40.669461"]
-		},
-		"Филиал ГБУЗ АО «Приморская ЦРБ» ФАП «Повракула»":{
-			"type":"circle",
-			"coord":["64.618134","40.590996"]
-		},
-		"Тренажерный зал":{
-			"type":"circle",
-			"coord":["64.622382","40.667146"]
-		}
+
 	},
 	"Муниципальное образование «Уемское»":{
-		"ГБУЗ АО «Приморская ЦРБ» Уемская районная больница":{
-			"type":"circle",
-			"coord":["64.473790","40.864221"]
-		},
-		"Филиал «Детская школа искусств п. Уемский» МБУ ДО «Приморская ДШИ»":{
-			"type":"circle",
-			"coord":["64.478118","40.842428"]
-		}
+
 	}
 }
 
@@ -166,16 +65,16 @@ function init() {
 	});
 
 	mapCircle = new ymaps.Circle([[], 30], { }, { 
-	   	fillColor: "#DB709377", 
-	  	strokeColor: "#99006650", 
+	   	fillColor: "#FF000025", 
+	  	strokeColor: "#FF0000", 
 	   	strokeWidth: 2 
 	});
 
 	mapPoly = new ymaps.Polygon([
 			[["64.384325", "40.952452"],["64.384199", "40.952106"],["64.384084", "40.952344"],["64.384199", "40.952688"],["64.384325", "40.952452"]]
 		], {}, {
-	   	fillColor: "#DB709377", 
-	  	strokeColor: "#99006650", 
+	   	fillColor: "#FF000025", 
+	  	strokeColor: "#FF0000", 
 	   	strokeWidth: 2
 	});
 }
@@ -202,7 +101,6 @@ function openList(listEl, currentEl) {
 
 createSelect($('#munForm ul'), munObjData);
 
-
 $('.valueText').on('click', function() { 
 	closeList();
 	let listEl = $(this).parent().children('ul')
@@ -223,34 +121,40 @@ $('#munObj').on('click', 'li', function() {
 	$('#munObj .valueText').children('span').text($(this).text());
 	closeList();
 
-	yMap.geoObjects.removeAll();
-	switch(munObjData[$('#munForm .valueText span').text()][$('#munObj .valueText span').text()].type) {
-		case 'circle':
-			mapCircle.geometry.setCoordinates(munObjData[$('#munForm .valueText span').text()][$('#munObj .valueText span').text()].coord);
-			yMap.geoObjects.add(mapCircle);
-			yMap.setBounds(mapCircle.geometry.getBounds(), {
-				checkZoomRange:true
-			}).then(function() {
-				if(map.getZoom() > 10) 
-					map.setZoom(10);
-			});
-		break;
+	$('#download').removeClass('disabled');
+	$('#download').attr('href', munObjData[$('#munForm .valueText span').text()][$('#munObj .valueText span').text()].link);
 
-		case 'poly':
-			mapPoly.geometry.setCoordinates([munObjData[$('#munForm .valueText span').text()][$('#munObj .valueText span').text()].coord]);
-			yMap.geoObjects.add(mapPoly);
-			resizePoly(munObjData[$('#munForm .valueText span').text()][$('#munObj .valueText span').text()].coord);
-			yMap.setBounds(mapPoly.geometry.getBounds(), {
-				checkZoomRange:true
-			}).then(function() {
-				if(map.getZoom() > 10) 
-					map.setZoom(10);
-			});
-		break;
+	yMap.geoObjects.removeAll();
+
+	if (munObjData[$('#munForm .valueText span').text()][$('#munObj .valueText span').text()].coord == undefined) {
+		munObjData[$('#munForm .valueText span').text()][$('#munObj .valueText span').text()].circles.forEach(function(item, i, arr) {
+  			mapCircle.geometry.setCoordinates(item);
+			yMap.geoObjects.add(mapCircle);
+		});
+		yMap.setBounds(mapCircle.geometry.getBounds(), {
+			checkZoomRange:true
+		}).then(function() {
+			if (map.getZoom() > 10)
+				map.setZoom(10);
+		});
+	} else {
+		munObjData[$('#munForm .valueText span').text()][$('#munObj .valueText span').text()].circles.forEach(function(item, i, arr) {
+  			mapCircle.geometry.setCoordinates(item);
+			yMap.geoObjects.add(mapCircle);
+		});
+		mapPoly.geometry.setCoordinates([munObjData[$('#munForm .valueText span').text()][$('#munObj .valueText span').text()].coord]);
+		yMap.geoObjects.add(mapPoly);
+		yMap.setBounds(mapPoly.geometry.getBounds(), {
+			checkZoomRange:true
+		}).then(function() {
+			if (map.getZoom() > 10)
+				map.setZoom(10);
+		});
 	}
 });
 
 //Матан, геодезия, геометрия
+//Оказалось, что в соотвествуии с действующим законодательством следубщий код не нужен. Но лучше оставлю.
 
 function resizePoly(arrCoord) { 
 	let lineCoordArray = [], bigPolyCoordLine = [], angleObj = [];
@@ -278,21 +182,12 @@ function resizePoly(arrCoord) {
 			bigPolyCoordLine = bigPolyCoordLine.concat(roundAngle(item.points[1], item.direction, angleObj[i + 1].direction, item.angle, angleObj[i + 1].angle));
 		}
 	});
-<<<<<<< HEAD
 
 	bigPolyCoordLine = crossingLine(bigPolyCoordLine);
 
 	mapPoly.geometry.setCoordinates([bigPolyCoordLine]);
 }
 
-=======
-
-	bigPolyCoordLine = crossingLine(bigPolyCoordLine);
-
-	mapPoly.geometry.setCoordinates([bigPolyCoordLine]);
-}
-
->>>>>>> 946d04aa71ff03337bc580c4a1f91ebc4c2c783f
 function crossingLine(bigPolyCoordLine, i = 0) {
 	for (i = 0; i < bigPolyCoordLine.length - 1; i++) {
 		let x1 = Number(bigPolyCoordLine[i][0]),
@@ -376,16 +271,6 @@ function getDirection(item, distance) {
 		return [direction, distance];
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-function roundAngle(item, nextItem) {
-	let currentPoint = item.points[1],
-
-
-}
-=======
-=======
->>>>>>> 946d04aa71ff03337bc580c4a1f91ebc4c2c783f
 function roundAngle(centerPoint, directionStart, directionEnd, angleStart, angleEnd) {
 	let roundPointsArray = [];
 
@@ -404,7 +289,3 @@ function roundAngle(centerPoint, directionStart, directionEnd, angleStart, angle
 
 	return roundPointsArray;
 }
-<<<<<<< HEAD
->>>>>>> 946d04aa71ff03337bc580c4a1f91ebc4c2c783f
-=======
->>>>>>> 946d04aa71ff03337bc580c4a1f91ebc4c2c783f
