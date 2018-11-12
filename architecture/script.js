@@ -130,6 +130,7 @@ $('#munObj').on('click', 'li', function() {
 		munObjData[$('#munForm .valueText span').text()][$('#munObj .valueText span').text()].circles.forEach(function(item, i, arr) {
   			mapCircle.geometry.setCoordinates(item);
 			yMap.geoObjects.add(mapCircle);
+			console.log(item);
 		});
 		yMap.setBounds(mapCircle.geometry.getBounds(), {
 			checkZoomRange:true
@@ -141,6 +142,7 @@ $('#munObj').on('click', 'li', function() {
 		munObjData[$('#munForm .valueText span').text()][$('#munObj .valueText span').text()].circles.forEach(function(item, i, arr) {
   			mapCircle.geometry.setCoordinates(item);
 			yMap.geoObjects.add(mapCircle);
+			console.log(item);
 		});
 		mapPoly.geometry.setCoordinates([munObjData[$('#munForm .valueText span').text()][$('#munObj .valueText span').text()].coord]);
 		yMap.geoObjects.add(mapPoly);
