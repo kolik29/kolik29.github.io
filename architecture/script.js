@@ -114,7 +114,7 @@ $('#munObj').on('click', 'li', function() {
 	  	strokeColor: "#FF0000", 
 	   	strokeWidth: 2 
 	});
-	
+
 	$('#munObj .valueText').children('span').text($(this).text());
 	closeList();
 
@@ -128,27 +128,20 @@ $('#munObj').on('click', 'li', function() {
 			circleCollection.add(new ymaps.Circle([item, 30]));
 		});		
 
-		yMap.geoObjects.add(circleCollection);
-		yMap.setBounds(circleCollection.getBounds(), {
-			checkZoomRange:true
-		}).then(function() {
-			if (map.getZoom() > 10)
-				map.setZoom(10);
-		});
+
 	} else {
 		munObjData[$('#munForm .valueText span').text()][$('#munObj .valueText span').text()].circles.forEach(function(item) {
 			circleCollection.add(new ymaps.Circle([item, 30]));
 		});
-
 		circleCollection.add(new ymaps.Polygon([munObjData[$('#munForm .valueText span').text()][$('#munObj .valueText span').text()].coord]));
-		yMap.geoObjects.add(circleCollection);
-		yMap.setBounds(circleCollection.getBounds(), {
-			checkZoomRange:true
-		}).then(function() {
-			if (map.getZoom() > 10)
-				map.setZoom(10);
-		});
 	}
+	yMap.geoObjects.add(circleCollection);
+	yMap.setBounds(circleCollection.getBounds(), {
+		checkZoomRange:true
+	}).then(function() {
+		if (map.getZoom() > 10)
+			map.setZoom(10);
+	});
 });
 
 //Матан, геодезия, геометрия
