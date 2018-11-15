@@ -20,11 +20,18 @@ body {
 	font-family: Aileron !important;
 }
 
+header,
+section,
+footer {
+	> .content {
+		max-width: 1200px;
+	}
+}
+
 header {
 	background: url(../img/backgroundHead.png);
 	background-size: cover;
 	background-position: bottom;
-	text-align: center;
 
 	h1 {
 		font-weight: 700;
