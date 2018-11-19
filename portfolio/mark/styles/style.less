@@ -138,3 +138,51 @@ footer {
 		}
 	}
 }
+
+.menu {
+	position: fixed;
+	right: 65px;
+	top: 65px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	width: 30px;
+	height: 30px;
+	cursor: pointer;
+	z-index: 10;
+
+	.burgerMenuLine {
+		height: 6px;
+		background-color: #333;
+	}
+
+	.burgerMenuClose {
+		position: relative;
+		height: 6px;
+
+		> .burgerMenuLine {
+			position: absolute;
+			width: 100%;
+			transition: 0.3s;
+		}
+	}
+}
+
+.menuScreeen {
+	left: 0;
+	top: 0;
+	width: 100vw;
+	height: 100vh;
+	background-color: #fffff199;
+	justify-content: center;
+	align-items: center;
+	font-size: 18px;
+
+	>a {		
+		margin: 0 20px;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}
