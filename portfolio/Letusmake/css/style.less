@@ -1,7 +1,8 @@
 @font-face {
 	font-family: Gotham;
-	src: url('../font/Gotham-Font/Gotham-Bold.otf');
 	font-weight: bold;
+
+	src: url('../font/Gotham-Font/Gotham-Bold.otf');
 }
 
 h1 {
@@ -9,8 +10,8 @@ h1 {
 }
 
 p {
-	font-family: Georgia;
 	font-size: 16px;
+	color: #303030;
 }
 
 menu {
@@ -21,31 +22,159 @@ menu {
 }
 
 main {
-	background: url(../img/header-bckg.png);
 	height: ~'calc(100vh - 100px)';
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: center;
 	margin-top: 100px;
+	background: url(../img/header-bckg.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
 
 	h1 {
-		color: #303030;
 		font-size: 40px;
 		line-height: 50px;
 	}
 
 	p {
-		color: #5a5a5a;
+		font-family: Georgia;
 		line-height: 30px;
+		color: #5a5a5a;
+	}
+
+	#arrowDown {
+		bottom: 40px;
+		left: ~'calc(50% - 40px)';
+		width: 80px;
+		height: 80px;
+		cursor: pointer;
+		transition: .3s;
+		border-radius: 100%;
+		background: #ecedeb80;
+		box-shadow: #ecedeb80 0 0 0 0;
+
+		div {
+			width: 50px;
+			height: 50px;
+			border-radius: 100%;
+			background: #fff;
+
+			&:before {
+				width: 16px;
+				height: 11px;
+				content: ' ';
+				background: url(../img/arrowDown-main-screen.svg);
+			}
+		}
+
+		&:hover {
+			box-shadow: rgba(0, 0, 0, 0) 0 0 0 75px;
+		}
 	}
 }
 
 section {
 	padding: 50px 0 75px;
+
+	hr {
+		border: none;
+		height: 3px;
+		background-color: #303030;
+	}
+}
+
+.work-screen {
+	margin-bottom: -15px;
+
+	h1 {
+		margin-bottom: 0;
+	}
+
+	p {
+		font-family: Arial;
+		padding: 20px 0 50px;
+		line-height: 25px;
+	}
+
+	.work-block {
+		margin-bottom: 60px;
+		cursor: pointer;
+		margin-bottom: 60px;
+		transition: .3s;
+
+		img {
+			width: 100%;
+		}
+
+		@media(min-width: 998px) {
+			&:nth-child(3n+2) {
+				margin-left: 60px;
+				margin-right: 60px;
+			}
+		}
+
+		@media(max-width: 998px) {
+			margin: 0 0 60px 0;
+			width: ~'calc(50% - 60px)';
+
+			&:nth-child(2n) {
+				margin-left: 60px;
+			}
+		}
+
+		@media(max-width: 767px) {
+			margin: 0 0 60px 0 !important;
+			width: 100%;
+		}
+	}
 }
 
 .team-screen {
 	background: #f3f3f3;
+
+	.colleague {
+		background: #fff;
+		margin-top: 58px;
+		width: ~'calc(25% - 20px)';
+		max-width: 210px;
+		padding: 20px 0;
+
+		> img {
+			border: 3px solid #fff;
+			box-shadow: 0 2px 6px rgba(0, 1, 1, 0.75);
+			border-radius: 100%;
+		}
+
+		.social-network a {
+			margin: 0 10px;
+		}
+
+		h6 {
+			padding: 16px 0 0;
+			font-family: Gotham;
+		}
+
+		p {
+			font-size: 12px;
+			font-family: Georgia;
+		}
+
+		&:not(last-child) {
+			margin-right: 20px; 
+		}
+
+		@media (max-width: 720px) {
+			width: ~'calc(50% - 20px)';
+			max-width: unset !important;
+
+			&:nth-child(2n) {
+				margin-right: 20px !important;
+			}
+		}
+
+		@media (max-width: 576px) {
+			width: 100%;
+			max-width: unset;
+		}
+	}
 }
 
 footer {
