@@ -472,11 +472,13 @@ $('#munObj').on('click', 'li', function() {
 	});
 
 
-	/*circleCollection = new ymaps.GeoObjectCollection({}, {
-		fillColor: "#FF000025", 
-		strokeColor: "#FF0000", 
-		strokeWidth: 2 
-	});*/
+	pointCollection = new ymaps.GeoObjectCollection({
+		properties: {
+			iconContent: "Азербайджан"
+		}
+	}, {
+			preset: 'islands#blackStretchyIcon'
+	});
 
 	$('#munObj .valueText').children('span').text($(this).text());
 	closeList();
@@ -489,15 +491,21 @@ $('#munObj').on('click', 'li', function() {
 	if (munObjData[$('#munForm .valueText span').text()][$('#munObj .valueText span').text()].coord == undefined) {
 		munObjData[$('#munForm .valueText span').text()][$('#munObj .valueText span').text()].circles.forEach(function(item) {
 			circleCollection.add(new ymaps.Circle([item, 30]));
+			pointCollection.add(new ymaps.Placemark(item, {
+    			iconContent: "Вход"
+    		}));
 		});
 	} else {
 		munObjData[$('#munForm .valueText span').text()][$('#munObj .valueText span').text()].circles.forEach(function(item) {
 			circleCollection.add(new ymaps.Circle([item, 30]));
+			pointCollection.add(new ymaps.Placemark(item, {
+    			iconContent: "Вход"
+    		}));
 		});
 		circleCollection.add(new ymaps.Polygon([munObjData[$('#munForm .valueText span').text()][$('#munObj .valueText span').text()].coord]));
 	}
 
-	yMap.geoObjects.add(circleCollection);
+	yMap.geoObjects.add(circleCollection).add(pointCollection);
 	yMap.setBounds(circleCollection.getBounds(), {
 		checkZoomRange:true
 	}).then(function() {
