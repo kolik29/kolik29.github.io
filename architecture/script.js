@@ -356,7 +356,7 @@ let munObjData = {
 			"link":"objects\\Талажское\\10. школа - детский сад Повракульскя.docx"			
 		},
 		"Тренажерный зал":{			
-			"circles":[[64.623515, 40.667615]],
+			"circles":[[64.623495, 40.667621]],
 			"link":"objects\\Талажское\\14. тренажерный зал Талаги.docx"			
 		},
 		"Футбольная площадка":{			
@@ -409,7 +409,8 @@ let munObjData = {
 ymaps.ready(init); 
 
 var mapCircle,
-	circleCollection = {};
+	circleCollection = {},
+	pointCollection = {};
 
 function init() { 
 	yMap = new ymaps.Map("map", { 
@@ -463,12 +464,19 @@ $('#munForm').on('click', 'li', function() {
 	closeList();
 });
 
-$('#munObj').on('click', 'li', function() { 	
+$('#munObj').on('click', 'li', function() {
 	circleCollection = new ymaps.GeoObjectCollection({}, {
-    	fillColor: "#FF000025", 
-	  	strokeColor: "#FF0000", 
-	   	strokeWidth: 2 
+		fillColor: "#FF000025", 
+		strokeColor: "#FF0000", 
+		strokeWidth: 2 
 	});
+
+
+	/*circleCollection = new ymaps.GeoObjectCollection({}, {
+		fillColor: "#FF000025", 
+		strokeColor: "#FF0000", 
+		strokeWidth: 2 
+	});*/
 
 	$('#munObj .valueText').children('span').text($(this).text());
 	closeList();
@@ -481,15 +489,14 @@ $('#munObj').on('click', 'li', function() {
 	if (munObjData[$('#munForm .valueText span').text()][$('#munObj .valueText span').text()].coord == undefined) {
 		munObjData[$('#munForm .valueText span').text()][$('#munObj .valueText span').text()].circles.forEach(function(item) {
 			circleCollection.add(new ymaps.Circle([item, 30]));
-		});		
-
-
+		});
 	} else {
 		munObjData[$('#munForm .valueText span').text()][$('#munObj .valueText span').text()].circles.forEach(function(item) {
 			circleCollection.add(new ymaps.Circle([item, 30]));
 		});
 		circleCollection.add(new ymaps.Polygon([munObjData[$('#munForm .valueText span').text()][$('#munObj .valueText span').text()].coord]));
 	}
+
 	yMap.geoObjects.add(circleCollection);
 	yMap.setBounds(circleCollection.getBounds(), {
 		checkZoomRange:true
