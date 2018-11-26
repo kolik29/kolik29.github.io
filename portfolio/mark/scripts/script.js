@@ -1,12 +1,14 @@
 $(document).ready(function() {
 	$('#menu').on('click', function () {
-		if ($('.menuScreeen').hasClass('d-none')) {
-			$('.menuScreeen').removeClass('d-none');
-			$('.menuScreeen').addClass('d-flex');
+		if ($('.menuScreen').hasClass('d-none')) {
+			$('.menuScreen').removeClass('d-none');
+			$('.menuScreen').addClass('d-flex');
+			$(document).on('mousewheel', function (e) {e.preventDefault()});
 			toClose(true);
 		} else {			
-			$('.menuScreeen').removeClass('d-flex');
-			$('.menuScreeen').addClass('d-none');
+			$('.menuScreen').removeClass('d-flex');
+			$('.menuScreen').addClass('d-none');
+			$(document).off('mousewheel');
 			toClose(false);
 		}
 	});
