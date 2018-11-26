@@ -415,7 +415,7 @@ function init() {
 	yMap = new ymaps.Map("map", { 
 		center: [64.543235, 40.537195], 
 		zoom: 13,
-		type: 'yandex#satellite'
+		type: 'yandex#hybrid'
 	});
 
 	circleCollection = new ymaps.GeoObjectCollection({}, {
