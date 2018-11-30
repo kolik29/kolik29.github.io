@@ -28,11 +28,11 @@ let munObjData = {
 		},
 		"Хоккейная площадка":{
 			"circles":[[64.355425, 41.153505]],
-			"coord":[[64.384470, 41.023174], [64.355077, 41.153368], [64.355035, 41.153438], [64.354998, 41.153864], [64.355021, 41.153952], [64.355418, 41.154124], [64.355467, 41.154030], [64.355508, 41.153593]],
+			"coord":[[64.355476, 41.153511], [64.355077, 41.153368], [64.355035, 41.153438], [64.354998, 41.153864], [64.355021, 41.153952], [64.355418, 41.154124], [64.355467, 41.154030], [64.355508, 41.153593]],
 			"link":"objects\\Боброво_Лявленское\\8 Хоккейная площадка Боброво.docx"
 		},
 		"Волебольная площадка":{
-			"circles":[[64.384481, 41.023227], [64.384530, 41.023296]],
+			"circles":[[64.384468, 41.023233]],
 			"coord":[[64.384463, 41.023192], [64.384466, 41.023294], [64.384245, 41.023669], [64.384190, 41.023219]],
 			"link":"objects\\Боброво_Лявленское\\10 Волебольная площадка у ДК д. Новинки.docx"
 		},
@@ -63,7 +63,7 @@ let munObjData = {
 		},
 		"МБОУ «Заостровская СШ» (здание начальной школы)":{
 			"circles":[[64.481378, 40.50937], [64.481388, 40.507445]],
-			"coord":[[64.481661, 40.507544], [64.481131, 40.507211], [64.480902, 40.509133], [64.481435, 40.509456]],
+			"coord":[[64.481630, 40.507595], [64.481133, 40.507284], [64.480920, 40.509167], [64.481424, 40.509390]],
 			"link":"objects\\Заостровское\\4 Начальная школа. Заостровье.docx"
 		},
 		"МБОУ «Заостровская СШ»":{
@@ -356,7 +356,7 @@ let munObjData = {
 			"link":"objects\\Талажское\\10. школа - детский сад Повракульскя.docx"			
 		},
 		"Тренажерный зал":{			
-			"circles":[[64.623515, 40.667615]],
+			"circles":[[64.623495, 40.667621]],
 			"link":"objects\\Талажское\\14. тренажерный зал Талаги.docx"			
 		},
 		"Футбольная площадка":{			
@@ -409,13 +409,14 @@ let munObjData = {
 ymaps.ready(init); 
 
 var mapCircle,
-	circleCollection = {};
+	circleCollection = {},
+	pointCollection = {};
 
 function init() { 
 	yMap = new ymaps.Map("map", { 
 		center: [64.543235, 40.537195], 
 		zoom: 13,
-		type: 'yandex#satellite'
+		type: 'yandex#hybrid'
 	});
 
 	circleCollection = new ymaps.GeoObjectCollection({}, {
@@ -424,7 +425,6 @@ function init() {
 	   	strokeWidth: 2 
 	});
 }
-
 
 function createSelect(selectElement, objectData, addData = false) { 
 	selectElement.html('');
@@ -463,11 +463,20 @@ $('#munForm').on('click', 'li', function() {
 	closeList();
 });
 
-$('#munObj').on('click', 'li', function() { 	
+$('#munObj').on('click', 'li', function() {
 	circleCollection = new ymaps.GeoObjectCollection({}, {
-    	fillColor: "#FF000025", 
-	  	strokeColor: "#FF0000", 
-	   	strokeWidth: 2 
+		fillColor: "#FF000025", 
+		strokeColor: "#FF0000", 
+		strokeWidth: 2 
+	});
+
+
+	pointCollection = new ymaps.GeoObjectCollection({
+		properties: {
+			iconContent: "Азербайджан"
+		}
+	}, {
+			preset: 'islands#blackStretchyIcon'
 	});
 
 	$('#munObj .valueText').children('span').text($(this).text());
@@ -481,22 +490,43 @@ $('#munObj').on('click', 'li', function() {
 	if (munObjData[$('#munForm .valueText span').text()][$('#munObj .valueText span').text()].coord == undefined) {
 		munObjData[$('#munForm .valueText span').text()][$('#munObj .valueText span').text()].circles.forEach(function(item) {
 			circleCollection.add(new ymaps.Circle([item, 30]));
-		});		
-
-
+			pointCollection.add(new ymaps.Placemark(item, {
+    			iconContent: "Вход"
+    		}));
+		});
 	} else {
 		munObjData[$('#munForm .valueText span').text()][$('#munObj .valueText span').text()].circles.forEach(function(item) {
 			circleCollection.add(new ymaps.Circle([item, 30]));
+			pointCollection.add(new ymaps.Placemark(item, {
+    			iconContent: "Вход"
+    		}));
 		});
 		circleCollection.add(new ymaps.Polygon([munObjData[$('#munForm .valueText span').text()][$('#munObj .valueText span').text()].coord]));
 	}
-	yMap.geoObjects.add(circleCollection);
+
+	yMap.geoObjects.add(circleCollection).add(pointCollection);
 	yMap.setBounds(circleCollection.getBounds(), {
 		checkZoomRange:true
 	}).then(function() {
 		if (map.getZoom() > 10)
 			map.setZoom(10);
 	});
+});
+
+$(document).mouseup(function (e){ 
+	var div = $("#munForm"); 
+	if (!div.is(e.target) 
+	    && div.has(e.target).length === 0) { 
+		closeList();
+	}
+});
+
+$(document).mouseup(function (e){ 
+	var div = $("#munObj"); 
+	if (!div.is(e.target) 
+	    && div.has(e.target).length === 0) { 
+		closeList();
+	}
 });
 
 //Матан, геодезия, геометрия
