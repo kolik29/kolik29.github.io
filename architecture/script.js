@@ -121,7 +121,7 @@ let munObjData = {
 			"link":"objects\\Катунинское\\8. ФАП Беломорье.docx"
 		}
 	},
-	"Муниципальное образование «Лисестровское»":{	
+	"Муниципальное образование «Лисестровское»":{
 		"Филиал ГБУЗ АО «Приморская ЦРБ» ФАП «Лисестровское»":{
 			"circles":[[64.464608, 40.638105]],
 			"link":"objects\\Лисестровское\\1. ФАП Лисестровское.docx"
@@ -364,87 +364,83 @@ let munObjData = {
 	"Муниципальное образование «Сельское поселение «Соловецкое»":{
 		"ГБУЗ АО «АОКБ» филиал Соловецкая участковая больница":{
 			"circles":[[65.021737, 35.708900], [65.021601, 35.710134]],
-			"link":"objects\\Соловецкое\\1 Соловецкая больница.docx"			
+			"link":"objects\\Соловецкое\\1 Соловецкая больница.docx"
 		},
 		"МБОУ «Соловецкая СШ»":{
 			"circles":[[65.021218, 35.704421]],
-			"link":"objects\\Соловецкое\\2 Соловецкая школа.docx"			
+			"link":"objects\\Соловецкое\\2 Соловецкая школа.docx"
 		},
 		"Структурное подразделение «Детский сад п. Соловецкий»":{
 			"circles":[[65.021760, 35.705044]],
-			"link":"objects\\Соловецкое\\3 Соловецкий садик.docx"			
+			"link":"objects\\Соловецкое\\3 Соловецкий садик.docx"
 		},
 		"Хоккейный корт":{
 			"circles":[[65.028845, 35.700732]],
-			"link":"objects\\Соловецкое\\4. Хоккейный корт.docx"			
+			"link":"objects\\Соловецкое\\4. Хоккейный корт.docx"
 		},
 		"Спортивная площадка":{
 			"circles":[[65.021393, 35.704830]],
-			"link":"objects\\Соловецкое\\5 Спортивная площадка.docx"			
+			"link":"objects\\Соловецкое\\5 Спортивная площадка.docx"
 		},
 		"Помещение для занятий физкультурой":{
 			"circles":[[65.026855, 35.714790], [65.026685, 35.714439], [65.026806, 35.715375]],
-			"link":"objects\\Соловецкое\\6. Помещение для занятий физкультурой.docx"			
+			"link":"objects\\Соловецкое\\6. Помещение для занятий физкультурой.docx"
 		},
 		"ООО «Архангельские региональные авиаперевозки»":{
 			"circles":[[65.029879, 35.723323]],
-			"link":"objects\\Соловецкое\\7 Аэропорт.docx"			
+			"link":"objects\\Соловецкое\\7 Аэропорт.docx"
 		},
 		"ОАО «АрхоблЭнерго» филиал «Соловецкий»":{
 			"circles":[[65.021436, 35.714521], [65.020823, 35.714794], [65.020914, 35.717090]],
 			"coord":[[65.021994, 35.714714], [65.020867, 35.714344], [65.020760, 35.715433], [65.020622, 35.716291], [65.020660, 35.716720], [65.020762, 35.717053], [65.020926, 35.717112], [65.021356, 35.718383], [65.022137, 35.717342]],
-			"link":"objects\\Соловецкое\\7 Аэропорт.docx"			
+			"link":"objects\\Соловецкое\\7 Аэропорт.docx"
 		}
 	},
-	"Муниципальное образование «Талажское»":{		
+	"Муниципальное образование «Талажское»":{
 		"Филиал ГБУЗ АО «Приморская ЦРБ» ФАП «Талаги»":{
 			"circles":[[64.622514, 40.669673]],
-			"link":"objects\\Талажское\\1. ГБУЗ ФАП Талаги.docx"			
+			"link":"objects\\Талажское\\1. ГБУЗ ФАП Талаги.docx"
 		},
 		"ГБУЗ АО «Архангельская клиническая психиатрическая больница-2»":{
 			"circles":[[64.627627, 40.690980]],
 			"coord":[[64.627478, 40.690980], [64.627468, 40.695840], [64.629204, 40.695819], [64.629215, 40.692402], [64.629878, 40.692396], [64.629883, 40.690385], [64.629321, 40.690332], [64.629328, 40.689098], [64.627725, 40.689109], [64.627719, 40.690981]],
-			"link":"objects\\Талажское\\3. ГБУЗ АКПБ 2.docx"			
+			"link":"objects\\Талажское\\3. ГБУЗ АКПБ 2.docx"
 		},
 		"Филиал ГБУЗ АО «Приморская ЦРБ» ФАП «Повракула»":{
 			"circles":[[64.618244, 40.587316], [64.617563, 40.587509], [64.617542, 40.588754], [64.617858, 40.588786], [64.618247, 40.588780]],
 			"coord":[[64.618203, 40.587241], [64.617885, 40.587278], [64.617514, 40.587498], [64.617503, 40.588711], [64.617503, 40.588711], [64.618267, 40.588750], [64.618633, 40.587697], [64.618580, 40.587418]],
-			"link":"objects\\Талажское\\5. ГБУЗ ФАП Повракульская.docx"			
+			"link":"objects\\Талажское\\5. ГБУЗ ФАП Повракульская.docx"
 		},
 		"Филиал ГБУЗ АО «Приморская ЦРБ» ФАП «Верхняя Золотица»":{
 			"circles":[[65.690269, 40.370162], [65.690145, 40.371181]],
-			"link":"objects\\Талажское\\6. ГБУЗ ФАП В.Золотица.docx"			
+			"link":"objects\\Талажское\\6. ГБУЗ ФАП В.Золотица.docx"
 		},
 		"Филиал ГБУЗ АО «Приморская ЦРБ» ФАП «Нижняя Золотица»":{
 			"circles":[[65.688857, 40.183279]],
-			"link":"objects\\Талажское\\7. ГБУЗ ФАП Н.Золотица.docx"			
-		},		
+			"link":"objects\\Талажское\\7. ГБУЗ ФАП Н.Золотица.docx"
+		},
 		"МБОУ «Талажская СШ»":{
 			"circles":[[64.625318, 40.670846], [64.624128, 40.670814], [64.624187, 40.669084]],
 			"coord":[[64.625354, 40.669430], [64.624125, 40.669414], [64.624125, 40.672241], [64.625325, 40.672445], [64.624178, 40.669379], [64.624192, 40.668939], [64.624574, 40.669009], [64.624572, 40.669416]],
-			"link":"objects\\Талажское\\8. Талаги школа.docx"			
+			"link":"objects\\Талажское\\8. Талаги школа.docx"
 		},
 		"МБОУ «Талажская СШ» структурное подразделение «Детский сад п. Талаги»":{
 			"circles":[[64.623487, 40.669234], [64.622800, 40.669234]],
 			"coord":[[64.623495, 40.668592], [64.622798, 40.668598], [64.622805, 40.670186], [64.623217, 40.669846], [64.623242, 40.670152], [64.623390, 40.670189], [64.623497, 40.670186]],
-			"link":"objects\\Талажское\\9. Детский сад Талаги.docx"			
+			"link":"objects\\Талажское\\9. Детский сад Талаги.docx"
 		},
-		"МБОУ «Талажская СШ» филиал «Повракульская начальная школа - детский сад»":{			
+		"МБОУ «Талажская СШ» филиал «Повракульская начальная школа - детский сад»":{
 			"circles":[[64.618244, 40.587316], [64.617610, 40.587487], [64.617553, 40.588761], [64.617871, 40.588819], [64.618253, 40.588795]],
 			"coord":[[64.618563, 40.587459], [64.618244, 40.587316], [64.618001, 40.587239], [64.617200, 40.587760], [64.617142, 40.588747], [64.617869, 40.588795], [64.618253, 40.588795], [64.618621, 40.587735]],
-			"link":"objects\\Талажское\\10. школа - детский сад Повракульскя.docx"			
+			"link":"objects\\Талажское\\10. школа - детский сад Повракульскя.docx"
 		},
-		"Тренажерный зал":{			
+		"Тренажерный зал":{
 			"circles":[[64.623495, 40.667621]],
-			"link":"objects\\Талажское\\14. тренажерный зал Талаги.docx"			
+			"link":"objects\\Талажское\\14. тренажерный зал Талаги.docx"
 		},
-		/*"Футбольная площадка":{			
-			"circles":[[64.624184, 40.669031]],
-			"link":"objects\\Талажское\\15. футбольная площадка Талаги.docx"			
-		},*/
-		"Поле хоккейное":{			
+		"Поле хоккейное":{
 			"circles":[[64.628557, 40.641004]],
-			"link":"objects\\Талажское\\16. поле хоккейное Талаги.docx"			
+			"link":"objects\\Талажское\\16. поле хоккейное Талаги.docx"
 		},
 		"Производственные объекты - карьер на трубке «Архангельская»":{
 			"circles":[[65.275900, 41.029312]],
@@ -505,40 +501,40 @@ let munObjData = {
 	}
 }
 
-ymaps.ready(init); 
+ymaps.ready(init);
 
 var mapCircle,
 	circleCollection = {},
 	pointCollection = {};
 
-function init() { 
-	yMap = new ymaps.Map("map", { 
-		center: [64.543235, 40.537195], 
+function init() {
+	yMap = new ymaps.Map("map", {
+		center: [64.543235, 40.537195],
 		zoom: 13,
 		type: 'yandex#hybrid'
 	});
 
 	circleCollection = new ymaps.GeoObjectCollection({}, {
-    	fillColor: "#FF000025", 
-	  	strokeColor: "#FF0000", 
-	   	strokeWidth: 2 
+    	fillColor: "#FF000025",
+	  	strokeColor: "#FF0000",
+	   	strokeWidth: 2
 	});
 }
 
-function createSelect(selectElement, objectData, addData = false) { 
+function createSelect(selectElement, objectData, addData = false) {
 	selectElement.html('');
 	Object.keys(objectData).forEach(function (item){
 		selectElement.append($('<li>').text(item));
 	});
 }
 
-function closeList(listEl = $('.selectElement ul'), currentEl = $('.valueText')) { 
+function closeList(listEl = $('.selectElement ul'), currentEl = $('.valueText')) {
 	currentEl.children('img').css('transform', 'rotate(0)');
 	listEl.css('display', 'none');
 	currentEl.removeClass('active');
 }
 
-function openList(listEl, currentEl) { 
+function openList(listEl, currentEl) {
 	currentEl.children('img').css('transform', 'rotate(180deg)');
 	listEl.css('display', 'block');
 	currentEl.addClass('active');
@@ -546,17 +542,17 @@ function openList(listEl, currentEl) {
 
 createSelect($('#munForm ul'), munObjData);
 
-$('.valueText').on('click', function() { 
+$('.valueText').on('click', function() {
 	closeList();
 	let listEl = $(this).parent().children('ul')
 
-	if ($(this).hasClass('active')) 
+	if ($(this).hasClass('active'))
 		closeList(listEl, $(this));
 	else
 		openList(listEl, $(this));
 });
 
-$('#munForm').on('click', 'li', function() { 
+$('#munForm').on('click', 'li', function() {
 	createSelect($('#munObj ul'), munObjData[$(this).text()]);
 	$('#munForm .valueText').children('span').text($(this).text());
 	closeList();
@@ -564,9 +560,9 @@ $('#munForm').on('click', 'li', function() {
 
 $('#munObj').on('click', 'li', function() {
 	circleCollection = new ymaps.GeoObjectCollection({}, {
-		fillColor: "#FF000025", 
-		strokeColor: "#FF0000", 
-		strokeWidth: 2 
+		fillColor: "#FF000025",
+		strokeColor: "#FF0000",
+		strokeWidth: 2
 	});
 
 
@@ -612,18 +608,18 @@ $('#munObj').on('click', 'li', function() {
 	});
 });
 
-$(document).mouseup(function (e){ 
-	var div = $("#munForm"); 
-	if (!div.is(e.target) 
-	    && div.has(e.target).length === 0) { 
+$(document).mouseup(function (e){
+	var div = $("#munForm");
+	if (!div.is(e.target)
+	    && div.has(e.target).length === 0) {
 		closeList();
 	}
 });
 
-$(document).mouseup(function (e){ 
-	var div = $("#munObj"); 
-	if (!div.is(e.target) 
-	    && div.has(e.target).length === 0) { 
+$(document).mouseup(function (e){
+	var div = $("#munObj");
+	if (!div.is(e.target)
+	    && div.has(e.target).length === 0) {
 		closeList();
 	}
 });
@@ -631,13 +627,13 @@ $(document).mouseup(function (e){
 //Матан, геодезия, геометрия
 //Оказалось, что в соотвествуии с действующим законодательством следубщий код не нужен. Но лучше оставлю.
 /*
-function resizePoly(arrCoord) { 
+function resizePoly(arrCoord) {
 	let lineCoordArray = [], bigPolyCoordLine = [], angleObj = [];
 
 	arrCoord.forEach(function (item, i) {
 		lineCoordArray.push(
-			(i < arrCoord.length - 1) ? 
-			[item, arrCoord[i + 1]] : 
+			(i < arrCoord.length - 1) ?
+			[item, arrCoord[i + 1]] :
 			[item, arrCoord[0]]
 		);
 	});
@@ -649,7 +645,7 @@ function resizePoly(arrCoord) {
 			points: item
 		});
 	});
-	
+
 	angleObj.forEach(function(item, i) {
 		if (i == angleObj.length - 1) {
 			bigPolyCoordLine = bigPolyCoordLine.concat(roundAngle(item.points[1], item.direction, angleObj[0].direction, item.angle, angleObj[0].angle));
