@@ -3,213 +3,223 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Letusmake</title>	
+	<title>Letusmake</title>
 	<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
 	<script type="text/javascript" src="js/script.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-	<menu></menu>
-
-	<main>
-		<div class="container d-flex flex-column h-100 justify-content-center position-relative">
-			<div class="row text-center">
-				<div class="col-lg-12">
-					<h1 class="text-uppercase font-weight-bold">
-						let us make<br>your lives easier
-					</h1>
+	<menu>
+		<div class="container">
+			<div class="row h-100 d-flex justify-content-sm-between flex-sm-row flex-column justify-content-center">
+				<div class="col-sm-1 text-sm-left text-center logo">
+					LØGØ
 				</div>
-				<div class="col-lg-12">
-					<p class="font-italic">
-						We specialize in crafting awesome ideas for web, mobile and beyond.
-					</p>
+				<div class="menu col-sm-6 d-flex justify-content-between flex-sm-row flex-column">
+					<a href="#work" class="item">work</a>
+					<a href="#team" class="item">team</a>
+					<a href="#contact" class="item">contact</a>
 				</div>
-			</div>
-			<div id="arrowDown" class="position-absolute d-flex justify-content-center align-items-center">
-				<div class="d-flex justify-content-center align-items-center"></div>
 			</div>
 		</div>
-	</main>
-
-	<section class="work-screen">
+	</menu>
+	<header>
+		<div class="d-flex justify-content-center flex-column position-relative">
+			<h1>
+				let us make<br>
+				your lives easier
+			</h1>
+			<p>
+				We specialize in crafting awesome ideas for web, mobile and beyond.
+			</p>
+			<a href="#work" class="position-absolute"></a>
+		</div>
+	</header>
+	<section class="work" id="work">
+		<div class="d-flex justify-content-center flex-column">
+			<h2>
+				featured work
+			</h2>
+			<hr>
+			<p>
+				Here you can find some of our latest works, to see the details of these works just click the thumbnails below.
+			</p>
+		</div>
 		<div class="container">
-			<div class="row text-center">
-				<div class="col-lg-12">
-					<h1 class="text-uppercase font-weight-bold">
-						featured work
-					</h1>
-				</div>
-			</div>
-			<div class="row">
-				<hr class="col-3">
-			</div>
-			<div class="row text-center d-flex justify-content-center">
-				<div class="col-lg-6">
-					<p>
-						Here you can find some of our latest works, to see the details of these works just click the thumbnails below.
-					</p>
-				</div>
-			</div>
-			<div class="row d-flex justify-content-center">
-				<div class="work-block">
+			<div class="row justify-content-between">
+				<div class="col-md-4 col-sm-6">
 					<img src="img/Pillter.png">
 				</div>
-				<div class="work-block">
-					<img src="img/Touchmania.png">
-				</div>
-				<div class="work-block">
+				<div class="col-md-4 col-sm-6">
 					<img src="img/Locate.png">
 				</div>
-				<div class="work-block">
-					<img src="img/Umberapp.png">
-				</div>
-				<div class="work-block">
-					<img src="img/Hipo.png">
-				</div>
-				<div class="work-block">
-					<img src="img/Pardio.png">
-				</div>
-				<div class="work-block">
+				<div class="col-md-4 col-sm-6">
 					<img src="img/Banadediki.png">
 				</div>
-				<div class="work-block">
+				<div class="col-md-4 col-sm-6">
+					<img src="img/Umberapp.png">
+				</div>
+				<div class="col-md-4 col-sm-6">
+					<img src="img/Pardio.png">
+				</div>
+				<div class="col-md-4 col-sm-6">
+					<img src="img/Hipo.png">
+				</div>
+				<div class="col-md-4 col-sm-6">
+					<img src="img/Touchmania.png">
+				</div>
+				<div class="col-md-4 col-sm-6">
 					<img src="img/Biz_Corner.png">
 				</div>
-				<div class="work-block">
+				<div class="col-md-4 col-sm-6">
 					<img src="img/Arabul.png">
 				</div>
 			</div>
 		</div>
 	</section>
-
-	<section class="team-screen">
+	<section class="team" id="team">
+		<div class="justify-content-center">
+			<h2>
+				team
+			</h2>
+			<hr>
+			<p>
+				We are a hard working group, who's aim is to listen to your problems and to come up with the best solution possible. We follow the lates trends on the web to create custom talierd niche websites.
+			</p>
+		</div>
 		<div class="container">
-			<div class="row text-center">
-				<div class="col-lg-12">
-					<h1 class="text-uppercase font-weight-bold">
-						team
-					</h1>
-				</div>
-			</div>
-			<div class="row">
-				<hr class="col-3">
-			</div>
-			<div class="row text-center d-flex justify-content-center">
-				<div class="col-lg-6">
-					<p>
-						We are a hard working group, who's aim is to listen to your problems and to come up with the best solution possible. We follow the lates trends on the web to create custom talierd niche websites.
-					</p>
-				</div>
-			</div>
-			<div class="row text-center d-flex justify-content-center">
-				<div class="colleague">
-					<img src="img/lead_dev.png">
-					<h6 class="text-uppercase font-weight-bold">
-						naME sURNAME
-					</h6>
-					<p class="font-italic">
-						Lead Developer
-					</p>
-					<div class="social-network">
-						<a href="#">
-							<img src="img/twitter.png">
-						</a>
-						<a href="#">
-							<img src="img/linkedin.png">
-						</a>
+			<div class="row justify-content-between our-team">
+				<div class="block-our-team col-md-3 col-sm-6">
+					<div class="inside">
+						<img src="img/team-avatars/lead_des.png" class="avatar">
+						<div class="name">
+							naME sURNAME
+						</div>
+						<div class="post">
+							Lead Developer
+						</div>
+						<div class="links">
+							<a href="#">
+								<img src="img/icons-messanger/twitter.png">
+							</a>
+							<a href="#">
+								<img src="img/icons-messanger/linkedin.png">
+							</a>
+						</div>
 					</div>
 				</div>
-				<div class="colleague">
-					<img src="img/lead_des.png">
-					<h6 class="text-uppercase font-weight-bold">
-						naME sURNAME
-					</h6>
-					<p class="font-italic">
-						Lead Designer
-					</p>
-					<div class="social-network">
-						<a href="#">
-							<img src="img/twitter.png">
-						</a>
-						<a href="#">
-							<img src="img/linkedin.png">
-						</a>
+				<div class="block-our-team col-md-3 col-sm-6">
+					<div class="inside">
+						<img src="img/team-avatars/mark_dir.png" class="avatar">
+						<div class="name">
+							naME sURNAME
+						</div>
+						<div class="post">
+							Lead Designer
+						</div>
+						<div class="links">
+							<a href="#">
+								<img src="img/icons-messanger/twitter.png">
+							</a>
+							<a href="#">
+								<img src="img/icons-messanger/dribbbel.png">
+							</a>
+							<a href="#">
+								<img src="img/icons-messanger/linkedin.png">
+							</a>
+						</div>
 					</div>
 				</div>
-				<div class="colleague">
-					<img src="img/mark_dir.png">
-					<h6 class="text-uppercase font-weight-bold">
-						naME sURNAME
-					</h6>
-					<p class="font-italic">
-						Marketing Director
-					</p>
-					<div class="social-network">
-						<a href="#">
-							<img src="img/twitter.png">
-						</a>
-						<a href="#">
-							<img src="img/linkedin.png">
-						</a>
+				<div class="block-our-team col-md-3 col-sm-6">
+					<div class="inside">
+						<img src="img/team-avatars/bus_dir.png" class="avatar">
+						<div class="name">
+							naME sURNAME
+						</div>
+						<div class="post">
+							Marketing Director
+						</div>
+						<div class="links">
+							<a href="#">
+								<img src="img/icons-messanger/skype.png">
+							</a>
+							<a href="#">
+								<img src="img/icons-messanger/linkedin.png">
+							</a>
+						</div>
 					</div>
 				</div>
-				<div class="colleague">
-					<img src="img/bus_dir.png">
-					<h6 class="text-uppercase font-weight-bold">
-						naME sURNAME
-					</h6>
-					<p class="font-italic">
-						Business Director
-					</p>
-					<div class="social-network">
-						<a href="#">
-							<img src="img/twitter.png">
-						</a>
-						<a href="#">
-							<img src="img/linkedin.png">
-						</a>
+				<div class="block-our-team col-md-3 col-sm-6">
+					<div class="inside">
+						<img src="img/team-avatars/lead_dev.png" class="avatar">
+						<div class="name">
+							naME sURNAME
+						</div>
+						<div class="post">
+							Business Director
+						</div>
+						<div class="links">
+							<a href="#">
+								<img src="img/icons-messanger/skype.png">
+							</a>
+							<a href="#">
+								<img src="img/icons-messanger/linkedin.png">
+							</a>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
-
-	<section class="contact-screen">		
+	<section class="contact" id="contact">
+		<div class="justify-content-center">
+			<h2>
+				contact
+			</h2>
+			<hr>
+		</div>
 		<div class="container">
-			<div class="row text-center">
-				<div class="col-lg-12">
-					<h1 class="text-uppercase font-weight-bold">
-						contact
-					</h1>
-				</div>
-			</div>
 			<div class="row">
-				<hr class="col-3">
-			</div>
-			<div class="row d-flex justify-content-center">
-				<div class="map">
+				<div class="col-lg-4 map">
 					<p>
 						Where are we located?
 					</p>
 					<div id="map"></div>
 				</div>
-				<div class="feedback">
+				<div class="col-lg-8 feedback">
 					<p>
 						Want to contact us now? Just drop us a line below.
 					</p>
-					<textarea class="message" placeholder="Leave us a message..."></textarea>
-					<div>
-						<input type="text" name="email" class="email" placeholder="your@mail.com">
-						<button>SEND</button>
+					<textarea placeholder="Leave us a message..."></textarea>
+					<div class="row send-from">
+						<div class="col-sm-8">
+							<input type="text" name="email" placeholder="your@mail.com">
+						</div>
+						<div class="col-sm-4">
+							<button>SEND</button>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
-
-	<footer></footer>
+	<footer>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 justify-content-between d-md-flex">
+					<div>
+						<span class="text-light">Adress:</span> Ahmet Bayman Caddesi No:8, Seyrantepe - Istanbul
+					</div>
+					<div>
+						Copyright © 2013 Limbo
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
 </body>
 </html>
