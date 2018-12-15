@@ -12,6 +12,7 @@ h1 {
 	font-size: 50px;
 	text-align: center;
 	width: 100%;
+	margin: 0;
 }
 
 p {
@@ -26,6 +27,7 @@ header {
 
 	h1 {
 		color: #6b6b6b;
+		margin: 20px 0;
 
 		span {
 			color: #fc704f;
@@ -69,6 +71,55 @@ section {
 
 	&:nth-child(2n) {
 		background: #fbfbfb;
+	}
+
+	.working-process {
+		div {
+			height: 263px;
+
+			&:nth-child(1) > div {
+				background: #4eb2f7;
+			}
+
+			&:nth-child(2) > div {
+				background: #c049f8;
+			}
+
+			&:nth-child(3) > div {
+				background: #817eff;
+			}
+
+			&:nth-child(4) > div {
+				background: #f74770;
+			}
+		}
+	}
+
+	.featured-works {
+		div > div {
+			background: @main-bg-orange;
+			position: relative;
+			margin: 15px 0;
+
+			&::before {
+				content: "";
+				display: block;
+				padding-top: 100%;
+			}
+		}
+	}
+
+	.team-chinen-skills {
+		div > div {
+			background: @main-bg-orange;
+			padding: 10px 0;
+			transition: .3s;
+			cursor: pointer;
+
+			&:hover {
+				background: #fff3f0;
+			}
+		}
 	}
 }
 
