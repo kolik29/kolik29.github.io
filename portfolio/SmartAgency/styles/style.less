@@ -2,6 +2,7 @@
 @small-bg-orange: #ff6e47;
 
 h1,
+h6,
 .logo {
 	span {
 		color: #fc6744;
@@ -60,6 +61,37 @@ header {
 			border-radius: 2px;
 		}
 	}
+
+	.send-message {
+		background: #fff;
+		border-radius: 2px;
+		box-shadow: 0 0 57px rgba(20, 20, 21, 0.2);
+		width: 372px;
+		height: 388px;
+		padding: 25px 38px 20px;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+
+		h6 {
+			margin-bottom: 40px;
+			text-align: center;
+			font-size: 20px;
+		}
+
+		.item-input {
+			border-bottom: solid 1px #c7c7c7;
+			color: #666;
+		}
+
+		textarea {
+			height: 82px;
+		}
+
+		button {
+			margin-top: 20px;
+		}
+	}
 }
 
 section {
@@ -75,7 +107,7 @@ section {
 
 	.working-process {
 		div {
-			height: 263px;
+			position: relative;
 
 			&:nth-child(1) > div {
 				background: #4eb2f7;
@@ -91,6 +123,39 @@ section {
 
 			&:nth-child(4) > div {
 				background: #f74770;
+			}
+
+			.working-process__block {
+				position: relative;
+				color: #fff;
+				text-align: center;
+				display: flex;
+				align-items: center;
+				flex-direction: column;
+
+				img {
+					margin-top: 50px;
+				}
+
+				h6 {
+					font-weight: 700;
+					padding: 24px 0 16px;
+					margin: 0;
+				}
+
+				> span {
+					line-height: 22px;
+					font-size: 15px;
+					max-width: 170px;
+					display: inline-block;
+					margin-bottom: 66px;
+				}
+
+				button {
+					position: absolute;
+					bottom: -30px;
+					width: ~'calc(100% - 30px)';
+				}
 			}
 		}
 	}
@@ -115,10 +180,41 @@ section {
 			padding: 10px 0;
 			transition: .3s;
 			cursor: pointer;
+			height: 445px;
 
 			&:hover {
 				background: #fff3f0;
 			}
+		}
+	}
+
+	.service-we-provide {
+		.icons {
+			width: 200px;
+			height: 100%;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: space-around;
+		}
+
+		h3 {
+			position: relative;
+
+			&:after {
+				content: "";
+				position: absolute;
+				width: 57px;
+				height: 3px;
+				background: @main-bg-orange;
+				bottom: -10px;
+				left: 0;
+			}
+		}
+
+		p {
+			margin: 18px 0;
+			text-align: justify;
 		}
 	}
 }
@@ -136,10 +232,17 @@ button,
 	transition: .3s;
 	cursor: pointer;
 	border-radius: 27px;
+	background: #fff;
+	outline: none;
 
 	&:hover {
 		background: @main-bg-orange !important;
 		color: #fff;
+	}
+
+	&:active,
+	&:focus {
+		outline: none;
 	}
 }
 
@@ -158,6 +261,7 @@ textarea {
 	textarea {
 		width: 100%;
 		padding: 0;
+		background: transparent;
 
 		&:focus~label,
 		&:not(:focus):valid~label {
