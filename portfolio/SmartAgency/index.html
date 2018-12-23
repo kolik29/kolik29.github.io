@@ -11,6 +11,8 @@
 	<script src="scripts/script.js"></script>
 	<link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
 	<link rel="stylesheet" href="styles/style.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 </head>
 <body>
 	<header>
@@ -27,7 +29,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="row d-flex justify-content-center">
+			<div class="row justify-content-center">
 				<h1>
 					<span>Smart</span> Agency Landign Page
 				</h1>
@@ -61,7 +63,7 @@
 	</header>
 	<section>
 		<div class="container">
-			<div class="row d-flex justify-content-center">
+			<div class="row justify-content-center">
 				<h1>
 					<span>Working</span> Process
 				</h1>
@@ -123,7 +125,7 @@
 	</section>
 	<section>
 		<div class="container">
-			<div class="row d-flex justify-content-center">
+			<div class="row justify-content-center">
 				<h1>
 					<span>Featured</span> Works
 				</h1>
@@ -164,7 +166,7 @@
 	</section>
 	<section>
 		<div class="container">
-			<div class="row d-flex justify-content-center">
+			<div class="row justify-content-center">
 				<h1>
 					<span>Services</span> We Provide
 				</h1>
@@ -172,7 +174,7 @@
 					Lorem ipsum dolor sit amet consectetur adipisicing elit Maiores fuga provident Libero.
 				</p>
 			</div>
-			<div class="row d-flex justify-content-between align-items-center service-we-provide">
+			<div class="row justify-content-between align-items-center service-we-provide">
 				<div class="icons">
 					<img src="img/ls6b.png">
 					<img src="img/ls4b.png">
@@ -202,7 +204,7 @@
 	</section>
 	<section>
 		<div class="container">
-			<div class="row d-flex justify-content-center">
+			<div class="row justify-content-center">
 				<h1>
 					<span>Team</span> Chinen & Skills
 				</h1>
@@ -225,7 +227,7 @@
 	</section>
 	<section>
 		<div class="container">
-			<div class="row d-flex justify-content-center">
+			<div class="row justify-content-center">
 				<h1>
 					<span>Clients</span> Said
 				</h1>
@@ -233,9 +235,75 @@
 					Lorem ipsum dolor sit amet consectetur adipisicing elit Maiores fuga provident Libero.
 				</p>
 			</div>
+			<div class="row comments">
+				<div>1</div>
+				<div>2</div>
+				<div>3</div>
+				<div>4</div>
+				<div>5</div>
+				<div>6</div>
+			</div>
+			<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+			<script>
+				$('.comments').slick({
+					slidesToShow: 2,
+					slidesToScroll: 1,
+					autoplay: true,
+					autoplaySpeed: 2000,
+					prevArrow: '<div class="arrow"><i class="fas fa-angle-left"></i></div>',
+					nextArrow: '<div class="arrow"><i class="fas fa-angle-right"></i></div>',
+					dots: true
+				});
+			</script>
 		</div>
 	</section>
-	<section></section>
-	<footer></footer>
+	<section>
+		<div class="container">
+			<div class="row justify-content-between text-center">
+				<div class="col-lg-2">
+					<img src="img/banner-linkedin.png" alt="">
+				</div>
+				<div class="col-lg-2">
+					<img src="img/banner-dribble.png" alt="">
+				</div>
+				<div class="col-lg-2">
+					<img src="img/banner-envato.png" alt="">
+				</div>
+				<div class="col-lg-2">
+					<img src="img/banner-linkedin.png" alt="">
+				</div>
+				<div class="col-lg-2">
+					<img src="img/banner-dribble.png" alt="">
+				</div>
+				<div class="col-lg-2">
+					<img src="img/banner-envato.png" alt="">
+				</div>
+			</div>
+		</div>
+	</section>
+	<footer>
+		<div class="container">
+			<div class="row justify-content-center">
+				<button><span>Contact Us</span></button>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-lg-6 icons text-right">
+					<a href="#">
+						<i class="fab fa-facebook-f"></i>
+					</a>
+					<a href="#">
+						<i class="fab fa-twitter"></i>
+					</a>
+					<a href="#">
+						<i class="fab fa-dribbble"></i>
+					</a>
+					<a href="#">
+						<i class="fab fa-behance"></i>
+					</a>
+				</div>
+				<div class="col-lg-6 copyright">© 2015 - 2016 Deviserweb Ltd.</div>
+			</div>
+		</div>
+	</footer>
 </body>
 </html>
