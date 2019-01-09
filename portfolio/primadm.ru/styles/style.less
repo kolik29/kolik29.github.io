@@ -1,0 +1,44 @@
+.menu {
+	width: 100%;
+	position: fixed;
+	top: 0;
+	background: #fff;
+	display: flex;
+	justify-content: center;
+
+	> menu {
+		display: flex;
+		flex-direction: row;
+		width: 1120px;
+		justify-content: space-around;
+		background: #fff;
+
+		a {
+			text-decoration: none;
+			color: unset;
+		}
+
+		> li {
+			background: #fff;
+		}
+
+		li {
+			list-style-type: none;
+			margin: 0 5px;
+
+			> menu {
+				position: absolute;
+				transform: translateY(-100%);
+				display: flex;
+				flex-direction: column;
+				transition: .3s;
+				z-index: -20;
+			}
+
+			&:hover > menu {
+				display: block;
+				transform: translateY(0);
+			}
+		}
+	}
+}
