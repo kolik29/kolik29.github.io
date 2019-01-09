@@ -221,6 +221,8 @@ function getButtonValue(arr, index) {
 	}
 }
 
+let siteTitle = document.title;
+
 function setLinkHead(direction) {
 	$('#content > section').removeClass('visible');
 
@@ -234,9 +236,11 @@ function setLinkHead(direction) {
 	if (direction == undefined) {
 		history.replaceState(null, null, '#' + getButtonValue(controlButton, currentControlIndex + 1).left[0]);
 		$('#' + Object.keys(controlButton)[0]).addClass('visible');
-	}
-	else
+		document.title = getButtonValue(controlButton, currentControlIndex + 1).left[1] + ' — ' + siteTitle;
+	} else {
 		history.replaceState(null, null, '#' + getButtonValue(controlButton, currentControlIndex).right[0]);
+		document.title = getButtonValue(controlButton, currentControlIndex).right[1] + ' — ' + siteTitle;
+	}
 
 	if (direction == 'left') {
 		currentControlIndex--;
