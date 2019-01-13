@@ -1,44 +1,96 @@
-.menu {
-	width: 100%;
-	position: fixed;
-	top: 0;
-	background: #fff;
-	display: flex;
-	justify-content: center;
+@corporative-color-top: #328dc3;
+@corporative-color-bottom: #1a5e9f;
 
-	> menu {
-		display: flex;
-		flex-direction: row;
-		width: 1120px;
-		justify-content: space-around;
-		background: #fff;
+body {
+	font-family: Arial;
+}
 
-		a {
-			text-decoration: none;
-			color: unset;
-		}
+header {
+	background: linear-gradient(to bottom, @corporative-color-top, @corporative-color-bottom);
 
-		> li {
-			background: #fff;
-		}
+	menu {
+		width: 1200px;
+		list-style-type: none;
+		color: #fff;
 
-		li {
-			list-style-type: none;
-			margin: 0 5px;
+		a,
+		#burger-menu,
+		#search-button {
+			transition: .3s;
+			cursor: pointer;
 
-			> menu {
+			span {
 				position: absolute;
-				transform: translateY(-100%);
-				display: flex;
-				flex-direction: column;
-				transition: .3s;
-				z-index: -20;
+				padding: 10px;
+				top: 100%;
 			}
 
-			&:hover > menu {
-				display: block;
-				transform: translateY(0);
+			&:hover {
+				background: @corporative-color-top;
+			}
+		}
+
+		#burger-menu {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+
+			div {
+				height: 3px;
+				width: 30px;
+				background: #fff;
+				margin: 1.5px 10px;
+				border-radius: 3px;
+			}
+
+			span {
+				box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+			}
+		}
+
+		> li > a {
+			display: inline-block;
+			text-decoration: none;
+			color: unset;
+			outline: none !important;
+			padding: 10px;
+
+			&:hover {
+				text-decoration: none;
+				color: unset;
+			}
+		}
+
+		#search-button {
+			width: 50px;
+			position: relative;
+
+			div:nth-child(1) {
+				width: 20px;
+				height: 20px;
+				border: 3px solid #fff;
+				border-radius: 100%;
+				top: ~'calc(50% - 10px)';
+				left: ~'calc(50% - 10px)';
+				position: absolute;
+			}
+
+			div:nth-child(2) {
+				width: 3px;
+				height: 9px;
+				background: #fff;
+				position: absolute;
+				top: ~'calc(50% + 4px)';
+				left: ~'calc(50% + 6px)';
+				transform: rotate(-45deg);
+				border-radius: 3px;
+			}
+
+			span {
+				background: @corporative-color-top;
+				right: 0;
 			}
 		}
 	}
 }
+
