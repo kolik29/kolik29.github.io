@@ -44,17 +44,19 @@ $(document).ready(function() {
 
 	hoverOnSliderControl();
 
-	$('.stub > .top').css({
-		'top': '-50vh'
-	});
-	$('.stub > .bottom').css({
-		'bottom': '-50vh'
-	});
 	setTimeout(function() {
-		$('.stub').css({
-			'display': 'none'
-		})
-	}, 300);
+		$('.stub > .top').css({
+			'top': '-50vh'
+		});
+		$('.stub > .bottom').css({
+			'bottom': '-50vh'
+		});
+		setTimeout(function() {
+			$('.stub').css({
+				'display': 'none'
+			})
+		}, 300);
+	}, 700);
 });
 
 function hoverOnSliderControl() {
