@@ -33,7 +33,7 @@
   defaults = {
     size: document.documentElement.clientWidth,
     margin: 10,
-    fontSize: 132,
+    fontSize: 20,
     perspective: 1000,
     touchSensitivity: 1,
     horizontalFlip: false,

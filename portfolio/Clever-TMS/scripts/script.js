@@ -150,7 +150,11 @@ var currentControlIndex = 0;
 	document.addEventListener('DOMContentLoaded', function() {
 		var hexaSlider, leftControl, rightControl, mouseXStart, mouseXEnd;
 		hexaSlider = new HexaFlip(document.getElementById('slider-container'), {
-			slide: ['<div class="slide-picture" style="background: url(\'img/office.jpg\'), linear-gradient(135deg, #0ff 25%, yellow);"><div class="slider-content"><div class="slider-content--background"></div></div></div>', '2', '3']
+			slide: [
+				'<div class="slide-picture" style="background: url(\'img/office.jpg\'), linear-gradient(135deg, #0ff 25%, yellow);"><div class="slider-content"><div class="slider-content--background"></div><div class="slider-content--text"><p>Современный бизнес диктует свои правила. Интернационализация и международное сотрудничество являются стратегическими целями для многих серьезных компаний.</p><p>Наша команда профессионалов поможет преодолеть технологические, лингвистические и межкультурные барьеры на пути к достижению этих целей.</p></div></div></div>',
+				'2',
+				'3'
+			]
 		}, {
 			horizontalFlip: true
 		});

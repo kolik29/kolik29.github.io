@@ -16,6 +16,22 @@
 	font-weight: 400;
 }
 
+@font-face {
+	font-family: RaleWayThin;
+	src: url(../fonts/ralewaythin.woff) format("woff"),
+		url(../fonts/ralewaythin.ttf) format("truetype");
+	font-style: normal;
+	font-weight: 100;
+}
+
+@font-face {
+	font-family: RaleWayLight;
+	src: url(../fonts/ralewaylight.woff) format("woff"),
+		url(../fonts/ralewaylight.ttf) format("truetype");
+	font-style: normal;
+	font-weight: 100;
+}
+
 @keyframes updown {
 	from {
 		bottom: 60px;
@@ -73,6 +89,12 @@ body {
 	font-family: MyriadProRegular;
 }
 
+p {
+	line-height: 1.2;
+	margin: 1.5rem 0;
+	font-family: 'RaleWayLight';
+}
+
 .stub {
 	width: 100%;
 	height: 100vh;
@@ -121,10 +143,11 @@ body {
 
 	&:before {
 		background: #000 !important;
+		z-index: -1;
 	}
 
 	&:hover > * {
-		color: #0ff;
+		color: #0ff !important;
 	}
 
 	h2 {
@@ -381,9 +404,11 @@ a:not(.slider-control),
 					.slider-content {
 						position: relative;
 						height: 100%;
-						width: 50%;
+						width: 60%;
 						overflow: hidden;
 						clip-path: polygon(0 0, 100% 0, 80% 100%, 0 100%);
+						display: flex;
+						align-items: center;
 
 						.slider-content--background {
 							position: absolute;
@@ -395,6 +420,16 @@ a:not(.slider-control),
 							-webkit-mask-image: -webkit-linear-gradient(0deg, rgba(0, 0, 0, 1) 30%, rgba(0, 0, 0, 0));
 							mask-image: linear-gradient(0deg, rgba(0, 0, 0, 1) 30%, rgba(0, 0, 0, 0));
 							background: linear-gradient(135deg,#0ff 30%,#ff0 100%);
+							top: 0;
+							left: 0;
+						}
+
+						.slider-content--text {
+							position: absolute;
+							display: inline-block;
+							padding: 4em;
+							font-size: 2em;
+							width: 90%;
 						}
 					}
 				}
