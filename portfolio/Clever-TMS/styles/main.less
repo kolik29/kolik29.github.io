@@ -114,6 +114,7 @@ a:not(.slider-control),
 		transition: rotate .2s cubic-bezier(.175,.885,.32,1.275),right .4s cubic-bezier(.175,.885,.32,1.275);
 		transform: rotate(45deg);
 		transform-origin: 100% 0;
+		z-index: 1;
 	}
 
 	&:hover {
@@ -123,6 +124,12 @@ a:not(.slider-control),
 	&:hover:before {
 		right: 0;
 		transform: rotate(0);
+	}
+
+	div,
+	h2 {
+		position: inherit;
+		z-index: 2;
 	}
 }
 
@@ -557,6 +564,23 @@ a:not(.slider-control),
 				display: flex;
 				justify-content: space-between;
 				font-size: 40px;
+			}
+		}
+	}
+
+	.more_about_us {
+		display: flex;
+		font-size: 40px;
+
+		.text {
+			padding: 4em;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			width: 100%;
+
+			h1 {
+				margin-bottom: 60px;
 			}
 		}
 	}

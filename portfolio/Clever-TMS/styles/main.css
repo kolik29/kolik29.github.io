@@ -95,6 +95,7 @@ a:not(.slider-control):before,
   transition: rotate 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), right 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   transform: rotate(45deg);
   transform-origin: 100% 0;
+  z-index: 1;
 }
 a:not(.slider-control):hover,
 .link:hover {
@@ -104,6 +105,13 @@ a:not(.slider-control):hover:before,
 .link:hover:before {
   right: 0;
   transform: rotate(0);
+}
+a:not(.slider-control) div,
+.link div,
+a:not(.slider-control) h2,
+.link h2 {
+  position: inherit;
+  z-index: 2;
 }
 .aqua > h2,
 .aqua > div {
@@ -472,4 +480,18 @@ a:not(.slider-control):hover:before,
   display: flex;
   justify-content: space-between;
   font-size: 40px;
+}
+#main .more_about_us {
+  display: flex;
+  font-size: 40px;
+}
+#main .more_about_us .text {
+  padding: 4em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+#main .more_about_us .text h1 {
+  margin-bottom: 60px;
 }
