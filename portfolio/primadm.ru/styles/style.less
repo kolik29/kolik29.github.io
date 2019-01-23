@@ -8,7 +8,7 @@
 }
 
 @font-face{
-	font-family: 'Myriad Pro Black';
+	font-family: 'Myriad Pro SemiCn';
 	src: url(../fonts/MyriadPro/MyriadPro-SemiCn.eot) format('eot'),
 		url(../fonts/MyriadPro/MyriadPro-SemiCn.ttf) format('truetype'),
 		url(../fonts/MyriadPro/MyriadPro-SemiCn.woff) format('woff');
@@ -67,7 +67,7 @@ header {
 	}
 
 	.main_title {
-		padding: 25px 0;
+		padding: 15px 0;
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -92,8 +92,8 @@ header {
 	menu {
 		display: flex;
 		justify-content: space-around;
-		padding: 20px 8px;
-		font-family: 'Myriad Pro Black';
+		padding: 10px 8px;
+		font-family: 'Myriad Pro SemiCn';
 		font-size: 20px;
 
 		li {
@@ -114,14 +114,15 @@ article {
 	justify-content: center;
 
 	.title {
-		font-family: 'Myriad Pro Semibold';
-		font-size: 30px;
+		font-family: 'Myriad Pro Semibold' !important;
+		font-size: 30px !important;
 		text-align: center;
 		margin: 30px 0;
 		position: relative;
 		line-height: 1;
+		color: #005c8b;
 
-		&:after {
+		*:after {
 			left: ~'calc(50% - 120px)';
 			content: '';
 			bottom: -15px;
@@ -132,8 +133,8 @@ article {
 		}
 
 		a {
-			color: #005c8b;
 			transition: .3s;
+			color: #005c8b;
 
 			&:hover {
 				color: lighten(#005c8b, 20%);
@@ -154,7 +155,7 @@ article.main_news {
 
 		.main_news--title {
 			padding: 15px;
-			color: #333333;
+			color: #333;
 			font-size: 20px;
 			text-align: center;
 			position: absolute;
@@ -221,13 +222,64 @@ article.all_news {
 	}
 
 	.news-item {
-		height: 100px;
 		margin: 15px 0;
 
 		a {
 			display: block;
-			height: 100px;
-			background: grey;
+			font-family: 'Myriad Pro SemiCn';
+			color: #333;
+			font-size: 20px;
+			line-height: 1;
+			text-align: center;
+			transition: .3s;
+
+			&:hover {
+				color: lighten(#333, 20%);
+			}
+
+			img {
+				width: 100%;
+				margin-bottom: 10px;
+			}
 		}
 	}
+}
+
+.rubrics {
+	background: #f2f2f2;
+	flex-direction: column;
+	border: 1px solid #b8b9b9;
+
+	.ribrics-block {
+		display: flex;
+		max-width: 100%;
+		justify-content: space-around;
+		align-items: center;
+		flex-wrap: wrap;
+
+		a {
+			display: block;
+			font-family: 'Myriad Pro SemiCn';
+			color: #333;
+			font-size: 30px;
+			line-height: 1;
+			text-align: center;
+			transition: .3s;
+			margin: 20px;
+
+			&:hover {
+				color: lighten(#333, 20%);
+			}
+		}
+	}
+}
+
+.events {
+
+}
+
+.photo {
+	background: #f2f2f2;
+	flex-direction: column;
+	border: 1px solid #b8b9b9;
 }
