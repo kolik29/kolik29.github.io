@@ -34,32 +34,6 @@
   width: 30px;
   height: 30px;
 }
-.aqua > h2,
-.aqua > div {
-  color: #0ff;
-}
-.aqua > span {
-  background: #0ff !important;
-}
-.aqua:before {
-  background: #0ff !important;
-}
-.aqua:hover > h2,
-.aqua:hover > div {
-  color: #000;
-}
-.aqua:hover > span {
-  background: #000 !important;
-}
-.yellow > span {
-  background: #000 !important;
-}
-.yellow:before {
-  background: #e8fa13 !important;
-}
-.yellow:hover > span {
-  background: #000;
-}
 body {
   font-family: MyriadProRegular;
 }
@@ -101,20 +75,76 @@ p {
   height: 100vh;
   background: linear-gradient(135deg, #0ff 25%, yellow);
 }
+a:not(.slider-control),
+.link {
+  font-size: 0.75em;
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  margin-left: -0.5em;
+  padding: 0.5em;
+}
+a:not(.slider-control):before,
+.link:before {
+  position: absolute;
+  top: 0;
+  right: 100%;
+  width: 100%;
+  height: 100%;
+  content: ' ';
+  transition: rotate 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), right 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform: rotate(45deg);
+  transform-origin: 100% 0;
+}
+a:not(.slider-control):hover,
+.link:hover {
+  text-decoration: none;
+}
+a:not(.slider-control):hover:before,
+.link:hover:before {
+  right: 0;
+  transform: rotate(0);
+}
+.aqua > h2,
+.aqua > div {
+  color: #0ff;
+}
+.aqua > span {
+  background: #0ff !important;
+}
+.aqua:before {
+  background: #0ff !important;
+}
+.aqua:hover > h2,
+.aqua:hover > div {
+  color: #000;
+}
+.aqua:hover > span {
+  background: #000 !important;
+}
+.yellow > span {
+  background: #000 !important;
+}
+.yellow:before {
+  background: #e8fa13 !important;
+}
+.yellow:hover > span {
+  background: #000;
+}
 .logo {
   position: sticky !important;
   left: 10%;
   text-transform: uppercase;
   top: 0;
-  color: #000 !important;
+  color: #000;
   z-index: 2;
 }
 .logo:before {
-  background: #000 !important;
+  background: #000;
   z-index: -1;
 }
 .logo:hover > * {
-  color: #0ff !important;
+  color: #0ff;
 }
 .logo h2 {
   font-family: MyriadProSemiBold;
@@ -128,38 +158,6 @@ p {
 .logo div {
   font-size: 10px;
   text-align: justify;
-}
-a:not(.slider-control),
-.link {
-  font-size: 0.75em;
-  position: relative;
-  display: inline-block;
-  overflow: hidden;
-  margin-left: -0.5em;
-  padding: 0.5em;
-  color: #333;
-}
-a:not(.slider-control):before,
-.link:before {
-  position: absolute;
-  top: 0;
-  right: 100%;
-  width: 100%;
-  height: 100%;
-  content: ' ';
-  transition: rotate 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), right 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  transform: rotate(45deg);
-  transform-origin: 100% 0;
-  background: #e8fa13;
-}
-a:not(.slider-control):hover,
-.link:hover {
-  text-decoration: none;
-}
-a:not(.slider-control):hover:before,
-.link:hover:before {
-  right: 0;
-  transform: rotate(0);
 }
 .burger-menu {
   position: fixed;
@@ -365,7 +363,7 @@ a:not(.slider-control):hover:before,
   position: absolute;
   display: inline-block;
   padding: 4em;
-  font-size: 2em;
+  font-size: 20px;
   width: 90%;
 }
 #main-slider .shadow {
@@ -429,4 +427,49 @@ a:not(.slider-control):hover:before,
   background: #0ff;
   transition: transform 0.35s;
   transform: translateX(-100%);
+}
+#main .about_us {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 30px;
+  text-align: right;
+}
+#main .about_us .text {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4em;
+}
+#main .what_we_do {
+  display: flex;
+  font-size: 20px;
+}
+#main .what_we_do .text {
+  padding: 4em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+#main .what_we_do .text div {
+  display: flex;
+  justify-content: space-between;
+}
+#main .partners {
+  display: flex;
+  font-size: 20px;
+}
+#main .partners .text {
+  padding: 4em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+#main .partners .text div {
+  margin-top: 100px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 40px;
 }
