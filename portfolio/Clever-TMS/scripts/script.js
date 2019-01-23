@@ -1,8 +1,13 @@
 let burgerMenuActive = false;
 
 $(document).ready(function() {
-	enableShadow();
 	setLinkHead();
+
+	if ($(window).prop('pageYOffset') > 0) {
+		$('#main-slider').css({
+			'z-index': '-1'
+		});
+	}
 
 	$(window).on('scroll', function(){
 		enableShadow();
@@ -137,11 +142,11 @@ var controlButton = {
 	'main': [
 		'О нас', 'Главная'
 	],
-	'name_2': [
-		'Имя 2', 'pagetitle_2'
+	'case_2': [
+		'LSI BERLIN MS ACCES', 'LSI BERLIN MS ACCES'
 	],
-	'name_3': [
-		'Имя 3', 'pagetitle_3'
+	'case_3': [
+		'LSI BERLIN CLEVER-TMS', 'LSI BERLIN CLEVER-TMS'
 	]
 }
 var currentControlIndex = 0;
@@ -152,8 +157,8 @@ var currentControlIndex = 0;
 		hexaSlider = new HexaFlip(document.getElementById('slider-container'), {
 			slide: [
 				'<div class="slide-picture" style="background: url(\'img/office.jpg\'), linear-gradient(135deg, #0ff 25%, yellow);"><div class="slider-content"><div class="slider-content--background"></div><div class="slider-content--text" style="font-size: 30px"><p>Современный бизнес диктует свои правила. Интернационализация и международное сотрудничество являются стратегическими целями для многих серьезных компаний.</p><p>Наша команда профессионалов поможет преодолеть технологические, лингвистические и межкультурные барьеры на пути к достижению этих целей.</p></div></div></div>',
-				'<div class="slide-picture" style="/*background: url(\'img/office.jpg\'), linear-gradient(135deg, #0ff 25%, yellow);*/"><div class="slider-content"><div class="slider-content--background"></div><div class="slider-content--text"><h1>Case LSI BERLIN MS ACCESS (автоматизация)</h1><p>LSI был успешным пользователем системы ACROSS на протяжении 15 лет, но со временем данный инструмент стал устаревать и уже не выдерживал конкуренции с более современными системами.</p><p>Попытки автоматизации собственными силами не дали результата, пришлось переносить учет деятельности в MS EXCEL, что также не устраивало руководство, но давало определенную гибкость учета. Тогда компания решила обратиться к нам за помощью.</p></div></div></div>',
-				'<div class="slide-picture" style="/*background: url(\'img/office.jpg\'), linear-gradient(135deg, #0ff 25%, yellow);*/"><div class="slider-content"><div class="slider-content--background"></div><div class="slider-content--text"><h1>Case LSI BERLIN MS ACCESS (автоматизация)</h1><p>После первого успешного этапа компания решила наращивать технологический потенциал и автоматизировать свою деятельность с помощью современного веб-решения.</p><p>Так как предыдущий опыт внедрения готовых современных систем результата не дал, было принято решение создать систему управления бизнесом под себя на платформе CLEVER-TMS.</p></div></div></div>'
+				'<div class="slide-picture" style="/*background: url(\'img/office.jpg\'), linear-gradient(135deg, #0ff 25%, yellow);*/"><div class="slider-content"><div class="slider-content--background"></div><div class="slider-content--text"><h1>Case LSI BERLIN<br>MS ACCESS (автоматизация)</h1><p>LSI был успешным пользователем системы ACROSS на протяжении 15 лет, но со временем данный инструмент стал устаревать и уже не выдерживал конкуренции с более современными системами.</p><p>Попытки автоматизации собственными силами не дали результата, пришлось переносить учет деятельности в MS EXCEL, что также не устраивало руководство, но давало определенную гибкость учета. Тогда компания решила обратиться к нам за помощью.</p></div></div></div>',
+				'<div class="slide-picture" style="/*background: url(\'img/office.jpg\'), linear-gradient(135deg, #0ff 25%, yellow);*/"><div class="slider-content"><div class="slider-content--background"></div><div class="slider-content--text"><h1>Case LSI BERLIN<br>CLEVER-TMS (автоматизация)</h1><p>После первого успешного этапа компания решила наращивать технологический потенциал и автоматизировать свою деятельность с помощью современного веб-решения.</p><p>Так как предыдущий опыт внедрения готовых современных систем результата не дал, было принято решение создать систему управления бизнесом под себя на платформе CLEVER-TMS.</p></div></div></div>'
 			]
 		}, {
 			horizontalFlip: true
@@ -215,6 +220,15 @@ var currentControlIndex = 0;
 				}
 			}
 		}
+
+		var eventClick = new Event('click');
+		var pathToSlide = Object.keys(controlButton).indexOf(window.location.href.split('#')[1]);
+
+		if (pathToSlide > 0) {
+			for (let i = 0; i < pathToSlide; i++) {
+				rightControl.dispatchEvent(eventClick);
+			}
+		}
 	}, false);
 }).call(this);
 
@@ -224,7 +238,7 @@ function getButtonValue(arr, index) {
 	if (index == 0)
 		newIndex = [Object.keys(arr).length - 1, 1];
 
-	if (index == Object.keys(arr).length - 1)
+	if (index >= Object.keys(arr).length - 1)
 		newIndex = [Object.keys(arr).length - 2, 0];
 
 	return {
