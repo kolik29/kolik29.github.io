@@ -163,9 +163,17 @@ article .title a:hover {
 }
 article.main_news {
   position: relative;
+  height: 674px;
+  overflow: hidden;
+}
+article.main_news .slider_wrapper {
+  display: flex;
+  position: absolute;
+  height: 100%;
+  left: 0;
 }
 article.main_news .main_news--block {
-  width: 100%;
+  width: 1200px;
 }
 article.main_news .main_news--block img {
   width: 100%;
@@ -178,7 +186,7 @@ article.main_news .main_news--block .main_news--title {
   position: absolute;
   bottom: 0;
   background: rgba(255, 255, 255, 0.6);
-  width: 100%;
+  width: 1200px;
 }
 article.all_news {
   flex-direction: column;

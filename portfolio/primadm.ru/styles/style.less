@@ -193,9 +193,18 @@ article {
 
 article.main_news {
 	position: relative;
+	height: 674px;
+	overflow: hidden;
+
+	.slider_wrapper {
+		display: flex;
+		position: absolute;
+		height: 100%;
+		left: 0;
+	}
 
 	.main_news--block {
-		width: 100%;
+		width: 1200px;
 
 		img {
 			width: 100%;
@@ -209,7 +218,7 @@ article.main_news {
 			position: absolute;
 			bottom: 0;
 			background: rgba(255, 255, 255, 0.6);
-			width: 100%;
+			width: 1200px;
 		}
 	}
 }
