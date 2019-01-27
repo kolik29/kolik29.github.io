@@ -103,6 +103,7 @@ a:not(.slider-control),
 	overflow: hidden;
 	margin-left: -.5em;
 	padding: .5em;
+	color: #000;
 
 	&:before {
 		position: absolute;
@@ -511,7 +512,57 @@ a:not(.slider-control),
 	height: 100vh;
 	background: #0ff;
 	transition: transform .35s;
-    transform: translateX(-100%);
+	transform: translateX(-100%);
+	padding: 4em;
+	display: flex;
+	align-items: center;
+
+	.text {
+		width: 100%;
+		display: flex;
+		padding: 4em;
+
+		a {
+			color: #000;
+		}
+
+		.left,
+		.right {
+			display: flex;
+			flex-direction: column;
+			width: 100%;
+			align-items: end;
+		}
+
+		.left a {
+			font-size: 2em;
+			font-family: RaleWayLight;
+		}
+
+		.right {
+			font-size: 1.2em;
+			font-family: RaleWayLight;
+			h1 {
+				font-size: 3em;
+				font-family: MyriadProSemiBold;
+			}
+
+			h2 {
+				font-size: 24px;
+				font-family: RaleWayLight;
+			}
+
+			a {
+				font-size: 1em;
+				padding-top: 0;
+				padding-bottom: 0;
+			}
+
+			> div {
+				margin: 1em 0;
+			}
+		}
+	}
 }
 
 #main {
@@ -578,9 +629,16 @@ a:not(.slider-control),
 			flex-direction: column;
 			justify-content: center;
 			width: 100%;
+			align-items: end;
 
 			h1 {
 				margin-bottom: 60px;
+			}
+
+			hr {
+				margin: 0.2em 0;
+				background: #000;
+				width: 100%;
 			}
 		}
 	}
