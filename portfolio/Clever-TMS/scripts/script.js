@@ -1,6 +1,7 @@
 let burgerMenuActive = false;
 
 $(document).ready(function() {
+	hrefOnStart = location.href.split('#')[1];
 	setLinkHead();
 
 	if ($(window).prop('pageYOffset') > 0) {
@@ -45,6 +46,17 @@ $(document).ready(function() {
 		$('body,html').animate({
 		    scrollTop: document.documentElement.clientHeight
 		}, 500);
+	});
+
+	$('.logo').on('click', function(e) {
+		e.preventDefault();
+		let eventClick = new Event('click');
+		let leftControl = document.getElementById('slider-control--left');
+		if (currentControlIndex != 0) {
+			for (let i = currentControlIndex; i > 0; i--) {
+				leftControl.dispatchEvent(eventClick);
+			}
+		}
 	});
 
 	hoverOnSliderControl();
@@ -153,6 +165,8 @@ var currentControlIndex = 0;
 
 (function() {
 	document.addEventListener('DOMContentLoaded', function() {
+		hrefOnStart = location.href.split('#')[1];
+		console.log(hrefOnStart);
 		var hexaSlider, leftControl, rightControl, mouseXStart, mouseXEnd;
 		hexaSlider = new HexaFlip(document.getElementById('slider-container'), {
 			slide: [
@@ -168,6 +182,7 @@ var currentControlIndex = 0;
 		rightControl = document.getElementById('slider-control--right');
 
 		leftControl.addEventListener('click', (function(e) {
+			hrefOnStart = '';
 			e.preventDefault();
 
 			if (($(window).prop('pageYOffset') != 0)) {
@@ -181,6 +196,7 @@ var currentControlIndex = 0;
 		}), false);
 
 		rightControl.addEventListener('click', (function(e) {
+			hrefOnStart = '';
 			e.preventDefault();
 
 			if (($(window).prop('pageYOffset') != 0)) {
@@ -254,6 +270,7 @@ function getButtonValue(arr, index) {
 }
 
 let siteTitle = document.title;
+let hrefOnStart = '';
 
 function setLinkHead(direction) {
 	$('#content > section').removeClass('visible');
@@ -267,18 +284,22 @@ function setLinkHead(direction) {
 
 	if (direction == undefined) {
 		history.replaceState(null, null, '#' + getButtonValue(controlButton, currentControlIndex + 1).left[0]);
-		$('#' + Object.keys(controlButton)[0]).addClass('visible');
 		document.title = getButtonValue(controlButton, currentControlIndex + 1).left[1] + ' — ' + siteTitle;
-	} else {
-		history.replaceState(null, null, '#' + getButtonValue(controlButton, currentControlIndex).right[0]);
-		document.title = getButtonValue(controlButton, currentControlIndex).right[1] + ' — ' + siteTitle;
 	}
 
 	if (direction == 'left') {
+		if (hrefOnStart == '')
+			history.replaceState(null, null, '#' + getButtonValue(controlButton, currentControlIndex).left[0]);
+
+		document.title = getButtonValue(controlButton, currentControlIndex).left[1] + ' — ' + siteTitle;
 		currentControlIndex--;
 		if (currentControlIndex < 0)
 			currentControlIndex = Object.keys(controlButton).length - 1;
 	} else if (direction == 'right') {
+		if (hrefOnStart == '')
+			history.replaceState(null, null, '#' + getButtonValue(controlButton, currentControlIndex).right[0]);
+
+		document.title = getButtonValue(controlButton, currentControlIndex).right[1] + ' — ' + siteTitle;
 		currentControlIndex++;
 		if (currentControlIndex > Object.keys(controlButton).length - 1)
 			currentControlIndex = 0;
@@ -286,14 +307,24 @@ function setLinkHead(direction) {
 
 	$('#' + Object.keys(controlButton)[currentControlIndex]).addClass('visible');
 
+	if (hrefOnStart != '') {
+		if (hrefOnStart != 'main') {
+			history.replaceState(null, null, '#' + hrefOnStart);
+			document.title = getButtonValue(controlButton, currentControlIndex - 1).right[1] + ' — ' + siteTitle;
+		} else {
+			history.replaceState(null, null, '#' + hrefOnStart);
+			document.title = controlButton.main[0] + ' — ' + siteTitle;
+		}
+	}
+
 	setTimeout(function() {
 		$('#slider-control--left').attr('href', '#' + getButtonValue(controlButton, currentControlIndex).left[0]);
 		$('#slider-control--right').attr('href', '#' + getButtonValue(controlButton, currentControlIndex).right[0]);
 		$('#slider-control--left > span').text(getButtonValue(controlButton, currentControlIndex).left[1]);
 		$('#slider-control--right > span').text(getButtonValue(controlButton, currentControlIndex).right[1]);
 		hoverOnSliderControl();
-
 		if ($('#slider-control--left').is(':hover')) $('#slider-control--left').addClass('hover');
 		if ($('#slider-control--right').is(':hover')) $('#slider-control--right').addClass('hover');
 	}, 1500);
+
 }
