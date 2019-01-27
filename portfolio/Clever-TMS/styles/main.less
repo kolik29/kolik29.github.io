@@ -569,7 +569,7 @@ a:not(.slider-control),
 	.about_us {
 		display: flex;
 		justify-content: flex-end;
-		font-size: 30px;
+		font-size: 2em;
 		text-align: right;
 
 		.text {
@@ -601,7 +601,7 @@ a:not(.slider-control),
 
 	.partners {
 		display: flex;
-		font-size: 20px;
+		font-size: 1.5em;
 
 		.text {
 			padding: 4em;
@@ -613,8 +613,21 @@ a:not(.slider-control),
 			div {
 				margin-top: 100px;
 				display: flex;
-				justify-content: space-between;
 				font-size: 40px;
+				flex-wrap: wrap;
+
+				a {
+					width: 250px;
+					height: 250px;
+					min-width: 250px;
+					min-height: 250px;
+					padding: 0;
+					margin: 0 20px 20px 0;
+
+					&:before {
+						display: none;
+					}
+				}
 			}
 		}
 	}
@@ -667,7 +680,7 @@ a:not(.slider-control),
 		.text {
 			width: 100%;
 			padding: 4em;
-			font-size: 20px;
+			font-size: 1.5em;
 		}
 	}
 }
