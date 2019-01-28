@@ -6,9 +6,13 @@ body {
 	align-items: center;
 }
 
+span {
+	font-size: 38px;
+}
+
 #switch {
 	height: 100px;
-	width: 160px;
+	width: 175px;
 	background: red;
 	border-radius: 50px;
 	position: relative;
@@ -17,6 +21,24 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+
+	span {
+		position: absolute;
+		width: 100px;
+		height: 100px;
+		text-align: center;
+		line-height: 100px;
+		z-index: 1;
+		font-size: 38px;
+
+		&:nth-child(1) {
+			left: 0;
+		}
+
+		&:nth-child(2) {
+			right: 0;
+		}
+	}
 
 	.disc {
 		background: white;
