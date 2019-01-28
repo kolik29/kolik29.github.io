@@ -1,7 +1,7 @@
 let burgerMenuActive = false;
 
 $(document).ready(function() {
-	hrefOnStart = location.href.split('#')[1];
+	hrefOnStart = (location.href.split('#')[1] == undefined) ? 'main' : location.href.split('#')[1];
 	setLinkHead();
 
 	if ($(window).prop('pageYOffset') > 0) {
@@ -165,7 +165,7 @@ var currentControlIndex = 0;
 
 (function() {
 	document.addEventListener('DOMContentLoaded', function() {
-		hrefOnStart = location.href.split('#')[1];
+		hrefOnStart = (location.href.split('#')[1] == undefined) ? 'main' : location.href.split('#')[1];
 		console.log(hrefOnStart);
 		var hexaSlider, leftControl, rightControl, mouseXStart, mouseXEnd;
 		hexaSlider = new HexaFlip(document.getElementById('slider-container'), {
