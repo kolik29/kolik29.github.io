@@ -1,0 +1,28 @@
+body {
+	height: 100vh;
+	margin: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#switch {
+	height: 100px;
+	width: 160px;
+	background: red;
+	border-radius: 50px;
+	position: relative;
+	display: flex;
+	transition: .3s;
+
+	.disc {
+		background: white;
+		width: 80px;
+		height: 80px;
+		border-radius: 100%;
+		margin: 10px;
+		transition: left .3s;
+		position: absolute;
+		left: 0;
+	}
+}
