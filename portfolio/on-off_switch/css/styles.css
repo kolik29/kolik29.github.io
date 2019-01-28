@@ -11,15 +11,17 @@ body {
   background: red;
   border-radius: 50px;
   position: relative;
-  display: flex;
   transition: 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 #switch .disc {
   background: white;
   width: 80px;
   height: 80px;
   border-radius: 100%;
-  margin: 10px;
+  margin: 0 10px;
   transition: left 0.3s;
   position: absolute;
   left: 0;

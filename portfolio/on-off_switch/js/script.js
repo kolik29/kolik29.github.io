@@ -3,7 +3,7 @@ $(document).ready(function() {
 	$('#switch').on('click', function () {
 		if (!switchOn) {
 			$(this).children('.disc').css({
-				'left': 'calc(100% - ' + ($(this).children('.disc').width() + (parseInt($(this).children('.disc').css('margin')) * 2)) + 'px)'
+				'left': 'calc(100% - ' + ($(this).children('.disc').width() + (parseInt($(this).children('.disc').css('margin-left')) * 2)) + 'px)'
 			});
 			$(this).css({
 				'background': 'green'
