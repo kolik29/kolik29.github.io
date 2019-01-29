@@ -530,12 +530,15 @@ a:not(.slider-control) h2,
   flex-wrap: wrap;
 }
 #main .partners .text div a {
-  width: 250px;
+  width: calc(100% / 7);
+  max-width: 250px;
   height: 250px;
-  min-width: 250px;
-  min-height: 250px;
   padding: 0;
-  margin: 0 20px 20px 0;
+  margin: 0 1% 1% 0;
+}
+#main .partners .text div a svg {
+  width: 100%;
+  height: 100%;
 }
 #main .partners .text div a:before {
   display: none;
