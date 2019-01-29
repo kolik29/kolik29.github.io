@@ -303,15 +303,20 @@ article.all_news {
 
 	.photo_slider {
 		position: relative;
-		display: flex;
 		padding: 10px 10px 30px;
+		overflow: hidden;
+		height: 300px;
 
-		.photo_slider--block {
-			margin: 0 10px;
-			width: ~'calc(33% - 15px)';
+		.photo_line {
+			height: 210px;
+			position: absolute;
 
-			img {
-				width: 100%;
+			.photo_slider--block {
+				margin: 0 10px;
+
+				img {
+					height: 100%;
+				}
 			}
 		}
 	}

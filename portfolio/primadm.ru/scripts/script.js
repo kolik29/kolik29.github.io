@@ -7,23 +7,29 @@ $(document).ready(function() {
 		toRight($(this), $('#news-slider'));
 	});
 
-	let lastEl = $('#news-slider').children().last();
-	$('#news-slider').children().last().remove();
-	$('#news-slider').css({'left': -$('#news-slider img').width()});
-	$('#news-slider').prepend(lastEl);
+	$('#photo_slider-right').on('click', function() {
+		toLeft($(this), $('#js-photo_slider'));
+	});
+
+	$('#photo_slider-left').on('click', function() {
+		toRight($(this), $('#js-photo_slider'));
+	});
+
+	fixSlider($('#news-slider'));
+	fixSlider($('#js-photo_slider'));
 });
 
 function toLeft(button, target) {
 	button.off('click');
 	target.animate({
-		'left': parseInt(target.css('left')) - target.children('a').width()
+		'left': parseInt(target.css('left')) - target.children('a').outerWidth()
 	}, 500, function() {
 		button.on('click', function() {
 			toLeft(button, target);
 		});
-		let firstEl = target.children().first();
+		var firstEl = target.children().first();
 		target.children().first().remove();
-		target.css({'left': -target.children('a').width()});
+		target.css({'left': -target.children('a').outerWidth()});
 		target.append(firstEl);
 	});
 }
@@ -31,14 +37,22 @@ function toLeft(button, target) {
 function toRight(button, target) {
 	button.off('click');
 	target.animate({
-		'left': parseInt(target.css('left')) + target.children('a').width()
+		'left': parseInt(target.css('left')) + target.children('a').outerWidth()
 	}, 500, function() {
 		button.on('click', function() {
 			toRight(button, target);
 		});
-		let lastEl = target.children().last();
+		var lastEl = target.children().last();
 		target.children().last().remove();
-		target.css({'left': -target.children('a').width()});
+		target.css({'left': -target.children('a').outerWidth()});
 		target.prepend(lastEl);
 	});
+}
+
+function fixSlider(id) {
+	var lastEl = $(id).children().last();
+	$(id).children().last().remove();
+	$(id).css({'left': -id.children('a').outerWidth()});
+	console.log(id.children('a').width());
+	$(id).prepend(lastEl);
 }

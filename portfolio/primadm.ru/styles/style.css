@@ -253,15 +253,19 @@ article.all_news .news-item a img {
 }
 .photo .photo_slider {
   position: relative;
-  display: flex;
   padding: 10px 10px 30px;
+  overflow: hidden;
+  height: 300px;
 }
-.photo .photo_slider .photo_slider--block {
+.photo .photo_slider .photo_line {
+  height: 210px;
+  position: absolute;
+}
+.photo .photo_slider .photo_line .photo_slider--block {
   margin: 0 10px;
-  width: calc(33% - 15px);
 }
-.photo .photo_slider .photo_slider--block img {
-  width: 100%;
+.photo .photo_slider .photo_line .photo_slider--block img {
+  height: 100%;
 }
 .banners {
   position: relative;
