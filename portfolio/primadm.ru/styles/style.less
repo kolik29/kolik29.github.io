@@ -18,6 +18,7 @@
 
 a,
 a:hover {
+	color: unset;
 	text-decoration: none;
 }
 
@@ -104,6 +105,10 @@ header {
 				background-image: url(../img/vk.png);
 			}
 
+			&#site_map {
+				background-image: url(../img/site_map.png);
+			}
+
 			&#eye {
 				background-image: url(../img/eyeball.png);
 			}
@@ -172,6 +177,7 @@ article {
 		position: relative;
 		line-height: 1;
 		color: #005c8b;
+		text-transform: uppercase;
 
 		*:after {
 			left: ~'calc(50% - 120px)';
@@ -335,6 +341,69 @@ article.all_news {
 					height: 100px;
 				}
 			}
+		}
+	}
+}
+
+.feedback {
+	background: #89d7f7;
+	flex-direction: column;
+
+	.feedback-inner {
+		display: flex;
+		width: 100%;
+
+		.left,
+		.right {
+			width: 100%;
+		}
+
+		.right {
+			background: url('../img/Карта_Приморского_района_2017.png');
+			background-size: 95%;
+			background-position: center;
+			background-repeat: no-repeat;
+			padding-top: 37%;
+		}
+	}
+}
+
+footer {
+	background: #005c8b;
+	position: relative;
+	display: flex;
+	align-items: center;
+	color: #fff;
+	flex-direction: column;
+
+	menu {
+		width: 1100px;
+		display: flex;
+		padding: 25px 0 15px;
+		justify-content: space-between;
+		border-bottom: 1px solid #fff;
+
+		li {
+			list-style-type: none;
+		}
+	}
+
+	.name {
+		padding-top: 15px;
+	}
+
+	.name,
+	.link {
+		width: 1100px;
+		text-align: justify;
+		display: flex;
+		justify-content: space-between;
+	}
+
+	.link {
+		padding-bottom: 25px;
+		a:hover {
+			text-decoration: underline;
 		}
 	}
 }
