@@ -215,7 +215,6 @@ article.all_news .news-item a:hover {
 article.all_news .news-item a img {
   width: 100%;
   margin-bottom: 10px;
-  box-shadow: 2px 2px 0px 1px rgba(0, 0, 0, 0.3);
 }
 .rubrics {
   background: #f2f2f2;
@@ -233,11 +232,11 @@ article.all_news .news-item a img {
   display: block;
   font-family: 'Myriad Pro SemiCn';
   color: #333;
-  font-size: 20px;
+  font-size: 30px;
   line-height: 1;
   text-align: center;
   transition: 0.3s;
-  margin: 0 20px;
+  margin: 20px;
 }
 .rubrics .ribrics-block a:hover {
   color: #666666;
@@ -258,4 +257,27 @@ article.all_news .news-item a img {
 }
 .photo .photo_slider .photo_slider--block img {
   width: 100%;
+}
+.banners {
+  position: relative;
+  background: #fff;
+}
+.banners .banners_slider {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  overflow: hidden;
+}
+.banners .banners_slider .banner_line {
+  margin: 25px 0;
+  min-width: 100%;
+  display: flex;
+}
+.banners .banners_slider .banner_line a {
+  display: inline-block;
+  margin: 0 35px;
+}
+.banners .banners_slider .banner_line a img {
+  width: 100px;
+  height: 100px;
 }

@@ -252,7 +252,6 @@ article.all_news {
 			img {
 				width: 100%;
 				margin-bottom: 10px;
-				box-shadow: 2px 2px 0px 1px rgba(0, 0, 0, 0.3);
 			}
 		}
 	}
@@ -274,11 +273,11 @@ article.all_news {
 			display: block;
 			font-family: 'Myriad Pro SemiCn';
 			color: #333;
-			font-size: 20px;
+			font-size: 30px;
 			line-height: 1;
 			text-align: center;
 			transition: .3s;
-			margin: 0 20px;
+			margin: 20px;
 
 			&:hover {
 				color: lighten(#333, 20%);
@@ -307,6 +306,34 @@ article.all_news {
 
 			img {
 				width: 100%;
+			}
+		}
+	}
+}
+
+.banners {
+	position: relative;
+	background: #fff;
+
+	.banners_slider {
+		display: flex;
+		width: 100%;
+		flex-direction: column;
+		overflow: hidden;
+
+		.banner_line {
+			margin: 25px 0;
+			min-width: 100%;
+			display: flex;
+
+			a {
+				display: inline-block;
+				margin: 0 35px;
+
+				img {
+					width: 100px;
+					height: 100px;
+				}
 			}
 		}
 	}
