@@ -225,7 +225,7 @@ var currentControlIndex = 0;
 		});
 
 		function moveFlip() {
-			if (Math.abs(mouseXStart - mouseXEnd) > 50) {
+			if (Math.abs(mouseXStart - mouseXEnd) > 300) {
 				if (mouseXStart - mouseXEnd < 0) {
 					hexaSlider['flipBack']();
 					setLinkHead('left');
