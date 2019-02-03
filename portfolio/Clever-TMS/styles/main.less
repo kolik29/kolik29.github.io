@@ -55,10 +55,25 @@ body {
 	font-family: MyriadProRegular;
 }
 
-p {
+h1 {
+	font-size: 2.3vw;
+	text-transform: uppercase;
+
+	@media (max-width: 980px) {
+		font-size: 1em;
+	}
+}
+
+p,
+a {
 	line-height: 1.2;
 	margin: 1.5rem 0;
 	font-family: 'RaleWayLight';
+	font-size: 1.75vw;
+
+	@media (max-width: 980px) {
+		font-size: 1em;
+	}
 }
 
 b {
@@ -431,7 +446,7 @@ a:not(.slider-control),
 
 						.slider-content--background {
 							position: absolute;
-							width: ~'calc(100vw - 17px)'; //компнсируется ширина прокрутки, на разных системах может быть разной, 17px - самый популярный вариант
+							width: 100vw; //компнсируется ширина прокрутки, на разных системах может быть разной, 17px - самый популярный вариант
 							height: 100vh;
 							background-size: cover !important;
 							background-blend-mode: luminosity;
@@ -449,7 +464,8 @@ a:not(.slider-control),
 							position: absolute;
 							display: inline-block;
 							width: 90%;
-							padding: 4em;
+							padding: 0 4em;
+							font-size: 1.75vw;
 
 							h1 {
 								font-family: MyriadProSemiBold;
@@ -597,6 +613,11 @@ a:not(.slider-control),
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
+			padding: 4em;
+
+			@media (max-width: 980px) {
+				width: 100%;
+			}
 		}
 	}
 
@@ -608,6 +629,7 @@ a:not(.slider-control),
 			flex-direction: column;
 			justify-content: center;
 			width: 100%;
+			padding: 4em;
 
 			div {
 				display: flex;
@@ -624,6 +646,7 @@ a:not(.slider-control),
 			flex-direction: column;
 			justify-content: center;
 			width: 100%;
+			padding: 4em;
 
 			div {
 				margin-top: 100px;
@@ -633,10 +656,6 @@ a:not(.slider-control),
 				flex-wrap: wrap;
 
 				a {
-					width: calc(100% / 7);
-					max-width: 250px;
-					height: 250px;
-					margin: 0 1% 1% 0;
 
 					svg {
 						width: 100%;
@@ -660,6 +679,7 @@ a:not(.slider-control),
 			justify-content: center;
 			width: 100%;
 			align-items: end;
+			padding: 4em;
 
 			h1 {
 				margin-bottom: 60px;
@@ -677,14 +697,12 @@ a:not(.slider-control),
 #case_2,
 #case_3 {
 	.portfolio {
-		display: flex;
-		align-items: center;
-
 		.text {
 			width: 100%;
 			display: flex;
 			justify-content: space-between;
 			font-family: RaleWayLight;
+			padding: 4em;
 		}
 	}
 
@@ -694,6 +712,7 @@ a:not(.slider-control),
 
 		.text {
 			width: 50%;
+			padding: 4em;
 		}
 	}
 }
