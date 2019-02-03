@@ -128,19 +128,21 @@ $(document).ready(function() {
 });
 
 function hoverOnSliderControl() {
-	$('#slider-control--left').on('mouseenter', function() {
-		$('#slider-control--left').addClass('hover');
-	});
-	$('#slider-control--left').on('mouseleave', function() {
-		$('#slider-control--left').removeClass('hover');
-	});
+	if ($(window).width() >= 640) {
+		$('#slider-control--left').on('mouseenter', function() {
+			$('#slider-control--left').addClass('hover');
+		});
+		$('#slider-control--left').on('mouseleave', function() {
+			$('#slider-control--left').removeClass('hover');
+		});
 
-	$('#slider-control--right').on('mouseenter', function() {
-		$('#slider-control--right').addClass('hover');
-	});
-	$('#slider-control--right').on('mouseleave', function() {
-		$('#slider-control--right').removeClass('hover');
-	});
+		$('#slider-control--right').on('mouseenter', function() {
+			$('#slider-control--right').addClass('hover');
+		});
+		$('#slider-control--right').on('mouseleave', function() {
+			$('#slider-control--right').removeClass('hover');
+		});
+	}
 }
 
 function enableShadow() {
@@ -373,8 +375,11 @@ function setLinkHead(direction) {
 		$('#slider-control--left > span').text(getButtonValue(controlButton, currentControlIndex).left[1]);
 		$('#slider-control--right > span').text(getButtonValue(controlButton, currentControlIndex).right[1]);
 		hoverOnSliderControl();
-		if ($('#slider-control--left').is(':hover')) $('#slider-control--left').addClass('hover');
-		if ($('#slider-control--right').is(':hover')) $('#slider-control--right').addClass('hover');
+
+		if ($(window).width() >= 640) {
+			if ($('#slider-control--left').is(':hover')) $('#slider-control--left').addClass('hover');
+			if ($('#slider-control--right').is(':hover')) $('#slider-control--right').addClass('hover');
+		}
 	}, 1500);
 
 }
