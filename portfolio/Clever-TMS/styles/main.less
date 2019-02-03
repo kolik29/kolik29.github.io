@@ -325,7 +325,7 @@ a:not(.slider-control),
 	}
 
 	&.hover {
-		transform: translate(0);
+		transform: unset;
 
 		&:after {
 			border-width: 45px 0;
@@ -351,6 +351,11 @@ a:not(.slider-control),
 	&.hover > img {
 		margin-left: ~'calc(100% - 40px)';
 	}
+
+	span {
+		padding-right: 3em;
+		padding-left: 1em;
+	}
 }
 
 #slider-control--right {
@@ -371,6 +376,11 @@ a:not(.slider-control),
 
 	&.hover > img {
 		margin-left: 10px;
+	}
+
+	span {
+		padding-left: 3em;
+		padding-right: 1em;
 	}
 }
 
