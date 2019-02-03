@@ -72,18 +72,43 @@ $(document).ready(function() {
 	hoverOnSliderControl();
 
 	setTimeout(function() {
+		$('.stub .inside').css({
+			'transform': 'scale(1.2)'
+		})
+	}, 200);
+
+	setTimeout(function() {
+		$('.stub .inside').css({
+			'transform': 'scale(1)'
+		})
+	}, 400);
+
+	setTimeout(function() {
+		$('.stub .inside').css({
+			'transform': 'scale(1.2)'
+		})
+	}, 600);
+
+	setTimeout(function() {
+		$('.stub .inside').css({
+			'transform': 'scale(1)'
+		})
+	}, 800);
+
+	setTimeout(function() {
 		$('.stub > .top').css({
 			'top': '-50vh'
 		});
 		$('.stub > .bottom').css({
 			'bottom': '-50vh'
 		});
+
 		setTimeout(function() {
 			$('.stub').css({
 				'display': 'none'
 			})
 		}, 300);
-	}, 700);
+	}, 1500);
 
 	$('.js-change-page').on('click', function () {
 		var rightControl = document.getElementById('slider-control--right');
