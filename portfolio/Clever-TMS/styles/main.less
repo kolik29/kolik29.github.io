@@ -53,6 +53,7 @@
 
 body {
 	font-family: MyriadProRegular;
+	overflow-x: hidden;
 }
 
 h1 {
@@ -764,19 +765,45 @@ a:not(.slider-control),
 			justify-content: space-between;
 			font-family: RaleWayLight;
 			padding: 4em;
+			font-size: .9vw;
 		}
 	}
 
 	.portfolio_screenshotes {
-		display: flex;
 		align-items: center;
 
 		.text {
-			width: 50%;
-			padding: 4em;
+			padding: 6em;
+		}
 
-			@media (max-width: 980px) {
+		.photos {
+			padding: 6em;
+
+			img {
 				width: 100%;
+				margin: 1% 0;
+			}
+
+			@media (min-width: 980px) {
+				max-height: 100vh;
+				perspective: 100px;
+				perspective-origin: 10% 60%;
+				display: flex;
+				justify-content: center;
+
+				div {
+					transform: rotateY(1.5deg);
+					height: 100vh;
+					display: flex;
+					flex-direction: column;
+					justify-content: space-around;
+					align-items: flex-start;
+
+					img {
+						height: 30%;
+						width: unset;
+					}
+				}
 			}
 		}
 	}
