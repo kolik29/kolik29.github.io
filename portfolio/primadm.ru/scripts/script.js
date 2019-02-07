@@ -1,6 +1,7 @@
 $(document).ready(function() {
 	loadSlider($('#news_slider'), true);
 	loadSlider($('#photo_slider'), false, 3);
+	loadSlider($('#banners_slider'), false, 7);
 });
 
 function loadSlider(slider, addDotted = false, count = 1) {
@@ -26,36 +27,38 @@ function loadSlider(slider, addDotted = false, count = 1) {
 		slider.find('#button-next').off('click');
 		slider.find('#button-prev').off('click');
 
-		switch (side) {
-			case 'next':
-				slider.find('.line > *').first().css({
-					'margin-left': '-' + width
-				});
-				setTimeout(() => {
-					slider.find('.line').append(
-						slider.find('.line > *').first().css({
-							'margin-left': '0'
+		slider.find('.line').each(function() {
+			switch (side) {
+				case 'next':
+					$(this).children().first().css({
+						'margin-left': '-' + width
+					});
+					setTimeout(() => {
+						$(this).append(
+							$(this).children().first().css({
+								'margin-left': '0'
+							})
+						);
+					}, 300);
+					break;
+
+				case 'prev':
+					$(this).prepend(
+						$(this).children().last().css({
+							'margin-left': '-' + width
 						})
 					);
-				}, 300);
-				break;
+					setTimeout(() => {
+						$(this).children().first().css({
+							'margin-left': '0'
+						})
+					}, 1);
+					break;
 
-			case 'prev':
-				slider.find('.line').prepend(
-					slider.find('.line > *').last().css({
-						'margin-left': '-' + width
-					})
-				);
-				setTimeout(() => {
-					slider.find('.line > *').first().css({
-						'margin-left': '0'
-					})
-				}, 1);
-				break;
-
-			default:
-				break;
-		}
+				default:
+					break;
+			}
+		});
 
 		dott(side);
 

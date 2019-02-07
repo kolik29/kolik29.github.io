@@ -20,6 +20,7 @@ a,
 a:hover {
 	color: unset;
 	text-decoration: none;
+	outline: none;
 }
 
 header,
@@ -34,6 +35,7 @@ article {
 	overflow: hidden;
 	position: relative;
 	display: flex;
+	flex-direction: column;
 
 	.line {
 		white-space: nowrap;
@@ -110,6 +112,10 @@ article {
 			height: 40px;
 			position: absolute;
 		}
+	}
+
+	#button-prev {
+		left: 0;
 	}
 
 	#button-next {
@@ -363,24 +369,22 @@ article.all_news {
 	position: relative;
 	background: #fff;
 
-	.banners_slider {
-		display: flex;
-		width: 100%;
-		flex-direction: column;
-		overflow: hidden;
+	#banners_slider {
+		.line {
+			div {
+				width: 171px;
+				height: 171px;
 
-		.banner_line {
-			margin: 25px 0;
-			min-width: 100%;
-			display: flex;
+				a {
+					width: 100%;
+					height: 100%;
+					display: flex;
+					justify-content: center;
+					align-items: center;
 
-			a {
-				display: inline-block;
-				margin: 0 35px;
-
-				img {
-					width: 100px;
-					height: 100px;
+					img {
+						width: 80%;
+					}
 				}
 			}
 		}
@@ -398,6 +402,20 @@ article.all_news {
 		.left,
 		.right {
 			width: 100%;
+		}
+
+		.left {
+			display: flex;
+			flex-direction: column;
+
+			.userText {
+				display: flex;
+				flex-direction: column;
+			}
+
+			.userAdressSend {
+				display: flex;
+			}
 		}
 
 		.right {

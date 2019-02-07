@@ -14,6 +14,7 @@ a,
 a:hover {
   color: unset;
   text-decoration: none;
+  outline: none;
 }
 header,
 article {
@@ -26,6 +27,7 @@ article {
   overflow: hidden;
   position: relative;
   display: flex;
+  flex-direction: column;
 }
 .slider .line {
   white-space: nowrap;
@@ -97,6 +99,9 @@ article {
   width: 40px;
   height: 40px;
   position: absolute;
+}
+.slider #button-prev {
+  left: 0;
 }
 .slider #button-next {
   right: 0;
@@ -299,24 +304,19 @@ article.all_news .news-item a img {
   position: relative;
   background: #fff;
 }
-.banners .banners_slider {
-  display: flex;
+.banners #banners_slider .line div {
+  width: 171px;
+  height: 171px;
+}
+.banners #banners_slider .line div a {
   width: 100%;
-  flex-direction: column;
-  overflow: hidden;
-}
-.banners .banners_slider .banner_line {
-  margin: 25px 0;
-  min-width: 100%;
+  height: 100%;
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.banners .banners_slider .banner_line a {
-  display: inline-block;
-  margin: 0 35px;
-}
-.banners .banners_slider .banner_line a img {
-  width: 100px;
-  height: 100px;
+.banners #banners_slider .line div a img {
+  width: 80%;
 }
 .feedback {
   background: #89d7f7;
@@ -329,6 +329,17 @@ article.all_news .news-item a img {
 .feedback .feedback-inner .left,
 .feedback .feedback-inner .right {
   width: 100%;
+}
+.feedback .feedback-inner .left {
+  display: flex;
+  flex-direction: column;
+}
+.feedback .feedback-inner .left .userText {
+  display: flex;
+  flex-direction: column;
+}
+.feedback .feedback-inner .left .userAdressSend {
+  display: flex;
 }
 .feedback .feedback-inner .right {
   background: url('../img/Карта_Приморского_района_2017.png');
