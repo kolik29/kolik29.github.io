@@ -2,7 +2,56 @@ $(document).ready(function() {
 	loadSlider($('#news_slider'), true);
 	loadSlider($('#photo_slider'), false, 3);
 	loadSlider($('#banners_slider'), false, 7);
+
+	loadCalendar($('#calendar'));
 });
+
+function loadCalendar(calendar) {
+	var date = new Date();
+	var startYear = '2010';
+	var months = [
+		'январь',
+		'февраль',
+		'март',
+		'апрель',
+		'май',
+		'июнь',
+		'июль',
+		'август',
+		'сентябрь',
+		'октябрь',
+		'ноябрь',
+		'декабрь'
+	];
+
+	months.forEach(function(item, i) {
+		if (i == date.getMonth()) {
+			calendar.find('#month-list').append('<div class="select">' + item + '</div>');
+		} else {
+			calendar.find('#month-list').append('<div>' + item + '</div>');
+		}
+	});
+
+	for (var i = 2010; i <= date.getFullYear(); i++) {
+		console.log(i);
+		if (i == date.getFullYear()) {
+			calendar.find('#year-list').append('<div class="select">' + i + '</div>');
+		} else {
+			calendar.find('#year-list').append('<div>' + i + '</div>');
+		}
+	}
+
+	console.log(daysInMonth(date.getFullYear(), date.getMonth()));
+
+	function daysInMonth(year, month) {
+		var res = [];
+
+		for (var i = 1; i <= (32 - new Date(year, month, 32).getDate()); i++)
+			res.push(i);
+
+		return res;
+	}
+}
 
 function loadSlider(slider, addDotted = false, count = 1) {
 	slider.find('#button-next').on('click', function () { slide('next'); });

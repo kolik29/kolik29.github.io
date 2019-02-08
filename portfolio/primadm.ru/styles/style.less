@@ -343,7 +343,57 @@ article.all_news {
 }
 
 .events {
+	flex-direction: column;
+	.events--inner {
+		display: flex;
 
+		.left,
+		.right {
+			width: 50%;
+		}
+
+		.left {
+			display: flex;
+			justify-content: center;
+
+			#calendar {
+				border: 1px solid #b8b9b9;
+				border-radius: 2px;
+				padding: 20px;
+
+				.month-year {
+					display: flex;
+					justify-content: center;
+
+					#month-list {
+						margin-right: 10px;
+						text-align: center;
+					}
+
+					#month-list,
+					#year-list {
+						line-height: 1em !important;
+						color: #464646;
+
+						.select {
+							color: #005c8b;
+						}
+					}
+				}
+
+				.week-day-name {
+					text-transform: uppercase;
+					color: #464646;
+					display: flex;
+					margin: 0 -10px;
+
+					div {
+						padding: 0 10px;
+					}
+				}
+			}
+		}
+	}
 }
 
 .photo {

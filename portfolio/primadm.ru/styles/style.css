@@ -285,6 +285,51 @@ article.all_news .news-item a img {
 .rubrics .ribrics-block a:hover {
   color: #666666;
 }
+.events {
+  flex-direction: column;
+}
+.events .events--inner {
+  display: flex;
+}
+.events .events--inner .left,
+.events .events--inner .right {
+  width: 50%;
+}
+.events .events--inner .left {
+  display: flex;
+  justify-content: center;
+}
+.events .events--inner .left #calendar {
+  border: 1px solid #b8b9b9;
+  border-radius: 2px;
+  padding: 20px;
+}
+.events .events--inner .left #calendar .month-year {
+  display: flex;
+  justify-content: center;
+}
+.events .events--inner .left #calendar .month-year #month-list {
+  margin-right: 10px;
+  text-align: center;
+}
+.events .events--inner .left #calendar .month-year #month-list,
+.events .events--inner .left #calendar .month-year #year-list {
+  line-height: 1em !important;
+  color: #464646;
+}
+.events .events--inner .left #calendar .month-year #month-list .select,
+.events .events--inner .left #calendar .month-year #year-list .select {
+  color: #005c8b;
+}
+.events .events--inner .left #calendar .week-day-name {
+  text-transform: uppercase;
+  color: #464646;
+  display: flex;
+  margin: 0 -10px;
+}
+.events .events--inner .left #calendar .week-day-name div {
+  padding: 0 10px;
+}
 .photo {
   background: #f2f2f2;
   flex-direction: column;
