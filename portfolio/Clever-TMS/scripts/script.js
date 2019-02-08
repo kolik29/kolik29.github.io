@@ -124,7 +124,20 @@ $(document).ready(function() {
 			scrollTop: 0
 		});
 		$('.burger-menu').click();
-	})
+	});
+
+	$('.js-full-photo').on('click', function() {
+		$('#full-photo img').attr('src', $(this).attr('src'));
+		$('#full-photo').css('display', 'flex');
+		setTimeout(() => {
+			$('#full-photo').css('opacity', '1');
+		}, 45);
+	});
+
+	$('#full-photo').on('click', function() {
+		$(this).css('display', 'none');
+		$('#full-photo').css('opacity', '0');
+	});
 });
 
 function hoverOnSliderControl() {

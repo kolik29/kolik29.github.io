@@ -788,22 +788,19 @@ a:not(.slider-control),
 		}
 
 		.photos {
-			padding: 4em;
+			padding: 0 4em;
 
 			img {
 				width: 100%;
-				margin: 1% 0;
 			}
 
 			@media (min-width: 980px) {
 				max-height: 100vh;
 				perspective: 100px;
-				perspective-origin: 10% 60%;
 				display: flex;
 				justify-content: center;
 
 				div {
-					transform: rotateY(1.5deg);
 					height: 100vh;
 					display: flex;
 					flex-direction: column;
@@ -813,6 +810,8 @@ a:not(.slider-control),
 					img {
 						height: 30%;
 						width: unset;
+						box-shadow: 1px 1px 10px 2px black;
+						cursor: pointer;
 					}
 				}
 			}
@@ -822,4 +821,27 @@ a:not(.slider-control),
 
 .text h1 {
 	font-family: MyriadProSemiBold;
+}
+
+#full-photo {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100vw;
+	height: 100vh;
+	position: fixed;
+	z-index: 100;
+	top: 0;
+	background: rgba(0, 0, 0, 0.9);
+	cursor: pointer;
+	display: none;
+	transition: .3s;
+	opacity: 0;
+
+	img {
+		background: red;
+		max-width: 90vw;
+		max-height: 90vh;
+		cursor: default;
+	}
 }
