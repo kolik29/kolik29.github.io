@@ -326,6 +326,14 @@ article.all_news .news-item a img {
   display: flex;
   width: 100%;
 }
+.feedback .feedback-inner input,
+.feedback .feedback-inner textarea,
+.feedback .feedback-inner button {
+  border: none;
+  outline: none;
+  font-style: italic;
+  background: #f2f2f2;
+}
 .feedback .feedback-inner .left,
 .feedback .feedback-inner .right {
   width: 100%;
@@ -333,13 +341,55 @@ article.all_news .news-item a img {
 .feedback .feedback-inner .left {
   display: flex;
   flex-direction: column;
+  padding-left: 45px;
+  justify-content: center;
+}
+.feedback .feedback-inner .left div:nth-child(1) {
+  padding-bottom: 1em;
+  font-weight: 600;
+  font-size: 20px;
 }
 .feedback .feedback-inner .left .userText {
   display: flex;
   flex-direction: column;
+  background: #f2f2f2;
+  padding: 25px;
+}
+.feedback .feedback-inner .left .userText textarea {
+  resize: none;
+  padding: 0;
+  height: 5em;
+}
+.feedback .feedback-inner .left .userText input:nth-child(2) {
+  margin-bottom: 1em;
 }
 .feedback .feedback-inner .left .userAdressSend {
+  margin-top: 1.5em;
   display: flex;
+  justify-content: space-between;
+}
+.feedback .feedback-inner .left .userAdressSend input {
+  padding: 1em 25px;
+  width: 57.5%;
+}
+.feedback .feedback-inner .left .userAdressSend button {
+  width: 37.5%;
+  font-style: normal;
+  background: #7793a7;
+  border: 1px solid #f2f2f2;
+  text-transform: uppercase;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.feedback .feedback-inner .left .userAdressSend button img {
+  height: 1em;
+  margin-right: 15px;
 }
 .feedback .feedback-inner .right {
   background: url('../img/Карта_Приморского_района_2017.png');
