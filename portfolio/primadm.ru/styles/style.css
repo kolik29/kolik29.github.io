@@ -297,38 +297,94 @@ article.all_news .news-item a img {
 }
 .events .events--inner .left {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
 }
 .events .events--inner .left #calendar {
   border: 1px solid #b8b9b9;
   border-radius: 2px;
-  padding: 20px;
+  padding: 2em 20px 20px;
+  width: 75%;
+  position: relative;
 }
 .events .events--inner .left #calendar .month-year {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
+  width: 100%;
+  margin-top: -1em;
+  left: 0;
 }
-.events .events--inner .left #calendar .month-year #month-list {
-  margin-right: 10px;
-  text-align: center;
-}
-.events .events--inner .left #calendar .month-year #month-list,
-.events .events--inner .left #calendar .month-year #year-list {
+.events .events--inner .left #calendar .month-year #month,
+.events .events--inner .left #calendar .month-year #year {
   line-height: 1em !important;
   color: #464646;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.3s;
 }
-.events .events--inner .left #calendar .month-year #month-list .select,
-.events .events--inner .left #calendar .month-year #year-list .select {
+.events .events--inner .left #calendar .month-year #month:hover,
+.events .events--inner .left #calendar .month-year #year:hover {
   color: #005c8b;
 }
 .events .events--inner .left #calendar .week-day-name {
   text-transform: uppercase;
-  color: #464646;
+  color: #005c8b;
   display: flex;
   margin: 0 -10px;
 }
 .events .events--inner .left #calendar .week-day-name div {
+  min-width: calc(100% / 7);
   padding: 0 10px;
+  text-align: center;
+}
+.events .events--inner .left #calendar #month-day {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -10px;
+}
+.events .events--inner .left #calendar #month-day div {
+  min-width: calc(100% / 7);
+  text-align: center;
+  padding: 0 10px;
+}
+.events .events--inner .left #calendar #month-day div.current {
+  color: #fff;
+  background: #005c8b;
+}
+.events .events--inner .left #calendar #month-list,
+.events .events--inner .left #calendar #year-list {
+  position: absolute;
+  background: #fff;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 1em;
+  display: none;
+}
+.events .events--inner .left #calendar #month-list div,
+.events .events--inner .left #calendar #year-list div {
+  min-width: 25%;
+  text-align: center;
+  cursor: pointer;
+}
+.events .events--inner .left #calendar #month-list div.select,
+.events .events--inner .left #calendar #year-list div.select {
+  color: #005c8b;
+}
+.events .events--inner .left #calendar #month-list div:hover,
+.events .events--inner .left #calendar #year-list div:hover {
+  color: #005c8b;
+  text-decoration: underline;
+}
+.events .events--inner .left #calendar #year-list {
+  display: none;
+}
+.events .events--inner .left #calendar #year-list div {
+  min-width: 20%;
 }
 .photo {
   background: #f2f2f2;

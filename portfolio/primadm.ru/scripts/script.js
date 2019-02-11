@@ -24,6 +24,9 @@ function loadCalendar(calendar) {
 		'декабрь'
 	];
 
+	calendar.find('#month').html(months[date.getMonth()]);
+	calendar.find('#year').html(date.getFullYear());
+
 	months.forEach(function(item, i) {
 		if (i == date.getMonth()) {
 			calendar.find('#month-list').append('<div class="select">' + item + '</div>');
@@ -33,7 +36,6 @@ function loadCalendar(calendar) {
 	});
 
 	for (var i = 2010; i <= date.getFullYear(); i++) {
-		console.log(i);
 		if (i == date.getFullYear()) {
 			calendar.find('#year-list').append('<div class="select">' + i + '</div>');
 		} else {
@@ -41,7 +43,37 @@ function loadCalendar(calendar) {
 		}
 	}
 
-	console.log(daysInMonth(date.getFullYear(), date.getMonth()));
+	var daysInMonth = daysInMonth(date.getFullYear(), date.getMonth());
+	var startWeekDay = (new Date(date.getFullYear(), date.getMonth(), 1)).getDay();
+	var endWeekDay = (new Date(date.getFullYear(), date.getMonth(), daysInMonth[daysInMonth.length - 1])).getDay();
+	var htmlDays = '';
+
+	for (var i = 1; i < startWeekDay; i++)
+		htmlDays += '<div></div>';
+
+	daysInMonth.forEach((item) => {
+		if (item != date.getDate())
+			htmlDays += '<div>' + item + '</div>';
+		else
+			htmlDays += '<div class="current">' + item + '</div>';
+	})
+
+	for (var i = 1; i < 7 - endWeekDay; i++)
+		htmlDays += '<div></div>';
+
+	calendar.find('#month-day').html(htmlDays);
+
+	calendar.find('#month').on('click', function() {
+		calendar.find('#month-list').css({
+			'display': 'flex'
+		})
+	});
+
+	calendar.find('#year').on('click', function() {
+		calendar.find('#year-list').css({
+			'display': 'flex'
+		})
+	});
 
 	function daysInMonth(year, month) {
 		var res = [];
