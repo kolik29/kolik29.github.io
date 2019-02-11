@@ -233,15 +233,20 @@ var currentControlIndex = 0;
 	document.addEventListener('DOMContentLoaded', function() {
 		hrefOnStart = (location.href.split('#')[1] == undefined) ? 'main' : location.href.split('#')[1];
 		var hexaSlider, leftControl, rightControl, mouseXStart, mouseXEnd;
+
+		var sliderCube = [];
+		$('#slider-content--sider').children().each(function(i) {
+			sliderCube.push($('#slider-content--sider').children().eq(i).html());
+			console.log(i);
+		});
+
 		hexaSlider = new HexaFlip(document.getElementById('slider-container'), {
-			slide: [
-				'<div class="slide-picture" style="background: url(\'img/office.jpg\'), none/*linear-gradient(135deg, #0ff 25%, yellow)*/;"><div class="slider-content"><div class="slider-content--background"></div><div class="slider-content--text"><p>Современный бизнес диктует свои правила. Интернационализация и международное сотрудничество являются стратегическими целями для многих серьезных компаний.</p><p>Наша команда профессионалов поможет преодолеть технологические, лингвистические и межкультурные барьеры на пути к достижению этих целей.</p></div></div></div>',
-				'<div class="slide-picture" style="background: url(\'img/536.jpg\'), none/*linear-gradient(135deg, #0ff 25%, yellow)*/;"><div class="slider-content"><div class="slider-content--background"></div><div class="slider-content--text"><h1>Case LSI BERLIN<br>MS ACCESS</h1>(автоматизация)<p>LSI был успешным пользователем системы ACROSS на протяжении 15 лет, но со временем данный инструмент стал устаревать и уже не выдерживал конкуренции с более современными системами.</p><p>Попытки автоматизации собственными силами не дали результата, пришлось переносить учет деятельности в MS EXCEL, что также не устраивало руководство, но давало определенную гибкость учета. Тогда компания решила обратиться к нам за помощью.</p></div></div></div>',
-				'<div class="slide-picture" style="background: url(\'img/285.jpg\'), none/*linear-gradient(135deg, #0ff 25%, yellow)*/;"><div class="slider-content"><div class="slider-content--background"></div><div class="slider-content--text"><h1>Case LSI BERLIN<br>CLEVER-TMS</h1>(автоматизация)<p>После первого успешного этапа компания решила наращивать технологический потенциал и автоматизировать свою деятельность с помощью современного веб-решения.</p><p>Так как предыдущий опыт внедрения готовых современных систем результата не дал, было принято решение создать систему управления бизнесом под себя на платформе CLEVER-TMS.</p></div></div></div>'
-			]
+			slide: sliderCube
 		}, {
 			horizontalFlip: true
 		});
+
+		console.log(sliderCube);
 
 		leftControl = document.getElementById('slider-control--left');
 		rightControl = document.getElementById('slider-control--right');
