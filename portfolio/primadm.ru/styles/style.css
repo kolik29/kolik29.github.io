@@ -342,12 +342,15 @@ article.all_news .news-item a img {
   flex-wrap: wrap;
   margin: 0 -10px;
 }
-.events .events--inner .left #calendar #month-day div {
+.events .events--inner .left #calendar #month-day div,
+.events .events--inner .left #calendar #month-day span {
   min-width: calc(100% / 7);
   text-align: center;
   padding: 0 10px;
-  cursor: pointer;
   border: 2px solid rgba(0, 0, 0, 0);
+}
+.events .events--inner .left #calendar #month-day div {
+  cursor: pointer;
 }
 .events .events--inner .left #calendar #month-day div:hover {
   border: 2px solid #005c8b;

@@ -34,7 +34,7 @@ function loadCalendar(calendar) {
 		});
 
 		calendar.find('#month-list div').on('click', function() {
-			resetDateTable(calendar.find('#year').text(), $(this).index());
+			resetDateTable(calendar.find('#year').text(), $(this).index(), $('#month-day div.current').html());
 			setMonth($(this).index());
 
 			calendar.find('#month-list').css({
@@ -49,7 +49,7 @@ function loadCalendar(calendar) {
 		});
 
 		calendar.find('#year-list div').on('click', function() {
-			resetDateTable($(this).html(), months.indexOf(calendar.find('#month').text()));
+			resetDateTable($(this).html(), months.indexOf(calendar.find('#month').text()), $('#month-day div.current').html());
 			setYear($(this).html());
 
 			calendar.find('#year-list').css({
@@ -58,12 +58,16 @@ function loadCalendar(calendar) {
 		});
 	});
 
-	calendar.find('#month-day div').on('click', function() {
-		calendar.find('#month-day div').each(function() {
-			$(this).removeClass('current');
+	dateClick();
+
+	function dateClick() {
+		calendar.find('#month-day div').on('click', function() {
+			calendar.find('#month-day div').each(function() {
+				$(this).removeClass('current');
+			});
+			$(this).addClass('current');
 		});
-		$(this).addClass('current');
-	});
+	}
 
 	function daysInMonth(year, month) {
 		var res = [];
@@ -102,29 +106,28 @@ function loadCalendar(calendar) {
 		}
 	}
 
-	function resetDateTable(year = date.getFullYear(), month = date.getMonth()) {
+	function resetDateTable(year = date.getFullYear(), month = date.getMonth(), day = date.getDate()) {
 		calendar.find('#month-day').html('');
 		var startWeekDay = (new Date(year, month, 1)).getDay();
-		var endWeekDay = (new Date(year, month, daysInMonth[daysInMonth.length - 1])).getDay();
-		var htmlDays = '';
 		var dim = daysInMonth(year, month);
+		var endWeekDay = (new Date(year, month, dim.length)).getDay();
+		var htmlDays = '';
 
 		for (var i = 1; i < startWeekDay; i++)
-			htmlDays += '<div></div>';
+			htmlDays += '<span></span>';
 
 		dim.forEach((item) => {
-			if (item != date.getDate())
+			if (item != day)
 				htmlDays += '<div>' + item + '</div>';
 			else
 				htmlDays += '<div class="current">' + item + '</div>';
 		})
 
-		for (var i = 1; i < 7 - endWeekDay; i++)
-			htmlDays += '<div></div>';
-
-		console.log(endWeekDay);
+		for (var i = 1; i <= 7 - endWeekDay; i++)
+			htmlDays += '<span></span>';
 
 		calendar.find('#month-day').html(htmlDays);
+		dateClick();
 	}
 }
 

@@ -403,12 +403,16 @@ article.all_news {
 					flex-wrap: wrap;
 					margin: 0 -10px;
 
-					div {
+					div,
+					span {
 						min-width: ~'calc(100% / 7)';
 						text-align: center;
 						padding: 0 10px;
-						cursor: pointer;
 						border: 2px solid rgba(0, 0, 0, 0);
+					}
+
+					div {
+						cursor: pointer;
 
 						&:hover {
 							border: 2px solid #005c8b;
