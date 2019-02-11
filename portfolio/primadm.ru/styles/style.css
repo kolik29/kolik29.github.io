@@ -305,6 +305,7 @@ article.all_news .news-item a img {
   padding: 2em 20px 20px;
   width: 75%;
   position: relative;
+  overflow-x: hidden;
 }
 .events .events--inner .left #calendar .month-year {
   display: flex;
@@ -345,6 +346,11 @@ article.all_news .news-item a img {
   min-width: calc(100% / 7);
   text-align: center;
   padding: 0 10px;
+  cursor: pointer;
+  border: 2px solid rgba(0, 0, 0, 0);
+}
+.events .events--inner .left #calendar #month-day div:hover {
+  border: 2px solid #005c8b;
 }
 .events .events--inner .left #calendar #month-day div.current {
   color: #fff;
@@ -355,15 +361,15 @@ article.all_news .news-item a img {
   position: absolute;
   background: #fff;
   left: 0;
-  top: 0;
   width: 100%;
   height: 100%;
-  display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   padding: 1em;
-  display: none;
+  display: flex;
+  transition: 0.3s;
+  top: -100%;
 }
 .events .events--inner .left #calendar #month-list div,
 .events .events--inner .left #calendar #year-list div {
@@ -379,9 +385,6 @@ article.all_news .news-item a img {
 .events .events--inner .left #calendar #year-list div:hover {
   color: #005c8b;
   text-decoration: underline;
-}
-.events .events--inner .left #calendar #year-list {
-  display: none;
 }
 .events .events--inner .left #calendar #year-list div {
   min-width: 20%;

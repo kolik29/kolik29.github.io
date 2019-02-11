@@ -362,6 +362,7 @@ article.all_news {
 				padding: 2em 20px 20px;
 				width: 75%;
 				position: relative;
+				overflow-x: hidden;
 
 				.month-year {
 					display: flex;
@@ -406,6 +407,12 @@ article.all_news {
 						min-width: ~'calc(100% / 7)';
 						text-align: center;
 						padding: 0 10px;
+						cursor: pointer;
+						border: 2px solid rgba(0, 0, 0, 0);
+
+						&:hover {
+							border: 2px solid #005c8b;
+						}
 
 						&.current {
 							color: #fff;
@@ -419,7 +426,7 @@ article.all_news {
 					position: absolute;
 					background: #fff;
 					left: 0;
-					top: 0;
+					top: -100%;
 					width: 100%;
 					height: 100%;
 					display: flex;
@@ -427,7 +434,9 @@ article.all_news {
 					align-items: center;
 					flex-wrap: wrap;
 					padding: 1em;
-					display: none;
+					display: flex;
+					transition: .3s;
+					top: -100%;
 
 					div {
 						min-width: 25%;
@@ -446,8 +455,6 @@ article.all_news {
 				}
 
 				#year-list {
-					display: none;
-
 					div {
 						min-width: 20%;
 					}

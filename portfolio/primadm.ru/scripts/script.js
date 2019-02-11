@@ -24,55 +24,45 @@ function loadCalendar(calendar) {
 		'декабрь'
 	];
 
-	calendar.find('#month').html(months[date.getMonth()]);
-	calendar.find('#year').html(date.getFullYear());
-
-	months.forEach(function(item, i) {
-		if (i == date.getMonth()) {
-			calendar.find('#month-list').append('<div class="select">' + item + '</div>');
-		} else {
-			calendar.find('#month-list').append('<div>' + item + '</div>');
-		}
-	});
-
-	for (var i = 2010; i <= date.getFullYear(); i++) {
-		if (i == date.getFullYear()) {
-			calendar.find('#year-list').append('<div class="select">' + i + '</div>');
-		} else {
-			calendar.find('#year-list').append('<div>' + i + '</div>');
-		}
-	}
-
-	var daysInMonth = daysInMonth(date.getFullYear(), date.getMonth());
-	var startWeekDay = (new Date(date.getFullYear(), date.getMonth(), 1)).getDay();
-	var endWeekDay = (new Date(date.getFullYear(), date.getMonth(), daysInMonth[daysInMonth.length - 1])).getDay();
-	var htmlDays = '';
-
-	for (var i = 1; i < startWeekDay; i++)
-		htmlDays += '<div></div>';
-
-	daysInMonth.forEach((item) => {
-		if (item != date.getDate())
-			htmlDays += '<div>' + item + '</div>';
-		else
-			htmlDays += '<div class="current">' + item + '</div>';
-	})
-
-	for (var i = 1; i < 7 - endWeekDay; i++)
-		htmlDays += '<div></div>';
-
-	calendar.find('#month-day').html(htmlDays);
+	setMonth();
+	setYear();
+	resetDateTable();
 
 	calendar.find('#month').on('click', function() {
 		calendar.find('#month-list').css({
-			'display': 'flex'
-		})
+			'top': '0'
+		});
+
+		calendar.find('#month-list div').on('click', function() {
+			resetDateTable(calendar.find('#year').text(), $(this).index());
+			setMonth($(this).index());
+
+			calendar.find('#month-list').css({
+				'top': '-100%'
+			});
+		});
 	});
 
 	calendar.find('#year').on('click', function() {
 		calendar.find('#year-list').css({
-			'display': 'flex'
-		})
+			'top': '0'
+		});
+
+		calendar.find('#year-list div').on('click', function() {
+			resetDateTable($(this).html(), months.indexOf(calendar.find('#month').text()));
+			setYear($(this).html());
+
+			calendar.find('#year-list').css({
+				'top': '-100%'
+			});
+		});
+	});
+
+	calendar.find('#month-day div').on('click', function() {
+		calendar.find('#month-day div').each(function() {
+			$(this).removeClass('current');
+		});
+		$(this).addClass('current');
 	});
 
 	function daysInMonth(year, month) {
@@ -82,6 +72,59 @@ function loadCalendar(calendar) {
 			res.push(i);
 
 		return res;
+	}
+
+	function setMonth(id = date.getMonth()) {
+		calendar.find('#month').html(months[id]);
+
+		calendar.find('#month-list').html('');
+
+		months.forEach(function(item, i) {
+			if (i == id) {
+				calendar.find('#month-list').append('<div class="select">' + item + '</div>');
+			} else {
+				calendar.find('#month-list').append('<div>' + item + '</div>');
+			}
+		});
+	}
+
+	function setYear(year = date.getFullYear()) {
+		calendar.find('#year').html(year);
+
+		calendar.find('#year-list').html('');
+
+		for (var i = 2010; i <= date.getFullYear(); i++) {
+			if (i == year) {
+				calendar.find('#year-list').append('<div class="select">' + i + '</div>');
+			} else {
+				calendar.find('#year-list').append('<div>' + i + '</div>');
+			}
+		}
+	}
+
+	function resetDateTable(year = date.getFullYear(), month = date.getMonth()) {
+		calendar.find('#month-day').html('');
+		var startWeekDay = (new Date(year, month, 1)).getDay();
+		var endWeekDay = (new Date(year, month, daysInMonth[daysInMonth.length - 1])).getDay();
+		var htmlDays = '';
+		var dim = daysInMonth(year, month);
+
+		for (var i = 1; i < startWeekDay; i++)
+			htmlDays += '<div></div>';
+
+		dim.forEach((item) => {
+			if (item != date.getDate())
+				htmlDays += '<div>' + item + '</div>';
+			else
+				htmlDays += '<div class="current">' + item + '</div>';
+		})
+
+		for (var i = 1; i < 7 - endWeekDay; i++)
+			htmlDays += '<div></div>';
+
+		console.log(endWeekDay);
+
+		calendar.find('#month-day').html(htmlDays);
 	}
 }
 
