@@ -290,6 +290,7 @@ article.all_news .news-item a img {
 }
 .events .events--inner {
   display: flex;
+  padding: 15px 0 30px;
 }
 .events .events--inner .left,
 .events .events--inner .right {
@@ -298,6 +299,7 @@ article.all_news .news-item a img {
 .events .events--inner .left {
   display: flex;
   justify-content: flex-start;
+  align-items: flex-start;
 }
 .events .events--inner .left #calendar {
   border: 1px solid #b8b9b9;
@@ -348,6 +350,7 @@ article.all_news .news-item a img {
   text-align: center;
   padding: 0 10px;
   border: 2px solid rgba(0, 0, 0, 0);
+  transition: 0.15s;
 }
 .events .events--inner .left #calendar #month-day div {
   cursor: pointer;
@@ -391,6 +394,18 @@ article.all_news .news-item a img {
 }
 .events .events--inner .left #calendar #year-list div {
   min-width: 20%;
+}
+.events .events--inner .right {
+  transition: 0.3s;
+}
+.events .events--inner .right div {
+  padding: 0.25em;
+  color: #005c8b;
+  transition: 0.15s;
+  opacity: 1;
+}
+.events .events--inner .right div a:hover {
+  text-decoration: underline;
 }
 .photo {
   background: #f2f2f2;

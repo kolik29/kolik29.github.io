@@ -4,6 +4,19 @@ $(document).ready(function() {
 	loadSlider($('#banners_slider'), false, 7);
 
 	loadCalendar($('#calendar'));
+
+	var smoothHeight = (el) => {
+		el.css({
+			'height': el.children().last().offset().top - el.offset().top + el.children().last().height()
+		});
+
+		el.on('DOMSubtreeModified', function(){
+			if ($(this).children().last().offset() != undefined)
+				$(this).css({'height': $(this).children().last().offset().top - $(this).offset().top + $(this).children().last().height()});
+		});
+	}
+
+	smoothHeight($('.events--inner .right'));
 });
 
 function loadCalendar(calendar) {
@@ -61,11 +74,55 @@ function loadCalendar(calendar) {
 	dateClick();
 
 	function dateClick() {
+		var html = '';
+		var data = [
+			'<div><a href="#">Оповещение о начале общественных обсуждений</a></div>',
+			'<div><a href="#">Извещение о планируемом предоставлении земельных участков</a></div>',
+			'<div><a href="#">Извещение о проведении аукциона</a></div>',
+			'<div><a href="#">Педагогический десант</a></div>',
+			'<div><a href="#">Заседание Совета по делам молодежи при главе МО «Приморский муниципальный район»</a></div>',
+			'<div><a href="#">Заседание межведомственной комиссии при администрации муниципального образования «Приморский муниципальный район» по трудоустройству молодежи</a></div>',
+			'<div><a href="#">Совещание с руководителями РСО, управляющих компаний по работе объектов ЖКХ в зимний период 2018-2019 годов</a></div>',
+			'<div><a href="#">Сбор по подведению итогов деятельности Приморского муниципального районного звена ОП РСЧС, выполнения мероприятий гражданской обороны в 2018 году и постановке задач на 2019 год</a></div>'
+		];
+
+		data.forEach((item) => {
+			if (Math.random() >= 0.5) {
+				html += item;
+			}
+		});
+
+		$('#calendarEvents').html(html);
+
 		calendar.find('#month-day div').on('click', function() {
+			html = '';
+			$('#calendarEvents > div').css({
+				'opacity': 0
+			});
+
+
+
+			data.forEach((item) => {
+				if (Math.random() >= 0.5) {
+					html += item;
+				}
+			});
+
+			setTimeout(() => {
+				$('#calendarEvents').html('');
+				$('#calendarEvents').html(html);
+			}, 150);
+
 			calendar.find('#month-day div').each(function() {
 				$(this).removeClass('current');
 			});
 			$(this).addClass('current');
+
+			setTimeout(() => {
+				$('#calendarEvents > div').css({
+					'opacity': 1
+				});
+			}, 150);
 		});
 	}
 
