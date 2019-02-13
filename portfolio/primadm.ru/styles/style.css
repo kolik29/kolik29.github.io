@@ -183,35 +183,46 @@ header menu li {
 }
 header menu li li {
   text-align: justify;
-  padding: 0.5em;
+  padding: 0.75em;
   line-height: 1em;
   white-space: nowrap;
 }
 header menu li li ul {
   left: 100%;
+  margin-left: 0.3em;
   top: 0;
-  margin-left: 0.75em;
   border-left: unset;
 }
 header menu li li:not(:last-child) {
-  border-bottom: 1px solid #d4d4d4;
+  border-bottom: 1px solid #b7b7b7;
+}
+header menu li li:before {
+  position: absolute;
+  left: -5px;
+  top: 0;
+  background: #005c8b;
+  width: 5px;
+  height: 100%;
 }
 header menu li ul {
   position: absolute;
   background: #fff;
   z-index: 10;
   display: none;
-  padding: 0 0.5em 0.5em;
-  border-left: 1px solid #d4d4d4;
-  border-right: 1px solid #d4d4d4;
-  border-bottom: 1px solid #d4d4d4;
+  border-left: 1px solid #b7b7b7;
+  border-right: 1px solid #b7b7b7;
+  border-bottom: 1px solid #b7b7b7;
   top: 100%;
+  margin-left: -1em;
 }
 header menu li:hover {
   color: #8b8b8b;
 }
 header menu li:hover > ul {
   display: block;
+}
+header menu li:hover:before {
+  content: '';
 }
 article {
   display: flex;
