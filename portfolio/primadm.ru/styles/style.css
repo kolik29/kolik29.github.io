@@ -168,7 +168,6 @@ header .main_title .title {
 header menu {
   display: flex;
   justify-content: space-around;
-  padding: 10px 8px;
   font-family: 'Myriad Pro SemiCn';
   font-size: 16px;
 }
@@ -179,9 +178,40 @@ header menu li {
   transition: 0.3s;
   text-align: center;
   margin: 0 5px;
+  position: relative;
+  padding: 10px 8px;
+}
+header menu li li {
+  text-align: justify;
+  padding: 0.5em;
+  line-height: 1em;
+  white-space: nowrap;
+}
+header menu li li ul {
+  left: 100%;
+  top: 0;
+  margin-left: 0.75em;
+  border-left: unset;
+}
+header menu li li:not(:last-child) {
+  border-bottom: 1px solid #d4d4d4;
+}
+header menu li ul {
+  position: absolute;
+  background: #fff;
+  z-index: 10;
+  display: none;
+  padding: 0 0.5em 0.5em;
+  border-left: 1px solid #d4d4d4;
+  border-right: 1px solid #d4d4d4;
+  border-bottom: 1px solid #d4d4d4;
+  top: 100%;
 }
 header menu li:hover {
   color: #8b8b8b;
+}
+header menu li:hover > ul {
+  display: block;
 }
 article {
   display: flex;

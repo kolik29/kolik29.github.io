@@ -197,7 +197,6 @@ header {
 	menu {
 		display: flex;
 		justify-content: space-around;
-		padding: 10px 8px;
 		font-family: 'Myriad Pro SemiCn';
 		font-size: 16px;
 
@@ -208,9 +207,45 @@ header {
 			transition: .3s;
 			text-align: center;
 			margin: 0 5px;
+			position: relative;
+			padding: 10px 8px;
+
+			li {
+				text-align: justify;
+				padding: .5em;
+				line-height: 1em;
+				white-space: nowrap;
+
+				ul {
+					left: 100%;
+					top: 0;
+					margin-left: .75em;
+					border-left: unset;
+				}
+
+				&:not(:last-child) {
+					border-bottom: 1px solid #d4d4d4;
+				}
+			}
+
+			ul {
+				position: absolute;
+				background: #fff;
+				z-index: 10;
+				display: none;
+				padding: 0 .5em .5em;
+				border-left: 1px solid #d4d4d4;
+				border-right: 1px solid #d4d4d4;
+				border-bottom: 1px solid #d4d4d4;
+				top: 100%;
+			}
 
 			&:hover {
 				color: lighten(#585858, 20%);
+
+				> ul {
+					display: block;
+				}
 			}
 		}
 	}
