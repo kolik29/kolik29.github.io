@@ -1,0 +1,7 @@
+main {
+  flex: 1 0 auto;
+}
+main .breadcrumbs {
+  font-size: 0.8em;
+  color: #005c8b;
+}
