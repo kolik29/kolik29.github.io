@@ -2,6 +2,7 @@ $(document).ready(function() {
 	loadSlider($('#news_slider'), true);
 	loadSlider($('#photo_slider'), false, 3);
 	loadSlider($('#banners_slider'), false, 7);
+	loadSlider($('#more_news_slider'), false, 3);
 
 	loadCalendar($('#calendar'));
 
