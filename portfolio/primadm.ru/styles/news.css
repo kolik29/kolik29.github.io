@@ -1,8 +1,29 @@
 main {
   flex: 1 0 auto;
   padding: 0 15px;
+  display: flex;
+  justify-content: space-between;
 }
 main .breadcrumbs {
   font-size: 0.8em;
+  color: #005c8b;
+}
+main aside {
+  width: 20%;
+  align-self: baseline;
+  padding: 15px;
+  border: 3px solid #005c8b;
+  border-radius: 10px;
+}
+main aside .title {
+  font-weight: 700;
+}
+main aside .ribrics-block {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  flex-direction: column;
+}
+main aside .ribrics-block a:hover {
   color: #005c8b;
 }
