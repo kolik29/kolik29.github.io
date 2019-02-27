@@ -10,7 +10,7 @@ main {
 	}
 
 	aside {
-		width: 20%;
+		min-width: 20%;
 		align-self: baseline;
 		padding: 15px;
 		border: 3px solid #005c8b;
@@ -30,6 +30,26 @@ main {
 				&:hover {
 					color: #005c8b;
 				}
+			}
+		}
+	}
+
+	section {
+		article {
+			padding: 15px;
+			text-align: justify;
+			display: block;
+
+			img {
+				max-width: 50%;
+				align-self: baseline;
+				margin: 15px;
+				float: left;
+			}
+
+			p {
+				margin: 0;
+				padding: 0 15px;
 			}
 		}
 	}
