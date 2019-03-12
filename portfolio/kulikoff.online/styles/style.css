@@ -4,7 +4,7 @@ menu {
   margin: 0;
   padding: 0; }
 
-/*Size settings */
+/*Elements size settings */
 body {
   min-width: 100vw;
   min-height: 100vh; }
@@ -14,24 +14,76 @@ body {
     top: 0;
     left: 0;
     min-width: 100vw;
+    max-width: 100vw;
     min-height: 100vh;
+    overflow: hidden;
     display: grid;
     grid-template-rows: 100%; }
   body main {
-    grid-template-columns: 50% 50%; }
+    grid-template-columns: 50% 50%;
+    z-index: 2;
+    background: #fff;
+    transition: 0.9s; }
     @media all and (orientation: portrait), all and (max-width: 480px) {
       body main {
         grid-template-columns: 100%;
         grid-template-rows: 50%; } }
+    body main aside {
+      background-image: url("../img/arh.png");
+      background-size: cover;
+      background-position: top;
+      background-repeat: no-repeat;
+      transition: 0.3s; }
     body main menu {
       display: grid;
       grid-template-columns: 100%;
-      grid-template-rows: 25%; }
+      grid-template-rows: 25%;
+      transition: 0.3s; }
+      body main menu a {
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+        transition: 0.3s; }
+        body main menu a:hover {
+          background-size: 110%; }
+        body main menu a[href='#profile'] {
+          background-image: url("../img/profile_image.jpg"); }
+        body main menu a[href='#resume'] {
+          background-image: url("../img/resume_image.jpg"); }
+        body main menu a[href='#portfolio'] {
+          background-image: url("../img/portfolio_image.jpg"); }
+        body main menu a[href='#contacts'] {
+          background-image: url("../img/contact_image.jpg"); }
+  body a[href='#'] {
+    position: absolute;
+    right: 2vw;
+    top: 2vw;
+    width: 2vw;
+    height: 2vw;
+    display: block;
+    z-index: 1; }
+    body a[href='#']:after, body a[href='#']:before {
+      content: "";
+      position: absolute;
+      width: 2vw;
+      height: 10%;
+      background: #333;
+      margin-top: 45%; }
+    body a[href='#']:after {
+      transform: rotate(45deg); }
+    body a[href='#']:before {
+      transform: rotate(-45deg); }
   body section {
     grid-template-columns: 40% 60%; }
+    body section aside {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center; }
     @media all and (orientation: portrait), all and (max-width: 480px) {
       body section {
         grid-template-columns: 100%;
         grid-template-rows: 40% 60%; } }
+
+/*Text size settings */
 
 /*# sourceMappingURL=style.css.map */

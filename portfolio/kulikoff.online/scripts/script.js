@@ -1,0 +1,50 @@
+$(document).ready(function() {
+	$(window).on("hashchange", function(e) {
+		var section = e.originalEvent.newURL.split('#')[1];
+		var elImage = $('a[href="#' + section + '"]').css('background-image');
+
+		if (section != '') {
+			$('section aside').css({
+				'background-image': elImage
+			});
+
+			$('main aside').css({
+				'transform': 'translateX(-100%)'
+			});
+
+			$('main menu').css({
+				'transform': 'translateX(100%)'
+			});
+
+			$('main').css({
+				'background': '#ffffff00'
+			})
+
+			setTimeout(() => {
+				$('main').css({
+					'display': 'none'
+				});
+			}, 900)
+		} else {
+			$('main').css({
+				'display': 'grid'
+			});
+
+			setTimeout(() => {
+				$('main aside').css({
+					'transform': 'translateX(0)'
+				});
+
+				$('main menu').css({
+					'transform': 'translateX(0)'
+				});
+			}, 1)
+
+			setTimeout(() => {
+				$('main').css({
+					'background': '#fff'
+				});
+			}, 300)
+		}
+	});
+})

@@ -4,7 +4,7 @@ menu
 	margin: 0
 	padding: 0
 
-/*Size settings*/
+/*Elements size settings*/
 body
 	min-width: 100vw
 	min-height: 100vh
@@ -15,25 +15,90 @@ body
 		top: 0
 		left: 0
 		min-width: 100vw
+		max-width: 100vw
 		min-height: 100vh
+		overflow: hidden
 		display: grid
 		grid-template-rows: 100%
 
 	main
 		grid-template-columns: 50% 50%
+		z-index: 2
+		background: #fff
+		transition: .9s
 
 		@media all and (orientation: portrait), all and (max-width: 480px)
 			grid-template-columns: 100%
 			grid-template-rows: 50%
 
+		aside
+			background-image: url('../img/arh.png')
+			background-size: cover
+			background-position: top
+			background-repeat: no-repeat
+			transition: .3s
+
 		menu
 			display: grid
 			grid-template-columns: 100%
 			grid-template-rows: 25%
+			transition: .3s
+
+			a
+				background-size: 100%
+				background-repeat: no-repeat
+				background-position: center
+				transition: .3s
+
+				&:hover
+					background-size: 110%
+
+				&[href='#profile']
+					background-image: url('../img/profile_image.jpg')
+
+				&[href='#resume']
+					background-image: url('../img/resume_image.jpg')
+
+				&[href='#portfolio']
+					background-image: url('../img/portfolio_image.jpg')
+
+				&[href='#contacts']
+					background-image: url('../img/contact_image.jpg')
+
+	a[href='#']
+		position: absolute
+		right: 2vw
+		top: 2vw
+		width: 2vw
+		height: 2vw
+		display: block
+		z-index: 1
+
+		&:after,
+		&:before
+			content: ''
+			position: absolute
+			width: 2vw
+			height: 10%
+			background: #333
+			margin-top: 45%
+
+		&:after
+			transform: rotate(45deg)
+
+		&:before
+			transform: rotate(-45deg)
 
 	section
 		grid-template-columns: 40% 60%
 
+		aside
+			background-size: cover
+			background-repeat: no-repeat
+			background-position: center
+
 		@media all and (orientation: portrait), all and (max-width: 480px)
 			grid-template-columns: 100%
 			grid-template-rows: 40% 60%
+
+/*Text size settings*/
