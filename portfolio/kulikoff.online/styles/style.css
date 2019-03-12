@@ -19,11 +19,19 @@ body {
     grid-template-rows: 100%; }
   body main {
     grid-template-columns: 50% 50%; }
+    @media all and (orientation: portrait), all and (max-width: 480px) {
+      body main {
+        grid-template-columns: 100%;
+        grid-template-rows: 50%; } }
     body main menu {
       display: grid;
       grid-template-columns: 100%;
       grid-template-rows: 25%; }
   body section {
     grid-template-columns: 40% 60%; }
+    @media all and (orientation: portrait), all and (max-width: 480px) {
+      body section {
+        grid-template-columns: 100%;
+        grid-template-rows: 40% 60%; } }
 
 /*# sourceMappingURL=style.css.map */
