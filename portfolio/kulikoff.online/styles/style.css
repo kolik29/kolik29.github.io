@@ -39,21 +39,37 @@ body {
       grid-template-columns: 100%;
       grid-template-rows: 25%;
       transition: 0.3s; }
-      body main menu a {
+      body main menu a:hover .bkg-image {
+        background-size: 110%; }
+      body main menu a .bkg-image {
+        position: absolute;
+        filter: saturate(0);
         background-size: 100%;
         background-repeat: no-repeat;
         background-position: center;
-        transition: 0.3s; }
-        body main menu a:hover {
-          background-size: 110%; }
-        body main menu a[href='#profile'] {
-          background-image: url("../img/profile_image.jpg"); }
-        body main menu a[href='#resume'] {
-          background-image: url("../img/resume_image.jpg"); }
-        body main menu a[href='#portfolio'] {
-          background-image: url("../img/portfolio_image.jpg"); }
-        body main menu a[href='#contacts'] {
-          background-image: url("../img/contact_image.jpg"); }
+        transition: 0.3s;
+        width: 100%;
+        height: 100%; }
+      body main menu a[href='#profile'] .bkg-image {
+        background-image: url("../img/profile_image.jpg"); }
+      body main menu a[href='#resume'] .bkg-image {
+        background-image: url("../img/resume_image.jpg"); }
+      body main menu a[href='#portfolio'] .bkg-image {
+        background-image: url("../img/portfolio_image.jpg"); }
+      body main menu a[href='#contacts'] .bkg-image {
+        background-image: url("../img/contact_image.jpg"); }
+    body main aside,
+    body main menu a {
+      position: relative; }
+      body main aside:after,
+      body main menu a:after {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: #1a1b23cc;
+        top: 0;
+        left: 0;
+        content: ""; }
   body a[href='#'] {
     position: absolute;
     right: 2vw;

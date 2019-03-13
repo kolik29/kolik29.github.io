@@ -45,25 +45,43 @@ body
 			transition: .3s
 
 			a
-				background-size: 100%
-				background-repeat: no-repeat
-				background-position: center
-				transition: .3s
+				&:hover .bkg-image
+						background-size: 110%
 
-				&:hover
-					background-size: 110%
+				.bkg-image
+					position: absolute
+					filter: saturate(0)
+					background-size: 100%
+					background-repeat: no-repeat
+					background-position: center
+					transition: .3s
+					width: 100%
+					height: 100%
 
-				&[href='#profile']
+				&[href='#profile'] .bkg-image
 					background-image: url('../img/profile_image.jpg')
 
-				&[href='#resume']
+				&[href='#resume'] .bkg-image
 					background-image: url('../img/resume_image.jpg')
 
-				&[href='#portfolio']
+				&[href='#portfolio'] .bkg-image
 					background-image: url('../img/portfolio_image.jpg')
 
-				&[href='#contacts']
+				&[href='#contacts'] .bkg-image
 					background-image: url('../img/contact_image.jpg')
+
+		aside,
+		menu a
+			position: relative
+
+			&:after
+				position: absolute
+				width: 100%
+				height: 100%
+				background-color: #1a1b23cc
+				top: 0
+				left: 0
+				content: ''
 
 	a[href='#']
 		position: absolute

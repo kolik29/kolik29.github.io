@@ -1,7 +1,7 @@
 $(document).ready(function() {
 	$(window).on("hashchange", function(e) {
 		var section = e.originalEvent.newURL.split('#')[1];
-		var elImage = $('a[href="#' + section + '"]').css('background-image');
+		var elImage = $('a[href="#' + section + '"] .bkg-image').css('background-image');
 
 		if (section != '') {
 			$('section aside').css({
@@ -38,13 +38,11 @@ $(document).ready(function() {
 				$('main menu').css({
 					'transform': 'translateX(0)'
 				});
-			}, 1)
 
-			setTimeout(() => {
 				$('main').css({
 					'background': '#fff'
 				});
-			}, 300)
+			}, 1);
 		}
 	});
 })
