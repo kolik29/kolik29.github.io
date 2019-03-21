@@ -12,6 +12,7 @@ h1, h2
 	margin: 0
 	margin-block-start: 0
 	margin-block-end: 0
+	text-transform: uppercase
 
 h2
 	@media all and (max-width: 640px)
@@ -114,7 +115,7 @@ body
 						background-repeat: no-repeat
 						background-position: center
 						display: inline-block
-						color: #ffffff00
+						color: #fff
 						transition: .3s
 						width: 3rem
 						height: 3rem
@@ -271,8 +272,8 @@ body
 		position: absolute
 		right: 2vw
 		top: 2vw
-		width: 2vw
-		height: 2vw
+		width: 2rem
+		height: 2rem
 		display: block
 		z-index: 1
 
@@ -280,7 +281,7 @@ body
 		&:before
 			content: ''
 			position: absolute
-			width: 2vw
+			width: 2rem
 			height: 10%
 			background: #333
 			margin-top: 45%
@@ -299,6 +300,25 @@ body
 			background-repeat: no-repeat
 			background-position: center
 			position: relative
+			color: #fff
+
+			h1
+				position: absolute
+				z-index: 1
+				font-size: 3rem
+				bottom: 15%
+				left: 5%
+				width: 100%
+
+				&:after
+					content: ''
+					height: 5px
+					width: 50%
+					background-color: #6a8d9d
+					position: absolute
+					bottom: -1.5rem
+					left: 0
+					z-index: 1
 
 			&:after
 				position: absolute

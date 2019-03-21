@@ -10,6 +10,8 @@ $(document).ready(function() {
 
 function setPage(section) {
 	var elImage = $('a[href="#' + section + '"] .bkg-image').css('background-image');
+	var sectionName = $('a[href="#' + section + '"] h1').html();
+	$('#js-text').html(sectionName);
 
 	if (section != '') {
 		$('section aside').css({
