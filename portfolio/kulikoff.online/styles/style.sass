@@ -1,11 +1,15 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i)
 
 /*Reset styles*/
-body,
-menu
+body
 	margin: 0
 	padding: 0
 	font-family: Roboto
+	overflow-x: hidden
+
+menu
+	margin: 0
+	padding: 0
 
 h1, h2
 	font-weight: 300
@@ -21,6 +25,10 @@ h2
 a
 	text-decoration: none
 	color: unset
+
+p
+	margin: 0
+	text-align: justify
 
 /*Special styles*/
 .text-color
@@ -67,12 +75,15 @@ body
 			grid-template-columns: 100%
 			grid-template-rows: 50%
 
+		aside,
+		menu
+			transition: .3s
+
 		aside
 			background-image: url('../img/arh.png')
 			background-size: cover
 			background-position: top
 			background-repeat: no-repeat
-			transition: .3s
 			display: flex
 			align-items: center
 			justify-content: center
@@ -177,7 +188,6 @@ body
 			display: grid
 			grid-template-columns: 100%
 			grid-template-rows: 25%
-			transition: .3s
 
 			a
 				display: flex
@@ -269,7 +279,7 @@ body
 						background-image: url('../img/contact_icon.png')
 
 	.close
-		position: absolute
+		position: fixed
 		right: 2vw
 		top: 2vw
 		width: 2rem
@@ -294,6 +304,10 @@ body
 
 	section
 		grid-template-columns: 40% 60%
+		max-height: 100vh
+
+		@media all and (orientation: portrait), all and (max-width: 480px)
+			overflow-y: scroll
 
 		aside
 			background-size: cover
@@ -331,5 +345,41 @@ body
 
 		@media all and (orientation: portrait), all and (max-width: 480px)
 			grid-template-columns: 100%
-			grid-template-rows: 40% 60%
+			grid-template-rows: 50vh 1fr
+
+		div
+			overflow-y: auto
+
+			@media all and (orientation: portrait), all and (max-width: 480px)
+				overflow-y: unset
+
+			article
+				display: flex
+				justify-content: center
+				align-items: center
+				flex-direction: column
+
+				&:first-child
+					background-image: url('../img/story_bg.jpg')
+					background-size: cover
+					min-height: 100vh
+					padding: 0 15px
+
+					.text
+						display: grid
+						grid-template-columns: 152px 1fr
+						grid-column-gap: 30px
+						max-width: 70%
+
+						@media all and (orientation: portrait), all and (max-width: 480px)
+							grid-template-columns: 100%
+							grid-row-gap: 30px
+							max-width: unset
+
+						img
+							width: 100%
+							border: 1px solid #6a8d9d
+
+				h1
+					font-size: 2.5rem
 

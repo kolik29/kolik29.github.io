@@ -42,16 +42,16 @@ function setPage(section) {
 
 		setTimeout(() => {
 			$('main aside').css({
-				'transform': 'translateX(0)'
+				'transform': 'translateX(0%)'
 			});
 
 			$('main menu').css({
-				'transform': 'translateX(0)'
+				'transform': 'translateX(0%)'
 			});
 
 			$('main').css({
 				'background': '#fff'
 			});
-		}, 1);
+		}, 30);
 	}
 }
