@@ -6,52 +6,13 @@ $(document).ready(function() {
 	$(window).on("hashchange", function(e) {
 		setPage(e.originalEvent.newURL.split('#')[1]);
 	});
+
+	$('.percent_circle').each(function() {
+		draw_circle_percent(
+			$(this).children('canvas').attr('id'),
+			10,
+			parseInt($(this).children('span').text()),
+			'#c6c6c6',
+			'#6a8d9d');
+	});
 })
-
-function setPage(section) {
-	var elImage = $('a[href="#' + section + '"] .bkg-image').css('background-image');
-	var sectionName = $('a[href="#' + section + '"] h1').html();
-	$('#js-text').html(sectionName);
-
-	if (section != '') {
-		$('section aside').css({
-			'background-image': elImage
-		});
-
-		$('main aside').css({
-			'transform': 'translateX(-100%)'
-		});
-
-		$('main menu').css({
-			'transform': 'translateX(100%)'
-		});
-
-		$('main').css({
-			'background': '#ffffff00'
-		})
-
-		setTimeout(() => {
-			$('main').css({
-				'display': 'none'
-			});
-		}, 900)
-	} else {
-		$('main').css({
-			'display': 'grid'
-		});
-
-		setTimeout(() => {
-			$('main aside').css({
-				'transform': 'translateX(0%)'
-			});
-
-			$('main menu').css({
-				'transform': 'translateX(0%)'
-			});
-
-			$('main').css({
-				'background': '#fff'
-			});
-		}, 30);
-	}
-}

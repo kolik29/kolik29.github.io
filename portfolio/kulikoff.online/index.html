@@ -4,8 +4,14 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Николай Куликов</title>
-	<link rel="stylesheet" type="text/css" href="styles/style.css?22032019">
+	<link rel="stylesheet" href="styles/skill_in_circle.css">
+	<link rel="stylesheet" href="styles/main_aside.css">
+	<link rel="stylesheet" href="styles/menu.css">
+	<link rel="stylesheet" href="styles/content.css">
+	<link rel="stylesheet" href="styles/style.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="scripts/skill_in_circle.js"></script>
+	<script src="scripts/change_page.js"></script>
 	<script src="scripts/script.js"></script>
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
@@ -73,27 +79,121 @@
 		<aside>
 			<h1 id="js-text"></h1>
 		</aside>
-		<div>
+		<div id="content"></div>
+	</section>
+
+	<div style="display: none">
+		<section id="profile">
 			<article>
 				<h1>О СЕБЕ</h1>
 				<div class="text">
 					<img src="img/iam.png" alt="Avatar">
 					<div>
-						<p>Меня зовут Николай Алексеевич Куликов, мне 24 года и я занимаюсь разработкой сайтов и программного обеспечения</p>
+						<p>Меня зовут Николай Куликов, мне 24 года и я занимаюсь разработкой сайтов и программного обеспечения</p>
 						<p>Ещё со школы, как только у меня появился первый компьютер, я увлекся изучением его устройства и логики работы, и если с "железом" все было более-менее понятно, то самую интересную часть представлял сам процесс исполнения комманд и тогда, моим первым языком программирования стал Pascal. Так же ближе к концу обучения в школе нам начали преподавать WEB-технологии, а конкретнее - HTML. После окончания школы я поступил в колледж телекоммуникаций, где уже изучил многие другие языке, такие как: C# и Pasccal/Delphi, а так же углубил свои знания WEB'а, изучив JS, CSS и PHP.</p>
 						<p>На сегодняшний день я делаю упор на разработку сайтов, верстаю шаблоны практически любой сложности и использую более продвинутые технологии, такие как: Less, Ajax и Jquery. В основном занимаю разработкой одностраничных сайтов или разработкой для CMS Wordpress, а так знаком с некоторыми оснвоа разработки для CMS Bitrix.</p>
 						<p>Ознакомиться с некоторыми моими работами Вы можете на данном сайте в разделе "Портфолио" и на моем GitHub, а связаться со мной в разделе "Контакты".</p>
 					</div>
 				</div>
 			</article>
-		</div>
-	</section>
-
-	<template>
-		<section id="profile"></section>
-		<section id="resume"></section>
+			<article class="bg-color">
+				<h1>ЧТО Я МОГУ</h1>
+				<div>
+					<span>
+						<img src="img/app_develop-icon.png" alt="">
+						<h2>Back End</h2>
+					</span>
+					<span>
+						<img src="img/web_develop-icon.png" alt="">
+						<h2>Front End</h2>
+					</span>
+					<span>
+						<img src="img/design-icon.png" alt="">
+						<h2>UI Design</h2>
+					</span>
+				</div>
+			</article>
+		</section>
+		<section id="resume">
+			<article>
+				<h1>ОБРАЗОВАНИЕ</h1>
+				<div>
+					<h3>АКТ(ф)СПбГУТ им. М.А. Бонч-Бруевича, 2012-2016</h3>
+					<p>После окончания школы я ни сколько не сомневался кем я хочу стать, и потому поступил в один из лучших колледжей города.</p>
+					<h3>СПбГУТ им. М.А. Бонч-Бруевича, 2016 - н.в.</h3>
+					<p>Так как я не хотел останавливаться на достигнутом, то по окончанию колледжа я поступил в один из лучших ВУЗов страны, который занимается подготовкой ИТ-специалистов</p>
+				</div>
+			</article>
+			<article>
+				<h1>ОПЫТ РАБОТЫ</h1>
+				<div>
+					<h3>Инженер-программист / Март 2018 - настоящее время</h3>
+					<p>В ноябре 2017 года я принял решение, что мне следует развиваться дальше и повышать свои знания в области ИТ и я сменил место работы.</p>
+					<h3>Техник по защите информации / Апрель 2017 - декабрь 2017</h3>
+					<p>Так как в колледже я окончил курсы, связанные с информационной безопаснотью, а в родном городе найти работу разрабочика очень не просто, то решил попробовать себя в данной сфере: в основном была бумажная работа, устанвка и настройка VipNet и CryptoPRO, а так же обслуживание Kaspersky Security Center.</p>
+					<h3>Техник / Январь 2017 - апрель 2017</h3>
+					<p>После окончания колледжа очень не просто было найти работу по специальности, по этой причине приходилось искать что-то смежное. Сдесь я в основном занимался ремонтом оргтехники и прокладкой кабелей.</p>
+					<h3>Инженер-программист / Март 2015 - апрель 2015, август 2014 - сентябрь 2014</h3>
+					<p>В процессе обучения в колледже мне предложили выйти на работу вместо основного сотрудника, пока тот в оптуске. Занимался в основном поддержанием работы локальной сети и компьютеров.</p>
+				</div>
+			</article>
+			<article>
+				<h1>СКИЛЛЫ</h1>
+				<div class="skills">
+					<div class="skill">
+						<h2>HTML</h2>
+						<div class="percent_circle">
+							<canvas width="200" height="200" id="html"></canvas>
+							<span>80%</span>
+						</div>
+					</div>
+					<div class="skill">
+						<h2>CSS/SASS</h2>
+						<div class="percent_circle">
+							<canvas width="200" height="200" id="csssass"></canvas>
+							<span>70%</span>
+						</div>
+					</div>
+					<div class="skill">
+						<h2>JS/Jquery</h2>
+						<div class="percent_circle">
+							<canvas width="200" height="200" id="jsjquery"></canvas>
+							<span>70%</span>
+						</div>
+					</div>
+					<div class="skill">
+						<h2>PHP</h2>
+						<div class="percent_circle">
+							<canvas width="200" height="200" id="php"></canvas>
+							<span>45%</span>
+						</div>
+					</div>
+					<div class="skill">
+						<h2>C#</h2>
+						<div class="percent_circle">
+							<canvas width="200" height="200" id="csharp"></canvas>
+							<span>55%</span>
+						</div>
+					</div>
+					<div class="skill">
+						<h2>PYTHON</h2>
+						<div class="percent_circle">
+							<canvas width="200" height="200" id="python"></canvas>
+							<span>50%</span>
+						</div>
+					</div>
+				</div>
+			</article>
+		</section>
 		<section id="portfolio"></section>
-		<section id="contacts"></section>
-	</template>
+		<section id="contacts">
+			<article>
+				<h1>СВЯЗЬ СО МНОЙ</h1>
+				<div></div>
+				<h1>РЕКВЕЗИТЫ</h1>
+				<div></div>
+			</article>
+		</section>
+	</div>
 </body>
 </html>

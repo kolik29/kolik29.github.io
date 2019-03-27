@@ -1,0 +1,82 @@
+@charset "UTF-8";
+aside {
+  background-image: url("../img/arh.png");
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  aside .inner {
+    z-index: 1;
+    color: #fff;
+    text-align: center; }
+    aside .inner h1, aside .inner h2 {
+      text-transform: uppercase;
+      letter-spacing: 5px; }
+    aside .inner h2 {
+      font-size: 1.5rem;
+      margin: 1rem 0 1.2rem;
+      font-weight: 300;
+      position: relative;
+      display: inline-block; }
+      aside .inner h2:after {
+        content: "";
+        position: absolute;
+        background: #fff;
+        bottom: 0;
+        left: -5%;
+        width: 110%;
+        height: 2px; }
+    aside .inner div {
+      display: flex;
+      justify-content: center;
+      margin: 0.65rem 0; }
+      aside .inner div a {
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        display: inline-block;
+        color: #fff;
+        transition: 0.3s;
+        width: 3rem;
+        height: 3rem;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        margin: 0 1rem; }
+        aside .inner div a:before {
+          position: absolute;
+          bottom: -2rem;
+          display: none; }
+        aside .inner div a[href='https://www.facebook.com/kolik29'] {
+          background-image: url("../img/fb.svg"); }
+          aside .inner div a[href='https://www.facebook.com/kolik29']:before {
+            content: "Facebook"; }
+        aside .inner div a[href='https://www.instagram.com/despersiven/'] {
+          background-image: url("../img/instagram.svg"); }
+          aside .inner div a[href='https://www.instagram.com/despersiven/']:before {
+            content: "Instagram"; }
+        aside .inner div a[href='https://vk.com/despersiven'] {
+          background-image: url("../img/vk.svg"); }
+          aside .inner div a[href='https://vk.com/despersiven']:before {
+            content: "Вконтакте"; }
+        aside .inner div a[href='https://web.telegram.org/@kolik29'] {
+          background-image: url("../img/telegram.svg"); }
+          aside .inner div a[href='https://web.telegram.org/@kolik29']:before {
+            content: "Telegram"; }
+        aside .inner div a:hover {
+          color: #6a8d9d;
+          transition: 0.3s; }
+          aside .inner div a:hover:before {
+            display: block; }
+          aside .inner div a:hover[href='https://www.facebook.com/kolik29'] {
+            background-image: url("../img/fb-color.svg"); }
+          aside .inner div a:hover[href='https://www.instagram.com/despersiven/'] {
+            background-image: url("../img/instagram-color.svg"); }
+          aside .inner div a:hover[href='https://vk.com/despersiven'] {
+            background-image: url("../img/vk-color.svg"); }
+          aside .inner div a:hover[href='https://web.telegram.org/@kolik29'] {
+            background-image: url("../img/telegram-color.svg"); }
+
+/*# sourceMappingURL=main_aside.css.map */

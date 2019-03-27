@@ -1,4 +1,3 @@
-@charset "UTF-8";
 @import url(https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i);
 /*Reset styles */
 body {
@@ -11,16 +10,15 @@ menu {
   margin: 0;
   padding: 0; }
 
-h1, h2 {
+h1 {
+  font-size: 2.5rem; }
+
+h1, h2, h3 {
   font-weight: 300;
   margin: 0;
   margin-block-start: 0;
   margin-block-end: 0;
   text-transform: uppercase; }
-
-@media all and (max-width: 640px) {
-  h2 {
-    display: none !important; } }
 
 a {
   text-decoration: none;
@@ -53,7 +51,7 @@ body {
       left: 0;
       content: ""; }
   body main,
-  body section {
+  body > section {
     position: absolute;
     top: 0;
     left: 0;
@@ -72,161 +70,12 @@ body {
       body main {
         grid-template-columns: 100%;
         grid-template-rows: 50%; } }
+    @media all and (max-width: 640px) {
+      body main h2 {
+        display: none !important; } }
     body main aside,
     body main menu {
       transition: 0.3s; }
-    body main aside {
-      background-image: url("../img/arh.png");
-      background-size: cover;
-      background-position: top;
-      background-repeat: no-repeat;
-      display: flex;
-      align-items: center;
-      justify-content: center; }
-      body main aside .inner {
-        z-index: 1;
-        color: #fff;
-        text-align: center; }
-        body main aside .inner h1, body main aside .inner h2 {
-          text-transform: uppercase;
-          letter-spacing: 5px; }
-        body main aside .inner h1 {
-          font-size: 2.5rem; }
-        body main aside .inner h2 {
-          font-size: 1.5rem;
-          margin: 1rem 0 1.2rem;
-          font-weight: 300;
-          position: relative;
-          display: inline-block; }
-          body main aside .inner h2:after {
-            content: "";
-            position: absolute;
-            background: #fff;
-            bottom: 0;
-            left: -5%;
-            width: 110%;
-            height: 2px; }
-        body main aside .inner div {
-          display: flex;
-          justify-content: center;
-          margin: 0.65rem 0; }
-          body main aside .inner div a {
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
-            display: inline-block;
-            color: #fff;
-            transition: 0.3s;
-            width: 3rem;
-            height: 3rem;
-            position: relative;
-            display: flex;
-            justify-content: center;
-            margin: 0 1rem; }
-            body main aside .inner div a:before {
-              position: absolute;
-              bottom: -2rem;
-              display: none; }
-            body main aside .inner div a[href='https://www.facebook.com/kolik29'] {
-              background-image: url("../img/fb.svg"); }
-              body main aside .inner div a[href='https://www.facebook.com/kolik29']:before {
-                content: "Facebook"; }
-            body main aside .inner div a[href='https://www.instagram.com/despersiven/'] {
-              background-image: url("../img/instagram.svg"); }
-              body main aside .inner div a[href='https://www.instagram.com/despersiven/']:before {
-                content: "Instagram"; }
-            body main aside .inner div a[href='https://vk.com/despersiven'] {
-              background-image: url("../img/vk.svg"); }
-              body main aside .inner div a[href='https://vk.com/despersiven']:before {
-                content: "Вконтакте"; }
-            body main aside .inner div a[href='https://web.telegram.org/@kolik29'] {
-              background-image: url("../img/telegram.svg"); }
-              body main aside .inner div a[href='https://web.telegram.org/@kolik29']:before {
-                content: "Telegram"; }
-            body main aside .inner div a:hover {
-              color: #6a8d9d;
-              transition: 0.3s; }
-              body main aside .inner div a:hover:before {
-                display: block; }
-              body main aside .inner div a:hover[href='https://www.facebook.com/kolik29'] {
-                background-image: url("../img/fb-color.svg"); }
-              body main aside .inner div a:hover[href='https://www.instagram.com/despersiven/'] {
-                background-image: url("../img/instagram-color.svg"); }
-              body main aside .inner div a:hover[href='https://vk.com/despersiven'] {
-                background-image: url("../img/vk-color.svg"); }
-              body main aside .inner div a:hover[href='https://web.telegram.org/@kolik29'] {
-                background-image: url("../img/telegram-color.svg"); }
-    body main menu {
-      display: grid;
-      grid-template-columns: 100%;
-      grid-template-rows: 25%; }
-      body main menu a {
-        display: flex;
-        align-items: center; }
-        body main menu a .bkg-image {
-          position: absolute;
-          filter: saturate(0);
-          background-size: 100%;
-          background-repeat: no-repeat;
-          background-position: center;
-          transition: 0.6s;
-          width: 100%;
-          height: 100%; }
-        body main menu a .title {
-          position: absolute;
-          display: flex;
-          z-index: 1;
-          color: #fff;
-          align-items: center;
-          margin-left: 10%; }
-          @media all and (orientation: portrait), all and (max-width: 640px) {
-            body main menu a .title {
-              margin-left: 5%; } }
-          body main menu a .title .icon {
-            padding: 1rem;
-            height: 2rem;
-            width: 2rem;
-            border-radius: 100%;
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: 50%;
-            background-color: #ffffff54;
-            margin-right: 2rem;
-            box-shadow: 0 0 0 0 #ffffff54;
-            transition: 0.2s; }
-            @media all and (orientation: portrait), all and (max-width: 640px) {
-              body main menu a .title .icon {
-                margin-right: 1rem; } }
-          body main menu a .title .text {
-            display: flex;
-            flex-direction: column; }
-          body main menu a .title h1 {
-            text-transform: uppercase;
-            font-weight: 300;
-            font-size: 2rem; }
-          body main menu a .title h2 {
-            font-size: 1rem;
-            font-style: italic; }
-        body main menu a:hover .bkg-image {
-          background-size: 120%; }
-        body main menu a:hover .title .icon {
-          box-shadow: 0 0 0 5em #ffffff00; }
-        body main menu a[href='#profile'] .bkg-image {
-          background-image: url("../img/profile_image.jpg"); }
-        body main menu a[href='#profile'] .icon {
-          background-image: url("../img/user_icon.png"); }
-        body main menu a[href='#resume'] .bkg-image {
-          background-image: url("../img/resume_image.jpg"); }
-        body main menu a[href='#resume'] .icon {
-          background-image: url("../img/resume_icon.png"); }
-        body main menu a[href='#portfolio'] .bkg-image {
-          background-image: url("../img/portfolio_image.jpg"); }
-        body main menu a[href='#portfolio'] .icon {
-          background-image: url("../img/portfolio_icon.png"); }
-        body main menu a[href='#contacts'] .bkg-image {
-          background-image: url("../img/contact_image.jpg"); }
-        body main menu a[href='#contacts'] .icon {
-          background-image: url("../img/contact_icon.png"); }
   body .close {
     position: fixed;
     right: 2vw;
@@ -246,26 +95,26 @@ body {
       transform: rotate(45deg); }
     body .close:before {
       transform: rotate(-45deg); }
-  body section {
+  body > section {
     grid-template-columns: 40% 60%;
     max-height: 100vh; }
     @media all and (orientation: portrait), all and (max-width: 480px) {
-      body section {
+      body > section {
         overflow-y: scroll; } }
-    body section aside {
+    body > section aside {
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
       position: relative;
       color: #fff; }
-      body section aside h1 {
+      body > section aside h1 {
         position: absolute;
         z-index: 1;
         font-size: 3rem;
         bottom: 15%;
         left: 5%;
         width: 100%; }
-        body section aside h1:after {
+        body > section aside h1:after {
           content: "";
           height: 5px;
           width: 50%;
@@ -274,7 +123,7 @@ body {
           bottom: -1.5rem;
           left: 0;
           z-index: 1; }
-      body section aside:after {
+      body > section aside:after {
         position: absolute;
         width: 100%;
         height: 100%;
@@ -283,38 +132,37 @@ body {
         left: 0;
         content: ""; }
     @media all and (orientation: portrait), all and (max-width: 480px) {
-      body section {
+      body > section {
         grid-template-columns: 100%;
         grid-template-rows: 50vh 1fr; } }
-    body section div {
-      overflow-y: auto; }
+    body > section #content {
+      overflow: auto; }
       @media all and (orientation: portrait), all and (max-width: 480px) {
-        body section div {
-          overflow-y: unset; } }
-      body section div article {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column; }
-        body section div article:first-child {
-          background-image: url("../img/story_bg.jpg");
-          background-size: cover;
-          min-height: 100vh;
-          padding: 0 15px; }
-          body section div article:first-child .text {
-            display: grid;
-            grid-template-columns: 152px 1fr;
-            grid-column-gap: 30px;
-            max-width: 70%; }
-            @media all and (orientation: portrait), all and (max-width: 480px) {
-              body section div article:first-child .text {
-                grid-template-columns: 100%;
-                grid-row-gap: 30px;
-                max-width: unset; } }
-            body section div article:first-child .text img {
-              width: 100%;
-              border: 1px solid #6a8d9d; }
-        body section div article h1 {
-          font-size: 2.5rem; }
+        body > section #content {
+          overflow: unset; } }
+      body > section #content h1 {
+        text-align: center; }
+      body > section #content article {
+        padding: 30px 15px; }
+        body > section #content article:nth-child(1) {
+          min-height: 90vh; }
+        body > section #content article:nth-child(even) {
+          background-color: #6a8d9d;
+          color: #fff !important; }
+    @media all and (orientation: portrait), all and (max-width: 480px) {
+      body > section div {
+        overflow-y: unset; } }
+    body > section div article {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 0 15px; }
+      body > section div article > div {
+        max-width: 80%;
+        width: 100%; }
+      body > section div article h1 {
+        font-size: 2.5rem;
+        margin: 2.5% 0; }
 
 /*# sourceMappingURL=style.css.map */
