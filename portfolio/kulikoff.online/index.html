@@ -4,12 +4,13 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Николай Куликов</title>
+	<link rel="stylesheet" href="styles/style.css">
 	<link rel="stylesheet" href="styles/skill_in_circle.css">
 	<link rel="stylesheet" href="styles/main_aside.css">
 	<link rel="stylesheet" href="styles/menu.css">
 	<link rel="stylesheet" href="styles/content.css">
 	<link rel="stylesheet" href="styles/slider.css">
-	<link rel="stylesheet" href="styles/style.css">
+	<link rel="stylesheet" href="styles/feedback.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="scripts/skill_in_circle.js"></script>
 	<script src="scripts/change_page.js"></script>
@@ -211,14 +212,19 @@
 		<section id="contacts">
 			<article>
 				<h1>СВЯЗЬ СО МНОЙ</h1>
+				<div id="feedback">
+					<input type="text" id="name" placeholder="Ваше имя...">
+					<input type="text" id="email" placeholder="Ваш email...">
+					<textarea id="text" placeholder="Ваше сообщение..."></textarea>
+					<button id="submit">Отправить</button>
+				</div>
+				<h1>РЕКВЕЗИТЫ</h1>
 				<div>
 					<form action="https://getsimpleform.com/messages?form_api_token=f201ba4de9e54f56a13391c8881f55db" method="post">
 						<input type='text' name='test' />
 						<input type='submit' value='Test form' />
 					</form>
 				</div>
-				<h1>РЕКВЕЗИТЫ</h1>
-				<div></div>
 			</article>
 		</section>
 	</div>

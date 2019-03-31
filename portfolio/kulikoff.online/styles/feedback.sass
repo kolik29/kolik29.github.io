@@ -1,0 +1,46 @@
+#feedback
+	display: grid
+	grid-template-areas: "name email" "text text" "button button"
+	grid-template-columns: 50% 50%
+	max-width: 800px
+	grid-gap: 15px
+
+	#name
+		grid-area: name
+
+	#email
+		grid-area: email
+
+	#text
+		grid-area: text
+		resize: none
+		height: 5em
+
+	#name,
+	#email,
+	#text
+		background-color: #1a1b230d
+
+		&:focus
+			cursor: text
+
+	#submit
+		grid-area: button
+		cursor: pointer
+		background-color: #1762EE
+		color: #fff
+		transition: .1s
+
+		&:hover
+			background-color: #3e81ff
+
+	#name,
+	#email,
+	#text,
+	#submit
+		font-family: Roboto
+		font-size: 15px
+		border: none
+		border-radius: 25px
+		padding: 15px 25px
+		outline: none

@@ -1,0 +1,42 @@
+#feedback {
+  display: grid;
+  grid-template-areas: "name email" "text text" "button button";
+  grid-template-columns: 50% 50%;
+  max-width: 800px;
+  grid-gap: 15px; }
+  #feedback #name {
+    grid-area: name; }
+  #feedback #email {
+    grid-area: email; }
+  #feedback #text {
+    grid-area: text;
+    resize: none;
+    height: 5em; }
+  #feedback #name,
+  #feedback #email,
+  #feedback #text {
+    background-color: #1a1b230d; }
+    #feedback #name:focus,
+    #feedback #email:focus,
+    #feedback #text:focus {
+      cursor: text; }
+  #feedback #submit {
+    grid-area: button;
+    cursor: pointer;
+    background-color: #1762EE;
+    color: #fff;
+    transition: 0.1s; }
+    #feedback #submit:hover {
+      background-color: #3e81ff; }
+  #feedback #name,
+  #feedback #email,
+  #feedback #text,
+  #feedback #submit {
+    font-family: Roboto;
+    font-size: 15px;
+    border: none;
+    border-radius: 25px;
+    padding: 15px 25px;
+    outline: none; }
+
+/*# sourceMappingURL=feedback.css.map */
