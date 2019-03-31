@@ -4,15 +4,26 @@ $(document).ready(function() {
 	}
 
 	$(window).on("hashchange", function(e) {
+		$('#content').focus();
 		setPage(e.originalEvent.newURL.split('#')[1]);
+		addEvents();
 	});
 
+	addEvents();
+});
+
+function addEvents() {
 	$('.percent_circle').each(function() {
 		draw_circle_percent(
 			$(this).children('canvas').attr('id'),
 			10,
 			parseInt($(this).children('span').text()),
 			'#c6c6c6',
-			'#6a8d9d');
+			'#6a8d9d'
+		);
 	});
-})
+
+	$('#slider > .controls *').on('click', function() {
+		slide($(this));
+	});
+}

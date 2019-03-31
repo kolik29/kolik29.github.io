@@ -1,0 +1,86 @@
+#slider {
+  max-width: 100%;
+  position: relative;
+  overflow: hidden; }
+  #slider > .controls {
+    position: relative;
+    display: flex;
+    top: 12.5vh; }
+    @media all and (orientation: portrait), all and (max-width: 480px) {
+      #slider > .controls {
+        display: none; } }
+    #slider > .controls .left,
+    #slider > .controls .right {
+      top: 0;
+      position: absolute;
+      height: 7vh;
+      width: 7vh;
+      border-radius: 100%;
+      box-shadow: 0 0 6px 0px #1a1b23;
+      justify-content: center;
+      align-items: center;
+      background: #fff;
+      z-index: 1;
+      cursor: pointer;
+      animation-duration: 0.3s;
+      background-image: url("../img/left-arrow-chevron.svg");
+      background-color: #fff;
+      background-size: 50%;
+      background-repeat: no-repeat;
+      background-position: center;
+      opacity: 0;
+      animation-fill-mode: forwards; }
+      #slider > .controls .left.hideoff,
+      #slider > .controls .right.hideoff {
+        animation-name: hideoff; }
+      #slider > .controls .left.hideon,
+      #slider > .controls .right.hideon {
+        animation-name: hideon; }
+@keyframes hideoff {
+  from {
+    opacity: 0;
+    display: block; }
+  to {
+    opacity: 1; } }
+@keyframes hideon {
+  from {
+    opacity: 1; }
+  to {
+    opacity: 0;
+    display: none; } }
+    #slider > .controls .left {
+      left: 6px;
+      transform: rotate(180deg); }
+    #slider > .controls .right {
+      right: 6px; }
+  #slider > .inner {
+    display: flex;
+    padding: 10px calc(2.5vh + 20px);
+    margin: 0 -10px; }
+    #slider > .inner .block {
+      transition: 0.3s;
+      min-height: 450px;
+      min-width: 300px;
+      max-width: 25vw;
+      max-height: 30vw;
+      margin-right: 20px;
+      border-radius: 4px;
+      box-shadow: 0 0 6px 0px #1a1b23; }
+      @media all and (orientation: portrait), all and (max-width: 480px) {
+        #slider > .inner .block {
+          min-width: calc(100% - 20px);
+          min-height: 80vh; } }
+  #slider:after, #slider:before {
+    position: absolute;
+    content: "";
+    top: 0;
+    height: 100%;
+    width: 30px; }
+  #slider:after {
+    background: linear-gradient(to right, #ffffffcc, #ffffff00);
+    left: 0; }
+  #slider:before {
+    background: linear-gradient(to left, #ffffffcc, #ffffff00);
+    right: 0; }
+
+/*# sourceMappingURL=slider.css.map */

@@ -65,7 +65,7 @@ body {
     grid-template-columns: 50% 50%;
     z-index: 2;
     background: #fff;
-    transition: 0.9s; }
+    transition: 0.3s; }
     @media all and (orientation: portrait), all and (max-width: 480px) {
       body main {
         grid-template-columns: 100%;

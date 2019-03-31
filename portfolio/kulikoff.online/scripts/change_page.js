@@ -27,7 +27,7 @@ function setPage(section) {
 			$('main').css({
 				'display': 'none'
 			});
-		}, 900);
+		}, 300);
 	} else {
 		$('main').css({
 			'display': 'grid'

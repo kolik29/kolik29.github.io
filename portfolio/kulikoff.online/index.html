@@ -8,10 +8,12 @@
 	<link rel="stylesheet" href="styles/main_aside.css">
 	<link rel="stylesheet" href="styles/menu.css">
 	<link rel="stylesheet" href="styles/content.css">
+	<link rel="stylesheet" href="styles/slider.css">
 	<link rel="stylesheet" href="styles/style.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="scripts/skill_in_circle.js"></script>
 	<script src="scripts/change_page.js"></script>
+	<script src="scripts/slider.js"></script>
 	<script src="scripts/script.js"></script>
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
@@ -185,11 +187,39 @@
 				</div>
 			</article>
 		</section>
-		<section id="portfolio"></section>
+		<section id="portfolio">
+			<article>
+				<h1>мои работы</h1>
+				<div id="slider">
+					<div class="controls">
+						<div class="left hideon"></div>
+						<div class="right hideoff"></div>
+					</div>
+					<div class="inner">
+						<div class="block"></div>
+						<div class="block"></div>
+						<div class="block"></div>
+						<div class="block"></div>
+						<div class="block"></div>
+						<div class="block"></div>
+						<div class="block"></div>
+						<div class="block"></div>
+					</div>
+				</div>
+			</article>
+		</section>
 		<section id="contacts">
 			<article>
 				<h1>СВЯЗЬ СО МНОЙ</h1>
-				<div></div>
+				<div>
+					<form action="https://getsimpleform.com/messages?form_api_token=f201ba4de9e54f56a13391c8881f55db" method="post">
+						<!-- the redirect_to is optional, the form will redirect to the referrer on submission -->
+						<input type='hidden' name='redirect_to' value='<the complete return url e.g. http://fooey.com/thank-you.html>' />
+						<!-- all your input fields here.... -->
+						<input type='text' name='test' />
+						<input type='submit' value='Test form' />
+					</form>
+				</div>
 				<h1>РЕКВЕЗИТЫ</h1>
 				<div></div>
 			</article>
