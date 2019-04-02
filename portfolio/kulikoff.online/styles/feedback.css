@@ -4,6 +4,12 @@
   grid-template-columns: 50% 50%;
   max-width: 800px;
   grid-gap: 15px; }
+  @media all and (orientation: portrait), all and (max-width: 480px) {
+    #feedback {
+      display: flex;
+      flex-direction: column; }
+      #feedback > * {
+        margin: 7.5px 0; } }
   #feedback #name {
     grid-area: name; }
   #feedback #email {
