@@ -20,6 +20,15 @@
     #feedback #email:focus,
     #feedback #text:focus {
       cursor: text; }
+    #feedback #name.error,
+    #feedback #email.error,
+    #feedback #text.error {
+      background-color: #ff00000d;
+      color: #f00; }
+      #feedback #name.error::placeholder,
+      #feedback #email.error::placeholder,
+      #feedback #text.error::placeholder {
+        color: #f00; }
   #feedback #submit {
     grid-area: button;
     cursor: pointer;
