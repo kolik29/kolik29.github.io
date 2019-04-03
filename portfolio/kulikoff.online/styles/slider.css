@@ -65,11 +65,28 @@
       max-height: 30vw;
       margin-right: 20px;
       border-radius: 4px;
-      box-shadow: 0 0 6px 0px #1a1b23; }
+      box-shadow: 0 0 6px 0px #1a1b23;
+      position: relative;
+      overflow: hidden; }
       @media all and (orientation: portrait), all and (max-width: 480px) {
         #slider > .inner .block {
           min-width: calc(100% - 20px);
           min-height: 80vh; } }
+      #slider > .inner .block .inner-img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        min-width: 100%;
+        height: 70%; }
+        #slider > .inner .block .inner-img img {
+          width: 100%; }
+      #slider > .inner .block p {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 30%;
+        background-color: #fff;
+        width: 100%; }
   #slider:after, #slider:before {
     position: absolute;
     content: "";
