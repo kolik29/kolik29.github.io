@@ -1,12 +1,14 @@
 #slider
-	max-width: 100%
+	min-width: calc(100% + 30px)
 	position: relative
 	overflow: hidden
+	padding: 25px 0
 
 	> .controls
 		position: relative
 		display: flex
 		top: 12.5vh
+		z-index: 2
 
 		@media all and (orientation: portrait), all and (max-width: 480px)
 			display: none
@@ -69,19 +71,56 @@
 
 		.block
 			transition: .3s
-			min-height: 450px
-			min-width: 300px
-			max-width: 25vw
-			max-height: 30vw
 			margin-right: 20px
-			border-radius: 4px
-			box-shadow: 0 0 6px 0px #1a1b23
-			position: relative
-			overflow: hidden
+			perspective: 1000px
+			height: 450px
+			width: 300px
 
-			@media all and (orientation: portrait), all and (max-width: 480px)
-				min-width: calc(100% - 20px)
-				min-height: 80vh
+			.container
+				box-shadow: 0 0 6px 0px #1a1b23
+				height: 450px
+				width: 300px
+				border-radius: 2px
+				transform-style: preserve-3d
+				position: relative
+				transition: .6s
+
+				.front,
+				.back
+					backface-visibility: hidden
+					position: absolute
+					top: 0
+					left: 0
+					height: 450px
+					width: 300px
+
+				.front
+					z-index: 2
+					background-size: cover
+					background-position-x: top
+					background-position-y: center
+
+					&#locsys
+						background-image: url('../img/portfolio/locsys.pro.png')
+
+					&#letusmake
+						background-image: url('../img/portfolio/Letusmake.png')
+
+					&#mark
+						background-image: url('../img/portfolio/Mark.png')
+
+					&#nobodysfool
+						background-image: url('../img/portfolio/NobodysFool.png')
+
+					&#singlepage
+						background-image: url('../img/portfolio/Single Page.png')
+
+				.back
+					transform: rotateY(180deg)
+
+			&:hover
+				.container
+					transform: rotateY(180deg)
 
 	&:after,
 	&:before
@@ -90,11 +129,12 @@
 		top: 0
 		height: 100%
 		width: 30px
+		z-index: 1
 
 	&:after
-		background: linear-gradient(to right, #ffffffcc, #ffffff00)
-		left: 0
-
-	&:before
 		background: linear-gradient(to left, #ffffffcc, #ffffff00)
 		right: 0
+
+	&:before
+		background: linear-gradient(to right, #ffffffcc, #ffffff00)
+		left: 0
