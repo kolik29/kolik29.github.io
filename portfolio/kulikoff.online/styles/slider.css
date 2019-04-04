@@ -84,8 +84,8 @@
         #slider > .inner .block .container .front {
           z-index: 2;
           background-size: cover;
-          background-position-x: top;
-          background-position-y: center; }
+          background-position-x: center;
+          background-position-y: top; }
           #slider > .inner .block .container .front#locsys {
             background-image: url("../img/portfolio/locsys.pro.png"); }
           #slider > .inner .block .container .front#letusmake {
