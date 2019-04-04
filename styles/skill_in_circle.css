@@ -1,0 +1,17 @@
+.percent_circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative; }
+  .percent_circle canvas {
+    width: 150px; }
+    @media all and (orientation: portrait), all and (max-width: 480px) {
+      .percent_circle canvas {
+        width: 100%; } }
+  .percent_circle span {
+    position: absolute;
+    color: #6a8d9d;
+    font-weight: 400;
+    font-size: 2rem; }
+
+/*# sourceMappingURL=skill_in_circle.css.map */
