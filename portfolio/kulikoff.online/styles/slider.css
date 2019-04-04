@@ -86,18 +86,46 @@
           background-size: cover;
           background-position-x: center;
           background-position-y: top; }
+          #slider > .inner .block .container .front#mqc-gmbh {
+            background-image: url("../img/portfolio/mqc-gmbh.com.png"); }
+            #slider > .inner .block .container .front#mqc-gmbh + .back {
+              background-color: #8cb0d7;
+              color: #000; }
+              #slider > .inner .block .container .front#mqc-gmbh + .back h1 {
+                font-size: 2rem; }
           #slider > .inner .block .container .front#locsys {
             background-image: url("../img/portfolio/locsys.pro.png"); }
+            #slider > .inner .block .container .front#locsys + .back {
+              background-color: #1443bd;
+              color: #fff; }
           #slider > .inner .block .container .front#letusmake {
             background-image: url("../img/portfolio/Letusmake.png"); }
+            #slider > .inner .block .container .front#letusmake + .back {
+              background-color: #f3f3f3;
+              color: #303030; }
           #slider > .inner .block .container .front#mark {
             background-image: url("../img/portfolio/Mark.png"); }
+            #slider > .inner .block .container .front#mark + .back {
+              background-color: #d63c37;
+              color: #fcfcfc; }
           #slider > .inner .block .container .front#nobodysfool {
             background-image: url("../img/portfolio/NobodysFool.png"); }
+            #slider > .inner .block .container .front#nobodysfool + .back {
+              background-color: #2e2e2e;
+              color: #666; }
           #slider > .inner .block .container .front#singlepage {
             background-image: url("../img/portfolio/Single Page.png"); }
+            #slider > .inner .block .container .front#singlepage + .back {
+              background-color: #5fc18b;
+              color: #fff; }
         #slider > .inner .block .container .back {
-          transform: rotateY(180deg); }
+          transform: rotateY(180deg);
+          display: flex;
+          justify-content: center;
+          flex-direction: column; }
+          #slider > .inner .block .container .back p {
+            text-align: center;
+            padding: 20px; }
       #slider > .inner .block:hover .container {
         transform: rotateY(180deg); }
   #slider:after, #slider:before {
