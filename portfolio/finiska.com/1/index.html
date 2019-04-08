@@ -1,0 +1,168 @@
+<body>
+	<style>
+		body {
+			display: flex;
+			justify-content: center;
+			margin: 0;
+			font-family: Arial;
+		}
+
+		h1, h2 {
+			font-weight: 100;
+			color: #008fd1;
+		}
+
+		span.blue {
+			color: #008fd1;
+		}
+
+		span.bold {
+			font-weight: 700;
+		}
+
+		.center {
+			text-align: center;
+		}
+
+		.block h2 {
+			text-align: center;
+		}
+
+		.text-middle {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+		}
+
+		.content {
+			display: flex;
+			flex-direction: column;
+		}
+
+		.content > .inner {
+			width: 100%;
+			padding: 15px;
+			max-width: 765px;
+		}
+
+		.content > .inner:nth-child(odd) {
+			background-color: #f3f3f3;
+		}
+
+		.content > .inner img {
+			max-width: 100%;
+		}
+
+		.content .half {
+			display: grid;
+			grid-template-columns: 350px 350px;
+			grid-gap: 15px;
+			padding: 15px 0;
+		}
+
+		.block img {
+			width: 150px;
+			margin-right: 20px;
+		}
+
+		.block p {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 170px;
+		}
+	</style>
+
+	<div class="content">
+		<div class="inner half">
+			<div>
+				<img src="logo.png">
+			</div>
+			<div class="text-middle center">
+				<h1>Якорный продукт будущего!</h1>
+			</div>
+		</div>
+		<div class="inner">
+			<p>
+				Мы встречались на нашем стенде. <br>
+				Вы выразили намерение стать нашим Дилером по ламинированному гипсокартону. <br>
+				Как и договаривались, отправляем вам условия для Дилеров.
+			</p>
+			<h2>Условия и поддержка</h2>
+			<p>
+				Заказ от 100 000 руб. - цена <span class="blue">305 руб.\м2</span><br>
+				Заказ от 500 000 руб. - цена <span class="blue bold">285 руб.\м2</span>
+			</p>
+			<p>
+				<ul>
+					<li>Бесплатная рекламная продукция</li>
+					<li>Обучение менеджеров</li>
+					<li>Переадресация клиентов по территориальному признаку</li>
+				</ul>
+			</p>
+		</div>
+		<div class="inner">
+			<img src="photo.jpg">
+			<p class="center">
+				Выставка Росбилд 2019 стенд Finishka
+			</p>
+		</div>
+		<div class="inner">
+			<div class="half">
+				<div class="block">
+					<h2>1 шаг</h2>
+					<p>
+						<img src="step1.png">
+						<span>Отправьте нам свои реквизиты</span>
+					</p>
+				</div>
+				<div class="block">
+					<h2>2 шаг</h2>
+					<p>
+						<img src="step2.jpg">
+						<span>Укажите в письме сумму для первого заказа</span>
+					</p>
+				</div>
+			</div>
+			<div class="half">
+				<div class="block">
+					<h2>3 шаг</h2>
+					<p>
+						<img src="step3.png">
+						<span>Вы получите от нас бланк договора и рейтинговую заявку</span>
+					</p>
+				</div>
+				<div class="block">
+					<h2>4 шаг</h2>
+					<p>
+						<img src="step4.jpg">
+						<span>Подпишите договор с указанием сроков оплаты счета  и желаемой даты отгрузки</span>
+					</p>
+				</div>
+			</div>
+			<h2 class="center">Заключи договор до 19 апреля 2019г. и получи:</h2>
+			<div class="half">
+				<div>
+					<img src="bonus1.jpg" width="100%">
+					<p>Рекламную компанию в интернете и трафик покупателей к вам в магазин в течение 30 дней</p>
+				</div>
+				<div>
+					<img src="bonus2.jpg" width="100%">
+					<p>Мотивацию для ваших менеджеров и продавцов</p>
+				</div>
+			</div>
+		</div>
+		<div class="inner">
+			<div class="half">
+				<div class="text-middle center">
+					<a href="https://www.finishka.com/">www.finishka.com</a>
+					<a href="mailto:info@finishka.com">info@finishka.com</a>
+				</div>
+				<div class="text-middle center">
+					<h1>8 (800) 100-60-02</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
