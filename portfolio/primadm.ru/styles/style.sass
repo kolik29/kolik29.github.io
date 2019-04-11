@@ -1,25 +1,41 @@
-menu
+menu,
+menu ul
 	margin: 0
 	margin-block-start: 0
 	margin-block-end: 0
 	padding: 0
+	list-style: none
 
 a
 	color: unset
 	text-decoration: none
 
 body
-	margin: auto
-	max-width: 1200px
 	min-height: 100vh
 	font-family: Arial
 	color: #3a3a3a
+	margin: 0
+	display: flex
+	flex-direction: column
+	justify-content: space-between
+
+	header > *,
+	footer > *,
+	main
+		max-width: 1200px
 
 	header
+		text-align: center
+		width: 100%
+		border-bottom: 3px solid #005c8b
+
 		.title
+			position: relative
+			margin: auto
 			display: flex
 			align-items: center
 			justify-content: center
+			padding: 15px
 
 			img
 				margin: 0 30px
@@ -29,47 +45,81 @@ body
 				color: #005c8b
 				text-align: center
 
-	menu
-		list-style: none
-		display: flex
-		flex-direction: row
-		justify-content: space-around
+		menu
+			display: flex
+			justify-content: space-around
+			text-align: left
+			margin: auto
 
-	header + menu
-		a
-			padding: 10px
-			display: block
-			border-bottom: 3px solid #00000000
-			transition: border .1s, color .1s
+			li
+				white-space: nowrap
 
-			&.current,
-			&:hover
+				a
+					display: inline-block
+					padding: 1em
+					transition: .3s
+
+					&:hover
+						color: #005c8b
+
+			.current > a
 				color: #005c8b
-				border-bottom-color: #005c8b
 
-		li
-			ul
-				display: none
+			> li
+				display: inline
+				margin: 0 auto
+				position: relative
 
-	main + menu
+				ul
+					list-style: none
+					display: none
+					position: absolute
+					padding-top: 3px
+					background-color: #fff
+					border-top: 3px solid #005c8b
+					padding: 0 15px
+					box-shadow: 2px 8px 10px 4px #bfbfbf
+
+					a
+						padding: .75em 0
+
+					li
+						&:not(:last-child)
+							border-bottom: 1px solid #bfbfbf
+
+				&:hover ul
+					display: block
+
+	main
+		margin: 15px auto
+		padding: 0 15px
+		flex-grow: 1
 
 	footer
 		background-color: #005c8b
+		position: relative
 
 		menu
+			text-align: center
+			display: flex
+			justify-content: space-around
+			text-align: left
+			margin: auto
 			color: #fff
-			font-size: 14px
-			border-bottom: 3px solid #fff
 
 			a
-				transition: color .1s
-				margin-bottom: 10px
-				display: block
+				padding: 1em
+				display: inline-block
+				transition: .3s
 
 				&:hover
-					color: #b1e5ff
+					color: #d1efff
 
-	header,
-	footer
-		max-height: 200px
-		padding: 20px 0
+			&:after
+				height: 3px
+				background-color: #fff
+				width: 100%
+				position: absolute
+				bottom: -3px
+				left: 0
+				content: ' '
