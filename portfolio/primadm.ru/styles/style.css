@@ -7,8 +7,12 @@ menu ul {
   list-style: none; }
 
 a {
-  color: unset;
-  text-decoration: none; }
+  color: unset; }
+
+h1, h2, h3, h4, h5, h6,
+p {
+  margin: 0;
+  line-height: 1em; }
 
 body {
   min-height: 100vh;
@@ -24,15 +28,16 @@ body {
     max-width: 1200px; }
   body header {
     text-align: center;
-    width: 100%;
     border-bottom: 3px solid #005c8b; }
+    body header a {
+      text-decoration: none; }
     body header .title {
       position: relative;
       margin: auto;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 15px; }
+      padding: 15px 0; }
       body header .title img {
         margin: 0 30px;
         height: 150px; }
@@ -66,7 +71,7 @@ body {
           background-color: #fff;
           border-top: 3px solid #005c8b;
           padding: 0 15px;
-          box-shadow: 2px 8px 10px 4px #bfbfbf; }
+          box-shadow: 3px 3px 10px 0px #000; }
           body header menu > li ul a {
             padding: 0.75em 0; }
           body header menu > li ul li:not(:last-child) {
@@ -75,11 +80,49 @@ body {
           display: block; }
   body main {
     margin: 15px auto;
-    padding: 0 15px;
-    flex-grow: 1; }
+    flex-grow: 1;
+    width: 100%; }
+    body main .row {
+      display: grid;
+      grid-template-columns: 1fr 0.75fr 250px;
+      column-gap: 15px;
+      margin: 0 15px; }
+      body main .row .col {
+        display: inline;
+        width: 100%; }
+        body main .row .col .section {
+          text-decoration: none;
+          background-color: #f1f1f1;
+          border-top-left-radius: 5px;
+          border-top-right-radius: 5px;
+          padding: 5px 10px;
+          color: #000;
+          display: inline-block;
+          transition: 0.3s; }
+          body main .row .col .section:hover {
+            color: #005c8b; }
+        body main .row .col .section-list {
+          border-radius: 5px; }
+        body main .row .col .main-news {
+          color: #3a3a3a;
+          transition: 0.3s;
+          text-decoration: none; }
+          body main .row .col .main-news img {
+            width: 100%; }
+          body main .row .col .main-news .section {
+            text-align: left; }
+          body main .row .col .main-news h1 {
+            font-weight: 100; }
+          body main .row .col .main-news p {
+            text-align: justify;
+            margin-top: 1em; }
+          body main .row .col .main-news:hover {
+            color: #005c8b; }
   body footer {
     background-color: #005c8b;
     position: relative; }
+    body footer a {
+      text-decoration: none; }
     body footer menu {
       text-align: center;
       display: flex;

@@ -8,7 +8,11 @@ menu ul
 
 a
 	color: unset
-	text-decoration: none
+
+h1, h2, h3, h4, h5, h6,
+p
+	margin: 0
+	line-height: 1em
 
 body
 	min-height: 100vh
@@ -26,8 +30,10 @@ body
 
 	header
 		text-align: center
-		width: 100%
 		border-bottom: 3px solid #005c8b
+
+		a
+			text-decoration: none
 
 		.title
 			position: relative
@@ -35,7 +41,7 @@ body
 			display: flex
 			align-items: center
 			justify-content: center
-			padding: 15px
+			padding: 15px 0
 
 			img
 				margin: 0 30px
@@ -78,7 +84,7 @@ body
 					background-color: #fff
 					border-top: 3px solid #005c8b
 					padding: 0 15px
-					box-shadow: 2px 8px 10px 4px #bfbfbf
+					box-shadow: 3px 3px 10px 0px #000
 
 					a
 						padding: .75em 0
@@ -92,12 +98,62 @@ body
 
 	main
 		margin: 15px auto
-		padding: 0 15px
 		flex-grow: 1
+		width: 100%
+
+		.row
+			display: grid
+			grid-template-columns: 1fr .75fr 250px
+			column-gap: 15px
+			margin: 0 15px
+
+			.col
+				display: inline
+				width: 100%
+
+				.section
+					text-decoration: none
+					background-color: #f1f1f1
+					border-top-left-radius: 5px
+					border-top-right-radius: 5px
+					padding: 5px 10px
+					color: #000
+					display: inline-block
+					transition: .3s
+
+					&:hover
+						color: #005c8b
+
+				.section-list
+					border-radius: 5px
+
+				.main-news
+					color: #3a3a3a
+					transition: .3s
+					text-decoration: none
+
+					img
+						width: 100%
+
+					.section
+						text-align: left
+
+					h1
+						font-weight: 100
+
+					p
+						text-align: justify
+						margin-top: 1em
+
+					&:hover
+						color: #005c8b
 
 	footer
 		background-color: #005c8b
 		position: relative
+
+		a
+			text-decoration: none
 
 		menu
 			text-align: center
