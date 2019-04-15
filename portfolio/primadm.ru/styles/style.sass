@@ -56,6 +56,7 @@ body
 			justify-content: space-around
 			text-align: left
 			margin: auto
+			z-index: 10
 
 			li
 				white-space: nowrap
@@ -77,6 +78,7 @@ body
 				position: relative
 
 				ul
+					z-index: 1
 					list-style: none
 					display: none
 					position: absolute
@@ -111,32 +113,52 @@ body
 				display: inline
 				width: 100%
 
+				img
+					width: 100%
+
 				.section
 					text-decoration: none
-					background-color: #f1f1f1
-					border-top-left-radius: 5px
-					border-top-right-radius: 5px
-					padding: 5px 10px
-					color: #000
+					color: #005c8b
+					padding: 5px 0
 					display: inline-block
 					transition: .3s
 
 					&:hover
-						color: #005c8b
+						color: #1b8fca
+
+					h2
+						font-weight: 100
 
 				.section-list
-					border-radius: 5px
+					position: relative
+
+					&:before,
+					&:after
+						position: absolute
+						content: ''
+						background-size: contain
+						background-position: center
+						height: 100%
+						width: 20px
+						left: calc(100% + .5em)
+						top: 0
+						background-repeat: no-repeat
+						transition: .3s
+
+					&:before
+						background-image: url('../img/arrow-up-down.svg')
+
+					&:after
+						opacity: 0
+						background-image: url('../img/arrow-up-down-light.svg')
+
+					&:hover:after
+						opacity: 1
 
 				.main-news
-					color: #3a3a3a
+					color: #717171
 					transition: .3s
 					text-decoration: none
-
-					img
-						width: 100%
-
-					.section
-						text-align: left
 
 					h1
 						font-weight: 100
@@ -146,7 +168,54 @@ body
 						margin-top: 1em
 
 					&:hover
+						color: #000
+
+				.list-news
+					margin-top: -15px
+
+					.news-item
+						margin: 15px 0
+						transition: .15s
+						color: #717171
+
+						a
+							display: inline-block
+							text-decoration: none
+							transition: .15s
+
+							&.news-item-section
+								color: #005c8b
+
+								&:hover
+									color: #1b8fca
+
+							&.news-item-title:hover
+
+
+
+
+
+
+								color: #000
+
+				.leader
+					.post,
+					.name
+						display: block
+						text-align: center
 						color: #005c8b
+
+					.post
+						font-weight: 700
+						font-size: 0.8em
+
+					.name
+						font-size: 1.2em
+
+					p
+						padding: .5em 0
+						text-align: justify
+
 
 	footer
 		background-color: #005c8b
