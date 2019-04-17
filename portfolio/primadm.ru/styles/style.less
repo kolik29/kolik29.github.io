@@ -1,0 +1,728 @@
+@font-face{
+	font-family: 'Myriad Pro Semibold';
+	src: url(../fonts/MyriadPro/MyriadPro-Semibold.eot) format('eot'),
+		url(../fonts/MyriadPro/MyriadPro-Semibold.ttf) format('truetype'),
+		url(../fonts/MyriadPro/MyriadPro-Semibold.woff) format('woff');
+	font-weight: 700;
+	font-style: normal;
+}
+
+@font-face{
+	font-family: 'Myriad Pro SemiCn';
+	src: url(../fonts/MyriadPro/MyriadPro-SemiCn.eot) format('eot'),
+		url(../fonts/MyriadPro/MyriadPro-SemiCn.ttf) format('truetype'),
+		url(../fonts/MyriadPro/MyriadPro-SemiCn.woff) format('woff');
+	font-weight: 700;
+	font-style: normal;
+}
+
+body {
+	display: flex;
+	justify-content: space-between;
+	min-height: 100vh;
+	flex-direction: column;
+}
+
+a,
+a:hover {
+	color: unset;
+	text-decoration: none;
+	outline: none;
+}
+
+header,
+main {
+	width: 100%;
+	max-width: 1100px;
+	margin: 0 auto;
+}
+
+.slider {
+	width: 100%;
+	overflow: hidden;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+
+	.line {
+		white-space: nowrap;
+
+		> * {
+			display: inline-block;
+			margin: 0;
+			transition: .3s;
+		}
+	}
+
+	#dotted {
+		bottom: 70px;
+		right: 20px;
+		display: flex;
+		position: absolute;
+
+		span {
+			width: 30px;
+			height: 30px;
+			background: #fff;
+			border-radius: 100%;
+			margin: 0 5px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			cursor: pointer;
+
+			&.select:after {
+				content: '';
+				width: 60%;
+				height: 60%;
+				border-radius: 100%;
+				background: url(../img/arrow.svg);
+				transform: rotate(90deg);
+				background-size: 50%;
+				background-position: center;
+				background-repeat: no-repeat;
+			}
+		}
+	}
+
+	#button-next,
+	#button-prev {
+		margin: auto 30px;
+		width: 40px;
+		height: 40px;
+		z-index: 1;
+		position: absolute;
+		border-radius: 100%;
+		top: 0;
+		bottom: 0;
+		background-color: #fff;
+		cursor: pointer;
+
+		&:before {
+			background: rgba(255, 255, 255, 0.6);
+			border-radius: 100%;
+			width: 60px;
+			height: 60px;
+			position: absolute;
+			left: -10px;
+			top: -10px;
+			content: '';
+		}
+
+		&:after {
+			background: url(../img/arrow.svg);
+			background-size: 20%;
+			background-repeat: no-repeat;
+			background-position: center;
+			content: '';
+			width: 40px;
+			height: 40px;
+			position: absolute;
+		}
+	}
+
+	#button-prev {
+		left: 0;
+	}
+
+	#button-next {
+		right: 0;
+
+		&:after {
+			transform: rotate(180deg);
+		}
+	}
+}
+
+
+header {
+	position: relative;
+
+	.extended_block {
+		position: absolute;
+		top: 15px;
+		right: 15px;
+		display: flex;
+
+		.extended_block--inner {
+			width: 40px;
+			height: 40px;
+			box-shadow: 1px 1px 1px 0.1px #313131;
+			border-radius: 100%;
+			margin-left: 8px;
+			background-size: 70%;
+			background-repeat: no-repeat;
+			background-position: center;
+			cursor: pointer;
+
+			&#instagram {
+				background-image: url(../img/instagram.png);
+			}
+
+			&#vk {
+				background-image: url(../img/vk.png);
+			}
+
+			&#site_map {
+				background-image: url(../img/site_map.png);
+			}
+
+			&#eye {
+				background-image: url(../img/eyeball.png);
+			}
+
+			&#search {
+				background-image: url(../img/search.png);
+			}
+		}
+	}
+
+	.main_title {
+		padding: 15px 0;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		.logo {
+			background-image: url(../img/primray_logo_90year.png);
+			background-repeat: no-repeat;
+			width: 130px;
+			height: 160px;
+			background-size: 100%;
+		}
+
+		.title {
+			color: #005c8b;
+			font-size: 30px;
+			text-align: center;
+			margin-left: 30px;
+			line-height: 1.25;
+			font-family: 'Myriad Pro Semibold'
+		}
+	}
+
+	menu {
+		display: flex;
+		justify-content: space-around;
+		font-family: 'Myriad Pro SemiCn';
+		font-size: 16px;
+
+		> li {
+			margin: 0 5px;
+		}
+
+		li {
+			list-style-type: none;
+			cursor: pointer;
+			color: #585858;
+			transition: .3s;
+			text-align: center;
+			position: relative;
+			padding: 10px 8px;
+
+			li {
+				text-align: justify;
+				padding: .75em;
+				line-height: 1em;
+				white-space: nowrap;
+
+				ul {
+					left: 100%;
+					margin-left: 0;
+					top: .2em;
+					border: 1px solid #b7b7b7;
+
+					li {
+						padding: .5em .75em;
+					}
+				}
+
+				&:not(:last-child) {
+					&:before {
+						background: #b7b7b7;
+						height: 1px;
+						bottom: 0;
+						width: ~'calc(100% - 1.5em)';
+						position: absolute;
+						content: '';
+					}
+				}
+			}
+
+			ul {
+				position: absolute;
+				background: #fff;
+				z-index: 10;
+				display: none;
+				border: 1px solid #b7b7b7;
+				top: 100%;
+				margin-left: -1em;
+			}
+
+			&:hover {
+				color: lighten(#585858, 20%);
+
+				> ul {
+					display: block;
+				}
+
+				&:before {
+					content: '';
+				}
+			}
+		}
+	}
+}
+
+article {
+	display: flex;
+	justify-content: center;
+
+	.title {
+		font-family: 'Myriad Pro Semibold' !important;
+		font-size: 30px !important;
+		text-align: center;
+		margin: 30px 0;
+		position: relative;
+		line-height: 1;
+		color: #005c8b;
+		text-transform: uppercase;
+
+		*:after {
+			left: ~'calc(50% - 120px)';
+			content: '';
+			bottom: -15px;
+			width: 240px;
+			height: 3px;
+			background: #333;
+			position: absolute;
+		}
+
+		a {
+			transition: .3s;
+			color: #005c8b;
+
+			&:hover {
+				color: lighten(#005c8b, 20%);
+			}
+		}
+	}
+}
+
+article.main_news {
+	#news_slider {
+		align-items: center;
+
+		.line {
+			> * {
+				transition: .3s;
+			}
+
+			a {
+				position: relative;
+
+				img {
+					width: 100%;
+				}
+
+				.name {
+					position: absolute;
+					font-size: 25px;
+					text-align: center;
+					background: rgba(255, 255, 255, 0.5);
+					bottom: 0;
+					height: 60px;
+					line-height: 60px;
+					width: 100%;
+				}
+			}
+		}
+	}
+}
+
+article.all_news {
+	flex-direction: column;
+
+	.row {
+		margin: 0;
+	}
+
+	.news-item {
+		margin: 15px 0;
+
+		a {
+			display: block;
+			font-family: 'Myriad Pro SemiCn';
+			color: #333;
+			font-size: 20px;
+			line-height: 1;
+			text-align: center;
+			transition: .3s;
+
+			&:hover {
+				color: lighten(#333, 20%);
+			}
+
+			img {
+				width: 100%;
+				margin-bottom: 10px;
+			}
+		}
+	}
+}
+
+.rubrics {
+	background: #f2f2f2;
+	flex-direction: column;
+	border: 1px solid #b8b9b9;
+
+	.ribrics-block {
+		display: flex;
+		max-width: 100%;
+		justify-content: space-around;
+		align-items: center;
+		flex-wrap: wrap;
+
+		a {
+			display: block;
+			font-family: 'Myriad Pro SemiCn';
+			color: #333;
+			font-size: 30px;
+			line-height: 1;
+			text-align: center;
+			transition: .3s;
+			margin: 10px;
+
+			&:hover {
+				color: lighten(#333, 20%);
+			}
+		}
+	}
+}
+
+.events {
+	flex-direction: column;
+
+	.events--inner {
+		display: flex;
+		padding: 15px 0 30px;
+
+		.left,
+		.right {
+			width: 50%;
+		}
+
+		.left {
+			display: flex;
+			justify-content: flex-start;
+			align-items: flex-start;
+
+			#calendar {
+				border: 1px solid #b8b9b9;
+				border-radius: 2px;
+				padding: 2em 20px 20px;
+				width: 75%;
+				position: relative;
+				overflow-x: hidden;
+
+				.month-year {
+					display: flex;
+					justify-content: space-around;
+					width: 100%;
+					margin-top: -1em;
+					left: 0;
+
+					#month,
+					#year {
+						line-height: 1em !important;
+						color: #464646;
+						text-align: center;
+						cursor: pointer;
+						transition: .3s;
+
+						&:hover {
+							color: #005c8b;
+						}
+					}
+				}
+
+				.week-day-name {
+					text-transform: uppercase;
+					color: #005c8b;
+					display: flex;
+					margin: 0 -10px;
+
+					div {
+						min-width: ~'calc(100% / 7)';
+						padding: 0 10px;
+						text-align: center;
+					}
+				}
+
+				#month-day {
+					display: flex;
+					flex-wrap: wrap;
+					margin: 0 -10px;
+
+					div,
+					span {
+						min-width: ~'calc(100% / 7)';
+						text-align: center;
+						padding: 0 10px;
+						border: 2px solid rgba(0, 0, 0, 0);
+						transition: .15s;
+					}
+
+					div {
+						cursor: pointer;
+
+						&:hover {
+							border: 2px solid #005c8b;
+						}
+
+						&.current {
+							color: #fff;
+							background: #005c8b;
+						}
+					}
+				}
+
+				#month-list,
+				#year-list {
+					position: absolute;
+					background: #fff;
+					left: 0;
+					top: -100%;
+					width: 100%;
+					height: 100%;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					flex-wrap: wrap;
+					padding: 1em;
+					display: flex;
+					transition: .3s;
+					top: -100%;
+
+					div {
+						min-width: 25%;
+						text-align: center;
+						cursor: pointer;
+
+						&.select {
+							color: #005c8b;
+						}
+
+						&:hover {
+							color: #005c8b;
+							text-decoration: underline;
+						}
+					}
+				}
+
+				#year-list {
+					div {
+						min-width: 20%;
+					}
+				}
+			}
+		}
+
+		.right {
+			transition: .3s;
+
+			div {
+				padding: .25em;
+				color: #005c8b;
+				transition: .15s;
+				opacity: 1;
+
+				a:hover {
+					text-decoration: underline;
+				}
+			}
+		}
+	}
+}
+
+.photo {
+	background: #f2f2f2;
+	flex-direction: column;
+	border: 1px solid #b8b9b9;
+	padding: 0 25px 30px;
+
+	.title {
+		margin-bottom: 40px;
+	}
+
+	.line > div {
+		text-align: center;
+	}
+
+	img {
+		width: ~'calc(100% - 20px)';
+	}
+}
+
+.banners {
+	position: relative;
+	background: #fff;
+
+	#banners_slider {
+		.line {
+			div {
+				width: 171px;
+				height: 171px;
+
+				a {
+					width: 100%;
+					height: 100%;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+
+					img {
+						width: 80%;
+					}
+				}
+			}
+		}
+	}
+}
+
+.feedback {
+	background: #89d7f7;
+	flex-direction: column;
+
+	.feedback-inner {
+		display: flex;
+		width: 100%;
+
+		input,
+		textarea,
+		button {
+			border: none;
+			outline: none;
+			font-style: italic;
+			background: #f2f2f2;
+		}
+
+		.left,
+		.right {
+			width: 100%;
+		}
+
+		.left {
+			display: flex;
+			flex-direction: column;
+			padding-left: 45px;
+			justify-content: center;
+
+			div:nth-child(1) {
+				padding-bottom: 1em;
+				font-weight: 600;
+				font-size: 20px;
+			}
+
+			.userText {
+				display: flex;
+				flex-direction: column;
+				background: #f2f2f2;
+				padding: 25px;
+
+				textarea {
+					resize: none;
+					padding: 0;
+					height: 5em;
+				}
+
+				input:nth-child(2) {
+					margin-bottom: 1em;
+				}
+			}
+
+			.userAdressSend {
+				display: flex;
+				margin-top: 1.5em;
+				display: flex;
+				justify-content: space-between;
+
+				input {
+					padding: 1em 25px;
+					width: 57.5%;
+				}
+
+				button {
+					width: 37.5%;
+					font-style: normal;
+					background: #7793a7;
+					border: 1px solid #f2f2f2;
+					text-transform: uppercase;
+					border-radius: 2px;
+					color: #fff;
+					font-size: 14px;
+					font-weight: 600;
+					display: flex;
+					flex-direction: row;
+					align-items: center;
+					justify-content: center;
+
+					img {
+						height: 1em;
+						margin-right: 15px;
+					}
+				}
+			}
+		}
+
+		.right {
+			background: url('../img/Карта_Приморского_района_2017.png');
+			background-size: 85%;
+			background-position: center;
+			background-repeat: no-repeat;
+			padding-top: 37%;
+		}
+	}
+}
+
+footer {
+	background: #005c8b;
+	position: relative;
+	display: flex;
+	align-items: center;
+	color: #fff;
+	flex-direction: column;
+
+	menu {
+		width: 100%;
+		max-width: 1100px;
+		display: flex;
+		padding: 25px 0 15px;
+		justify-content: space-between;
+		border-bottom: 1px solid #fff;
+
+		li {
+			list-style-type: none;
+		}
+	}
+
+	.name {
+		padding-top: 15px;
+	}
+
+	.name,
+	.link {
+		width: 100%;
+		max-width: 1100px;
+		text-align: justify;
+		display: flex;
+		justify-content: space-between;
+	}
+
+	.link {
+		padding-bottom: 25px;
+		a:hover {
+			text-decoration: underline;
+		}
+	}
+}

@@ -1,0 +1,55 @@
+main .news {
+  flex: 1 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+main .news .breadcrumbs {
+  font-size: 0.8em;
+  color: #005c8b;
+}
+main .news aside {
+  min-width: 20%;
+  align-self: baseline;
+  padding: 15px;
+  border: 1px solid #b8b9b9;
+}
+main .news aside .title {
+  font-weight: 700;
+}
+main .news aside .ribrics-block {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  flex-direction: column;
+}
+main .news aside .ribrics-block a:hover {
+  color: #005c8b;
+}
+main .news section article {
+  text-align: justify;
+  display: block;
+  padding-right: 15px;
+}
+main .news section article img {
+  max-height: 19em;
+  float: left;
+  align-self: baseline;
+}
+main .news section article img:first-child {
+  padding: 1em;
+  margin-left: -1em;
+  margin-top: -1em;
+}
+main .news section article p {
+  margin: 0;
+}
+main .more_news {
+  flex-direction: column;
+}
+main .more_news a {
+  display: flex;
+  flex-direction: column;
+}
+main .more_news img {
+  width: 100%;
+}
