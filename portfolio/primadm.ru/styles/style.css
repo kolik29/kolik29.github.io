@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 menu,
 menu ul {
   margin: 0;
@@ -210,6 +211,24 @@ body {
   display: flex;
   justify-content: space-between;
   min-height: 100vh;
+=======
+@font-face {
+  font-family: 'Myriad Pro Semibold';
+  src: url(../fonts/MyriadPro/MyriadPro-Semibold.eot) format('eot'), url(../fonts/MyriadPro/MyriadPro-Semibold.ttf) format('truetype'), url(../fonts/MyriadPro/MyriadPro-Semibold.woff) format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Myriad Pro SemiCn';
+  src: url(../fonts/MyriadPro/MyriadPro-SemiCn.eot) format('eot'), url(../fonts/MyriadPro/MyriadPro-SemiCn.ttf) format('truetype'), url(../fonts/MyriadPro/MyriadPro-SemiCn.woff) format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+body {
+  display: flex;
+  justify-content: space-between;
+  min-height: 100vh;
+>>>>>>> parent of 76ec0ef... Переписываю primadm
   flex-direction: column;
 }
 a,
@@ -799,4 +818,7 @@ footer .link {
 footer .link a:hover {
   text-decoration: underline;
 }
+<<<<<<< HEAD
+>>>>>>> parent of 76ec0ef... Переписываю primadm
+=======
 >>>>>>> parent of 76ec0ef... Переписываю primadm
