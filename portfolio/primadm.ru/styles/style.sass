@@ -7,6 +7,14 @@ menu li
 	padding: 0
 	list-style: none
 
+menu
+	display: flex
+	justify-content: space-around
+
+	a
+		padding: 1em .5em
+		display: block
+
 a
 	color: unset
 
@@ -24,227 +32,131 @@ body
 	flex-direction: column
 	justify-content: space-between
 
-	header > *,
-	footer > *,
-	main
+	.inner
 		max-width: 1200px
-
-	header
-		text-align: center
-		border-bottom: 3px solid #005c8b
-
-		a
-			text-decoration: none
-
-		.title
-			position: relative
-			margin: auto
-			display: flex
-			align-items: center
-			justify-content: center
-			padding: 15px 0
-
-			img
-				margin: 0 30px
-				height: 150px
-
-			h1
-				color: #005c8b
-				text-align: center
-
-		menu
-			display: flex
-			justify-content: space-around
-			text-align: left
-			margin: auto
-			z-index: 10
-
-			li
-				white-space: nowrap
-
-				a
-					display: inline-block
-					padding: 1em
-					transition: .3s
-
-					&:hover
-						color: #005c8b
-
-			.current > a
-				color: #005c8b
-
-			> li
-				display: inline
-				margin: 0 auto
-				position: relative
-
-				ul
-					border: 1px solid #005c8b
-					z-index: 1
-					list-style: none
-					display: none
-					position: absolute
-					padding-top: 3px
-					background-color: #fff
-					border-top: 3px solid #005c8b
-					padding: 0 15px
-
-					a
-						padding: .75em 0
-
-					li
-						&:not(:last-child)
-							border-bottom: 1px solid #bfbfbf
-
-				&:hover ul
-					display: block
-
-	main
-		margin: 15px auto
-		flex-grow: 1
 		width: 100%
 
-		.row
-			display: grid
-			grid-template-columns: 1fr .75fr 200px
-			column-gap: 30px
-			margin: 0 30px
-
-			.col
-				display: inline
-				width: 100%
-				position: relative
-
-				img
-					width: 100%
-
-				.section
-					text-decoration: none
-					color: #005c8b
-					padding: 5px 0
-					display: inline-block
-					transition: .3s
-
-					&:hover
-						color: #1b8fca
-
-					h2
-						font-weight: 100
-
-				.section-list
-					display: flex
-					align-items: center
-					position: relative
-
-					span
-						background-size: contain
-						background-position: center
-						height: 20px
-						width: 20px
-						margin-left: .5em
-						background-repeat: no-repeat
-						transition: .3s
-						background-image: url('../img/arrow-up-down.svg')
-						display: block
-
-					&:hover span
-						background-image: url('../img/arrow-up-down-light.svg')
-
-				.section-list-all
-					display: none
-					position: absolute
-					background-color: #fff
-					margin-left: -10px
-					padding: 0 10px 10px 10px
-
-					a
-						&:hover
-							color: #005c8b
-
-				.main-news
-					color: #3e3e3e
-					transition: .3s
-					text-decoration: none
-
-					h1
-						font-weight: 100
-
-					p
-						text-align: justify
-						margin-top: 1em
-
-					&:hover
-						color: #000
-
-				.list-news
-					margin-top: -15px
-
-					.news-item
-						margin: 15px 0
-						transition: .15s
-						color: #717171
-
-						a
-							display: inline-block
-							text-decoration: none
-							transition: .15s
-
-							&.news-item-section
-								color: #005c8b
-
-								&:hover
-									color: #1b8fca
-
-							&.news-item-title:hover
-								color: #000
-
-				.leader
-					.post,
-					.name
-						display: block
-						text-align: center
-						color: #005c8b
-
-					.post
-						font-weight: 700
-						font-size: 0.8em
-
-					.name
-						font-size: 1.2em
-
-					p
-						padding: .5em 0
-						text-align: justify
-
-
+	header,
 	footer
-		background-color: #005c8b
-		position: relative
-
 		a
 			text-decoration: none
 
-		menu
-			text-align: center
-			display: flex
-			justify-content: space-around
-			text-align: left
-			margin: auto
-			color: #fff
+	header,
+	main,
+	footer
+		display: flex
+		align-items: center
+		justify-content: space-between
+		flex-direction: column
 
-			a
-				padding: 1em
-				display: inline-block
+	header
+		border-bottom: 3px solid #005c8b
+		background: #fff
+
+		.header-top
+			display: flex
+			align-items: center
+			color: #005c8b
+			text-align: center
+			text-transform: uppercase
+			justify-content: center
+			margin: 20px 0 5px
+
+			div div
+				font-size: 1.27em
+				line-height: 1.25em
+
+			img
+				height: 7em
+				margin: 0 1.5em
+
+		menu
+			width: 100%
+			position: relative
+
+			> li
 				transition: .3s
 
-				&:hover
-					color: #d1efff
+				a:hover
+					color: #005c8b
 
-			&:after
-				height: 3px
-				background-color: #fff
-				width: 100%
-				position: absolute
-				bottom: -3px
-				left: 0
-				content: ' '
+				> a
+					padding: 1.5em .5em
+
+
+				&:hover
+					> a
+						color: #005c8b
+
+					ul
+						display: grid
+
+				ul
+					display: none
+					position: absolute
+					max-width: calc(1200px - 3em)
+					width: 100%
+					padding: 1.5em
+					left: 0
+					grid-template-columns: repeat(5, 1fr)
+					grid-gap: 2em 0
+					align-items: center
+					box-shadow: 0 10px 30px 0 rgba(1, 46, 154, .15)
+					border-bottom-left-radius: 4px
+					border-bottom-right-radius: 4px
+
+					&:after
+						left: 100%
+
+					&:before
+						right: 100%
+
+					li
+						padding: 0 .75em
+
+						a
+							padding: .25em
+							display: block
+
+	footer
+		background: #005c8b
+		color: #fff
+		transition: .3s
+
+		a:hover
+			color: #bee9ff
+
+		menu
+			border-bottom: 1px solid #fff
+
+		.footer-bottom
+			display: grid
+			grid-template-columns: repeat(3, 1fr)
+			padding: 15px
+			font-size: .85em
+
+			.copyright
+				display: flex
+				text-transform: uppercase
+				text-align: center
+				align-items: center
+
+				img
+					height: 3.5em
+					margin: 0 1em
+
+				div
+					font-size: .99em
+
+			.contact
+				display: flex
+				justify-content: center
+				flex-direction: column
+
+			.more
+				display: flex
+				align-items: center
+				justify-content: space-between
+
+				a:hover
+					text-decoration: underline
