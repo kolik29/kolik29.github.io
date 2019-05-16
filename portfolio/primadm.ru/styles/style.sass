@@ -89,21 +89,24 @@ body
 						color: #005c8b
 
 					ul
-						display: grid
+						left: 0
+						opacity: 1
 
 				ul
-					display: none
+					display: grid
+					left: -100vw
 					position: absolute
 					max-width: calc(1200px - 3em)
 					width: 100%
 					padding: 1.5em
-					left: 0
 					grid-template-columns: repeat(5, 1fr)
 					grid-gap: 2em 0
 					align-items: center
 					box-shadow: 0 10px 30px 0 rgba(1, 46, 154, .15)
 					border-bottom-left-radius: 4px
 					border-bottom-right-radius: 4px
+					transition: opacity .3s
+					opacity: 0
 
 					&:after
 						left: 100%
