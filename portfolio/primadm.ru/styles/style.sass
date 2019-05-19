@@ -40,9 +40,76 @@ body
 		width: 100%
 
 	header,
-	footer
+	footer,
+	.link,
+	.news,
+	.events-list
 		a
 			text-decoration: none
+
+	.border-bottom
+		position: relative
+
+		&:after
+			position: absolute
+			height: 1px
+			width: 100%
+			background: #e4e4e4
+			bottom: 0
+			left: 0
+			content: ""
+
+	.events,
+	.docs
+		padding: 3em 0 0 0
+
+	.title
+		display: grid
+		grid-template-columns: 1fr auto auto
+		grid-gap: 2em
+		align-items: end
+		margin-bottom: 20px
+
+		&:after
+			bottom: -20px
+
+		input
+			display: none
+
+			&:checked + label
+				color: #ff2a2a
+
+				&:after
+					opacity: 1
+					z-index: 1
+
+		h1
+			display: inline-block
+
+
+		.type
+			font-weight: 700
+			transition: .3s
+			padding: 0 .5em
+			position: relative
+
+			&:after
+				position: absolute
+				content: ''
+				background: #ff2a2a
+				height: 4px
+				bottom: -20px
+				left: 0
+				width: 100%
+				opacity: 0
+				transition: .3s
+
+			&:hover
+				color: #ff2a2a
+
+				&:after
+					opacity: 1
+					z-index: 1
 
 	header,
 	main,
@@ -88,6 +155,7 @@ body
 
 				> a
 					padding: 1.5em .5em
+					text-align: center
 
 
 				&:hover
@@ -109,8 +177,8 @@ body
 					grid-gap: 2em 0
 					align-items: center
 					box-shadow: 0 10px 30px 0 rgba(1, 46, 154, .15)
-					border-bottom-left-radius: 4px
-					border-bottom-right-radius: 4px
+					border-bottom-left-radius: 5px
+					border-bottom-right-radius: 5px
 					transition: opacity .3s
 					opacity: 0
 
@@ -128,15 +196,73 @@ body
 							display: block
 
 	main
-		padding: 2em 15px
+		padding: 3em 15px
+		overflow-x: hidden
+
+		.link
+			text-align: center
+			font-weight: 700
+			padding: 2em 0 3em
+
+			a
+				display: inline-block
+				transition: .3s
+				color: #5d5d5d
+				position: relative
+
+				&:hover
+					color: #ff2a2a
+
+					&:after
+						background-image: url('../img/link-red.svg')
+
+				&:after
+					position: absolute
+					content: ''
+					right: -2em
+					background-image: url('../img/link.svg')
+					background-size: cover
+					background-repeat: no-repeat
+					background-position: center
+					height: 1em
+					width: 1em
+					transition: .3s
+
+		.bkg-gray
+			background: #f5f5f5
+			position: relative
+
+			&:after,
+			&:before
+				content: ''
+				background: #f5f5f5
+				position: absolute
+				height: 100%
+				width: 50vw
+				top: 0
+				z-index: -1
+
+			&:after
+				left: 100%
+
+			&:before
+				right: 100%
 
 		.news
 			display: grid
 			grid-template-columns: 3fr 2fr
-			grid-gap: 15px
+			grid-gap: 3em
+			align-items: start
 
 			a
-				text-decoration: none
+				display: inline-block
+
+				&:hover
+					color: #ff2a2a
+
+			.news-date
+				color: #5d5d5d
+				font-size: .85em
 
 			.news-main
 				.news-photo
@@ -144,8 +270,7 @@ body
 					padding-bottom: 56%
 					position: relative
 					overflow: hidden
-					border-radius: 3px
-					text-decoration: none
+					border-radius: 5px
 
 					img
 						position: absolute
@@ -155,21 +280,127 @@ body
 
 				img,
 				h1
+					font-size: 2em
 					transition: .3s
 
-				h1
-					padding: .75em 0
-
-				p
-					text-align: justify
-					font-size: 1.2em
-
+				.news-title
+					padding: .45em 0
 				&:hover
 					img
-						transform: scale(1.05)
+						transform: scale(1.03)
 
-					h1
-						color: red
+			.news-list
+				margin: -1em 0
+
+				.news-item
+					padding: 1em 0
+					display: block
+					position: relative
+
+					&:not(:last-child)
+						content: ''
+						border-bottom: 1px solid #e4e4e4
+
+					.news-section
+						text-transform: uppercase
+						font-size: .85em
+						font-weight: 700
+						color: #ff2a2a
+						position: relative
+						padding-left: 1.5em
+						display: flex
+						align-items: center
+
+						&:after
+							content: ''
+							position: absolute
+							height: .65em
+							width: .65em
+							background: #ff2a2a
+							left: 0
+							margin: auto
+							border-radius: 100%
+
+					.news-title
+						padding: .5em 0
+						transition: .3s
+
+		.events
+			.events-body
+				display: grid
+				grid-template-columns: 40% 1fr
+				padding: 3em 0 2em
+				align-items: start
+				grid-gap: 3em
+
+				.calendar,
+				.events-item
+					background: #fff
+					border-radius: 4px
+
+					.calendar-title
+						text-align: center
+						font-weight: 700
+						padding: 1em
+						cursor: pointer
+						transition: .3s
+
+						&:hover
+							color: #ff2a2a
+
+					.week-days
+						text-transform: uppercase
+						font-weight: 700
+						color: #5d5d5d
+						margin-top: .5em
+
+					.week-days,
+					.calendar-days
+						display: grid
+						grid-template-columns: repeat(7, 1fr)
+						text-align: center
+
+						div
+							padding: .5em 1em
+
+					.calendar-days
+						div
+							cursor: pointer
+							outline-offset: -2px
+							transition: .3s
+							outline: 2px solid rgba(0, 0, 0, 0)
+
+							&.current,
+							&:hover
+								outline: 2px solid #ff2a2a
+								color: #ff2a2a
+
+				.events-list
+					margin: -1em 0
+
+					.events-item
+						background: #fff
+						padding: 1em 1em 1em 0
+						display: grid
+						align-items: center
+						grid-template-columns: 15% 1fr
+						transition: .3s
+						margin: 1em 0
+
+						h3
+							transition: .3s
+
+						&:hover
+							box-shadow: 0 0 15px 0 rgba(1, 46, 154, .15)
+
+							h3
+								color: #ff2a2a
+
+						.event-date
+							text-align: center
+
+							h1
+								color: #ff2a2a
 
 	footer
 		background: #005c8b

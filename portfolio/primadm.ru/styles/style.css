@@ -36,8 +36,61 @@ body {
     max-width: 1200px;
     width: 100%; }
   body header a,
-  body footer a {
+  body footer a,
+  body .link a,
+  body .news a,
+  body .events-list a {
     text-decoration: none; }
+  body .border-bottom {
+    position: relative; }
+    body .border-bottom:after {
+      position: absolute;
+      height: 1px;
+      width: 100%;
+      background: #e4e4e4;
+      bottom: 0;
+      left: 0;
+      content: ""; }
+  body .events,
+  body .docs {
+    padding: 3em 0 0 0; }
+  body .title {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    grid-gap: 2em;
+    align-items: end;
+    margin-bottom: 20px; }
+    body .title:after {
+      bottom: -20px; }
+    body .title input {
+      display: none; }
+      body .title input:checked + label {
+        color: #ff2a2a; }
+        body .title input:checked + label:after {
+          opacity: 1;
+          z-index: 1; }
+    body .title h1 {
+      display: inline-block; }
+    body .title .type {
+      font-weight: 700;
+      transition: 0.3s;
+      padding: 0 0.5em;
+      position: relative; }
+      body .title .type:after {
+        position: absolute;
+        content: "";
+        background: #ff2a2a;
+        height: 4px;
+        bottom: -20px;
+        left: 0;
+        width: 100%;
+        opacity: 0;
+        transition: 0.3s; }
+      body .title .type:hover {
+        color: #ff2a2a; }
+        body .title .type:hover:after {
+          opacity: 1;
+          z-index: 1; }
   body header,
   body main,
   body footer {
@@ -72,7 +125,8 @@ body {
       body header menu > li a:hover {
         color: #005c8b; }
       body header menu > li > a {
-        padding: 1.5em 0.5em; }
+        padding: 1.5em 0.5em;
+        text-align: center; }
       body header menu > li:hover > a {
         color: #005c8b; }
       body header menu > li:hover ul {
@@ -89,8 +143,8 @@ body {
         grid-gap: 2em 0;
         align-items: center;
         box-shadow: 0 10px 30px 0 rgba(1, 46, 154, 0.15);
-        border-bottom-left-radius: 4px;
-        border-bottom-right-radius: 4px;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
         transition: opacity 0.3s;
         opacity: 0; }
         body header menu > li ul:after {
@@ -103,20 +157,65 @@ body {
             padding: 0.25em;
             display: block; }
   body main {
-    padding: 2em 15px; }
+    padding: 3em 15px;
+    overflow-x: hidden; }
+    body main .link {
+      text-align: center;
+      font-weight: 700;
+      padding: 2em 0 3em; }
+      body main .link a {
+        display: inline-block;
+        transition: 0.3s;
+        color: #5d5d5d;
+        position: relative; }
+        body main .link a:hover {
+          color: #ff2a2a; }
+          body main .link a:hover:after {
+            background-image: url("../img/link-red.svg"); }
+        body main .link a:after {
+          position: absolute;
+          content: "";
+          right: -2em;
+          background-image: url("../img/link.svg");
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: center;
+          height: 1em;
+          width: 1em;
+          transition: 0.3s; }
+    body main .bkg-gray {
+      background: #f5f5f5;
+      position: relative; }
+      body main .bkg-gray:after, body main .bkg-gray:before {
+        content: "";
+        background: #f5f5f5;
+        position: absolute;
+        height: 100%;
+        width: 50vw;
+        top: 0;
+        z-index: -1; }
+      body main .bkg-gray:after {
+        left: 100%; }
+      body main .bkg-gray:before {
+        right: 100%; }
     body main .news {
       display: grid;
       grid-template-columns: 3fr 2fr;
-      grid-gap: 15px; }
+      grid-gap: 3em;
+      align-items: start; }
       body main .news a {
-        text-decoration: none; }
+        display: inline-block; }
+        body main .news a:hover {
+          color: #ff2a2a; }
+      body main .news .news-date {
+        color: #5d5d5d;
+        font-size: 0.85em; }
       body main .news .news-main .news-photo {
         width: 100%;
         padding-bottom: 56%;
         position: relative;
         overflow: hidden;
-        border-radius: 3px;
-        text-decoration: none; }
+        border-radius: 5px; }
         body main .news .news-main .news-photo img {
           position: absolute;
           left: 0;
@@ -124,16 +223,111 @@ body {
           width: 100%; }
       body main .news .news-main img,
       body main .news .news-main h1 {
+        font-size: 2em;
         transition: 0.3s; }
-      body main .news .news-main h1 {
-        padding: 0.75em 0; }
-      body main .news .news-main p {
-        text-align: justify;
-        font-size: 1.2em; }
+      body main .news .news-main .news-title {
+        padding: 0.45em 0; }
       body main .news .news-main:hover img {
-        transform: scale(1.05); }
-      body main .news .news-main:hover h1 {
-        color: red; }
+        transform: scale(1.03); }
+      body main .news .news-list {
+        margin: -1em 0; }
+        body main .news .news-list .news-item {
+          padding: 1em 0;
+          display: block;
+          position: relative; }
+          body main .news .news-list .news-item:not(:last-child) {
+            content: "";
+            border-bottom: 1px solid #e4e4e4; }
+          body main .news .news-list .news-item .news-section {
+            text-transform: uppercase;
+            font-size: 0.85em;
+            font-weight: 700;
+            color: #ff2a2a;
+            position: relative;
+            padding-left: 1.5em;
+            display: flex;
+            align-items: center; }
+            body main .news .news-list .news-item .news-section:after {
+              content: "";
+              position: absolute;
+              height: 0.65em;
+              width: 0.65em;
+              background: #ff2a2a;
+              left: 0;
+              margin: auto;
+              border-radius: 100%; }
+          body main .news .news-list .news-item .news-title {
+            padding: 0.5em 0;
+            transition: 0.3s; }
+    body main .events .events-body {
+      display: grid;
+      grid-template-columns: 40% 1fr;
+      padding: 3em 0 2em;
+      align-items: start;
+      grid-gap: 3em; }
+      body main .events .events-body .calendar,
+      body main .events .events-body .events-item {
+        background: #fff;
+        border-radius: 4px; }
+        body main .events .events-body .calendar .calendar-title,
+        body main .events .events-body .events-item .calendar-title {
+          text-align: center;
+          font-weight: 700;
+          padding: 1em;
+          cursor: pointer;
+          transition: 0.3s; }
+          body main .events .events-body .calendar .calendar-title:hover,
+          body main .events .events-body .events-item .calendar-title:hover {
+            color: #ff2a2a; }
+        body main .events .events-body .calendar .week-days,
+        body main .events .events-body .events-item .week-days {
+          text-transform: uppercase;
+          font-weight: 700;
+          color: #5d5d5d;
+          margin-top: 0.5em; }
+        body main .events .events-body .calendar .week-days,
+        body main .events .events-body .calendar .calendar-days,
+        body main .events .events-body .events-item .week-days,
+        body main .events .events-body .events-item .calendar-days {
+          display: grid;
+          grid-template-columns: repeat(7, 1fr);
+          text-align: center; }
+          body main .events .events-body .calendar .week-days div,
+          body main .events .events-body .calendar .calendar-days div,
+          body main .events .events-body .events-item .week-days div,
+          body main .events .events-body .events-item .calendar-days div {
+            padding: 0.5em 1em; }
+        body main .events .events-body .calendar .calendar-days div,
+        body main .events .events-body .events-item .calendar-days div {
+          cursor: pointer;
+          outline-offset: -2px;
+          transition: 0.3s;
+          outline: 2px solid rgba(0, 0, 0, 0); }
+          body main .events .events-body .calendar .calendar-days div.current, body main .events .events-body .calendar .calendar-days div:hover,
+          body main .events .events-body .events-item .calendar-days div.current,
+          body main .events .events-body .events-item .calendar-days div:hover {
+            outline: 2px solid #ff2a2a;
+            color: #ff2a2a; }
+      body main .events .events-body .events-list {
+        margin: -1em 0; }
+        body main .events .events-body .events-list .events-item {
+          background: #fff;
+          padding: 1em 1em 1em 0;
+          display: grid;
+          align-items: center;
+          grid-template-columns: 15% 1fr;
+          transition: 0.3s;
+          margin: 1em 0; }
+          body main .events .events-body .events-list .events-item h3 {
+            transition: 0.3s; }
+          body main .events .events-body .events-list .events-item:hover {
+            box-shadow: 0 0 15px 0 rgba(1, 46, 154, 0.15); }
+            body main .events .events-body .events-list .events-item:hover h3 {
+              color: #ff2a2a; }
+          body main .events .events-body .events-list .events-item .event-date {
+            text-align: center; }
+            body main .events .events-body .events-list .events-item .event-date h1 {
+              color: #ff2a2a; }
   body footer {
     background: #005c8b;
     color: #fff;
