@@ -197,7 +197,7 @@ body
 							display: block
 
 	main
-		padding: 3em 15px
+		padding: 3em 15px 0 15px
 		overflow-x: hidden
 
 		.link
@@ -205,11 +205,15 @@ body
 			font-weight: 700
 			padding: 2em 0 3em
 
-			a
+			input
+				display: none
+
+			a, label
 				display: inline-block
 				transition: .3s
 				color: #5d5d5d
 				position: relative
+				cursor: pointer
 
 				&:hover
 					color: #ff2a2a
@@ -221,6 +225,7 @@ body
 					position: absolute
 					content: ''
 					right: -2em
+					top: 0
 					background-image: url('../img/link.svg')
 					background-size: cover
 					background-repeat: no-repeat
@@ -228,6 +233,29 @@ body
 					height: 1em
 					width: 1em
 					transition: .3s
+
+			label
+				&:after
+					background-image: url('../img/drop-down-list.png')
+
+				&:hover
+					&:after
+						background-image: url('../img/drop-down-list--red.png')
+
+				#h-more
+					display: none
+
+			input:checked + label
+				color: #ff2a2a
+
+				&:after
+					background-image: url('../img/drop-up-list--red.png')
+
+				#v-more
+					display: none
+
+				#h-more
+					display: block
 
 		.bkg-gray
 			background: #f5f5f5
@@ -406,6 +434,51 @@ body
 		.docs
 			.title
 				grid-template-columns: 1fr auto auto auto
+
+			.docs-body
+				padding: 3em 0 2em
+				display: grid
+				grid-gap: 2em
+				grid-template-columns: repeat(3, 1fr)
+
+				a
+					padding: 2em
+					border: 1px solid #e4e4e4
+					border-radius: 3px
+					transition: .3s
+					text-decoration: none
+
+					h4
+						transition: .3s
+
+					&:hover
+						box-shadow: 0 0 15px 0 rgba(1, 46, 154, .15)
+
+						h4
+							color: #ff2a2a
+
+		.links
+			padding: 3em 0 0 0
+
+			.links-body
+				display: grid
+				grid-gap: 2em
+				grid-template-columns: repeat(4, 1fr)
+				padding: 3em 0 2em
+				overflow-y: hidden
+
+				a
+					border: 1px solid #e4e4e4
+					background: #fff
+					padding: 2em
+					border-radius: 5px
+					text-decoration: none
+					font-weight: 700
+					transition: .3s
+
+					&:hover
+						color: #ff2a2a
+						box-shadow: 0 0 15px 0 rgba(1, 46, 154, 0.15)
 
 	footer
 		background: #005c8b
