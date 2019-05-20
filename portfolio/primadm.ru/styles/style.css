@@ -34,7 +34,8 @@ body {
   grid-template-rows: auto 1fr auto; }
   body .inner {
     max-width: 1200px;
-    width: 100%; }
+    width: 100%;
+    position: relative; }
   body header a,
   body footer a,
   body .link a,

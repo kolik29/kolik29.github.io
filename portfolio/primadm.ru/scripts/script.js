@@ -4,5 +4,5 @@ $(document).ready(function() {
 
 	console.log(h1, h2)
 
-	$('.links-body').height(h1 + h2 + 5);
+	$('.links-body').height(h1 + h2 + 15);
 });
