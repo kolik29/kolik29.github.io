@@ -75,7 +75,8 @@ body {
       font-weight: 700;
       transition: 0.3s;
       padding: 0 0.5em;
-      position: relative; }
+      position: relative;
+      cursor: pointer; }
       body .title .type:after {
         position: absolute;
         content: "";
@@ -328,6 +329,8 @@ body {
             text-align: center; }
             body main .events .events-body .events-list .events-item .event-date h1 {
               color: #ff2a2a; }
+    body main .docs .title {
+      grid-template-columns: 1fr auto auto auto; }
   body footer {
     background: #005c8b;
     color: #fff;
