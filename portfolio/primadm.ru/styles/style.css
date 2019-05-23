@@ -329,7 +329,11 @@ body {
             outline: 2px solid #ff2a2a;
             color: #ff2a2a; }
       body main .events .events-body .events-list {
-        margin: -1em 0; }
+        margin: -1em 0;
+        display: none;
+        padding: 0; }
+        body main .events .events-body .events-list.dis-block {
+          display: block; }
         body main .events .events-body .events-list .events-item {
           background: #fff;
           padding: 1em 1em 1em 0;
@@ -373,8 +377,7 @@ body {
         display: grid;
         grid-gap: 2em;
         grid-template-columns: repeat(4, 1fr);
-        padding: 3em 0 2em;
-        overflow-y: hidden; }
+        padding: 3em 0 2em; }
         body main .links .links-body a {
           border: 1px solid #e4e4e4;
           background: #fff;
@@ -383,6 +386,8 @@ body {
           text-decoration: none;
           font-weight: 700;
           transition: 0.3s; }
+          body main .links .links-body a:nth-child(n+9) {
+            display: none; }
           body main .links .links-body a:hover {
             color: #ff2a2a;
             box-shadow: 0 0 15px 0 rgba(1, 46, 154, 0.15); }

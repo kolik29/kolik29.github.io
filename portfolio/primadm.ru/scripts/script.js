@@ -1,8 +1,10 @@
 $(document).ready(function() {
-	var h1 = $('.links-body a:nth-child(1)')[0].clientHeight;
-	var h2 = $('.links-body a:nth-child(5)')[0].clientHeight;
+	$('*[name=event-type]').change(function() {
+		$(this).parent().parent().children().eq(1).find('.dis-block').removeClass('dis-block');
+		$(this).parent().parent().children().find('.' + $(this).attr('id')).addClass('dis-block');
+	});
 
-	console.log(h1, h2)
-
-	$('.links-body').height(h1 + h2 + 15);
+	$('#more-link').change(function() {
+		$('.links-body a:nth-child(n+9)').toggle();
+	});
 });
