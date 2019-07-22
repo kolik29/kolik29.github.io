@@ -372,11 +372,24 @@ body
 						text-align: center
 						font-weight: 700
 						padding: 1em
-						cursor: pointer
 						transition: .3s
+						position: relative
 
-						&:hover
-							color: #ff2a2a
+						.control
+							position: absolute
+							color: #b5b5b5
+							font-weight: 400
+							cursor: pointer
+							transition: .3s
+
+							&.control-left
+								left: 1em
+
+							&.control-right
+								right: 1em
+
+							&:hover
+								color: #ff2a2a
 
 					.week-days
 						text-transform: uppercase

@@ -294,11 +294,24 @@ body {
           text-align: center;
           font-weight: 700;
           padding: 1em;
-          cursor: pointer;
-          transition: 0.3s; }
-          body main .events .events-body .calendar .calendar-title:hover,
-          body main .events .events-body .events-item .calendar-title:hover {
-            color: #ff2a2a; }
+          transition: 0.3s;
+          position: relative; }
+          body main .events .events-body .calendar .calendar-title .control,
+          body main .events .events-body .events-item .calendar-title .control {
+            position: absolute;
+            color: #b5b5b5;
+            font-weight: 400;
+            cursor: pointer;
+            transition: 0.3s; }
+            body main .events .events-body .calendar .calendar-title .control.control-left,
+            body main .events .events-body .events-item .calendar-title .control.control-left {
+              left: 1em; }
+            body main .events .events-body .calendar .calendar-title .control.control-right,
+            body main .events .events-body .events-item .calendar-title .control.control-right {
+              right: 1em; }
+            body main .events .events-body .calendar .calendar-title .control:hover,
+            body main .events .events-body .events-item .calendar-title .control:hover {
+              color: #ff2a2a; }
         body main .events .events-body .calendar .week-days,
         body main .events .events-body .events-item .week-days {
           text-transform: uppercase;
