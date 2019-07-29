@@ -38,7 +38,13 @@ body {
   display: flex;
   flex-direction: column;
   min-width: 960px; }
-  body .inner {
+  body .vision {
+    display: flex;
+    align-items: center;
+    flex-direction: column; }
+  body .inner,
+  body .vision-title,
+  body .vision-body {
     max-width: 1200px;
     width: 100%;
     position: relative; }

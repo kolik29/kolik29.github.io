@@ -7,10 +7,114 @@
 	<link rel="stylesheet" href="styles/style.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="scripts/script.js"></script>
+	<script src="vision/vision.js"></script>
+	<link rel="stylesheet" href="vision/vision.css">
 </head>
-<body>
+<body onload="load()">
+	<div class="vision" style="z-index: 1">
+		<div class="vision-title">
+			<h2>Настройка режима отображения:</h2>
+			<div class="vision-close"></div>
+		</div>
+		<div class="vision-body">
+			<div>
+				<h3>Тип шрифта</h3>
+				<div class="vision-option">
+					<label for="font-type-1">
+						<input type="radio" id="font-type-1" name="font-type" checked="">
+						<span>Без засечек</span>
+					</label>
+					<label for="font-type-2">
+						<input type="radio" id="font-type-2" name="font-type">
+						<span>С засечками</span>
+					</label>
+				</div>
+			</div>
+			<div>
+				<h3>Расстояние между буквами</h3>
+				<div class="vision-option">
+					<label for="letter-spacing-1">
+						<input type="radio" id="letter-spacing-1" name="letter-spacing" checked="">
+						<span>Маленький</span>
+					</label>
+					<label for="letter-spacing-2">
+						<input type="radio" id="letter-spacing-2" name="letter-spacing">
+						<span>Средний</span>
+					</label>
+					<label for="letter-spacing-3">
+						<input type="radio" id="letter-spacing-3" name="letter-spacing">
+						<span>Большой</span>
+					</label>
+				</div>
+			</div>
+			<div>
+				<h3>Размер текста</h3>
+				<div class="vision-option">
+					<label for="font-size-1">
+						<input type="radio" name="font-size" id="font-size-1" checked="">
+						<span>А</span>
+					</label>
+					<label for="font-size-2">
+						<input type="radio" name="font-size" id="font-size-2">
+						<span>А</span>
+					</label>
+					<label for="font-size-3">
+						<input type="radio" name="font-size" id="font-size-3">
+						<span>А</span>
+					</label>
+				</div>
+			</div>
+			<div>
+				<h3>Цветовая схема</h3>
+				<div class="vision-option">
+					<label for="color-scheme-1">
+						<input type="radio" name="color-scheme" id="color-scheme-1" checked="">
+						<span>Ц</span>
+					</label>
+					<label for="color-scheme-2">
+						<input type="radio" name="color-scheme" id="color-scheme-2">
+						<span>Ц</span>
+					</label>
+					<label for="color-scheme-3">
+						<input type="radio" name="color-scheme" id="color-scheme-3">
+						<span>Ц</span>
+					</label>
+					<label for="color-scheme-4">
+						<input type="radio" name="color-scheme" id="color-scheme-4">
+						<span>Ц</span>
+					</label>
+					<label for="color-scheme-5">
+						<input type="radio" name="color-scheme" id="color-scheme-5">
+						<span>Ц</span>
+					</label>
+				</div>
+			</div>
+			<div>
+				<h3>Изображения</h3>
+				<div class="vision-option">
+					<label for="images-1">
+						<input type="radio" name="images" id="images-1" checked="">
+						<span>Показать</span>
+					</label>
+					<label for="images-2">
+						<input type="radio" name="images" id="images-2">
+						<span>Скрыть</span>
+					</label>
+					<label for="images-3">
+						<input type="radio" name="images" id="images-3">
+						<span>Ч/б</span>
+					</label>
+				</div>
+			</div>
+			<button id="js-vision-default">Сбросить настройки</button>
+		</div>
+	</div>
 	<header>
 		<div class="inner">
+			<label for="switch-vision" class="vision-btn">
+				<input type="checkbox" style="display: none;" id="switch-vision">
+				<span>ВЕРСИЯ ДЛЯ СЛАБОВИДЯЩИХ</span>
+			</label>
 			<a href="/" class="logo">
 				<img src="img/logo.png">
 				<div class="text">
