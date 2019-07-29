@@ -1,0 +1,541 @@
+$border-color: #e4e4e4
+$main-color: #005c8b
+$text-color--red: #ff2a2a
+$box-shadow-color: #012e9a26
+
+menu,
+menu ul,
+menu li
+	margin: 0
+	margin-block-start: 0
+	margin-block-end: 0
+	padding: 0
+	list-style: none
+
+menu
+	display: flex
+	justify-content: flex-end
+	align-items: center
+
+	ul
+		background: #fff
+		border-top: 3px solid $main-color
+
+	a
+		display: block
+		line-height: 100%
+		height: 100%
+		padding: 0 1em
+		display: flex
+		justify-content: center
+		align-items: center
+
+a
+	color: unset
+
+h1, h2, h3, h4, h5, h6,
+p
+	margin: 0
+
+body
+	min-height: 100vh
+	font-family: Arial
+	color: #3a3a3a
+	margin: 0
+	display: flex
+	flex-direction: column
+	min-width: 960px
+
+	.inner
+		max-width: 1200px
+		width: 100%
+		position: relative
+
+	header,
+	footer,
+	.link,
+	.news,
+	.events-list
+		a
+			text-decoration: none
+
+	.border-bottom
+		position: relative
+
+		&:after
+			position: absolute
+			height: 1px
+			width: 100%
+			background: $border-color
+			bottom: 0
+			left: 0
+			content: ""
+
+	.events,
+	.docs
+		padding: 3em 0 0 0
+
+	.title
+		margin-bottom: 20px
+
+		&:after
+			bottom: -20px
+
+		input
+			display: none
+
+			&:checked + label
+				color: $text-color--red
+
+				&:after
+					opacity: 1
+
+		h1
+			display: inline-block
+
+
+		.type
+			font-weight: 700
+			transition: .3s
+			padding: 0 .5em
+			position: relative
+			cursor: pointer
+
+			&:after
+				position: absolute
+				content: ''
+				background: $text-color--red
+				height: 4px
+				bottom: -20px
+				left: 0
+				width: 100%
+				opacity: 0
+				transition: .3s
+
+			&:hover
+				color: $text-color--red
+
+				&:after
+					opacity: 1
+
+	header,
+	main,
+	footer
+		display: flex
+		align-items: center
+		justify-content: space-between
+		flex-direction: column
+
+	main,
+	#map
+		background-color: #fff
+		z-index: 2
+
+	header
+		border-bottom: 3px solid $main-color
+		background: #fff
+		z-index: 3
+
+		.inner
+			.logo
+				.text
+					h1
+						font-weight: 300
+
+			menu
+				height: 100%
+
+				> li
+					font-weight: 700
+					height: 100%
+
+					&:hover
+						> a
+							color: $main-color
+
+						ul
+							left: 0
+							opacity: 1
+
+					ul
+						font-weight: 300
+						display: grid
+						left: -100vw
+						position: absolute
+						max-width: calc(1200px - 3em)
+						width: 100%
+						padding: 1.5em
+						grid-template-columns: repeat(5, 1fr)
+						grid-gap: 1em 0
+						align-items: center
+						box-shadow: 0 10px 30px 0 $box-shadow-color
+						border-bottom-left-radius: 5px
+						border-bottom-right-radius: 5px
+						transition: opacity .3s
+						opacity: 0
+						top: 100%
+						align-items: baseline
+
+						&:after
+							left: 100%
+
+						&:before
+							right: 100%
+
+						li
+							padding: 0 .75em
+
+							&:hover
+								> a
+									color: $main-color
+
+							a
+								padding: .25em
+								display: block
+
+	header,
+	footer
+		.inner
+			display: grid
+			grid-template-columns: auto 1fr
+			justify-content: space-between
+			align-items: center
+
+			.logo
+				display: flex
+				margin: 1em 0
+				align-items: center
+
+				.text
+					margin-left: 1em
+					word-wrap: nowrap
+
+	main
+		padding: 3em 15px 0 15px
+		overflow-x: hidden
+		flex: 1 0 auto
+
+		.link
+			text-align: center
+			font-weight: 700
+			padding: 2em 0 3em
+
+			input
+				display: none
+
+			a, label
+				display: inline-block
+				transition: .3s
+				color: #5d5d5d
+				position: relative
+				cursor: pointer
+
+				&:hover
+					color: $text-color--red
+
+					&:after
+						background-image: url('../img/link-red.svg')
+
+				&:after
+					position: absolute
+					content: ''
+					right: -2em
+					top: 0
+					background-image: url('../img/link.svg')
+					background-size: cover
+					background-repeat: no-repeat
+					background-position: center
+					height: 1em
+					width: 1em
+					transition: .3s
+
+			label
+				&:after
+					background-image: url('../img/drop-down-list.png')
+
+				&:hover
+					&:after
+						background-image: url('../img/drop-down-list--red.png')
+
+				#h-more
+					display: none
+
+			input:checked + label
+				color: $text-color--red
+
+				&:after
+					background-image: url('../img/drop-up-list--red.png')
+
+				#v-more
+					display: none
+
+				#h-more
+					display: block
+
+		.bkg-gray
+			background: #f5f5f5
+			position: relative
+
+			&:after,
+			&:before
+				content: ''
+				background: #f5f5f5
+				position: absolute
+				height: 100%
+				width: 50vw
+				top: 0
+
+			&:after
+				left: 100%
+
+			&:before
+				right: 100%
+
+		.news
+			display: grid
+			grid-template-columns: 3fr 2fr
+			grid-gap: 3em
+			align-items: start
+
+			a
+				display: inline-block
+
+				&:hover
+					color: $text-color--red
+
+			.news-date
+				color: #5d5d5d
+				font-size: .85em
+
+			.news-main
+				.news-photo
+					width: 100%
+					padding-bottom: 56%
+					position: relative
+					overflow: hidden
+					border-radius: 3px
+
+					img
+						position: absolute
+						left: 0
+						top: 0
+						width: 100%
+
+				img,
+				h1
+					font-size: 2em
+					transition: .3s
+
+				.news-title
+					padding: .45em 0
+				&:hover
+					img
+						transform: scale(1.03)
+
+			.news-list
+				margin: -1em 0
+
+				.news-item
+					padding: 1em 0
+					display: block
+					position: relative
+
+					&:not(:last-child)
+						content: ''
+						border-bottom: 1px solid $border-color
+
+					.news-section
+						text-transform: uppercase
+						font-size: .85em
+						font-weight: 700
+						color: $text-color--red
+						position: relative
+						padding-left: 1.5em
+						display: flex
+						align-items: center
+
+						&:after
+							content: ''
+							position: absolute
+							height: .65em
+							width: .65em
+							background: $text-color--red
+							left: 0
+							margin: auto
+							border-radius: 100%
+
+					.news-title
+						padding: .5em 0
+						transition: .3s
+
+		.docs
+			.title
+				grid-template-columns: 1fr auto auto auto
+
+			.docs-body
+				padding: 3em 0 2em
+				display: grid
+				grid-gap: 2em
+				grid-template-columns: repeat(3, 1fr)
+
+				a
+					padding: 2em
+					border: 1px solid $border-color
+					border-radius: 3px
+					transition: .3s
+					text-decoration: none
+					background: #fff
+
+					h4
+						transition: .3s
+
+					&:hover
+						box-shadow: 0 0 15px 0 $box-shadow-color
+
+						h4
+							color: $text-color--red
+
+		.links
+			padding: 3em 0 0 0
+
+			.links-body
+				display: grid
+				grid-gap: 2em
+				grid-template-columns: repeat(4, 1fr)
+				padding: 3em 0 2em
+
+				a
+					border: 1px solid $border-color
+					background: #fff
+					padding: 2em
+					border-radius: 3px
+					text-decoration: none
+					font-weight: 700
+					transition: .3s
+
+					&:nth-child(n+9)
+						display: none
+
+					&:hover
+						color: $text-color--red
+						box-shadow: 0 0 15px 0 $box-shadow-color
+
+		a:hover
+			color: $text-color--red
+
+	#map
+		width: 100%
+		height: 450px
+		padding: 0
+		margin: 0
+		position: relative
+
+		.map-address
+			right: 50%
+			position: absolute
+			background: #fff
+			border: 1px solid $border-color
+			box-shadow: 0 0 15px 0 $box-shadow-color
+			padding: 2em
+			top: 5%
+			border-radius: 3px
+			z-index: 1
+
+			a
+				text-decoration: none
+
+				&:hover
+					color: $text-color--red
+
+			h1
+				font-size: 1.5em
+				padding: 0 0 .5em 0
+				border-bottom: 1px solid $border-color
+				margin-bottom: .5em
+
+
+	footer
+		background: $main-color
+		color: #fff
+		transition: .3s
+		flex: 0 0 auto
+		position: sticky
+		bottom: 0
+		padding-bottom: 2em
+
+		a:hover
+			color: #bee9ff
+
+		menu > li
+			font-weight: 300
+
+		.logo:hover
+			color: unset
+
+		.line
+			border-bottom: 1px solid transparentize($border-color, 0.7)
+			margin-bottom: 1em
+
+		.eq-half
+			grid-template-columns: 1fr 1fr
+			align-items: baseline
+			grid-gap: 25px
+
+			a.dotted
+				border-bottom: 1px dotted #fff
+				transition: .3s
+
+			.address
+				height: 100%
+				position: relative
+
+				.copyright
+					position: absolute
+					bottom: 0
+
+				.line
+					margin-top: 1em
+
+			.feedback
+				display: grid
+				grid-template-columns: 100%
+				grid-template-rows: 30px
+				grid-gap: 10px
+
+				h2
+					text-align: center
+					font-weight: 300
+
+				input,
+				textarea,
+				button
+					border: none
+					outline: none
+					resize: none
+					padding: 1em
+					font-size: 16px
+					font-family: Arial
+					border-radius: 3px
+
+					&::placeholder
+						font-style: italic
+
+				textarea
+					height: 150px
+
+				button
+					cursor: pointer
+					color: #fff
+					background-color: darken($text-color--red, 10%)
+					transition: .3s
+
+					&:hover
+						background-color: $text-color--red
+
+				> div
+					display: grid
+					grid-template-columns: 1fr 1fr
+					grid-gap: 10px
+
+				span
+					font-size: 11px
