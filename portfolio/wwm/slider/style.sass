@@ -1,0 +1,131 @@
+.slider
+	display: grid
+	grid-template-columns: 50% 50%
+
+	.hidden-lines
+		overflow-y: hidden
+		width: 100%
+
+		div
+			height: 0
+			margin-top: 1.25em
+			line-height: 1.25em
+			transition: .5s
+
+	.slider-photos
+		position: relative
+		display: flex
+		justify-content: center
+
+		.slider-control--left,
+		.slider-control--right
+			background: yellow
+			border-radius: 100%
+			cursor: pointer
+			width: 50px
+			height: 50px
+			position: absolute
+			bottom: 15%
+			z-index: 100
+
+		.slider-control--left
+			left: 0
+
+		.slider-control--right
+			right: 0
+
+		.photos-wrapper
+			width: 80%
+			height: 120%
+			display: flex
+			position: relative
+
+			.photos-row
+				width: 100%
+				display: flex
+				grid-gap: 10px
+				align-items: flex-end
+				justify-content: space-between
+				height: 400px
+				left: 0
+				transition-timing-function: cubic-bezier(0.4, 0, 1, 0.52)
+				position: relative
+				overflow: hidden
+				padding-bottom: 10%
+
+				&.trans,
+				&.trans label
+					transition: .5s
+
+				input
+					display: none
+
+					&:checked
+						+ label
+							min-width: calc((125% - 50px) / 5)
+							height: 100%
+
+							&:before
+								display: none
+
+							.name
+								display: none
+
+				label
+					background: #333
+					cursor: pointer
+					min-width: calc((95% - 55px) / 5)
+					height: 40%
+					margin: 0 5px
+					transition: .5
+					position: relative
+					transition-timing-function: cubic-bezier(0.4, 0, 1, 0.52)
+
+					&:before
+						position: absolute
+						content: ''
+						opacity: 0
+						background: #ffffff42
+						left: 0
+						width: 100%
+						height: 100%
+						z-index: 10
+						transition: .3s
+
+					&:hover
+						&:before
+							opacity: 1
+
+						.name
+							&:after
+								width: 100%
+
+							.hidden-lines div
+								height: 1.25em
+								margin-top: 0
+
+					.name
+						position: relative
+						width: 100%
+						top: 100%
+						margin-top: 1em
+						display: flex
+						align-items: center
+						text-align: left
+						flex-direction: column
+
+						&:after
+							content: ''
+							position: absolute
+							transition: .5s
+							width: 0
+							top: -.5em
+							background: yellow
+							height: 3px
+
+	.slider-text
+		&:hover
+			.hidden-lines
+				div
+					height: 1.25em
+					margin-top: 0
