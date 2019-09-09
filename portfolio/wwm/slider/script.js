@@ -6,8 +6,7 @@ $(document).ready(function() {
 
 	$('.photos-row').append(objInputFirst).append(objLabelFirst).prepend(objLabelLast).prepend(objInputLast);
 	$('.photos-row label').first().css({
-		'min-width': 0,
-		'margin': 0
+		'margin-left': -$('.photos-row label').first().outerWidth(true)
 	});
 	$('.photos-row input').eq(-2).trigger('click');
 
@@ -24,8 +23,7 @@ $(document).ready(function() {
 		});
 
 		objLabelLast = $('.photos-row label').last().css({
-			'min-width': 0,
-			'margin': 0
+			'margin-left': -$('.photos-row label').first().outerWidth(true)
 		});
 		objInputLast = $('.photos-row input').last();
 
@@ -45,25 +43,12 @@ $(document).ready(function() {
 		$('.photos-row').append(objInputFirst).append(objLabelFirst);
 
 		$('.photos-row label').first().css({
-			'min-width': 0,
-			'margin': 0
+			'margin-left': -$('.photos-row label').first().outerWidth(true)
 		});
 	});
 
-	/*$('.photos-row label').on('click', function() {
+	$('.photos-row label').on('click', function() {
 		if (!$(this).prev().is(':checked')) {
-			var obj = $('.photos-row > *').slice($(this).index() + 3).clone();
-			obj.each(function() {
-				$(this).css({
-					'min-width': 0,
-					'margin': 0
-				})
-			});
-			$('.photos-row').prepend(obj);
-			$('.photos-row > *:not(:nth-child(2))').css({
-				'min-width': '',
-				'margin': ''
-			});
 		}
-	});*/
+	});
 });
