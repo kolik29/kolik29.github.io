@@ -143,7 +143,7 @@ body
 	header
 		border-bottom: 3px solid $main-color
 		background: #fff
-		z-index: 3
+		z-index: 20
 
 		.inner
 			.logo
@@ -218,6 +218,25 @@ body
 				.text
 					margin-left: 1em
 					word-wrap: nowrap
+
+	.slider.main-page
+		height: 20vw
+		width: 100%
+		background: grey
+		z-index: 15
+		display: flex
+		overflow: hidden
+		box-shadow: 0 5px 25px 10px $box-shadow-color
+
+		div
+			min-width: 100%
+			position: relative
+			overflow: hidden
+			display: flex
+			align-items: center
+
+			img
+				width: 100%
 
 	main
 		padding: 3em 15px 0 15px
@@ -294,6 +313,7 @@ body
 				height: 100%
 				width: 50vw
 				top: 0
+				z-index: -1
 
 			&:after
 				left: 100%
@@ -377,6 +397,65 @@ body
 					.news-title
 						padding: .5em 0
 						transition: .3s
+
+		.governing
+			padding: 3em 0 10em
+			display: grid
+			grid-template-columns: 20% 1fr
+			grid-gap: 2em
+
+			h2
+				margin: .5em 0
+
+			.governing-major
+				position: relative
+
+			.governing__img-wrapper
+				position: relative
+				border: 1px solid $border-color
+				border-radius: 3px
+				background: grey
+				display: flex
+				justify-content: center
+				overflow: hidden
+				padding-bottom: 150%
+
+				img
+					position: absolute
+					height: 100%
+
+			.info
+				position: absolute
+
+			.name
+				font-weight: 700
+				margin: 1em 0 .5em 0
+
+			.position,
+			.nominated
+				font-style: italic
+				color: black !important
+
+			.nominated
+				font-size: .9em
+
+			.governing-deputates
+				display: flex
+				flex-direction: column
+				justify-content: flex-end
+
+				.deputates-line
+					display: grid
+					grid-gap: 2em
+					grid-template-columns: repeat(5, 1fr)
+
+					.deputates-line__item
+						position: relative
+
+			a:hover
+				.nominated,
+				.position
+					color: black !important
 
 		.docs
 			.title

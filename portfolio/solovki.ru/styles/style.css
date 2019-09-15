@@ -115,7 +115,7 @@ body {
   body header {
     border-bottom: 3px solid #005c8b;
     background: #fff;
-    z-index: 3; }
+    z-index: 20; }
     body header .inner .logo .text h1 {
       font-weight: 300; }
     body header .inner menu {
@@ -172,6 +172,22 @@ body {
       body footer .inner .logo .text {
         margin-left: 1em;
         word-wrap: nowrap; }
+  body .slider.main-page {
+    height: 20vw;
+    width: 100%;
+    background: grey;
+    z-index: 15;
+    display: flex;
+    overflow: hidden;
+    box-shadow: 0 5px 25px 10px #012e9a26; }
+    body .slider.main-page div {
+      min-width: 100%;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center; }
+      body .slider.main-page div img {
+        width: 100%; }
   body main {
     padding: 3em 15px 0 15px;
     overflow-x: hidden;
@@ -228,7 +244,8 @@ body {
         position: absolute;
         height: 100%;
         width: 50vw;
-        top: 0; }
+        top: 0;
+        z-index: -1; }
       body main .bkg-gray:after {
         left: 100%; }
       body main .bkg-gray:before {
@@ -294,6 +311,51 @@ body {
           body main .news .news-list .news-item .news-title {
             padding: 0.5em 0;
             transition: 0.3s; }
+    body main .governing {
+      padding: 3em 0 10em;
+      display: grid;
+      grid-template-columns: 20% 1fr;
+      grid-gap: 2em; }
+      body main .governing h2 {
+        margin: 0.5em 0; }
+      body main .governing .governing-major {
+        position: relative; }
+      body main .governing .governing__img-wrapper {
+        position: relative;
+        border: 1px solid #e4e4e4;
+        border-radius: 3px;
+        background: grey;
+        display: flex;
+        justify-content: center;
+        overflow: hidden;
+        padding-bottom: 150%; }
+        body main .governing .governing__img-wrapper img {
+          position: absolute;
+          height: 100%; }
+      body main .governing .info {
+        position: absolute; }
+      body main .governing .name {
+        font-weight: 700;
+        margin: 1em 0 0.5em 0; }
+      body main .governing .position,
+      body main .governing .nominated {
+        font-style: italic;
+        color: black !important; }
+      body main .governing .nominated {
+        font-size: 0.9em; }
+      body main .governing .governing-deputates {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end; }
+        body main .governing .governing-deputates .deputates-line {
+          display: grid;
+          grid-gap: 2em;
+          grid-template-columns: repeat(5, 1fr); }
+          body main .governing .governing-deputates .deputates-line .deputates-line__item {
+            position: relative; }
+      body main .governing a:hover .nominated,
+      body main .governing a:hover .position {
+        color: black !important; }
     body main .docs .title {
       grid-template-columns: 1fr auto auto auto; }
     body main .docs .docs-body {

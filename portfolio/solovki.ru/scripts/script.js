@@ -1,4 +1,21 @@
-$(document).ready(function() {});
+$(document).ready(function() {
+	setTimeout(() => {
+		sliderMainPageLeft();
+	}, 5000);
+});
+
+function sliderMainPageLeft() {
+	$('.slider.main-page div:first-child').animate({
+		'margin-left': '-100%'
+	}, 1000, () => {
+		$('.slider.main-page').append($('.slider.main-page div:first-child').css({
+			'margin-left': ''
+		}));
+		setTimeout(() => {
+			sliderMainPageLeft();
+		}, 5000);
+	});
+}
 
 /*Yandex MAP*/
 ymaps.ready(init);
