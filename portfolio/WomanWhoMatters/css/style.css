@@ -1,0 +1,136 @@
+@font-face {
+  font-family: "Proxima Nova - Semibold";
+  src: url("../fonts/ProximaNova/ProximaNova-Semibold.eot");
+  src: local("Proxima Nova Semibold"), local("ProximaNova-Semibold"), url("../fonts/ProximaNova/ProximaNova-Semibold.eot?#iefix") format("embedded-opentype"), url("../fonts/ProximaNova/ProximaNova-Semibold.woff") format("woff"), url("../fonts/ProximaNova/ProximaNova-Semibold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal; }
+@font-face {
+  font-family: "Proxima Nova";
+  src: url("../fonts/ProximaNova/ProximaNova-Regular.eot");
+  src: local("Proxima Nova Regular"), local("ProximaNova-Regular"), url("../fonts/ProximaNova/ProximaNova-Regular.eot?#iefix") format("embedded-opentype"), url("../fonts/ProximaNova/ProximaNova-Regular.woff") format("woff"), url("../fonts/ProximaNova/ProximaNova-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+h2 {
+  font-family: "Proxima Nova - Semibold"; }
+
+h1 {
+  font-family: "Proxima Nova - Semibold";
+  font-size: 3em;
+  margin: 0;
+  padding-bottom: 0.33em;
+  position: relative;
+  color: #333; }
+  h1:after {
+    position: absolute;
+    content: "";
+    background: url("../img/h1_underline.svg");
+    height: 2px;
+    width: 130px;
+    left: 0;
+    bottom: 0;
+    background-size: cover; }
+
+p {
+  font-family: "Proxima Nova";
+  font-size: 1.2em;
+  padding: 1em 0; }
+
+a {
+  text-decoration: none;
+  color: unset; }
+
+body {
+  margin: 0; }
+  body header,
+  body section,
+  body footer {
+    display: flex;
+    justify-content: center; }
+    body header .inner,
+    body section .inner,
+    body footer .inner {
+      width: 85vw; }
+  body header {
+    width: 100%;
+    height: 100vh;
+    background: url("../img/header_background.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative; }
+    body header:after {
+      position: absolute;
+      content: "";
+      background: #000000b3;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0; }
+    body header .header-menu {
+      display: flex;
+      justify-content: space-between;
+      align-items: center; }
+      body header .header-menu .logo {
+        background: url("../img/logo_WWM.png");
+        background-repeat: no-repeat;
+        width: 130px;
+        height: 41px;
+        padding: 0;
+        z-index: 1; }
+      body header .header-menu menu {
+        margin: 2em 0;
+        padding: 0;
+        top: 0;
+        z-index: 1;
+        color: #f4f4f4;
+        list-style: none;
+        display: flex;
+        font-size: 1.3em;
+        font-family: "Proxima Nova";
+        justify-content: flex-end; }
+        body header .header-menu menu a {
+          padding: 1em;
+          transition: color 0.3s; }
+          body header .header-menu menu a:hover {
+            color: #c1c1c1; }
+        body header .header-menu menu .instagram,
+        body header .header-menu menu .facebook {
+          background-size: 50%;
+          background-repeat: no-repeat;
+          background-position: center; }
+        body header .header-menu menu .instagram {
+          background-image: url("../img/instagram.svg"); }
+        body header .header-menu menu .facebook {
+          background-image: url("../img/facebook.svg"); }
+  body section {
+    padding: 6em 0 3em 0; }
+    body section.bkg-66 {
+      position: relative;
+      padding: 8em 0 4em 0; }
+      body section.bkg-66:before {
+        position: absolute;
+        content: "";
+        background: #f2f2f2;
+        width: 66%;
+        height: 100%;
+        top: 0;
+        left: 0; }
+    body section .inner.inner--picture-right {
+      display: grid;
+      z-index: 1;
+      grid-template-columns: 1fr 50%;
+      grid-gap: 15%; }
+      body section .inner.inner--picture-right .picture {
+        background: #333;
+        padding-top: 66%; }
+  body footer {
+    width: 100%;
+    padding: 4em 0;
+    color: #f0f0f0 !important;
+    background: #333; }
+    body footer .inner {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 10%; }
+
+/*# sourceMappingURL=style.css.map */

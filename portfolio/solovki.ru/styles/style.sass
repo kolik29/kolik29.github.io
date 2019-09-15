@@ -32,6 +32,7 @@ menu
 
 a
 	color: unset
+	transition: .3s
 
 h1, h2, h3, h4, h5, h6,
 p
@@ -132,6 +133,7 @@ body
 		align-items: center
 		justify-content: space-between
 		flex-direction: column
+		padding: 0 15px
 
 	main,
 	#map
@@ -221,6 +223,7 @@ body
 		padding: 3em 15px 0 15px
 		overflow-x: hidden
 		flex: 1 0 auto
+		min-height: calc(100vh - 3em - 111px)
 
 		.link
 			text-align: center
@@ -429,6 +432,52 @@ body
 
 		a:hover
 			color: $text-color--red
+
+		.breadcrumbs
+			margin-top: -2em
+
+			.path
+				margin: 2em 0
+				color: #909090
+
+				a
+					text-decoration: none
+					padding: 1em 0
+
+				span
+					display: inline-block
+					margin: 0 1em
+
+		.search
+			padding: 6px
+			border: 1px solid $main-color
+			border-radius: 3px
+			display: grid
+			grid-template-columns: 1fr auto
+			grid-gap: 3px
+			margin: 1em 0
+			width: 70%
+
+			input,
+			button
+				border: none
+				outline: none
+
+			input
+				font-size: 1.35em
+				margin: 0 6px
+
+			button
+				background: $main-color
+				color: #fff
+				cursor: pointer
+				border-radius: 3px
+				font-size: 1.35em
+				padding: .2em .8em
+				transition: .3s
+
+				&:hover
+					background: lighten($main-color, 10%)
 
 	#map
 		width: 100%
