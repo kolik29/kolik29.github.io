@@ -467,7 +467,9 @@ body {
     flex: 0 0 auto;
     position: sticky;
     bottom: 0;
-    padding-bottom: 2em; }
+    padding-bottom: 2em;
+    height: calc(100vh - 2em);
+    justify-content: flex-start; }
     body footer a:hover {
       color: #bee9ff; }
     body footer menu > li {
@@ -480,7 +482,8 @@ body {
     body footer .eq-half {
       grid-template-columns: 1fr 1fr;
       align-items: baseline;
-      grid-gap: 25px; }
+      grid-gap: 25px;
+      flex-grow: 1; }
       body footer .eq-half a.dotted {
         border-bottom: 1px dotted #fff;
         transition: 0.3s; }
@@ -495,8 +498,9 @@ body {
       body footer .eq-half .feedback {
         display: grid;
         grid-template-columns: 100%;
-        grid-template-rows: 30px;
-        grid-gap: 10px; }
+        grid-template-rows: 30px 50px 50px 50px 1fr 50px 50px;
+        grid-gap: 10px;
+        height: 100%; }
         body footer .eq-half .feedback h2 {
           text-align: center;
           font-weight: 300; }
@@ -514,8 +518,6 @@ body {
           body footer .eq-half .feedback textarea::placeholder,
           body footer .eq-half .feedback button::placeholder {
             font-style: italic; }
-        body footer .eq-half .feedback textarea {
-          height: 150px; }
         body footer .eq-half .feedback button {
           cursor: pointer;
           color: #fff;

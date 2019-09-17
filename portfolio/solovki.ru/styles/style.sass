@@ -597,6 +597,8 @@ body
 		position: sticky
 		bottom: 0
 		padding-bottom: 2em
+		height: calc(100vh - 2em)
+		justify-content: flex-start
 
 		a:hover
 			color: #bee9ff
@@ -615,6 +617,7 @@ body
 			grid-template-columns: 1fr 1fr
 			align-items: baseline
 			grid-gap: 25px
+			flex-grow: 1
 
 			a.dotted
 				border-bottom: 1px dotted #fff
@@ -634,8 +637,9 @@ body
 			.feedback
 				display: grid
 				grid-template-columns: 100%
-				grid-template-rows: 30px
+				grid-template-rows: 30px 50px 50px 50px 1fr 50px 50px
 				grid-gap: 10px
+				height: 100%
 
 				h2
 					text-align: center
@@ -654,9 +658,6 @@ body
 
 					&::placeholder
 						font-style: italic
-
-				textarea
-					height: 150px
 
 				button
 					cursor: pointer
