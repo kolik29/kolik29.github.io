@@ -479,7 +479,7 @@ body {
     position: sticky;
     bottom: 0;
     padding-bottom: 2em;
-    height: calc(100vh - 2em);
+    min-height: calc(100vh - 2em);
     justify-content: flex-start; }
     body footer a:hover {
       color: #bee9ff; }
