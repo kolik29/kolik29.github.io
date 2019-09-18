@@ -29,14 +29,15 @@
 }
 
 .vision {
-	position: relative;
 	margin: 0 auto;
 	background: #f2f2f2;
 	padding: 1em 0;
 	font-family: Arial;
-	margin-top: -281px;
-	transition: .3s;
+	overflow-y: hidden;
 	width: 100%;
+	z-index: 25;
+	position: absolute;
+	transform: translateY(-100%)
 }
 
 .vision h2,
@@ -97,6 +98,12 @@
 	grid-gap: 15px;
 }
 
+@media screen and (max-width: 960px) {
+	.vision .vision-body {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
 .vision .vision-body h3 {
 	margin: 1em 0 .5em;
 }
@@ -150,7 +157,7 @@
 	justify-content: center;
 	align-self: center;
 	height: 44px;
-	margin-right: .5em;
+	margin: .25em;
 }
 
 .vision label #letter-spacing-1 + span,

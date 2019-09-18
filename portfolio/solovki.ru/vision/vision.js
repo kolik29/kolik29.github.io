@@ -3,21 +3,37 @@ var siteTemplate = '';
 function load(template) {
 	siteTemplate = template;
 
+	$('.vision').css({
+		'margin-top': -($('.vision').outerHeight(true) + 1),
+		'transform': 'unset',
+		'position': 'inherit'
+	});
+
+	$(window).resize(function() {
+		$('.vision').css({
+			'margin-top': -($('.vision').outerHeight(true) + 1)
+		})
+
+		if ($('#switch-vision').prop('checked'))
+			$('#switch-vision').click();
+	})
+
 	$('#switch-vision').change(function() {
-		if (this.checked) {
+		if ($(this).prop('checked')) {
 			$('.vision').css({
-				'margin-top': '0'
+				'margin-top': '0',
+				'transition': '.3s'
 			})
 		} else {
 			$('.vision').css({
-				'margin-top': '-' + ($('.vision').outerHeight() + 1) + 'px'
+				'margin-top': '-' + ($('.vision').outerHeight(true) + 1) + 'px'
 			})
 		}
 	});
 
 	$('.vision-close').click(function() {
 		$('.vision').css({
-			'margin-top': '-' + ($('.vision').outerHeight() + 1) + 'px'
+			'margin-top': '-' + ($('.vision').outerHeight(true) + 1) + 'px'
 		});
 		$('#switch-vision').prop('checked', false);
 	});

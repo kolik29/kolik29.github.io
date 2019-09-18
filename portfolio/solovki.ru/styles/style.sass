@@ -45,7 +45,6 @@ body
 	margin: 0
 	display: flex
 	flex-direction: column
-	min-width: 960px
 
 	.vision
 		display: flex
@@ -140,6 +139,23 @@ body
 		background-color: #fff
 		z-index: 2
 
+	header,
+	footer
+		.inner
+			display: grid
+			grid-template-columns: auto 1fr
+			justify-content: space-between
+			align-items: center
+
+			.logo
+				display: flex
+				margin: 1em 0
+				align-items: center
+
+				.text
+					margin-left: 1em
+					word-wrap: nowrap
+
 	header
 		border-bottom: 3px solid $main-color
 		background: #fff
@@ -147,6 +163,11 @@ body
 
 		.inner
 			/**удалить_начало**/
+
+			@media screen and (max-width: 960px)
+				display: flex
+				flex-direction: column
+
 			.logo
 				.text
 					h1
@@ -155,9 +176,16 @@ body
 			menu
 				height: 100%
 
+				@media screen and (max-width: 960px)
+					a
+						padding: .5em
+
 				> li
 					font-weight: 700
 					height: 100%
+
+					@media screen and (max-width: 960px)
+						position: relative
 
 					&:hover
 						> a
@@ -166,6 +194,16 @@ body
 						ul
 							left: 0
 							opacity: 1
+
+							@media screen and (max-width: 960px)
+								display: flex
+								flex-direction: column
+								width: 30vw
+								position: absolute
+								padding: .5em
+
+								li
+									padding: 0
 
 					ul
 						font-weight: 300
@@ -204,22 +242,6 @@ body
 								display: block
 			/**удалить_конец**/
 
-	header,
-	footer
-		.inner
-			display: grid
-			grid-template-columns: auto 1fr
-			justify-content: space-between
-			align-items: center
-
-			.logo
-				display: flex
-				margin: 1em 0
-				align-items: center
-
-				.text
-					margin-left: 1em
-					word-wrap: nowrap
 	/**удалить_начало**/
 	.slider.main-page
 		height: 20vw
@@ -229,6 +251,9 @@ body
 		display: flex
 		overflow: hidden
 		box-shadow: 0 5px 25px 10px $box-shadow-color
+
+		@media screen and (max-width: 640px)
+			display: none
 
 		div
 			min-width: 100%
@@ -333,6 +358,9 @@ body
 			grid-gap: 3em
 			align-items: start
 
+			@media screen and (max-width: 640px)
+				grid-template-columns: 1fr
+				grid-gap: 1em
 			a
 				display: inline-block
 				transition: unset
@@ -411,6 +439,10 @@ body
 			grid-template-columns: 20% 1fr
 			grid-gap: 2em
 
+			@media screen and (max-width: 640px)
+				grid-template-columns: 1fr
+				padding-bottom: 3em
+
 			h2
 				margin: .5em 0
 
@@ -434,6 +466,9 @@ body
 			.info
 				position: absolute
 
+				@media screen and (max-width: 640px)
+					position: relative
+
 			.name
 				font-weight: 700
 				margin: 1em 0 .5em 0
@@ -456,6 +491,9 @@ body
 					grid-gap: 2em
 					grid-template-columns: repeat(5, 1fr)
 
+					@media screen and (max-width: 640px)
+						grid-template-columns: 1fr 1fr
+
 					.deputates-line__item
 						position: relative
 
@@ -473,6 +511,10 @@ body
 				display: grid
 				grid-gap: 2em
 				grid-template-columns: repeat(3, 1fr)
+
+				@media screen and (max-width: 640px)
+					grid-template-columns: 1fr
+					grid-gap: 1em
 
 				a
 					padding: 2em
@@ -499,6 +541,10 @@ body
 				grid-gap: 2em
 				grid-template-columns: repeat(4, 1fr)
 				padding: 3em 0 2em
+
+				@media screen and (max-width: 640px)
+					grid-template-columns: 1fr
+					grid-gap: 1em
 
 				a
 					border: 1px solid $border-color
@@ -569,6 +615,9 @@ body
 		padding: 0
 		margin: 0
 		position: relative
+
+		@media screen and (max-width: 640px)
+			display: none
 		/**удалить_начало**/
 		.map-address
 			right: 50%
@@ -603,7 +652,12 @@ body
 		bottom: 0
 		padding-bottom: 2em
 		min-height: calc(100vh - 2em)
-		justify-content: flex-start
+		display: grid
+		justify-content: center
+		grid-template-rows: auto 1fr
+
+		@media screen and (max-width: 960px)
+			min-height: unset
 
 		a:hover
 			color: #bee9ff
@@ -618,11 +672,22 @@ body
 			border-bottom: 1px solid transparentize($border-color, 0.7)
 			margin-bottom: 1em
 
+			@media screen and (max-width: 960px)
+				display: flex
+				justify-content: center
+
+				menu
+					display: none
+
 		.eq-half
 			grid-template-columns: 1fr 1fr
 			align-items: baseline
 			grid-gap: 25px
 			flex-grow: 1
+			height: 100%
+
+			@media screen and (max-width: 960px)
+				display: flex
 
 			a.dotted
 				border-bottom: 1px dotted #fff
@@ -636,6 +701,10 @@ body
 					position: absolute
 					bottom: 0
 
+					@media screen and (max-width: 960px)
+						width: 100%
+						position: unset
+
 				.line
 					margin-top: 1em
 
@@ -645,6 +714,9 @@ body
 				grid-template-rows: 30px 50px 50px 50px 1fr 50px 50px
 				grid-gap: 10px
 				height: 100%
+
+				@media screen and (max-width: 960px)
+					display: none
 
 				h2
 					text-align: center

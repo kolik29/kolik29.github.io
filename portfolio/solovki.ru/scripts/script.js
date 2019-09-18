@@ -2,6 +2,12 @@ $(document).ready(function() {
 	setTimeout(() => {
 		sliderMainPageLeft();
 	}, 5000);
+
+	if ($('.links .links-body > *').length < 8) {
+		$('.links .link').css({
+			'display': 'none'
+		})
+	}
 });
 
 function sliderMainPageLeft() {
