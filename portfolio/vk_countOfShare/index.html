@@ -1,0 +1,15 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+	$(document).ready(function() {
+		$.ajax({
+			url: 'https://api.vk.com',
+			data: {
+				owner_id: -180920410,
+				v: 5.52
+			}
+			success: function(msg) {
+				console.log(msg);
+			}
+		});
+	});
+</script>
