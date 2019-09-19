@@ -1,9 +1,24 @@
 $(document).ready(function() {
-	setTimeout(() => {
+	setTimeout(() => { //Устанавливает перелистывание фотографий на главной странице в интервалом 5 секунд
 		sliderMainPageLeft();
 	}, 5000);
 
-	if ($('.links .links-body > *').length < 8) {
+	$('#burgerMenuSwitch').on('change', function() {
+		if ($(this).prop('checked')) {
+			$('header').css({
+				'position': 'fixed'
+			});
+			$('header menu').addClass('show');
+		}
+		else {
+			$('header').css({
+				'position': ''
+			});
+			$('header menu').removeClass('show');
+		}
+	})
+
+	if ($('.links .links-body > *').length < 8) { //Скрвает кнопку "Показать больше если ссылок меньше 8"
 		$('.links .link').css({
 			'display': 'none'
 		})

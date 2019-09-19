@@ -143,23 +143,44 @@ body {
       @media screen and (max-width: 640px) {
         body header .inner {
           display: grid;
-          grid-template-columns: auto 1fr; }
-          body header .inner menu, body header .inner .vision-btn {
+          grid-template-columns: auto 1fr;
+          grid-gap: 1em; }
+          body header .inner .vision-btn {
             display: none; } }
+      body header .inner #burgerMenuSwitch {
+        display: none; }
+        body header .inner #burgerMenuSwitch:checked + .burger-menu div:nth-child(1) {
+          top: calc(50% - 1.5px);
+          transform: rotate(45deg); }
+        body header .inner #burgerMenuSwitch:checked + .burger-menu div:nth-child(2) {
+          opacity: 0; }
+        body header .inner #burgerMenuSwitch:checked + .burger-menu div:nth-child(3) {
+          bottom: calc(50% - 1.5px);
+          transform: rotate(-45deg); }
       body header .inner .burger-menu {
         display: none;
         width: 10vw;
         height: 7vw;
         justify-content: space-between;
+        align-items: center;
         flex-direction: column;
-        cursor: pointer; }
+        cursor: pointer;
+        position: relative; }
         @media screen and (max-width: 640px) {
           body header .inner .burger-menu {
             display: flex; } }
         body header .inner .burger-menu div {
           width: 100%;
-          height: 2px;
-          background: #275c8b; }
+          height: 3px;
+          background: #275c8b;
+          transition: 0.3s;
+          position: absolute; }
+          body header .inner .burger-menu div:nth-child(1) {
+            top: 0; }
+          body header .inner .burger-menu div:nth-child(2) {
+            top: calc(50% - 1.5px); }
+          body header .inner .burger-menu div:nth-child(3) {
+            bottom: 0; }
       body header .inner .logo .text h1 {
         font-weight: 300; }
         @media screen and (max-width: 640px) {
@@ -170,12 +191,35 @@ body {
         @media screen and (max-width: 960px) {
           body header .inner menu a {
             padding: 0.5em; } }
+        @media screen and (max-width: 640px) {
+          body header .inner menu {
+            position: fixed;
+            flex-direction: column;
+            width: 100%;
+            height: calc(100vh - 123px);
+            top: 123px;
+            background: #f1f2f2;
+            left: 100%;
+            transition: 0.3s;
+            justify-content: start; }
+            body header .inner menu a {
+              padding: 0; }
+            body header .inner menu.show {
+              left: 0; } }
         body header .inner menu > li {
           font-weight: 700;
           height: 100%; }
           @media screen and (max-width: 960px) {
             body header .inner menu > li {
               position: relative; } }
+          @media screen and (max-width: 640px) {
+            body header .inner menu > li {
+              height: 2.5em;
+              border-bottom: 1px solid #bdbdbd;
+              width: 100%; }
+              body header .inner menu > li a {
+                justify-content: right;
+                padding-left: 1em; } }
           body header .inner menu > li:hover > a {
             color: #005c8b; }
           body header .inner menu > li:hover ul {
@@ -266,6 +310,9 @@ body {
       text-align: center;
       font-weight: 700;
       padding: 2em 0 3em; }
+      @media screen and (max-width: 640px) {
+        body main .link {
+          padding-bottom: 1em; } }
       body main .link input {
         display: none; }
       body main .link a, body main .link label {
@@ -378,7 +425,8 @@ body {
       @media screen and (max-width: 640px) {
         body main .governing {
           grid-template-columns: 1fr;
-          padding-bottom: 3em; } }
+          padding-bottom: 3em;
+          padding-top: 1em; } }
       body main .governing h2 {
         margin: 0.5em 0; }
       body main .governing .governing-major {
@@ -422,9 +470,11 @@ body {
               grid-template-columns: 1fr 1fr; } }
           body main .governing .governing-deputates .deputates-line .deputates-line__item {
             position: relative; }
-      body main .governing a:hover .nominated,
-      body main .governing a:hover .position {
-        color: black !important; }
+      body main .governing a {
+        text-decoration: none; }
+        body main .governing a:hover .nominated,
+        body main .governing a:hover .position {
+          color: black !important; }
     body main .docs .title {
       grid-template-columns: 1fr auto auto auto; }
     body main .docs .docs-body {
