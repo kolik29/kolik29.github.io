@@ -2,6 +2,7 @@
 <html lang="ru">
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>АМО «Сельское поселение «Соловецкое»</title>
 	<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&apikey=407deefd-7ba8-43ef-a7db-c92644a9f5e1" type="text/javascript"></script>
 	<link rel="stylesheet" href="styles/style.css">
@@ -9,9 +10,10 @@
 	<script src="scripts/script.js"></script>
 	<script src="vision/vision.js"></script>
 	<link rel="stylesheet" href="vision/vision.css">
+	<meta property="og:image" content="https://kolik29.ru/portfolio/solovki.ru/img/Соловецкий крмель 1.jpg" />
 </head>
 <body onload="load()">
-	<div class="vision" style="z-index: 1">
+	<div class="vision">
 		<div class="vision-title">
 			<h2>Настройка режима отображения:</h2>
 			<div class="vision-close"></div>
@@ -121,6 +123,12 @@
 					<h3>Администрация муниципального образования<br>«Сельское поселение «Соловецкое»</h3>
 				</div>
 			</a>
+			<input type="checkbox" id="burgerMenuSwitch">
+			<label class="burger-menu" for="burgerMenuSwitch">
+				<div></div>
+				<div></div>
+				<div></div>
+			</label>
 			<menu>
 				<li><a href="#"><span>Новости</span></a></li>
 				<li><a href="#"><span>Администрация</span></a>
@@ -151,8 +159,27 @@
 				<button>Найти</button>
 			</div>
 			<div class="content">
+				<article></article>
+				<aside>
+					<ul>
+						<li class="select">
+							<a href="">lorem</a>
+						</li>
+						<li>
+							<a href="">ipsum</a>
+						</li>
+						<li>
+							<a href="">dolor</a>
+						</li>
+						<li>
+							<a href="">sit</a>
+						</li>
+						<li>
+							<a href="">amet</a>
+						</li>
+					</ul>
+				</aside>
 			</div>
-			<aside></aside>
 		</div>
 	</main>
 
@@ -174,11 +201,13 @@
 		</div>
 		<div class="inner eq-half">
 			<div class="address">
-				<b>Глава муниципального образования:</b> Клишова Татьяна Сергеевна<br><br>
-				<b>Адрес:</b> 164070, посёлок Соловецкий,<br>
-				Архангельская область, ул. Заозерная, д. 4<br><br>
-				<b>Телефон:</b> <a href="tel:88183590336">8 (8183) 59-03-36</a><br><br>
-				<b>E-mail:</b> <a href="mailto:mo_solovki@mail.ru">mo_solovki@mail.ru</a>
+				<div class="info">
+					<b>Глава муниципального образования:</b> Клишова Татьяна Сергеевна<br><br>
+					<b>Адрес:</b> 164070, посёлок Соловецкий,<br>
+					Архангельская область, ул. Заозерная, д. 4<br><br>
+					<b>Телефон:</b> <a href="tel:88183590336">8 (8183) 59-03-36</a><br><br>
+					<b>E-mail:</b> <a href="mailto:mo_solovki@mail.ru">mo_solovki@mail.ru</a>
+				</div>
 				<div class="copyright">
 					<a href="#" class="dotted">Карта сайта</a>, <a href="#" class="dotted">Законодательная карта сайта</a>
 					<div class="line"></div>
@@ -187,7 +216,7 @@
 			</div>
 			<div class="feedback">
 				<h2>Ваше обращение</h2>
-				<input type="text" placeholder="Населенный пункт" value="пос. Соловецкий">
+				<input type="text" placeholder="Населенный пункт">
 				<input type="text" placeholder="Улица">
 				<div>
 					<input type="text" placeholder="Дом">

@@ -29,6 +29,7 @@ menu
 		display: flex
 		justify-content: center
 		align-items: center
+		font-weight: 700
 
 a
 	color: unset
@@ -239,8 +240,8 @@ body
 					position: fixed
 					flex-direction: column
 					width: 100%
-					height: calc(100vh - 123px)
-					top: 123px
+					height: calc(100vh - 111px)
+					top: 111px
 					background: #f1f2f2
 					left: 100%
 					transition: .3s
@@ -253,7 +254,6 @@ body
 						left: 0
 
 				> li
-					font-weight: 700
 					height: 100%
 
 					@media screen and (max-width: 960px)
@@ -286,6 +286,15 @@ body
 								li
 									padding: 0
 
+							@media screen and (max-width: 640px)
+								left: 0
+								width: 100%
+								z-index: 100
+								padding: 0
+
+								a
+									padding: .5em 0 .5em 1em
+
 					ul
 						font-weight: 300
 						display: grid
@@ -304,6 +313,10 @@ body
 						opacity: 0
 						top: 100%
 						align-items: baseline
+
+						@media screen and (max-width: 640px)
+							left: 0
+							width: 100%
 
 						&:after
 							left: 100%
@@ -657,10 +670,10 @@ body
 						box-shadow: 0 0 15px 0 $box-shadow-color
 
 		.breadcrumbs
-			margin-top: -2em
+			margin-top: -2.5em
 
 			.path
-				margin: 2em 0
+				margin: 1em 0
 				color: #909090
 
 				a
@@ -679,7 +692,13 @@ body
 			grid-template-columns: 1fr auto
 			grid-gap: 3px
 			margin: 1em 0
-			width: 70%
+			width: calc(70% - 12px)
+
+			@media screen and (max-width: 960px)
+				width: calc(60% - 12px)
+
+			@media screen and (max-width: 740px)
+				width: auto
 
 			input,
 			button
@@ -701,6 +720,36 @@ body
 
 				&:hover
 					background: lighten($main-color, 10%)
+
+		.content
+			height: auto
+			display: grid
+			grid-template-columns: 70% 1fr
+			grid-gap: 3%
+
+			aside
+				border-left: 1px solid #e4e4e4
+
+				ul
+					list-style: none
+					margin: 0
+					padding: 0
+
+					li
+						&.select
+							border-left: 3px solid #005c8b
+
+						a
+							text-decoration: none
+							padding: 1em
+							display: block
+							margin-left: 1em
+
+							&:hover
+								color: #005c8b
+
+					li:not(:last-child) a
+						border-bottom: 1px solid #e4e4e4
 		/**удалить_конец**/
 
 	#map
@@ -746,9 +795,6 @@ body
 		bottom: 0
 		padding-bottom: 2em
 		min-height: calc(100vh - 2em)
-		display: grid
-		justify-content: center
-		grid-template-rows: auto 1fr
 
 		@media screen and (max-width: 960px)
 			min-height: unset
@@ -775,7 +821,6 @@ body
 
 		.eq-half
 			grid-template-columns: 1fr 1fr
-			align-items: baseline
 			grid-gap: 25px
 			flex-grow: 1
 			height: 100%
@@ -789,15 +834,8 @@ body
 
 			.address
 				height: 100%
-				position: relative
-
-				.copyright
-					position: absolute
-					bottom: 0
-
-					@media screen and (max-width: 960px)
-						width: 100%
-						position: unset
+				display: grid
+				grid-template-rows: 1fr auto
 
 				.line
 					margin-top: 1em

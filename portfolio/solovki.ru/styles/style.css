@@ -22,7 +22,8 @@ menu {
     padding: 0 1em;
     display: flex;
     justify-content: center;
-    align-items: center; }
+    align-items: center;
+    font-weight: 700; }
 
 a {
   color: unset;
@@ -196,8 +197,8 @@ body {
             position: fixed;
             flex-direction: column;
             width: 100%;
-            height: calc(100vh - 123px);
-            top: 123px;
+            height: calc(100vh - 111px);
+            top: 111px;
             background: #f1f2f2;
             left: 100%;
             transition: 0.3s;
@@ -207,7 +208,6 @@ body {
             body header .inner menu.show {
               left: 0; } }
         body header .inner menu > li {
-          font-weight: 700;
           height: 100%; }
           @media screen and (max-width: 960px) {
             body header .inner menu > li {
@@ -234,6 +234,14 @@ body {
                 padding: 0.5em; }
                 body header .inner menu > li:hover ul li {
                   padding: 0; } }
+            @media screen and (max-width: 640px) {
+              body header .inner menu > li:hover ul {
+                left: 0;
+                width: 100%;
+                z-index: 100;
+                padding: 0; }
+                body header .inner menu > li:hover ul a {
+                  padding: 0.5em 0 0.5em 1em; } }
           body header .inner menu > li ul {
             font-weight: 300;
             display: grid;
@@ -252,6 +260,10 @@ body {
             opacity: 0;
             top: 100%;
             align-items: baseline; }
+            @media screen and (max-width: 640px) {
+              body header .inner menu > li ul {
+                left: 0;
+                width: 100%; } }
             body header .inner menu > li ul:after {
               left: 100%; }
             body header .inner menu > li ul:before {
@@ -530,9 +542,9 @@ body {
             color: #ff2a2a;
             box-shadow: 0 0 15px 0 #012e9a26; }
     body main .breadcrumbs {
-      margin-top: -2em; }
+      margin-top: -2.5em; }
       body main .breadcrumbs .path {
-        margin: 2em 0;
+        margin: 1em 0;
         color: #909090; }
         body main .breadcrumbs .path a {
           text-decoration: none;
@@ -548,7 +560,13 @@ body {
       grid-template-columns: 1fr auto;
       grid-gap: 3px;
       margin: 1em 0;
-      width: 70%; }
+      width: calc(70% - 12px); }
+      @media screen and (max-width: 960px) {
+        body main .search {
+          width: calc(60% - 12px); } }
+      @media screen and (max-width: 740px) {
+        body main .search {
+          width: auto; } }
       body main .search input,
       body main .search button {
         border: none;
@@ -566,6 +584,28 @@ body {
         transition: 0.3s; }
         body main .search button:hover {
           background: #007ebe; }
+    body main .content {
+      height: auto;
+      display: grid;
+      grid-template-columns: 70% 1fr;
+      grid-gap: 3%; }
+      body main .content aside {
+        border-left: 1px solid #e4e4e4; }
+        body main .content aside ul {
+          list-style: none;
+          margin: 0;
+          padding: 0; }
+          body main .content aside ul li.select {
+            border-left: 3px solid #005c8b; }
+          body main .content aside ul li a {
+            text-decoration: none;
+            padding: 1em;
+            display: block;
+            margin-left: 1em; }
+            body main .content aside ul li a:hover {
+              color: #005c8b; }
+          body main .content aside ul li:not(:last-child) a {
+            border-bottom: 1px solid #e4e4e4; }
   body #map {
     width: 100%;
     height: 450px;
@@ -604,10 +644,7 @@ body {
     position: sticky;
     bottom: 0;
     padding-bottom: 2em;
-    min-height: calc(100vh - 2em);
-    display: grid;
-    justify-content: center;
-    grid-template-rows: auto 1fr; }
+    min-height: calc(100vh - 2em); }
     @media screen and (max-width: 960px) {
       body footer {
         min-height: unset; } }
@@ -628,7 +665,6 @@ body {
             display: none; } }
     body footer .eq-half {
       grid-template-columns: 1fr 1fr;
-      align-items: baseline;
       grid-gap: 25px;
       flex-grow: 1;
       height: 100%; }
@@ -640,14 +676,8 @@ body {
         transition: 0.3s; }
       body footer .eq-half .address {
         height: 100%;
-        position: relative; }
-        body footer .eq-half .address .copyright {
-          position: absolute;
-          bottom: 0; }
-          @media screen and (max-width: 960px) {
-            body footer .eq-half .address .copyright {
-              width: 100%;
-              position: unset; } }
+        display: grid;
+        grid-template-rows: 1fr auto; }
         body footer .eq-half .address .line {
           margin-top: 1em; }
       body footer .eq-half .feedback {
