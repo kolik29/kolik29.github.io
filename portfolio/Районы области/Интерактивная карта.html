@@ -43,6 +43,7 @@
 
 			$('.map .munobr').on('mouseleave', function() {
 				$('.map .munobr').off('mouseenter');
+
 				$(this).css({
 					'z-index': 0,
 					'transform': ''
@@ -50,6 +51,10 @@
 					$('.map .munobr').on('mouseenter', function() {
 						mouseIn($(this));
 					});
+				});
+
+				$('.city').css({
+					'transform': ''
 				});
 			});
 
@@ -110,12 +115,12 @@
 									  Number(th.css('transform-origin').split(' ')[1].replace('px', ''))],
 							point = [$(this).position().top, $(this).position().left],
 							angle = getAngle(center, point),
-							x = Math.cos(angle) * 10,
-							y = Math.sin(angle) * 10;
+							x = Math.cos(angle) * 5,
+							y = Math.sin(angle) * 5;
 
 						$(this).css({
 							'transform': 'translate(' + x + 'px, ' + y + 'px)'
-						})
+						});
 					}
 				});
 			}
@@ -180,11 +185,6 @@
 			position: absolute;
 			left: calc(100% + 5px);
 			bottom: 100%;
-		}
-
-		.map .city .city-name.right-bottom {
-			transform: translateX(calc(-100% - 25px));
-			top: 100%;
 		}
 
 		.map .city .circle {
@@ -394,19 +394,19 @@
 			</svg>
 		</div>
 		<div class="city" style="top: 32%;left: 28%;" data-city="severodvinsk">
-			<div class="city-name" data-color="red">Северодвинск</div>
+			<div class="city-name" data-color="red" style="left: unset; right: 20px">Северодвинск</div>
 			<div class="circle">
 				<div class="sector"></div>
 			</div>
 		</div>
 		<div class="city" style="top: 32%;left: 32%;" data-city="arkhangelsk">
-			<div class="city-name right-bottom" data-color="red">Архангельск</div>
+			<div class="city-name" data-color="red">Архангельск</div>
 			<div class="circle">
 				<div class="sector"></div>
 			</div>
 		</div>
 		<div class="city" style="top: 35%;left: 32%;" data-city="novodvinsk">
-			<div class="city-name" data-color="red">Новодвинск</div>
+			<div class="city-name" data-color="red" style="top: 10px">Новодвинск</div>
 			<div class="circle">
 				<div class="sector"></div>
 			</div>
