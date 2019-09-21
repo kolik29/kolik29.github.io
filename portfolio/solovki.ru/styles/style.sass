@@ -168,6 +168,7 @@ body
 			@media screen and (max-width: 960px)
 				display: flex
 				flex-direction: column
+				text-align: center
 
 			@media screen and (max-width: 640px)
 				display: grid
@@ -389,6 +390,16 @@ body
 			&:before
 				right: 100%
 		/**удалить_начало**/
+		.news-element--more-news
+			padding: 6em 0 3em
+
+			@media screen and (max-width: 960px)
+				.more-news-body
+					grid-template-columns: 1fr !important
+
+			@media screen and (max-width: 640px)
+				display: none !important
+
 		.link
 			text-align: center
 			font-weight: 700
@@ -469,20 +480,20 @@ body
 				color: #5d5d5d
 				font-size: .85em
 
-			.news-main
-				.news-photo
+			.news-photo
+				width: 100%
+				padding-bottom: 56%
+				position: relative
+				overflow: hidden
+				border-radius: 3px
+
+				img
+					position: absolute
+					left: 0
+					top: 0
 					width: 100%
-					padding-bottom: 56%
-					position: relative
-					overflow: hidden
-					border-radius: 3px
 
-					img
-						position: absolute
-						left: 0
-						top: 0
-						width: 100%
-
+			.news-main
 				img,
 				h1
 					font-size: 2em
@@ -490,6 +501,7 @@ body
 
 				.news-title
 					padding: .45em 0
+
 				&:hover
 					img
 						transform: scale(1.03)
@@ -499,7 +511,8 @@ body
 
 				.news-item
 					padding: 1em 0
-					display: block
+					display: grid
+					grid-template-rows: repeat(2, auto)
 					position: relative
 
 					&:not(:last-child)
@@ -590,7 +603,7 @@ body
 					grid-template-columns: repeat(5, 1fr)
 
 					@media screen and (max-width: 640px)
-						grid-template-columns: 1fr 1fr
+						grid-template-columns: repeat(2, 1fr)
 
 					.deputates-line__item
 						position: relative
@@ -603,11 +616,12 @@ body
 					.position
 						color: black !important
 
-		.docs
+		.docs,
+		.news-element--more-news
 			.title
 				grid-template-columns: 1fr auto auto auto
 
-			.docs-body
+			.docs-body, .more-news-body
 				padding: 3em 0 2em
 				display: grid
 				grid-gap: 2em
@@ -726,9 +740,181 @@ body
 			display: grid
 			grid-template-columns: 70% 1fr
 			grid-gap: 3%
+			align-items: start
+			padding-top: 2em
+
+			@media screen and (max-width: 640px)
+				grid-template-columns: 1fr
+				padding-bottom: 4em
+				grid-gap: 0
+
+				article
+					.navigation-pages
+						padding: 2em 0 !important
+
+				aside
+					background: #e0e0e0
+					border-left: unset !important
+					padding: 1em 0
+					border-radius: 3px
+
+					ul
+						li
+							&.select
+								border-left: unset !important
+								color: $main-color
+
+							a
+								border-bottom-color: darken($border-color, 10%) !important
+								margin: 0 1em !important
+
+			article
+				img
+					width: 60%
+					cursor: pointer
+
+					@media screen and (max-width: 640px)
+						width: 100%
+
+				p
+					margin: 1em 0
+					font-size: 1.2em
+
+				.navigation-pages
+					display: inline-flex
+					padding-top: 2em
+					padding-bottom: 3em
+					font-weight: 700
+					color: #717171
+
+					a, div
+						padding-top: 1em
+						padding-bottom: 1em
+						padding-right: 1.5em
+						padding-left: 1.5em
+
+					a
+						border-radius: 3px
+						line-height: .8em
+						cursor: pointer
+
+						&.no-active
+							opacity: .6
+
+						&:hover:not(.no-active), &.current
+							color: unset
+							background: #dedede
+
+						&:not(.to-last)
+							margin: 0 .25em
+
+						&.to-first, &.to-last
+							border: 1px solid $border-color
+							position: relative
+
+							&:before
+								position: absolute
+								top: 0
+								left: 0
+								width: 100%
+								height: 100%
+								content: ''
+								background-image: url('../img/drop-down-list.png')
+								background-repeat: no-repeat
+								background-size: 40%
+								background-position: center
+
+						&.to-first:before
+							transform: rotate(90deg)
+
+						&.to-last:before
+							transform: rotate(-90deg)
+
+				.share
+					display: flex
+					border-top: 1px solid $border-color
+					justify-content: space-between
+					margin-top: 2em
+					padding: 2em 0
+
+					.back
+						padding: 1em 3em
+						color: red
+						border-color: red
+						transition: .3s
+
+						&:hover
+							background: red
+							color: #fff
+
+					.back, .sharing
+						border: 1px solid
+						font-size: 1.2em
+						border-radius: 5px
+						text-decoration: none
+
+					.sharing
+						display: grid
+						border-color: $main-color
+						grid-template-columns: repeat(4, 1fr)
+
+						a
+							padding: 0 1.5em
+							transition: .3s
+							position: relative
+							background-size: 60%
+							background-position: center
+							background-repeat: no-repeat
+
+							&:after
+								position: absolute
+								width: 100%
+								height: 100%
+								content: ''
+								transition: .3s
+								opacity: 0
+								background-size: 60%
+								background-position: center
+								background-repeat: no-repeat
+								top: 0
+								left: 0
+
+							&:hover
+								background-color: $main-color
+
+								&:after
+									opacity: 1
+
+							&:not(:last-child)
+								border-right: 1px solid $main-color
+
+							&#vk
+								background-image: url('../img/icons/vk-blue.svg')
+
+								&:after
+									background-image: url('../img/icons/vk-white.svg')
+
+							&#ok
+								background-image: url('../img/icons/odnoklassniki-blue.svg')
+
+								&:after
+									background-image: url('../img/icons/odnoklassniki-white.svg')
+
+							&#fb
+								background-image: url('../img/icons/facebook-blue.svg')
+
+								&:after
+									background-image: url('../img/icons/facebook-white.svg')
+
+							&#print
+								background-image: url('../img/icons/printer-blue.svg')
+
+								&:after
+									background-image: url('../img/icons/printer-white.svg')
 
 			aside
-				border-left: 1px solid #e4e4e4
+				border-left: 1px solid $border-color
+				font-weight: 700
 
 				ul
 					list-style: none
@@ -737,7 +923,7 @@ body
 
 					li
 						&.select
-							border-left: 3px solid #005c8b
+							border-left: 3px solid $main-color
 
 						a
 							text-decoration: none
@@ -746,10 +932,10 @@ body
 							margin-left: 1em
 
 							&:hover
-								color: #005c8b
+								color: $main-color
 
 					li:not(:last-child) a
-						border-bottom: 1px solid #e4e4e4
+						border-bottom: 1px solid $border-color
 		/**удалить_конец**/
 
 	#map
@@ -761,6 +947,7 @@ body
 
 		@media screen and (max-width: 740px)
 			display: none
+
 		/**удалить_начало**/
 		.map-address
 			right: 50%
@@ -790,73 +977,99 @@ body
 		background: $main-color
 		color: #fff
 		transition: .3s
-		flex: 0 0 auto
 		position: sticky
 		bottom: 0
-		padding-bottom: 2em
-		min-height: calc(100vh - 2em)
+		min-height: 100vh
+		padding: 0 15px
 
 		@media screen and (max-width: 960px)
+			position: relative
 			min-height: unset
 
-		a:hover
-			color: #bee9ff
+		a
+			&:hover
+				color: lighten($main-color, 50%)
 
-		menu > li
-			font-weight: 300
+			&.dotted
+				border-bottom: 1px dotted #fff
 
-		.logo:hover
-			color: unset
+				&:hover
+					border-bottom-color: lighten($main-color, 50%)
 
-		.line
-			border-bottom: 1px solid transparentize($border-color, 0.7)
-			margin-bottom: 1em
+		.inner
+			min-height: calc(100vh - 2em)
+			display: grid
+			grid-template-columns: repeat(2, 1fr)
+			grid-template-rows: auto auto 1fr
+			grid-gap: 1em
+			width: calc(100% - 30px)
 
 			@media screen and (max-width: 960px)
-				display: flex
-				justify-content: center
+				grid-template-columns: 1fr
+				min-height: unset
+				padding-bottom: 1em
 
-				menu
+				.feedback-title, .feedback, .feedback-sub
+					display: none !important
+
+			> div
+				height: 100%
+
+			.menu
+				grid-area: 1 / 1 / 2 / 3
+				display: grid
+				grid-template-columns: repeat(2, 1fr)
+
+				@media screen and (max-width: 960px)
+					display: flex
+					align-items: center
+					flex-direction: column
+					text-align: center
+					grid-area: unset
+
+					menu a
+						padding: .5em
+
+				@media screen and (max-width: 640px)
 					display: none
 
-		.eq-half
-			grid-template-columns: 1fr 1fr
-			grid-gap: 25px
-			flex-grow: 1
-			height: 100%
+			.line
+				border-bottom: 1px solid transparentize($border-color, 0.7)
 
-			@media screen and (max-width: 960px)
-				display: flex
-
-			a.dotted
-				border-bottom: 1px dotted #fff
-				transition: .3s
+			h2
+				font-weight: 300
+				text-align: center
 
 			.address
 				height: 100%
-				display: grid
-				grid-template-rows: 1fr auto
+				position: relative
+				display: flex
+				flex-direction: column
+				font-size: 1.2em
+				line-height: 1.4em
 
-				.line
-					margin-top: 1em
+				#major, #addr, #phone, #email
+					margin-bottom: 2em
+
+				#site-maps-links
+					position: absolute
+					bottom: .6em
 
 			.feedback
 				display: grid
 				grid-template-columns: 100%
-				grid-template-rows: 30px 50px 50px 50px 1fr 50px 50px
+				grid-template-rows: repeat(3, 50px) 1fr repeat(2, 50px)
 				grid-gap: 10px
-				height: 100%
 
-				@media screen and (max-width: 960px)
-					display: none
+				> div
+					display: grid
+					grid-template-columns: repeat(2, 1fr)
+					grid-gap: 10px
 
-				h2
-					text-align: center
-					font-weight: 300
+				input, textarea
+					font-style: italic
 
-				input,
-				textarea,
-				button
+				input, textarea, button
 					border: none
 					outline: none
 					resize: none
@@ -865,22 +1078,11 @@ body
 					font-family: Arial
 					border-radius: 3px
 
-					&::placeholder
-						font-style: italic
-
 				button
 					cursor: pointer
 					color: #fff
-					background-color: darken($text-color--red, 10%)
-					transition: .3s
+					background-color: #f60000
+					transition: 0.3s
 
 					&:hover
-						background-color: $text-color--red
-
-				> div
-					display: grid
-					grid-template-columns: 1fr 1fr
-					grid-gap: 10px
-
-				span
-					font-size: 11px
+						background-color: lighten(#f60000, 15%)
