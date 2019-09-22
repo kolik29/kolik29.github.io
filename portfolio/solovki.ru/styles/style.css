@@ -635,6 +635,13 @@ body {
       body main .content article p {
         margin: 1em 0;
         font-size: 1.2em; }
+      body main .content article .document {
+        position: relative;
+        padding-bottom: 141%; }
+        body main .content article .document iframe {
+          position: absolute;
+          width: 100%;
+          height: 100%; }
       body main .content article .navigation-pages {
         display: inline-flex;
         padding-top: 2em;
