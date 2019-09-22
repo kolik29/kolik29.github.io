@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>АМО «Сельское поселение «Соловецкое»</title>
+	<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&apikey=407deefd-7ba8-43ef-a7db-c92644a9f5e1" type="text/javascript"></script>
+	<link rel="stylesheet" href="styles/style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="scripts/script.js"></script>
+	<script src="vision/vision.js"></script>
+	<link rel="stylesheet" href="vision/vision.css">
+	<meta property="og:image" content="https://kolik29.ru/portfolio/solovki.ru/img/Соловецкий крмель 1.jpg" />
+</head>
+<body onload="load()">
+	<div class="vision">
+		<div class="vision-title">
+			<h2>Настройка режима отображения:</h2>
+			<div class="vision-close"></div>
+		</div>
+		<div class="vision-body">
+			<div>
+				<h3>Тип шрифта</h3>
+				<div class="vision-option">
+					<label for="font-type-1">
+						<input type="radio" id="font-type-1" name="font-type" checked="">
+						<span>Без засечек</span>
+					</label>
+					<label for="font-type-2">
+						<input type="radio" id="font-type-2" name="font-type">
+						<span>С засечками</span>
+					</label>
+				</div>
+			</div>
+			<div>
+				<h3>Расстояние между буквами</h3>
+				<div class="vision-option">
+					<label for="letter-spacing-1">
+						<input type="radio" id="letter-spacing-1" name="letter-spacing" checked="">
+						<span>Маленький</span>
+					</label>
+					<label for="letter-spacing-2">
+						<input type="radio" id="letter-spacing-2" name="letter-spacing">
+						<span>Средний</span>
+					</label>
+					<label for="letter-spacing-3">
+						<input type="radio" id="letter-spacing-3" name="letter-spacing">
+						<span>Большой</span>
+					</label>
+				</div>
+			</div>
+			<div>
+				<h3>Размер текста</h3>
+				<div class="vision-option">
+					<label for="font-size-1">
+						<input type="radio" name="font-size" id="font-size-1" checked="">
+						<span>А</span>
+					</label>
+					<label for="font-size-2">
+						<input type="radio" name="font-size" id="font-size-2">
+						<span>А</span>
+					</label>
+					<label for="font-size-3">
+						<input type="radio" name="font-size" id="font-size-3">
+						<span>А</span>
+					</label>
+				</div>
+			</div>
+			<div>
+				<h3>Цветовая схема</h3>
+				<div class="vision-option">
+					<label for="color-scheme-1">
+						<input type="radio" name="color-scheme" id="color-scheme-1" checked="">
+						<span>Ц</span>
+					</label>
+					<label for="color-scheme-2">
+						<input type="radio" name="color-scheme" id="color-scheme-2">
+						<span>Ц</span>
+					</label>
+					<label for="color-scheme-3">
+						<input type="radio" name="color-scheme" id="color-scheme-3">
+						<span>Ц</span>
+					</label>
+					<label for="color-scheme-4">
+						<input type="radio" name="color-scheme" id="color-scheme-4">
+						<span>Ц</span>
+					</label>
+					<label for="color-scheme-5">
+						<input type="radio" name="color-scheme" id="color-scheme-5">
+						<span>Ц</span>
+					</label>
+				</div>
+			</div>
+			<div>
+				<h3>Изображения</h3>
+				<div class="vision-option">
+					<label for="images-1">
+						<input type="radio" name="images" id="images-1" checked="">
+						<span>Показать</span>
+					</label>
+					<label for="images-2">
+						<input type="radio" name="images" id="images-2">
+						<span>Скрыть</span>
+					</label>
+					<label for="images-3">
+						<input type="radio" name="images" id="images-3">
+						<span>Ч/б</span>
+					</label>
+				</div>
+			</div>
+			<button id="js-vision-default">Сбросить настройки</button>
+		</div>
+	</div>
+	<header>
+		<div class="inner">
+			<label for="switch-vision" class="vision-btn">
+				<input type="checkbox" style="display: none;" id="switch-vision">
+				<span>ВЕРСИЯ ДЛЯ СЛАБОВИДЯЩИХ</span>
+			</label>
+			<a href="/" class="logo">
+				<img src="img/logo.png">
+				<div class="text">
+					<h3>Администрация муниципального образования<br>«Сельское поселение «Соловецкое»</h3>
+				</div>
+			</a>
+			<input type="checkbox" id="burgerMenuSwitch">
+			<label class="burger-menu" for="burgerMenuSwitch">
+				<div></div>
+				<div></div>
+				<div></div>
+			</label>
+			<menu>
+				<li><a href="#"><span>Новости</span></a></li>
+				<li><a href="#"><span>Администрация</span></a>
+					<ul>
+						<li><a href="#">Противодействие коррупции</a></li>
+						<li><a href="#">Структура администрации</a></li>
+						<li><a href="#">Сведения о доходах</a></li>
+						<li><a href="#">Населенные пункты</a></li>
+						<li><a href="#">История</a></li>
+						<li><a href="#">Вакансии</a></li>
+					</ul>
+				</li>
+				<li><a href="#"><span>Документы</span></a>
+				<li><a href="#"><span>Контакты</span></a>
+				</li>
+			</menu>
+		</div>
+	</header>
+
+	<main>
+		<div class="inner">
+			<div class="breadcrumbs">
+				<div class="path"><a href="/">Главная</a><span>/</span></div>
+				<h1>Документы</h1>
+			</div>
+			<div class="search">
+				<input type="text">
+				<button>Найти</button>
+			</div>
+			<div class="content">
+				<article>
+					<style>
+						.documents-item {
+							padding: 1em 0;
+							border-bottom: 1px solid #e4e4e4;
+							display: block;
+							text-decoration: none;
+						}
+					</style>
+					<div class="documents-list">
+						<a href="" class="documents-item">
+							<h3>Постановление № 123 от 23 сентября 2019 года "О назначении выплат пенсионерам"</h3>
+						</a>
+						<a href="" class="documents-item">
+							<h3>Постановление № 123 от 23 сентября 2019 года "О назначении выплат пенсионерам"</h3>
+						</a>
+						<a href="" class="documents-item">
+							<h3>Постановление № 123 от 23 сентября 2019 года "О назначении выплат пенсионерам"</h3>
+						</a>
+						<a href="" class="documents-item">
+							<h3>Постановление № 123 от 23 сентября 2019 года "О назначении выплат пенсионерам"</h3>
+						</a>
+						<a href="" class="documents-item">
+							<h3>Постановление № 123 от 23 сентября 2019 года "О назначении выплат пенсионерам"</h3>
+						</a>
+					</div>
+
+					<div class="navigation-pages">
+						<a href="" hred="" class="to-first no-active">&nbsp;</a>
+						<a hred="" class="page current">1</a>
+						<a hred="" class="page">2</a>
+						<a hred="" class="page">3</a>
+						<a hred="" class="to-last">&nbsp;</a>
+					</div>
+				</article>
+				<aside>
+					<ul>
+						<li class="select">
+							<a href="">Все</a>
+						</li>
+						<li>
+							<a href="">ГО и ЧС</a>
+						</li>
+						<li>
+							<a href="">dolor</a>
+						</li>
+						<li>
+							<a href="">sit</a>
+						</li>
+						<li>
+							<a href="">amet</a>
+						</li>
+					</ul>
+				</aside>
+			</div>
+		</div>
+	</main>
+
+	<footer>
+		<div class="inner">
+			<div class="line menu">
+				<a href="/" class="logo">
+					<img src="img/logo.png">
+					<div class="text">
+						<h3>Администрация муниципального образования<br>«Сельское поселение «Соловецкое»</h3>
+					</div>
+				</a>
+				<menu>
+					<li><a href="#"><span>Новости</span></a></li>
+					<li><a href="#"><span>Администрация</span></a></li>
+					<li><a href="#"><span>Документы</span></a>
+					<li><a href="#"><span>Контакты</span></a>
+					</li>
+				</menu>
+			</div>
+			<div></div>
+			<h2 class="feedback-title">Ваше обращение</h2>
+			<div class="address line">
+				<div id="major"><b>Глава муниципального образования:</b><br>Клишова Татьяна Сергеевна</b></div>
+				<div id="addr">
+					<b>Адрес:</b><br>164070, Архангельская область, <br>
+					посёлок Соловецкий, ул. Заозерная, д. 4
+				</div>
+				<div id="phone">
+					<b>Телефон:</b><br><a href="tel:88183590336">8 (8183) 59-03-36</a>
+				</div>
+				<div id="email">
+					<b>E-mail:</b><br><a href="mailto:mo_solovki@mail.ru">mo_solovki@mail.ru</a>
+				</div>
+				<div id="site-maps-links">
+					<a href="#" class="dotted">Карта сайта</a>, <a href="#" class="dotted">Законодательная карта сайта</a>
+				</div>
+			</div>
+			<div class="feedback">
+				<input type="text" placeholder="Населенный пункт">
+				<input type="text" placeholder="Улица">
+				<div>
+					<input type="text" placeholder="Дом">
+					<input type="text" placeholder="Квартира">
+				</div>
+				<textarea placeholder="Текст обращения"></textarea>
+				<input type="text" placeholder="Электронная почта">
+				<div>
+					<button>Отправить *</button>
+				</div>
+			</div>
+			<div class="copyright">
+				© - Администрация муниципального образования «Сельское поселение «Соловецкое», 2019
+			</div>
+			<div class="feedback-sub">
+				<span>* - Нажмая кнопку «Отправить» Вы подтверждаете свой согласие с <a href="#" class="dotted">политикой обработки персональных данных</a></span>
+			</div>
+		</div>
+	</footer>
+</body>
+</html>

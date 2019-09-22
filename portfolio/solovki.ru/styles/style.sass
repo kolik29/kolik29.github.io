@@ -239,35 +239,31 @@ body
 
 				@media screen and (max-width: 640px)
 					position: fixed
-					flex-direction: column
-					width: 100%
-					height: calc(100vh - 111px)
-					top: 111px
-					background: #f1f2f2
+					width: 100vw
 					left: 100%
-					transition: .3s
-					justify-content: start
+					display: flex
+					flex-direction: column
+					background: #fff
+					transition: left .3s
+					justify-content: end
 
-					a
-						padding: 0
+					li
+						border-bottom: 1px solid #d0d0d0
+						width: 100%
+						display: flex
+						align-self: center
 
-					&.show
-						left: 0
+						a
+							line-height: unset
+							height: unset
+							width: 100%
+							padding: 1em
 
 				> li
 					height: 100%
 
 					@media screen and (max-width: 960px)
 						position: relative
-
-					@media screen and (max-width: 640px)
-						height: 2.5em
-						border-bottom: 1px solid #bdbdbd
-						width: 100%
-
-						a
-							justify-content: right
-							padding-left: 1em
 
 					&:hover
 						> a
@@ -288,13 +284,7 @@ body
 									padding: 0
 
 							@media screen and (max-width: 640px)
-								left: 0
-								width: 100%
-								z-index: 100
-								padding: 0
-
-								a
-									padding: .5em 0 .5em 1em
+								display: none
 
 					ul
 						font-weight: 300
@@ -800,6 +790,7 @@ body
 
 						&.no-active
 							opacity: .6
+							cursor: default
 
 						&:hover:not(.no-active), &.current
 							color: unset
@@ -837,17 +828,34 @@ body
 					margin-top: 2em
 					padding: 2em 0
 
-					.back
+					@media screen and (max-width: 640px)
+						justify-content: center
+
+					.back, .download
 						padding: 1em 3em
-						color: red
-						border-color: red
 						transition: .3s
+
+						@media screen and (max-width: 640px)
+							display: none
+
+						&:hover
+							color: #fff
+
+					.back
+						border-color: red
+						color: red
 
 						&:hover
 							background: red
-							color: #fff
 
-					.back, .sharing
+					.download
+						border-color: $main-color
+						color: $main-color
+
+						&:hover
+							background: $main-color
+
+					.back, .sharing, .download
 						border: 1px solid
 						font-size: 1.2em
 						border-radius: 5px
@@ -857,6 +865,7 @@ body
 						display: grid
 						border-color: $main-color
 						grid-template-columns: repeat(4, 1fr)
+						height: 3em
 
 						a
 							padding: 0 1.5em
@@ -1054,6 +1063,9 @@ body
 				#site-maps-links
 					position: absolute
 					bottom: .6em
+
+					@media screen and (max-width: 640px)
+						position: relative
 
 			.feedback
 				display: grid

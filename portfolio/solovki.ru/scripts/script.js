@@ -3,19 +3,37 @@ $(document).ready(function() {
 		sliderMainPageLeft();
 	}, 5000);
 
-	$('#burgerMenuSwitch').on('change', function() {
+	$('#burgerMenuSwitch').on('change', function() { //переключение меню на мобильных
 		if ($(this).prop('checked')) {
-			$('header').css({
-				'position': 'fixed'
+			$('body').css({
+				'overflow-y': 'hidden'
 			});
-			$('header menu').addClass('show');
+
+			$('menu').css({
+				'left': 0,
+				'top': $('header').height() + 3,
+				'height': 'calc(100vh - 3px - ' + $('header').height() + 'px)'
+			});
 		}
 		else {
-			$('header').css({
-				'position': ''
+			$('body').css({
+				'overflow-y': ''
 			});
-			$('header menu').removeClass('show');
+
+			$('menu').css({
+				'left': ''
+			});
 		}
+	});
+
+	$(window).resize(function() {
+		$('menu').css({
+			'left': '',
+			'top': '',
+			'height': ''
+		});
+		if ($('#burgerMenuSwitch').prop('checked'))
+			$('.burger-menu').trigger('click');
 	})
 
 	if ($('.links .links-body > *').length < 8) { //Скрвает кнопку "Показать больше если ссылок меньше 8"
