@@ -1,0 +1,13 @@
+.breadcrumbs {
+  margin-top: -2.5em; }
+  .breadcrumbs .path {
+    margin: 1em 0;
+    color: #909090; }
+    .breadcrumbs .path a {
+      text-decoration: none;
+      padding: 1em 0; }
+    .breadcrumbs .path span {
+      display: inline-block;
+      margin: 0 1em; }
+
+/*# sourceMappingURL=temple.css.map */

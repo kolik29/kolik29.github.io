@@ -695,14 +695,14 @@ body {
         body main .content article .share .back, body main .content article .share .download {
           padding: 1em 3em;
           transition: 0.3s; }
-          @media screen and (max-width: 640px) {
-            body main .content article .share .back, body main .content article .share .download {
-              display: none; } }
           body main .content article .share .back:hover, body main .content article .share .download:hover {
             color: #fff; }
         body main .content article .share .back {
           border-color: red;
           color: red; }
+          @media screen and (max-width: 640px) {
+            body main .content article .share .back {
+              display: none; } }
           body main .content article .share .back:hover {
             background: red; }
         body main .content article .share .download {
