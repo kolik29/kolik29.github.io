@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AAAA,eAAe;EACd,OAAO,EAAE,IAAI;EACb,eAAe,EAAE,MAAM;EACvB,WAAW,EAAE,MAAM;EACnB,QAAQ,EAAE,QAAQ;EAElB,sBAAM;IACL,KAAK,EAAE,KAAK;IAEZ,kEAAkE;MAHnE,sBAAM;QAIJ,KAAK,EAAE,IAAI;EAEb,oBAAI;IACH,QAAQ,EAAE,QAAQ;IAClB,KAAK,EAAE,OAAO;IACd,WAAW,EAAE,GAAG;IAChB,SAAS,EAAE,IAAI",
-"sources": ["skill_in_circle.sass"],
-"names": [],
-"file": "skill_in_circle.css"
-}
