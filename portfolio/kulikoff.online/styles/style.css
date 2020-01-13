@@ -30,14 +30,14 @@ main {
     animation-timing-function: ease;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
-    opacity: 0;
     transition: 0.3s;
-    animation-name: down; }
-    main section.active-up {
-      animation-name: up;
-      opacity: 1; }
-    main section.active-down {
-      animation-name: down;
+    animation-name: down;
+    opacity: 0; }
+    main section.animate-up {
+      animation-name: up; }
+    main section.animate-down {
+      animation-name: down; }
+    main section.opacity {
       opacity: 1; }
 
 @keyframes up {

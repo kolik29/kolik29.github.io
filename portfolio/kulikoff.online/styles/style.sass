@@ -33,16 +33,17 @@ main
 		animation-timing-function: ease
 		animation-iteration-count: 1
 		animation-fill-mode: forwards
-		opacity: 0
 		transition: .3s
 		animation-name: down
+		opacity: 0
 
-		&.active-up
+		&.animate-up
 			animation-name: up
-			opacity: 1
 
-		&.active-down
+		&.animate-down
 			animation-name: down
+
+		&.opacity
 			opacity: 1
 
 @keyframes up
