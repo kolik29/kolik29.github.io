@@ -33,16 +33,28 @@ main
 		animation-timing-function: ease
 		animation-iteration-count: 1
 		animation-fill-mode: forwards
+		opacity: 0
+		transition: .3s
+		animation-name: down
 
 		&.active-up
 			animation-name: up
-			background: red
+			opacity: 1
+
+		&.active-down
+			animation-name: down
+			opacity: 1
 
 @keyframes up
 	0%
 		margin-top: 10%
-		transition: 0
 
 	100%
 		margin-top: 0
-		transition: 1
+
+@keyframes down
+	0%
+		margin-bottom: 0
+
+	100%
+		margin-bottom: 10%

@@ -1,13 +1,27 @@
-.breadcrumbs {
-  margin-top: -2.5em; }
-  .breadcrumbs .path {
-    margin: 1em 0;
-    color: #909090; }
-    .breadcrumbs .path a {
-      text-decoration: none;
-      padding: 1em 0; }
-    .breadcrumbs .path span {
-      display: inline-block;
-      margin: 0 1em; }
+.docs-body, .links-body {
+  padding: 3em 0 2em;
+  display: grid;
+  grid-gap: 2em;
+  grid-template-columns: repeat(3, 1fr); }
+  @media screen and (max-width: 960px) {
+    .docs-body, .links-body {
+      grid-template-columns: repeat(2, 1fr); } }
+  @media screen and (max-width: 640px) {
+    .docs-body, .links-body {
+      grid-template-columns: 1fr;
+      grid-gap: 1em; } }
+  .docs-body a, .links-body a {
+    padding: 2em;
+    border: 1px solid #e4e4e4;
+    border-radius: 3px;
+    transition: 0.3s;
+    text-decoration: none;
+    background: #fff; }
+    .docs-body a h4, .links-body a h4 {
+      transition: 0.3s; }
+    .docs-body a:hover, .links-body a:hover {
+      box-shadow: 0 0 15px 0 #012e9a26; }
+      .docs-body a:hover h4, .links-body a:hover h4 {
+        color: #ff2a2a; }
 
 /*# sourceMappingURL=temple.css.map */

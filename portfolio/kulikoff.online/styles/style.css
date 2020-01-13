@@ -29,17 +29,26 @@ main {
     animation-duration: 0.8s;
     animation-timing-function: ease;
     animation-iteration-count: 1;
-    animation-fill-mode: forwards; }
+    animation-fill-mode: forwards;
+    opacity: 0;
+    transition: 0.3s;
+    animation-name: down; }
     main section.active-up {
       animation-name: up;
-      background: red; }
+      opacity: 1; }
+    main section.active-down {
+      animation-name: down;
+      opacity: 1; }
 
 @keyframes up {
   0% {
-    margin-top: 10%;
-    transition: 0; }
+    margin-top: 10%; }
   100% {
-    margin-top: 0;
-    transition: 1; } }
+    margin-top: 0; } }
+@keyframes down {
+  0% {
+    margin-bottom: 0; }
+  100% {
+    margin-bottom: 10%; } }
 
 /*# sourceMappingURL=style.css.map */
