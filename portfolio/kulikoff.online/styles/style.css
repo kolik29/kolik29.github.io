@@ -31,24 +31,39 @@ main {
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
     transition: 0.3s;
-    animation-name: down;
     opacity: 0; }
-    main section.animate-up {
-      animation-name: up; }
-    main section.animate-down {
-      animation-name: down; }
-    main section.opacity {
-      opacity: 1; }
-
-@keyframes up {
+    main section.active {
+      opacity: 1;
+      z-index: 1; }
+    main section.slide-show-up {
+      animation-name: show-up; }
+@keyframes show-up {
   0% {
     margin-top: 10%; }
   100% {
     margin-top: 0; } }
-@keyframes down {
+    main section.slide-hide-down {
+      animation-name: hide-down;
+      opacity: 0; }
+@keyframes hide-down {
   0% {
-    margin-bottom: 0; }
+    margin-top: 0; }
   100% {
-    margin-bottom: 10%; } }
+    margin-top: -10%; } }
+    main section.slide-hide-up {
+      animation-name: hide-up; }
+@keyframes hide-up {
+  0% {
+    margin-top: -10%; }
+  100% {
+    margin-top: 0; } }
+    main section.slide-show-down {
+      animation-name: show-down;
+      opacity: 0; }
+@keyframes show-down {
+  0% {
+    margin-top: 0; }
+  100% {
+    margin-top: 10%; } }
 
 /*# sourceMappingURL=style.css.map */

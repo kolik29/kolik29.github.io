@@ -4,37 +4,43 @@ $(document).ready(function() {
 	$('body').on('mousewheel', function(e) {
 		scrollElement(e);
 	});
-
-	$('section').bind('classChanged', function(){
-		if ($(this).hasClass('select'))
-			console.log('classChange');
-	});
 });
 
 var ignoreScroll = false;
 function scrollElement(e) {
 	if (e.deltaY != undefined) {
 		if (ignoreScroll == false) {
-			var select = $('section.select');
+			var active = $('section.active'), element = {};
 
-			if (e.deltaY < 0)
-				if (select.next().length != 0)
-					select.next('section').addClass('select');
+			if (e.deltaY < 0) {
+				element['show'] = true;
+
+				if (active.next().length != 0)
+					element['obj'] = active.next('section');
 				else
-					select.parent().children().first().addClass('select');
+					element['obj'] = active.parent().children().first();
+			}
 
-			if (e.deltaY > 0)
-				if (select.prev().length != 0)
-					select.prev('section').addClass('select');
+			if (e.deltaY > 0) {
+				element['show'] = false;
+
+				if (active.prev().length != 0)
+					element['obj'] = active.prev('section');
 				else
-					select.parent().children().last().addClass('select');
+					element['obj'] = active.parent().children().last();
+			}
 
-			select.removeClass('select');
+			active.addClass('slide-' + (element['show'] ? 'hide' : 'show') + '-down').removeClass('active');
+			element['obj'].addClass('active').addClass('slide-' + (element['show'] ? 'show' : 'hide') + '-up');
 
 			ignoreScroll = true;
 			setTimeout(function() {
 				ignoreScroll = false;
-			}, 750);
+				$('.slide-show-up').removeClass('slide-show-up');
+				$('.slide-hide-down').removeClass('slide-hide-down');
+				$('.slide-show-down').removeClass('slide-show-down');
+				$('.slide-hide-up').removeClass('slide-hide-up');
+			}, 800);
 		}
 	}
 }
