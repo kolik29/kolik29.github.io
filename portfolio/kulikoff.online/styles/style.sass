@@ -24,6 +24,59 @@ body
 
 nav
 	padding: 15vh 0
+	grid-template-columns: 1fr 1fr
+	grid-gap: 2px
+	color: #fff
+
+	.left-side
+		position: relative
+		padding-right: 2em
+		align-items: flex-end
+
+		&:after
+			height: 100%
+			width: 2px
+			background: #555
+			position: absolute
+			right: -1px
+			content: ''
+
+		.item
+			opacity: 0
+
+	.right-side
+		padding-left: 2em
+		align-items: baseline
+
+
+		.item
+			position: relative
+
+			&:after
+				content: ''
+				position: absolute
+				left: calc(-2em - 3px)
+				width: 2px
+				height: 2px
+				background: #fff
+				transition: .3s
+
+			&:hover:after
+				background: #00f
+
+	.left-side,
+	.right-side
+		display: flex
+		justify-content: space-evenly
+		flex-direction: column
+
+		.item
+			transition: .3s
+
+	.item
+		display: flex
+		align-items: center
+		cursor: pointer
 
 main
 	overflow: hidden

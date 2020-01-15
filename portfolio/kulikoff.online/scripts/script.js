@@ -4,6 +4,15 @@ $(document).ready(function() {
 	$('body').on('mousewheel', function(e) {
 		scrollElement(e);
 	});
+
+	$('main section').each(function(i) {
+		var num;
+
+		num = ((String(i + 1).length == 1) ? '0' + String(i + 1) : String(i + 1));
+
+		$('nav .left-side').append('<div class="item">' + num + '</div>');
+		$('nav .right-side').append('<div class="item">' + $(this).data('name') + '</div>');
+	});
 });
 
 var ignoreScroll = false;
@@ -44,20 +53,3 @@ function scrollElement(e) {
 		}
 	}
 }
-
-(function(){
-	var originalAddClassMethod = jQuery.fn.addClass;
-	var originalRemoveClassMethod = jQuery.fn.removeClass;
-
-	jQuery.fn.addClass = function(){
-		var result = originalAddClassMethod.apply(this, arguments);
-		jQuery(this).trigger('classChanged');
-		return result;
-	}
-
-	jQuery.fn.removeClass = function(){
-		var result = originalRemoveClassMethod.apply(this, arguments);
-		jQuery(this).trigger('classChanged');
-		return result;
-	}
-})();
