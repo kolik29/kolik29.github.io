@@ -44,6 +44,9 @@ nav
 		.item
 			opacity: 0
 
+			&.active
+				opacity: 1
+
 	.right-side
 		padding-left: 2em
 		align-items: baseline
@@ -61,8 +64,21 @@ nav
 				background: #fff
 				transition: .3s
 
-			&:hover:after
+			&.active:after
 				background: #00f
+
+			&.active
+				.num
+					display: none
+
+				.name
+					display: block
+
+			.num
+				display: block
+
+			.name
+				display: none
 
 	.left-side,
 	.right-side

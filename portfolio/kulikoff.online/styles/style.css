@@ -38,6 +38,8 @@ nav {
       content: ""; }
     nav .left-side .item {
       opacity: 0; }
+      nav .left-side .item.active {
+        opacity: 1; }
   nav .right-side {
     padding-left: 2em;
     align-items: baseline; }
@@ -51,8 +53,16 @@ nav {
         height: 2px;
         background: #fff;
         transition: 0.3s; }
-      nav .right-side .item:hover:after {
+      nav .right-side .item.active:after {
         background: #00f; }
+      nav .right-side .item.active .num {
+        display: none; }
+      nav .right-side .item.active .name {
+        display: block; }
+      nav .right-side .item .num {
+        display: block; }
+      nav .right-side .item .name {
+        display: none; }
   nav .left-side,
   nav .right-side {
     display: flex;
