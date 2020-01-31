@@ -1,0 +1,33 @@
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="scripts/Lib.js"></script>
+	<script src="scripts/script.js"></script>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<div id="layer"></div>
+
+	<button id="send">Отправить</button>
+
+	<div id="color-palette">
+		<div class="picker" id="primary_block" >
+			<div id="line">
+				<div id="arrows">
+					<div class="left_arrow"></div>
+					<div class="right_arrow"></div>
+				</div>
+			</div>
+			<div id="block_picker">
+				<img src="img/bgGradient.png" class="bk_img">
+				<div class="circle" id="circle"></div>
+			</div>
+			<div id="out_color" class="out_color"></div>
+		</div>
+		<script type="text/javascript" src="scripts/picker.js"></script>
+		<script type="text/javascript">
+			picker.init();
+		</script>
+	</div>
+</body>
+</html>
