@@ -6,8 +6,6 @@ var picker = {
 	init: function () {
      var id_elements = {primary: "primary_block", arrows: "arrows", block: "block_picker", circle: "circle", line: "line"}; 
 
-     console.log($('#line').height());
-
     var s ={h:$('#line').height(), w:40, th: id_elements.arrows, bk: id_elements.block, line: id_elements.line};
 	/*
 	Параметры передаваемые через обьект "s" обьекту "Line"
@@ -174,8 +172,7 @@ var Line ={
 			     picker.out_color.style.backgroundColor = "rgb("+convert.hsv_rgb(Line.Hue,S,V)+")";
 				 var _res = convert.hsv_rgb(Line.Hue,S,V);
 			     _res = _res[0].toString(16)+""+_res[1].toString(16)+""+_res[2].toString(16);
-				 console.log(_res);
-			}
+		}
 			
 			block.onclick = function(e){Block.cPos(e);}
 			block.onmousedown  = function (){
