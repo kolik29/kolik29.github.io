@@ -20,30 +20,14 @@
 			display: block;
 		}
 
-		*[data-page=page1] {
-			background: red;
-			transform: rotate3d(0, 1, 0, 0deg) translate3d(0px, 0px, 250px);
-		}
-
-		*[data-page=page2] {
-			background: green;
-			transform: rotate3d(0, 1, 0, 85deg) translate3d(0px, 0px, 250px);
-		}
-
-		*[data-page=page3] {
-			background: blue;
-			transform: rotate3d(0, 1, 0, 180deg) translate3d(0px, 0px, 250px);
-		}
-
-		*[data-page=page4] {
-			background: pink;
-			transform: rotate3d(0, 1, 0, 270deg) translate3d(0px, 0px, 250px);
+		.slider {
+			display: flex; justify-content: center; align-items: center;
 		}
 	</style>
 </head>
 <body>
 	<menu></menu>
-	<main>
+	<header>
 		<div class="slider">
 			<div class="slider-wrapper">
 				<div class="slide" data-page="page1"></div>
@@ -52,6 +36,8 @@
 				<div class="slide" data-page="page4"></div>
 			</div>
 		</div>
+	</header>
+	<main>
 		<div class="content" id="page1">
 			<div class="block">1</div>
 		</div>
