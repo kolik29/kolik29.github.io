@@ -1,6 +1,11 @@
 body,
-menu {
+menu,
+p, h1 {
   margin: 0;
   padding: 0; }
+
+a {
+  text-decoration: none;
+  color: unset; }
 
 /*# sourceMappingURL=reset_styles.css.map */

@@ -1,20 +1,331 @@
+body {
+  background: black; }
+
 .slider,
-.content .block {
+.content {
   width: 100%;
   height: 100vh; }
 
+.button {
+  font-weight: 700;
+  padding: 0.25em 0.5em;
+  display: inline-block;
+  margin: 0 -0.5em;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  cursor: pointer; }
+  .button:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 100%;
+    transform-origin: 100% 0;
+    transition: rotate 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), right 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform: rotate(45deg);
+    background: yellow;
+    z-index: -1; }
+  .button:hover:before {
+    right: 0;
+    transform: rotate(0deg); }
+  .button.button--fill, nav.show:not(.show--reverse) ~ .logo .button,
+  nav.show:not(.show--reverse) ~ menu .button {
+    color: #0ff; }
+    .button.button--fill:before, nav.show:not(.show--reverse) ~ .logo .button:before,
+    nav.show:not(.show--reverse) ~ menu .button:before {
+      background: #0ff; }
+    .button.button--fill:hover, nav.show:not(.show--reverse) ~ .logo .button:hover,
+    nav.show:not(.show--reverse) ~ menu .button:hover {
+      color: black; }
+  .button.button--cursor {
+    padding-right: 1em; }
+    .button.button--cursor:after {
+      background: black;
+      width: 0.5em;
+      height: 3px;
+      position: absolute;
+      margin-left: 0.25em;
+      bottom: 0.5em;
+      animation: cursor steps(1) 0.5s infinite; }
+@keyframes cursor {
+  0% {
+    visibility: visible; }
+  50% {
+    visibility: hidden; }
+  100% {
+    visibility: visible; } }
+    .button.button--cursor:hover:after {
+      content: ""; }
+
+.slider-controls {
+  position: fixed;
+  top: 50%;
+  width: 100%;
+  height: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1; }
+  .slider-controls .control-wrapper {
+    overflow-x: hidden; }
+  .slider-controls .control {
+    background: black;
+    padding: 1em;
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 1.5em; }
+    .slider-controls .control:after, .slider-controls .control:before {
+      position: absolute;
+      transition: 0.3s; }
+    .slider-controls .control:after {
+      content: "";
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 1.5em 0 1.5em 1.5em;
+      border-color: transparent transparent transparent black; }
+    .slider-controls .control:before {
+      content: "";
+      z-index: 1;
+      width: 1em;
+      height: 1em;
+      background-repeat: no-repeat;
+      background-position: center; }
+    .slider-controls .control.control-left {
+      color: #0ff;
+      transform: translateX(-100%);
+      padding-right: 2em; }
+      .slider-controls .control.control-left:after, .slider-controls .control.control-left:before {
+        left: 100%; }
+      .slider-controls .control.control-left:before {
+        background-image: url("../img/chevron-thin-left.svg"); }
+      .slider-controls .control.control-left:hover:before {
+        transform: translateX(-1.5em); }
+    .slider-controls .control.control-right {
+      color: #ffda00;
+      transform: translateX(100%);
+      padding-left: 2em; }
+      .slider-controls .control.control-right:after, .slider-controls .control.control-right:before {
+        right: 100%; }
+      .slider-controls .control.control-right:after {
+        transform: rotate(180deg); }
+      .slider-controls .control.control-right:before {
+        background-image: url("../img/chevron-thin-right.svg"); }
+      .slider-controls .control.control-right:hover:before {
+        transform: translateX(1.5em); }
+    .slider-controls .control:hover {
+      transform: translateX(0); }
+      .slider-controls .control:hover:after {
+        border-width: 1.5em 0; }
+
+nav, .logo, menu .overlay-trigger {
+  height: 10vh;
+  max-height: 5em;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 0; }
+
+nav {
+  background: black;
+  width: 100%;
+  transition: 0.5s;
+  transform: translateY(-100%);
+  opacity: 0; }
+  nav .to-top {
+    margin-top: 5px;
+    fill: #0ff;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 40%;
+    width: 2em; }
+    nav .to-top:hover {
+      fill: black; }
+    nav .to-top svg {
+      width: 100%; }
+  nav.show {
+    transform: translateY(0);
+    opacity: 1; }
+    nav.show ~ header .slider {
+      transform: scale(0.45); }
+    nav.show ~ header:after {
+      left: 0;
+      opacity: 1; }
+
+.logo {
+  left: 10%;
+  align-items: center;
+  z-index: 11; }
+  .logo a.button {
+    font-size: 2em; }
+
+menu .overlay-trigger {
+  right: 10%;
+  align-items: center;
+  z-index: 11; }
+  menu .overlay-trigger .button {
+    width: 3em;
+    height: 1.5em;
+    display: flex;
+    align-items: center;
+    padding-top: 20%;
+    padding-bottom: 20%; }
+    menu .overlay-trigger .button.open div,
+    menu .overlay-trigger .button.open div:after,
+    menu .overlay-trigger .button.open div:before {
+      animation-direction: normal; }
+    menu .overlay-trigger .button.open div {
+      animation-name: bottomLineMiddleOpen; }
+    menu .overlay-trigger .button.open div:before {
+      animation-name: bottomLineUpOpen; }
+    menu .overlay-trigger .button.open div:after {
+      animation-name: bottomLineDownOpen; }
+@keyframes bottomLineUpOpen {
+  0% {
+    top: 300%;
+    transform: rotate(0deg); }
+  50% {
+    top: 0;
+    transform: rotate(0deg); }
+  100% {
+    top: 0;
+    transform: rotate(45deg); } }
+@keyframes bottomLineDownOpen {
+  0% {
+    top: -300%;
+    transform: rotate(0deg); }
+  50% {
+    top: 0;
+    transform: rotate(0deg); }
+  100% {
+    top: 0;
+    transform: rotate(-45deg); } }
+@keyframes bottomLineMiddleOpen {
+  50% {
+    background: unset; }
+  100% {
+    background: transparent; } }
+    menu .overlay-trigger .button.close div,
+    menu .overlay-trigger .button.close div:after,
+    menu .overlay-trigger .button.close div:before {
+      animation-direction: normal; }
+    menu .overlay-trigger .button.close div {
+      animation-name: bottomLineMiddleclose; }
+    menu .overlay-trigger .button.close div:before {
+      animation-name: bottomLineUpClose; }
+    menu .overlay-trigger .button.close div:after {
+      animation-name: bottomLineDownClose; }
+@keyframes bottomLineUpClose {
+  0% {
+    top: 0;
+    transform: rotate(45deg); }
+  50% {
+    top: 0;
+    transform: rotate(0deg); }
+  100% {
+    top: 300%;
+    transform: rotate(0deg); } }
+@keyframes bottomLineDownClose {
+  0% {
+    top: 0;
+    transform: rotate(-45deg); }
+  50% {
+    top: 0;
+    transform: rotate(0deg); }
+  100% {
+    top: -300%;
+    transform: rotate(0deg); } }
+@keyframes bottomLineMiddleClose {
+  50% {
+    background: transparent; }
+  100% {
+    background: unset; } }
+    menu .overlay-trigger .button div {
+      position: relative;
+      width: calc(100% - 1em); }
+      menu .overlay-trigger .button div:before, menu .overlay-trigger .button div:after {
+        width: 100%; }
+      menu .overlay-trigger .button div:before {
+        top: 300%; }
+      menu .overlay-trigger .button div:after {
+        top: -300%; }
+    menu .overlay-trigger .button div,
+    menu .overlay-trigger .button div:after,
+    menu .overlay-trigger .button div:before {
+      content: "";
+      position: absolute;
+      height: 3px;
+      background: black;
+      animation-duration: 0.5s;
+      animation-fill-mode: forwards; }
+    menu .overlay-trigger .button.button--fill div, menu .overlay-trigger nav.show:not(.show--reverse) ~ .logo .button div,
+    nav.show:not(.show--reverse) ~ menu .overlay-trigger .button div,
+    menu .overlay-trigger .button.button--fill div:after,
+    menu .overlay-trigger nav.show:not(.show--reverse) ~ .logo .button div:after,
+    nav.show:not(.show--reverse) ~ menu .overlay-trigger .button div:after,
+    menu .overlay-trigger .button.button--fill div:before,
+    menu .overlay-trigger nav.show:not(.show--reverse) ~ .logo .button div:before,
+    nav.show:not(.show--reverse) ~ menu .overlay-trigger .button div:before {
+      background: #0ff; }
+    menu .overlay-trigger .button.button--fill:hover div, menu .overlay-trigger nav.show:not(.show--reverse) ~ .logo .button:hover div,
+    nav.show:not(.show--reverse) ~ menu .overlay-trigger .button:hover div,
+    menu .overlay-trigger .button.button--fill:hover div:after,
+    menu .overlay-trigger nav.show:not(.show--reverse) ~ .logo .button:hover div:after,
+    nav.show:not(.show--reverse) ~ menu .overlay-trigger .button:hover div:after,
+    menu .overlay-trigger .button.button--fill:hover div:before,
+    menu .overlay-trigger nav.show:not(.show--reverse) ~ .logo .button:hover div:before,
+    nav.show:not(.show--reverse) ~ menu .overlay-trigger .button:hover div:before {
+      background: black; }
+menu .page {
+  background: #0ff;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  right: 100%;
+  transition: right 0.3s;
+  z-index: 10; }
+  menu .page.open {
+    right: 0; }
+
 header {
-  background: black; }
+  background: black;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: -1;
+  display: flex;
+  justify-content: center; }
+  header:after {
+    content: "";
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    left: -200%;
+    background-color: rgba(0, 0, 0, 0.6);
+    top: 0;
+    opacity: 0;
+    transition: opacity 0.5s; }
   header .slider {
-    perspective: 50vw;
-    perspective-origin: center; }
+    perspective: 100vw;
+    perspective-origin: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.5s;
+    transform: scale(0.5); }
     header .slider .slider-wrapper {
-      width: 50%;
-      height: 50%;
+      width: 100%;
+      height: 100%;
       transform-style: preserve-3d;
       box-sizing: border-box;
       transform: rotateY(0deg);
-      transform: rotateY(90deg);
       transition: 1.25s; }
       header .slider .slider-wrapper .slide {
         width: 100%;
@@ -22,18 +333,72 @@ header {
         box-sizing: border-box;
         position: absolute;
         top: 0;
-        left: 0; }
-        header .slider .slider-wrapper .slide[data-page=page1] {
-          background: red;
-          transform: rotateY(0deg) translateZ(25vw); }
-        header .slider .slider-wrapper .slide[data-page=page2] {
-          background: green;
-          transform: rotateY(90deg) translateZ(25vw); }
-        header .slider .slider-wrapper .slide[data-page=page3] {
-          background: blue;
-          transform: rotateY(180deg) translateZ(25vw); }
-        header .slider .slider-wrapper .slide[data-page=page4] {
-          background: pink;
-          transform: rotateY(270deg) translateZ(25vw); }
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden; }
+        header .slider .slider-wrapper .slide .image-block,
+        header .slider .slider-wrapper .slide .text-block {
+          position: absolute;
+          height: 100%; }
+        header .slider .slider-wrapper .slide .image-block {
+          width: 100%;
+          background-blend-mode: color;
+          background-size: cover;
+          background-position: center; }
+        header .slider .slider-wrapper .slide .text-block {
+          clip-path: polygon(0% 0%, 55% 0%, 40% 100%, 0% 100%);
+          width: 100%;
+          left: 0;
+          background: linear-gradient(135deg, #00ffff, #ffff00cc);
+          display: flex;
+          align-items: center; }
+          header .slider .slider-wrapper .slide .text-block .text {
+            padding-left: 10%;
+            padding-right: 60%; }
+        header .slider .slider-wrapper .slide.slide-front {
+          background: linear-gradient(135deg, #00ffff, #ffff00);
+          transform: rotateY(0deg) translateZ(50vw); }
+        header .slider .slider-wrapper .slide.slide-left {
+          background: linear-gradient(135deg, #00ffff, #ffff00);
+          transform: rotateY(90deg) translateZ(50vw); }
+        header .slider .slider-wrapper .slide.slide-back {
+          background: linear-gradient(135deg, #00ffff, #ffff00);
+          transform: rotateY(180deg) translateZ(50vw); }
+        header .slider .slider-wrapper .slide.slide-right {
+          background: linear-gradient(135deg, #00ffff, #ffff00);
+          transform: rotateY(270deg) translateZ(50vw); }
+  header .screen-down {
+    background: url("../img/chevron-thin-down.svg") center no-repeat;
+    background-size: contain;
+    width: 4em;
+    height: 4em;
+    position: absolute;
+    bottom: 5%;
+    animation-name: upDownMove;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: linear;
+    cursor: pointer; }
+@keyframes upDownMove {
+  from {
+    bottom: 2%; }
+  to {
+    bottom: 5%; } }
+main {
+  margin-top: 100vh;
+  min-height: 100vh;
+  background-color: white; }
+  main .block {
+    background: linear-gradient(135deg, #00ffff, #ffff00); }
+
+.block {
+  min-height: 100vh;
+  display: grid;
+  padding: 0 10%;
+  font-size: 2.5em;
+  align-items: center; }
 
 /*# sourceMappingURL=style.css.map */
