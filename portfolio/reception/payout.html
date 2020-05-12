@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Онлайн запись</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link rel="stylesheet" href="styles/style.css">
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+	<script src="scripts/jquery.maskedinput.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="row py-2">
+			<div class="col-8">
+				<input type="text" class="form-control" placeholder="Ваше ФИО" aria-label="Ваше ФИО">
+			</div>
+			<div class="col-4">
+				<input type="text" class="form-control" placeholder="Ваш телефон" aria-label="Ваш телефон" id="phone">
+			</div>
+		</div>
+		<div class="row py-2">
+			<div class="col-12">
+				<select class="custom-select">
+					<option hidden>Выберите Ваше муниципальное образование</option>
+					<option value="г. Архангельск">г. Архангельск</option>
+					<option value="г. Северодвинск">г. Северодвинск</option>
+					<option value="г. Новодвинск">г. Новодвинск</option>
+					<option value="г. Коряжма">г. Коряжма</option>
+					<option value="г. Мирный">г. Мирный</option>
+					<option value="Вельский">Вельский</option>
+					<option value="Верхнетоемский">Верхнетоемский</option>
+					<option value="Вилегодский">Вилегодский</option>
+					<option value="Виноградовский">Виноградовский</option>
+					<option value="Каргопольский">Каргопольский</option>
+					<option value="Коношский">Коношский</option>
+					<option value="Котласский">Котласский</option>
+					<option value="Красноборский">Красноборский</option>
+					<option value="Ленский">Ленский</option>
+					<option value="Лешуконский">Лешуконский</option>
+					<option value="Мезенский">Мезенский</option>
+					<option value="Няндомский">Няндомский</option>
+					<option value="Онежский">Онежский</option>
+					<option value="Пинежский">Пинежский</option>
+					<option value="Плесецкий">Плесецкий</option>
+					<option value="Приморский">Приморский</option>
+					<option value="Устьянский">Устьянский</option>
+					<option value="Холмогорский">Холмогорский</option>
+					<option value="Шенкурский">Шенкурский</option>
+				</select>
+			</div>
+		</div>
+		<div class="row py-2">
+			<div class="col-8">
+				<div class="calendar">
+					<div class="title">
+						<div class="row">
+							<div class="col-12 d-flex align-items-center justify-content-between">
+								<button class="btn btn-primary" disabled id="prevMonth"><</button>
+								<div><span id="monthName"></span>, <span id="year"></span></div>
+								<button class="btn btn-primary" id="nextMonth">></button>
+							</div>
+						</div>
+					</div>
+					<div class="row py-2">
+						<div class="week-days col-12">
+							<div id="days" class="border-left border-top text-center">
+								<div class="name border-bottom border-right font-weight-bold">ПН</div>
+								<div class="name border-bottom border-right font-weight-bold">ВТ</div>
+								<div class="name border-bottom border-right font-weight-bold">СР</div>
+								<div class="name border-bottom border-right font-weight-bold">ЧТ</div>
+								<div class="name border-bottom border-right font-weight-bold">ПТ</div>
+								<div class="name border-bottom border-right font-weight-bold">СБ</div>
+								<div class="name border-bottom border-right font-weight-bold">ВС</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<script src="scripts/calendar.js"></script>
+			</div>
+			<div class="col-4 my-2">
+				<h4>Доступное время:</h4>
+				<div class="my-4" id='freeTime'></div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

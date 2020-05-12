@@ -2,4 +2,22 @@ body,
 body > .container {
   min-height: 100vh; }
 
+.calendar .week-days #days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr); }
+  .calendar .week-days #days .no-active {
+    color: #ccc; }
+  .calendar .week-days #days .active {
+    background: #f1f1f1; }
+  .calendar .week-days #days .monthDay,
+  .calendar .week-days #days .active {
+    cursor: pointer; }
+    .calendar .week-days #days .monthDay.text-danger, .calendar .week-days #days .monthDay.no-active,
+    .calendar .week-days #days .active.text-danger,
+    .calendar .week-days #days .active.no-active {
+      cursor: default; }
+
+#freeTime .time {
+  cursor: pointer; }
+
 /*# sourceMappingURL=style.css.map */
