@@ -1,0 +1,93 @@
+@charset "UTF-8";
+@font-face {
+  font-family: "Awesome";
+  src: url("../fonts/fontawesome-free-5.13.0-desktop/otfs/Font Awesome 5 Free-Regular-400.otf"); }
+body, menu {
+  margin: 0; }
+
+body {
+  background: #f7f7f7;
+  min-height: 100vh; }
+
+a {
+  color: unset; }
+  a:hover {
+    color: #ff3d00;
+    text-decoration: none; }
+
+#shortnews-wrapper #shortnews-content {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1px; }
+  #shortnews-wrapper #shortnews-content .news-item:nth-child(1) {
+    grid-area: 1/1/3/3;
+    padding-bottom: 75%; }
+  #shortnews-wrapper #shortnews-content .news-item:nth-child(2) {
+    grid-area: 1/3/2/5; }
+
+.news-item {
+  position: relative;
+  overflow: hidden; }
+  .news-item .news-img {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: 0.3s;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    left: 0; }
+  .news-item .news-title {
+    position: absolute;
+    bottom: 0;
+    color: #fff;
+    z-index: 1; }
+    .news-item .news-title .news-meta {
+      font-size: 0.65rem; }
+  .news-item:hover .news-img {
+    transform: scale(1.1); }
+  .news-item:after {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.65));
+    content: "";
+    height: 70%; }
+
+.news-author:before, .news-date:before {
+  font-family: "Awesome";
+  margin-right: 0.15rem; }
+
+.news-author:before {
+  content: ""; }
+
+.news-date {
+  margin-left: 0.25rem; }
+  .news-date:before {
+    content: ""; }
+
+#post-wrapper #post-content h5 {
+  position: relative;
+  padding-bottom: 0.75rem;
+  margin-bottom: 0; }
+  #post-wrapper #post-content h5:before, #post-wrapper #post-content h5:after {
+    position: absolute;
+    height: 2px;
+    bottom: 0;
+    content: ""; }
+  #post-wrapper #post-content h5:after {
+    width: 4rem;
+    background: #ff3d00; }
+  #post-wrapper #post-content h5:before {
+    width: 100%;
+    background: #ebebeb; }
+#post-wrapper #post-content .news-item:after {
+  content: none; }
+#post-wrapper #post-content .news-meta {
+  color: #aaaaaa;
+  font-size: 0.85rem; }
+
+/*# sourceMappingURL=style.css.map */

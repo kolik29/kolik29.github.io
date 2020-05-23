@@ -1,4 +1,11 @@
 $(document).ready(function() {
+	$('#pdnCheck').change(function() {
+		if ($(this).prop('checked'))
+			$('#singUp').removeAttr('disabled');
+		else
+			$('#singUp').attr('disabled', true);
+	});
+
 	$("#phone").mask("8 (999) 999-99-99");
 
 	$('#monthName').text(monthName[currentMonth]);
@@ -23,12 +30,15 @@ $(document).ready(function() {
 
 		if (activePrev > 0)
 			$('#prevMonth').removeAttr('disabled');
+
+		if (activePrev == 2)
+			$('#nextMonth').attr('disabled', true);
 	});
 
 	$('#prevMonth').click(function() {
 		$('.monthDay').remove();
 		currentMonth--;
-		activePrev++;
+		activePrev--;
 
 		if (currentMonth < 0) {
 			currentMonth = 11;
@@ -40,8 +50,11 @@ $(document).ready(function() {
 
 		getCalendar(currentMonth, currentYear);
 
-		if (activePrev > 0)
+		if (activePrev == 0)
 			$('#prevMonth').attr('disabled', 'true');
+
+		if (activePrev < 2)
+			$('#nextMonth').removeAttr('disabled');
 	});
 });
 
