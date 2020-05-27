@@ -118,6 +118,11 @@
             #slider > .inner .block .container .front#singlepage + .back {
               background-color: #5fc18b;
               color: #fff; }
+          #slider > .inner .block .container .front#singlepage {
+            background-image: url("../img/portfolio/soloveckoe.png"); }
+            #slider > .inner .block .container .front#singlepage + .back {
+              background-color: #5fc18b;
+              color: #fff; }
         #slider > .inner .block .container .back {
           transform: rotateY(180deg);
           display: flex;
