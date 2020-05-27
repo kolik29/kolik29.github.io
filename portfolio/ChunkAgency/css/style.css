@@ -357,6 +357,13 @@ header {
           header .slider .slider-wrapper .slide .text-block .text {
             padding-left: 10%;
             padding-right: 60%; }
+          @media screen and (max-width: 600px) {
+            header .slider .slider-wrapper .slide .text-block {
+              clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 0% 100%);
+              height: 75vh;
+              align-self: start; }
+              header .slider .slider-wrapper .slide .text-block .text {
+                padding-right: 10%; } }
         header .slider .slider-wrapper .slide.slide-front {
           background: linear-gradient(135deg, #00ffff, #ffff00);
           transform: rotateY(0deg) translateZ(50vw); }
