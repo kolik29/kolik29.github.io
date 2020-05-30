@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>FunctionBuilder</title>
+	<meta name="viewport" content="initial-scale=1">
+	<link rel="stylesheet" href="bootstrap/css/bootstrap-reboot.min.css">
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<header class="bg-light py-2">
+		<div class="container">
+			<div class="d-flex justify-content-between align-items-center w-100 px-2">
+				<h4 class="text-dark">Построение графика</h4>
+				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#helpModal">
+					Помощь
+				</button>
+			</div>
+		</div>
+	</header>
+
+	<main class="d-flex">
+		<div class="container">
+			<div class="row h-100 w-100">
+				<div class="col-8">
+					<div class="h-100" id="graph"></div>
+				</div>
+				<div class="col-4">
+					<div class="py-2">Функция:</div>
+					<div class="row">
+						<div class="col-12">
+							<div class="input-group mb-3">
+								<div class="input-group-prepend">
+									<span class="input-group-text">Y =</span>
+								</div>
+								<input type="text" class="form-control" placeholder="x^2" aria-label="x^2" id="fn">
+								<div class="input-group-append">
+									<button class="btn btn-success text-center" type="button" id="addFunction" disabled>+</button>
+								</div>
+							</div>
+							<div id="fn_list">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+
+	<div class="modal fade" id="helpModal" tabindex="-1" role="dialog" aria-labelledby="helpModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="helpModalLabel">Помощь</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<ul>
+						<li>Введите формулу в окно ввода формул. Формула должна быть вида y=sin(x*x)/2 или y=x*x-2*x+4.</li>
+						<li>Нажмите на кнопку "+".</li>
+						<li>Результат появится в правой части экрана на графика</li>
+					</ul>
+					На данный момент не поддерживаются ввод факториала и более сложных тригонометрических функций.
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="js/d3.min.js"></script>
+	<script src="js/function-plot.js"></script>
+	<script src="js/jquery.min.js"></script>
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+	<script src="js/math.min.js"></script>
+	<script src="js/script.js"></script>
+</body>
+</html>
