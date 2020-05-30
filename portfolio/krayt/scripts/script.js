@@ -270,4 +270,9 @@ $(() => {
 
 	var slider = new Slider($('.slider'));
 	slider.init();
+
+	$(window).resize(() => {
+		sliderCarousel.init();
+		slider.init();
+	})
 });
