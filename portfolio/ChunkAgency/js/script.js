@@ -12,7 +12,7 @@ var content = {
 		'title': 'Ipsum',
 		'data': {
 			'slide': {
-				'text': '<p>At erat pellentesque adipiscing commodo elit at. Lorem ipsum dolor sit amet consectetur adipiscing elit duis tristique. Suspendisse faucibus interdum posuere lorem ipsum dolor. Eu facilisis sed odio morbi.</p>',
+				'text': '<h1>Ipsum</h1><p>At erat pellentesque adipiscing commodo elit at. Lorem ipsum dolor sit amet consectetur adipiscing elit duis tristique. Suspendisse faucibus interdum posuere lorem ipsum dolor. Eu facilisis sed odio morbi.</p>',
 				'picture': 'img/photo/build-builder-construction-equipment-585419.jpg'
 			}
 		}
@@ -21,7 +21,7 @@ var content = {
 		'title': 'Dolor',
 		'data': {
 			'slide': {
-				'text': '<p>Dignissim enim sit amet venenatis. Lacus viverra vitae congue eu consequat. Cras fermentum odio eu feugiat pretium nibh ipsum.</p>',
+				'text': '<h1>Dolor</h1><p>Dignissim enim sit amet venenatis. Lacus viverra vitae congue eu consequat. Cras fermentum odio eu feugiat pretium nibh ipsum.</p>',
 				'picture': 'img/photo/group-of-people-watching-on-laptop-1595385.jpg'
 			}
 		}
@@ -30,7 +30,7 @@ var content = {
 		'title': 'Sit',
 		'data': {
 			'slide': {
-				'text': '<h1>Lorem ipsum</h1>',
+				'text': '<h1>Sit</h1>',
 				'picture': 'img/photo/photo-of-woman-using-her-laptop-935756.jpg'
 			}
 		}
@@ -39,7 +39,7 @@ var content = {
 		'title': 'Amet',
 		'data': {
 			'slide': {
-				'text': '<h1>Lorem ipsum</h1>',
+				'text': '<h1>Amet</h1>',
 				'picture': 'img/photo/two-woman-and-one-man-looking-at-the-laptop-1036641.jpg'
 			}
 		}
@@ -145,6 +145,7 @@ class Slider {
 }
 
 var slider = new Slider(page.getPageID(location.hash.split('#')[1]));
+var currentSlideName = location.hash.split('#')[1];
 
 $(window).on('hashchange', setSliderPage);
 
