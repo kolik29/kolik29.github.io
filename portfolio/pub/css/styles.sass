@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&display=swap')
+
+@font-face
+	font-family: 'WildYouth'
+	src: url('../font/WildYouth-Regular- new.ttf')
+
+a, a:hover
+	text-decoration: none
+	color: unset
+
+.font-montserrat
+	font-family: Montserrat
+
+.font-playfair
+	font-family: 'Playfair Display'
+
+menu
+	li
+		position: relative
+
+		&:after
+			content: ''
+			height: 4px
+			background: #ccc
+			bottom: 0
+			width: 100%
+			left: 0
+			position: absolute
+			display: none
+
+		&:hover:after
+			display: block
+
+.banner
+	padding-bottom: 25%
+	background-position: center
+	background-size: cover
+
+main
+	h2
+		position: relative
+		display: flex
+		justify-content: center
+		align-items: center
+
+		.undercover
+			position: absolute
+			opacity: 0.1
+			font-size: 1.5em
+			font-family: WildYouth
+
+	#description
+		background: #fbf9f4
+
+	.menu-item
+		.picture
+			padding-bottom: 100%
+			background-size: cover
+			background-position: center
+
+		.date, .time
+			font-size: .8em
+
+footer
+	background: #959595

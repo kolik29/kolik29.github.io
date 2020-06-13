@@ -1,0 +1,25 @@
+body {
+  margin: 0; }
+
+.line {
+  min-height: 100vh;
+  min-width: 100vw;
+  position: relative; }
+  .line .station {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 100%; }
+  .line span {
+    height: 10px;
+    background: green;
+    position: absolute;
+    margin-top: 5px;
+    margin-left: 10px;
+    transform: rotate(45deg);
+    transform-origin: 0 50%;
+    z-index: -1; }
+  .line#L1 .station {
+    background-color: red; }
+
+/*# sourceMappingURL=style.css.map */
