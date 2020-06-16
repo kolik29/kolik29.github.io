@@ -3,6 +3,8 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 	<title>Your Pub Name</title>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -18,14 +20,28 @@
 	<link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-	<header>
+	<ul class="position-fixed text-uppercase font-montserrat font-weight-bold p-3 d-flex flex-column justify-content-center" id="mobilemenu">
+		<li class="py-3 h4"><a href="">home</a></li>
+		<li class="py-3 h4"><a href="">restaurant</a></li>
+		<li class="py-3 h4"><a href="">pub</a></li>
+		<li class="py-3 h4"><a href="">functions</a></li>
+		<li class="py-3 h4"><a href="">events</a></li>
+		<div id="mobilemenu-close"></div>
+	</ul>
+
+	<header class="position-relative">
 		<div class="container">
 			<div class="logo my-4 text-uppercase text-center">
 				<div class="h4 m-0">your</div>
 				<div class="h2 m-0">pub</div>
 				<div class="h6 m-0">logo</div>
 			</div>
-			<menu class="d-flex text-uppercase font-montserrat font-weight-bold justify-content-around">
+			<button class="d-lg-none" id="btn-burger">
+				<div></div>
+				<div></div>
+				<div></div>
+			</button>
+			<menu class="d-none text-uppercase font-montserrat font-weight-bold justify-content-around d-lg-flex">
 				<li class="py-1 px-3"><a href="">home</a></li>
 				<li class="py-1 px-3"><a href="">restaurant</a></li>
 				<li class="py-1 px-3"><a href="">pub</a></li>
@@ -50,13 +66,13 @@
 				</div>
 			</div>
 			<div class="row mb-4">
-				<div class="col-12 p-5" id="description">
-					<p class="font-playfair text-center pb-5 h5 px-5">
+				<div class="col-12 p-md-5" id="description">
+					<p class="font-playfair text-center pb-md-5 py-2 h5 px-5">
 						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed voluptatem ipsam recusandae ducimus rem, natus esse nobis at. Quidem nihil sapiente consequuntur eos asperiores! Voluptatem optio dolorum numquam eos, nemo.
 					</p>
-					<div class="row font-montserrat">
-						<div class="col-6">
-							<ul>
+					<div class="row font-montserrat pb-2">
+						<div class="col-md-6">
+							<ul class="m-0">
 								<li>Breakfast Takeout: Saturday – Sunday 8am – 12noon</li>
 								<li>Main Menu Takeout: Wednesday-Thursday 4pm – 9pm, Friday-Saturday 12noon-9pm</li>
 								<li>Sunday Menu Takeout: 12noon – 7pm</li>
@@ -64,8 +80,8 @@
 								<li>Afternoon Tea Menu Takeout: Pre-orders only, not available Monday – Tuesday</li>
 							</ul>
 						</div>
-						<div class="col-6">
-							<ul>
+						<div class="col-md-6">
+							<ul class="m-0">
 								<li>Heat@home and Cook@home Menus (Pre-order only):<br>
 								The Dragon: Wednesday – Sunday: 12noon-8pm, Harpur’s: Thursday – Saturday: 5pm-6pm, Sunday 11am-12noon</li>
 								<li><em>Please ensure Emails are received, by us, <b>BEFORE</b> the day of delivery<br>
@@ -76,7 +92,7 @@
 				</div>
 			</div>
 			<div class="row">
-				<a href="" class="col-4 menu-item mt-4">
+				<a href="" class="col-lg-4 col-md-6 col-12 menu-item mt-4">
 					<div class="picture" style="background-image: url(img/blur-breakfast-close-up-dairy-product-376464.jpg)">
 						<div class="takeout"></div>
 					</div>
@@ -92,7 +108,7 @@
 						</div>
 					</div>
 				</a>
-				<a href="" class="col-4 menu-item mt-4">
+				<a href="" class="col-lg-4 col-md-6 col-12 menu-item mt-4">
 					<div class="picture" style="background-image: url('img/burrito-chicken-delicious-dinner-461198.jpg')">
 						<div class="takeout"></div>
 					</div>
@@ -108,7 +124,7 @@
 						</div>
 					</div>
 				</a>
-				<a href="" class="col-4 menu-item mt-4">
+				<a href="" class="col-lg-4 col-md-6 col-12 menu-item mt-4">
 					<div class="picture" style="background-image: url('img/close-up-photo-of-a-cheese-burger-1633578.jpg')">
 						<div class="takeout"></div>
 					</div>
@@ -124,7 +140,7 @@
 						</div>
 					</div>
 				</a>
-				<a href="" class="col-4 menu-item mt-4">
+				<a href="" class="col-lg-4 col-md-6 col-12 menu-item mt-4">
 					<div class="picture" style="background-image: url('img/cooked-food-704569.jpg')">
 						<div class="takeout"></div>
 					</div>
@@ -140,7 +156,7 @@
 						</div>
 					</div>
 				</a>
-				<a href="" class="col-4 menu-item mt-4">
+				<a href="" class="col-lg-4 col-md-6 col-12 menu-item mt-4">
 					<div class="picture" style="background-image: url('img/selective-focus-photography-of-pasta-with-tomato-and-basil-1279330.jpg')">
 						<div class="takeout"></div>
 					</div>
@@ -156,7 +172,7 @@
 						</div>
 					</div>
 				</a>
-				<a href="" class="col-4 menu-item mt-4">
+				<a href="" class="col-lg-4 col-md-6 col-12 menu-item mt-4">
 					<div class="picture" style="background-image: url('img/steak-food-769289.jpg')">
 						<div class="takeout"></div>
 					</div>
@@ -172,7 +188,7 @@
 						</div>
 					</div>
 				</a>
-				<a href="" class="col-4 menu-item mt-4">
+				<a href="" class="col-lg-4 col-md-6 col-12 menu-item mt-4">
 					<div class="picture" style="background-image: url('img/top-view-of-food-1640772.jpg')">
 						<div class="takeout"></div>
 					</div>
@@ -188,7 +204,7 @@
 						</div>
 					</div>
 				</a>
-				<a href="" class="col-4 menu-item mt-4">
+				<a href="" class="col-lg-4 col-md-6 col-12 menu-item mt-4">
 					<div class="picture" style="background-image: url('img/top-view-photo-of-food-dessert-1099680.jpg')">
 						<div class="takeout"></div>
 					</div>
@@ -211,7 +227,7 @@
 	<footer class="text-white font-montserrat mt-5">
 		<div class="container">
 			<div class="row py-4">
-				<div class="col-3">
+				<div class="col-md-3 col-sm-6 col-12 text-center">
 					<h6 class="my-4">Your Pub Name</h6>
 					<div>
 						11 The Green<br>
@@ -221,16 +237,16 @@
 						DE65 6BP
 					</div>
 				</div>
-				<div class="col-3">
+				<div class="col-md-3 col-sm-6 col-12 text-center">
 					<h6 class="my-4">Bookings</h6>
 					<a href="">email@email.com</a>
 				</div>
-				<div class="col-3">
+				<div class="col-md-3 col-sm-6 col-12 text-center">
 					<h6 class="my-4">Social</h6>
 					<a href=""><u>Facebook</u></a><br>
 					<a href=""><u>Twitter</u></a>
 				</div>
-				<div class="col-3">
+				<div class="col-md-3 col-sm-6 col-12 text-center">
 					<div class="logo my-4 text-uppercase text-center">
 						<div class="h4 m-0">your</div>
 						<div class="h2 m-0">pub</div>
