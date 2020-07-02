@@ -1,9 +1,0 @@
-body {
-  min-height: 100vh;
-  display: grid;
-  grid-template-rows: auto 1fr; }
-
-button#addFunction, button#removeFunction {
-  width: 2.5em; }
-
-/*# sourceMappingURL=style.css.map */
