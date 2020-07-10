@@ -7,10 +7,8 @@ var renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 
 var sphere = new THREE.SphereBufferGeometry(3, 30, 30);
-var cylinder;
 
 var arrSpheres = [];
-var arrLines = [];
 
 var arrStation = [
 	{
@@ -555,12 +553,22 @@ var arrStation = [
 ];
 
 arrStation.forEach((line, j) => {
-	var material = new THREE.MeshBasicMaterial({
+	var materialSpheres = new THREE.MeshBasicMaterial({
 		color: line.color
 	});
 
+	var materialLines = new THREE.LineDashedMaterial({
+		color: line.color,
+		linewidth: 10,
+		scale: 1,
+		dashSize: 30,
+		gapSize: 1
+	});
+
+	var lines = [];
+
 	line.stations.forEach((station, i) => {
-		arrSpheres[i] = new THREE.Mesh(sphere, material);
+		arrSpheres[i] = new THREE.Mesh(sphere, materialSpheres);
 		arrSpheres[i].position.set(station.position.x, station.position.y, station.position.z);
 		scene.add(arrSpheres[i]);
 
@@ -574,18 +582,18 @@ arrStation.forEach((line, j) => {
 		var lineHeight;
 
 		if (i < arrStation[j].stations.length - 1) {
-			lineHeight = Math.sqrt(
-				Math.pow(arrStation[j].stations[i].position.x - arrStation[j].stations[i + 1].position.x, 2) +
-				Math.pow(arrStation[j].stations[i].position.y - arrStation[j].stations[i + 1].position.y, 2) +
-				Math.pow(arrStation[j].stations[i].position.z - arrStation[j].stations[i + 1].position.z, 2));
+			lines.push(new THREE.Vector3(
+				arrStation[j].stations[i].position.x,
+				arrStation[j].stations[i].position.y,
+				arrStation[j].stations[i].position.z));
+			lines.push(new THREE.Vector3(
+				arrStation[j].stations[i + 1].position.x,
+				arrStation[j].stations[i + 1].position.y,
+				arrStation[j].stations[i + 1].position.z));
 
-			cylinder = new THREE.CylinderGeometry(2, 2, lineHeight, 32);
-			arrLines[i] = new THREE.Mesh(cylinder, material);
-			arrLines[i].position.set(0, lineHeight / 2, 0);
-			arrLines[i].rotateX(90);
-			arrLines[i].rotateY(90);
-			arrLines[i].rotateZ(90);
-			arrSpheres[i].add(arrLines[i]);
+			var geometry = new THREE.BufferGeometry().setFromPoints(lines);
+			var line = new THREE.Line(geometry, materialLines);
+			scene.add(line);
 		}
 	})
 })
