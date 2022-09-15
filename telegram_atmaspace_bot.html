@@ -5,8 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+
+    <script>
+        window.addEventListener('load', () => {
+            let tg = window.Telegram.WebApp;
+            
+            if (tg.initDataUnsafe.user) {
+                document.getElementById('tg-username').innerText = tg.initDataUnsafe.user.username;
+            }
+        })
+    </script>
 </head>
 <body>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum molestias non aperiam dicta numquam, placeat quidem magni. Exercitationem, accusamus. Debitis hic veniam aut repudiandae omnis similique ratione eveniet numquam sapiente.
+    <pre>
+        {
+            'username': '<span id="tg-username"></span>'
+        }
+    </pre>
 </body>
 </html>
