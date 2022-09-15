@@ -10,10 +10,6 @@
     <script>
         window.addEventListener('load', () => {
             let tg = window.Telegram.WebApp;
-            
-            if (tg.initDataUnsafe.user) {
-                document.getElementById('tg-username').innerText = tg.initDataUnsafe.user.username;
-            }
         })
     </script>
 
@@ -25,12 +21,20 @@
         button {
             background-color: var(--tg-theme-button-color);
             color: var(--tg-theme-button-text-color);
+            width: 100%;
+        }
+
+        #js-main-menu {
+            display: flex;
+            flex-direction: column;
         }
     </style>
 </head>
 <body>
-    <button>Урок 1. Без ДЗ</button>
-    <button>Урок 2. Без ДЗ</button>
-    <button>Урок 3. C ДЗ</button>
+    <div id="js-main-menu">
+        <button>Урок 1. Без ДЗ</button>
+        <button>Урок 2. Без ДЗ</button>
+        <button>Урок 3. C ДЗ</button>
+    </div>
 </body>
 </html>
