@@ -27,17 +27,17 @@
 
         tg.expand();
 
-        tg.MainButton.text = 'Завершить урок';
-        // tg.MainButton.setText("Changed Text1");
-        tg.MainButton.textColor = "#F55353";
-        tg.MainButton.color = "#143F6B";
-        // tg.MainButton.setParams({
-        //     'color': '#143F6B'
-        // });
+        tg.MainButton.setParams({
+            'color': '#143F6B',
+            'textColor': '#F55353',
+            'text': 'Завершить урок'
+        });
+        
         tg.MainButton.show();
 
         tg.onEvent('mainButtonClicked', function() {
-            tg.sendData("some string that we need to send"); 
+            tg.sendData('some string that we need to send');
+            tg.close();
         });
     </script>
 </body>
