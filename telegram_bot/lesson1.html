@@ -21,5 +21,25 @@
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="/telegram_bot/js/script.js"></script>
+
+    <script>
+        $(() => {
+            let tg = window.Telegram.WebApp;
+
+            tg.expand();
+
+            tg.MainButton.text = 'Завершить урок';
+            // tg.MainButton.setText("Changed Text1");
+            tg.MainButton.textColor = "#F55353";
+            tg.MainButton.color = "#143F6B";
+            // tg.MainButton.setParams({
+            //     'color': '#143F6B'
+            // });
+
+            tg.onEvent('mainButtonClicked', function() {
+                tg.sendData("some string that we need to send"); 
+            });
+        })
+    </script>
 </body>
 </html>

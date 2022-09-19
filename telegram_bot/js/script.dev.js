@@ -1,3 +1,5 @@
 "use strict";
 
-$(function () {});
+$(function () {
+  var tg = window.Telegram.WebApp;
+});
